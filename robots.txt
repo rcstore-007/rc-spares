@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rcstore-007.github.io/rc-spares/sitemap.xml
