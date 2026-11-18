@@ -1,5 +1,39 @@
 [
  {
+  "id": "RC-0080",
+  "slug": "rlaarlo-11kg-high-torque-servo",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "Rlaarlo 11kg High Torque Servo",
+  "brand": "Rlaarlo",
+  "category": "Servos",
+  "price": 1600,
+  "scale": [
+   "1:10"
+  ],
+  "fits": "RC Cars",
+  "desc": "A high-torque steering servo capable of 11kg of pulling power. It is used to provide stronger and more precise steering control for RC cars.",
+  "specs": {
+   "Brand": "Rlaarlo",
+   "Torque": "11kg",
+   "Type": "High Torque"
+  },
+  "updated": "2026-11-18",
+  "pending_images": [
+   "https://hobbycentral.co.in/wp-content/uploads/2025/09/ca88c8ece52df8934d4ae28fb68422f4_e6d5c71f-379e-414e-b8c2-11d5ef9e18c7.jpg.webp",
+   "https://rlaarlo.com/cdn/shop/files/9a6923858e570dda7ac441db4828f22f.jpg?v=1711610797&width=3000"
+  ],
+  "pending_fallback": [
+   "https://urcloisirs.com/cdn/shop/files/R11162_-_RLAARLO_-_Bloc_Conversion_Servo_Aluminium_Vert_RZ001_XTS-F10_-_Univers_RcLoisirs-1.webp?v=1781624951&width=1214",
+   "https://images.cults3d.com/tO4vfV1PtAUrrBQ-AnSKB4qVJFM=/516x516/filters:no_upscale()/https://fbi.cults3d.com/uploaders/34574878/illustration-file/c99d2157-32c3-4281-9306-79ebe31911a3/20240531_141358.jpg",
+   "https://electronicadr.com/wp-content/uploads/2026/04/Motor-servo-MG995-en-detalles.png",
+   "https://fbi.cults3d.com/uploaders/34574878/illustration-file/cbbf7d0d-0002-46ef-b5ec-a18f10469548/20240506_231818.jpg",
+   "https://fbi.cults3d.com/uploaders/17494921/illustration-file/b786648b-9d72-466b-aaf4-0448c76878b8/OT-Servo-Car-Servo.jpg",
+   "https://fbi.cults3d.com/uploaders/15314571/illustration-file/8ca4096b-8b16-4751-b741-8d60e4ea24f7/IMG_20251213_181026_339.jpg"
+  ]
+ },
+ {
   "id": "RC-0079",
   "slug": "fms-fcx18-fcx24-metal-differentials",
   "added": "2026-11-18",
