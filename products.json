@@ -1,5 +1,38 @@
 [
  {
+  "id": "RC-0079",
+  "slug": "fms-fcx18-fcx24-metal-differentials",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "FMS FCX18/FCX24 Metal Differentials",
+  "brand": "FMS",
+  "category": "Gears & Drivetrain",
+  "price": 1110,
+  "scale": [
+   "1:18"
+  ],
+  "fits": "FMS FCX18, FMS FCX24",
+  "desc": "These metal differential gears are designed to replace stock plastic components for increased durability. They are compatible with both the FCX18 and FCX24 chassis.",
+  "specs": {
+   "Brand": "FMS",
+   "Material": "Metal"
+  },
+  "updated": "2026-11-18",
+  "pending_images": [
+   "https://i.ebayimg.com/images/g/~4EAAeSwt85pCHB2/s-l500.jpg"
+  ],
+  "pending_fallback": [
+   "https://images.amainhobbies.com/images/large/fmm/fmmc3061.jpg",
+   "https://images.amainhobbies.com/images/large/fmm/fmmc3061_1.jpg",
+   "https://naughtyboyrc.com/cdn/shop/products/57_f0ad8743-1a3e-4942-9671-9fb1b6b99b1d_1024x1024.jpg?v=1702851084",
+   "https://www.hyperrctoys.com/wp-content/uploads/2026/03/03/Powerhobby_Metal_Differential_Bevel_Gears_Furitek_Cayman_FMS_FCX24_1.webp",
+   "https://trealhobby.co.uk/cdn/shop/files/TREALFCX24TransmissionGearsSet_HardenedSteelTransGearsforFMSFCX24PowerWagon_1.jpg?v=1684249725&width=1946",
+   "https://ueeshop.ly200-cdn.com/u_file/UPAN/UPAN286/2209/products/08/87ce3f4afc.jpg.500x500.jpg",
+   "https://trealhobby.co.uk/cdn/shop/files/TREALFCX24TransmissionGearsSet_HardenedSteelTransGearsforFMSFCX24PowerWagon_2.jpg?v=1684249725&width=1946"
+  ]
+ },
+ {
   "id": "RC-0078",
   "slug": "fms-fcx18-driveshafts",
   "added": "2026-11-18",
