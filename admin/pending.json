@@ -805,7 +805,7 @@
     "1:12"
    ],
    "price": 2200,
-   "include": true,
+   "include": false,
    "desc": "An electronic speed controller specifically designed for the MJX 14302 RC car. It regulates the power from the battery to the motor based on throttle input.",
    "fits": "MJX 14302",
    "specs": {
@@ -826,7 +826,7 @@
     "https://down-id.img.susercontent.com/file/id-11134207-7qul2-lh49bqqvu6an13"
    ],
    "searched": true,
-   "edited": "",
+   "edited": "2026-11-18T12:18:15.792Z",
    "added": false
   },
   {
