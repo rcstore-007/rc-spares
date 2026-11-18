@@ -1,5 +1,29 @@
 [
  {
+  "id": "RC-0114",
+  "slug": "rc-sound-and-light-controller",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [
+   "images/rc-sound-and-light-controller/1-dfee40.jpg"
+  ],
+  "name": "RC Sound and Light Controller",
+  "brand": "",
+  "category": "Lights",
+  "scale": [
+   "1:8"
+  ],
+  "price": 175,
+  "fits": "1/14 scale RC trucks, RC crawlers, custom scale vehicles",
+  "desc": "This RC sound and light controller integrates realistic engine sound simulation and full lighting control into scale RC models. It synchronizes engine audio pitch and shift effects directly with throttle inputs while driving external LEDs for brake, signal, and head lights. It is ideal for custom RC trucks, crawlers, and scale vehicle builds.",
+  "specs": {
+   "Audio Sample Rate": "22.05kHz",
+   "Control Interface": "PWM Servo / SBUS",
+   "Input Voltage": "7 - 12.6V"
+  },
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0113",
   "slug": "zh1-25-connector",
   "added": "2026-11-18",
