@@ -23,7 +23,7 @@ TEMPLATE = HERE / "site_template"
 CATEGORIES = ["Motors & ESCs", "Tyres & Wheels", "Shocks", "Batteries & Chargers",
               "Gears & Drivetrain", "Servos", "Lights", "Winch",
               "Radios & Receivers", "Tools & Accessories"]
-SCALES = ["1:5", "1:7", "1:8", "1:10", "1:12", "1:18", "1:24", "1:30"]
+SCALES = ["1:30", "1:24", "1:18", "1:12", "1:10", "1:8", "1:7", "1:5"]
 
 
 def esc(s):
@@ -53,7 +53,7 @@ def json_block(data):
     return json.dumps(data, ensure_ascii=False, indent=1).replace("</", "<\\/")
 
 
-DEFAULT_BULK_NOTE = "Extra discount when you buy more than one unit."
+DEFAULT_BULK_NOTE = "Discount available on higher quantities."
 THEMES = ("garage", "midnight", "trackday")
 
 
@@ -136,7 +136,7 @@ def build_index(settings, products):
     base = site_url(settings)
     title = f"{pub['name']} – RC Car Spare Parts in India"
     desc = (f"RC car spare parts in India: motors, ESCs, tyres, shocks, batteries, servos, lights "
-            f"and winches for 1:5 to 1:30 scale. Order on WhatsApp, delivery in {pub['delivery']} days.")
+            f"and winches for 1:30 to 1:5 scale. Order on WhatsApp, delivery in {pub['delivery']} days.")
     ld = {"@context": "https://schema.org", "@type": "Store", "name": pub["name"],
           "description": desc, "currenciesAccepted": "INR", "areaServed": "IN"}
     if base:

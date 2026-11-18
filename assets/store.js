@@ -11,7 +11,7 @@
   var CIMG=S.categoryImages||{};
 
   var CATS=['Motors & ESCs','Tyres & Wheels','Shocks','Batteries & Chargers','Gears & Drivetrain','Servos','Lights','Winch','Radios & Receivers','Tools & Accessories'];
-  var SCALES=['1:5','1:7','1:8','1:10','1:12','1:18','1:24','1:30'];
+  var SCALES=['1:30','1:24','1:18','1:12','1:10','1:8','1:7','1:5'];
   var CC={'Motors & ESCs':['#f2d8cf','#b8442f'],'Tyres & Wheels':['#d6e2ec','#3d6a8c'],'Shocks':['#d5e4da','#2e5e4e'],'Batteries & Chargers':['#f6e6bf','#9a6a08'],'Gears & Drivetrain':['#e6dbec','#6b4a7a'],'Servos':['#d2e8ea','#1f6f78'],'Lights':['#f8dcc8','#c4561b'],'Winch':['#e9e0c6','#6b5a2e'],'Axles & Chassis':['#dfe3e8','#4a5563'],'Radios & Receivers':['#f3dde6','#a23b62'],'Tools & Accessories':['#e4e8d5','#55692c'],'RC Cars':['#dce7ee','#24485e']};
   var SC=['#b8442f','#c4561b','#9a6a08','#2e5e4e','#1f6f78','#3d6a8c','#6b4a7a','#2a2420'];
   P.forEach(function(p){
@@ -120,9 +120,8 @@
   /* ---------- Request a part (form on home page) ---------- */
   function renderReq(){
     if(!$('rqPart'))return;
-    var part=$('rqPart').value.trim(),car=$('rqCar').value.trim(),nm=$('rqName').value.trim();
+    var part=$('rqPart').value.trim(),car=$('rqCar').value.trim();
     var o=['Hi '+S.name+', can you source a part for me?','','Part: '+(part||'-'),'Car and scale: '+(car||'-')];
-    if(nm)o.push('Name: '+nm);
     setWa($('rqBtn'),$('rqHint'),o.join('\n'),'Opens WhatsApp with your request typed in.','Type the part you need to continue.',!part);
   }
 
@@ -162,13 +161,13 @@
     return true;
   }
   function renderFilters(){
-    $('catChips').innerHTML=['All'].concat(CATS).map(function(c){
+    $('catSel').innerHTML=['All'].concat(CATS).map(function(c){
       var n=P.filter(function(p){return match(p,'cat')&&(c==='All'||p.category===c);}).length;
-      return '<button class="chip" data-cat="'+esc(c)+'" aria-pressed="'+(state.cat===c)+'">'+(c==='All'?'All':esc(c))+'<small>'+n+'</small></button>';
+      return '<option value="'+esc(c)+'"'+(state.cat===c?' selected':'')+'>'+(c==='All'?'All categories':esc(c))+' ('+n+')</option>';
     }).join('');
-    $('scaleChips').innerHTML=['All'].concat(SCALES).map(function(s){
+    $('scaleSel').innerHTML=['All'].concat(SCALES).map(function(s){
       var n=P.filter(function(p){return match(p,'scale')&&(s==='All'||(p.scale||[]).indexOf(s)>=0);}).length;
-      return '<button class="chip" data-scale="'+s+'" aria-pressed="'+(state.scale===s)+'">'+(s==='All'?'All scales':s)+'<small>'+n+'</small></button>';
+      return '<option value="'+s+'"'+(state.scale===s?' selected':'')+'>'+(s==='All'?'All scales':s+' scale')+' ('+n+')</option>';
     }).join('');
     var b=['All'];P.forEach(function(p){if(p.brand&&b.indexOf(p.brand)<0)b.push(p.brand);});
     b=[b[0]].concat(b.slice(1).sort());
@@ -287,9 +286,11 @@
   if(PAGE==='home'){
     $('q').addEventListener('input',function(e){state.q=e.target.value;refresh();});
     $('brandSel').addEventListener('change',function(e){state.brand=e.target.value;refresh();});
+    $('catSel').addEventListener('change',function(e){state.cat=e.target.value;refresh();});
+    $('scaleSel').addEventListener('change',function(e){state.scale=e.target.value;refresh();});
     $('sortSel').addEventListener('change',function(e){state.sort=e.target.value;renderGrid();});
     $('clearF').addEventListener('click',function(){state={cat:'All',scale:'All',brand:'All',q:'',sort:state.sort};$('q').value='';refresh();});
-    ['rqPart','rqCar','rqName'].forEach(function(id){$(id).addEventListener('input',renderReq);});
+    ['rqPart','rqCar'].forEach(function(id){$(id).addEventListener('input',renderReq);});
     $('rqForm').addEventListener('submit',function(e){e.preventDefault();});
     $('closeDlg').addEventListener('click',closeAll);
     $('dAdd').addEventListener('click',function(e){if(cur)add(cur,e.currentTarget);});

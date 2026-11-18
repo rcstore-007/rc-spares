@@ -554,3 +554,11 @@ html.js .rv.in{opacity:1;transform:none}
 }
 
 .card{display:flex;flex-direction:column}.cbody{flex:1;display:flex;flex-direction:column}.cfoot{margin-top:auto}
+
+/* Shop filters as dropdowns */
+.controls{display:grid;grid-template-columns:minmax(220px,2fr) repeat(4,minmax(0,1fr));gap:10px}
+.controls select{appearance:none;-webkit-appearance:none;padding-right:34px;cursor:pointer;
+  background:var(--tile) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M3 4.5 6 7.5 9 4.5' fill='none' stroke='%236e6e73' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") right 14px center/12px no-repeat}
+.controls select:focus{background-color:#fff}
+@media (max-width:900px){.controls{grid-template-columns:1fr 1fr}.controls input{grid-column:1/-1}}
+.facts{gap:0}

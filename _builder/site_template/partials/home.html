@@ -5,22 +5,20 @@
       <div>
         <div class="eyebrow">RC spare parts · India</div>
         <h1>The part you need, <span>at a fair price.</span></h1>
-        <p>Motors, tyres, shocks, batteries, servos, lights and winches from 1:5 down to 1:30 scale. Choose your parts and send the order to us on WhatsApp.</p>
+        <p>Motors, tyres, shocks, batteries, servos, lights and winches from 1:30 up to 1:5 scale. Choose your parts and send the order to us on WhatsApp.</p>
         <div class="ctas">
           <a class="btn primary" href="index.html#shop">Browse parts</a>
           <a class="btn plain" href="index.html#faq">How ordering works</a>
         </div>
         <div class="facts">
           <div><b>{{DAYS}} days</b>delivery across India</div>
-          <div><b>WhatsApp</b>orders and help</div>
-          <div><b id="partCount">0 parts</b>listed in the shop</div>
         </div>
       </div>
       <div class="hero-side">
         <ul class="promise" id="heroPromise">
           <li><span>Delivery</span><b>{{DAYS}} days, across India</b></li>
           <li><span>Ordering</span><b>Straight on WhatsApp</b></li>
-          <li><span>Scales</span><b>1:5 to 1:30</b></li>
+          <li><span>Scales</span><b>1:30 to 1:5</b></li>
           <li><span>Not listed?</span><b>We source it for you</b></li>
         </ul>
       </div>
@@ -60,7 +58,6 @@
         <form class="rq" id="rqForm">
           <label for="rqPart">Part you need<input id="rqPart" placeholder="e.g. Rear hub carrier, steering knuckle"></label>
           <label for="rqCar">Your car and scale<input id="rqCar" placeholder="e.g. Arrma Kraton 6S, 1:8"></label>
-          <label for="rqName">Your name<input id="rqName" autocomplete="name"></label>
           <a class="wa" id="rqBtn" href="#">Ask for this part on WhatsApp</a>
           <p class="note" id="rqHint"></p>
         </form>
@@ -100,6 +97,10 @@
         <label for="brandSel" class="sr">Brand</label>
         <select id="brandSel"></select>
         <label for="sortSel" class="sr">Sort</label>
+        <label for="catSel" class="sr">Category</label>
+        <select id="catSel"></select>
+        <label for="scaleSel" class="sr">Scale</label>
+        <select id="scaleSel"></select>
         <select id="sortSel">
           <option value="pop">Most popular</option>
           <option value="new">Newest first</option>
@@ -108,8 +109,6 @@
           <option value="az">Name A–Z</option>
         </select>
       </div>
-      <div class="filter"><span class="lab">Category</span><div class="chips" id="catChips"></div></div>
-      <div class="filter"><span class="lab">Scale</span><div class="chips" id="scaleChips"></div></div>
       <div class="strip"><span><b>Part not listed?</b> We source parts on request for any brand and scale.</span><a href="index.html#request" data-go-request>Request a part →</a></div>
     </div>
   </div>
