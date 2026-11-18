@@ -4,7 +4,9 @@
   "slug": "1-0-inch-crawler-tyres",
   "added": "2026-11-18",
   "pop": 5,
-  "images": [],
+  "images": [
+   "images/1-0-inch-crawler-tyres/1-889b1a.jpg"
+  ],
   "name": "1.0 inch Crawler Tyres",
   "brand": "Generic",
   "category": "Tyres & Wheels",
@@ -18,19 +20,7 @@
   "specs": {
    "Size": "1.0 inch"
   },
-  "updated": "2026-11-18",
-  "pending_images": [
-   "https://www.meusracing.com/cdn/shop/files/M1003_1.0-inch_RC_Rubber_Tires_2.jpg?v=1762831298"
-  ],
-  "pending_fallback": [
-   "https://i5.walmartimages.com/seo/4pcs-63mm-1-0-Inch-Metal-Beadlock-Wheel-Tire-Set-for-1-18-1-24-RC-Crawler-Car-TRX4M-SCX24-AX24-FCX24-Upgrade-Parts-Red_22c9276b-bc2f-4ca5-9567-a1462af9001a.e6c6dcaf4e9c599ee4bcc87487408d16.jpeg",
-   "https://m.media-amazon.com/images/I/71I4uPRWdLL._AC_SL1500_.jpg",
-   "https://m.media-amazon.com/images/S/aplus-media-library-service-media/488d21ac-55be-4bd9-a558-ccdb4423904f.__CR0,0,970,600_PT0_SX970_V1___.jpg",
-   "https://image.pushauction.com/0/0/58233765-eda5-4532-8607-ef1ec022566c/db27f7ee-e810-4431-acf8-1b4ad849f683.jpg",
-   "https://i.ebayimg.com/images/g/5uIAAeSwMXdpeNzO/s-l1600.jpg",
-   "https://m.media-amazon.com/images/I/81KqvwTyTxL._AC_SL1500_.jpg",
-   "https://www.meusracing.com/cdn/shop/files/M1003_1.0-inch_RC_Rubber_Tires_3.jpg?v=1762831308"
-  ]
+  "updated": "2026-11-18"
  },
  {
   "id": "RC-0002",
