@@ -1,5 +1,23 @@
 [
  {
+  "id": "RC-0099",
+  "slug": "mjx-h18p-front-rear-axle",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "MJX H18P Front/ Rear Axle",
+  "brand": "MJX",
+  "category": "Gears & Drivetrain",
+  "price": 499,
+  "scale": [
+   "1:18"
+  ],
+  "fits": "MJX H18P",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0098",
   "slug": "mjx-h18p-rear-axle-shaft",
   "added": "2026-11-18",
