@@ -4,7 +4,9 @@
   "slug": "scx30-brushless-upgrade-set",
   "added": "2026-11-18",
   "pop": 5,
-  "images": [],
+  "images": [
+   "images/scx30-brushless-upgrade-set/1-eb023a.jpg"
+  ],
   "name": "SCX30 Brushless Upgrade Set",
   "brand": "Generic",
   "category": "Motors & ESCs",
@@ -17,19 +19,7 @@
   "specs": {
    "Type": "Brushless"
   },
-  "updated": "2026-11-18",
-  "pending_images": [
-   "https://m.media-amazon.com/images/I/51qhmm9Q1uL._SL1500_.jpg"
-  ],
-  "pending_fallback": [
-   "https://m.media-amazon.com/images/I/61YraGh3mqL._SL1500_.jpg",
-   "https://www.injora.com/cdn/shop/files/DSC09929.jpg?v=1767520979",
-   "https://moforc.com/cdn/shop/files/mofo_rc_reaper_esc_nanobeast.jpg?v=1777477451&width=1946",
-   "https://www.modelsport.co.uk/_images/products/800/MOF-146G001-131PH2.jpg",
-   "https://www.powerhobby.com/cdn/shop/files/PHB7598_1920x.jpg?v=1778855211",
-   "https://www.modelsport.co.uk/_images/products/800/MOF-150G001-132PH2.jpg",
-   "https://rcvisions.com/cdn/shop/files/injmbl32-nano-inm21.webp?v=1775175614&width=1200"
-  ]
+  "updated": "2026-11-18"
  },
  {
   "id": "RC-0080",
