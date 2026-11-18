@@ -1,5 +1,26 @@
 [
  {
+  "id": "RC-0016",
+  "slug": "grc-racing-1-9inch-wheels",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "GRC Racing 1.9inch Wheels",
+  "brand": "GRC",
+  "category": "Tyres & Wheels",
+  "price": 4850,
+  "scale": [
+   "1:10"
+  ],
+  "fits": "RC cars",
+  "desc": "These wheels are designed for RC racing applications and provide a mounting surface for tyres. They are used to replace damaged wheels or to change the look and performance of the vehicle.",
+  "specs": {
+   "Brand": "GRC",
+   "Part Type": "Wheels"
+  },
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0015",
   "slug": "winch-controller",
   "added": "2026-11-18",
