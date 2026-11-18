@@ -52,11 +52,40 @@
   // On the home page we know every product: refresh prices, drop removed parts
   if(PAGE==='home'){Object.keys(cart).forEach(function(k){var p=byId(k);if(!p)delete cart[k];else{cart[k].price=p.price;cart[k].name=p.name;}});save();}
   function snap(p){return{q:0,name:p.name,price:p.price,category:p.category,img:(p.images&&p.images[0])||'',slug:p.slug};}
+  function qty(id){return cart[id]?cart[id].q:0;}
   function add(p,btn){
     if(!p)return;
     if(!cart[p.id])cart[p.id]=snap(p);
     cart[p.id].q=Math.min(cart[p.id].q+1,99);save();renderCart();
-    if(btn&&!btn.classList.contains('ok')){var old=btn.textContent;btn.classList.add('ok');btn.textContent='Added';setTimeout(function(){btn.classList.remove('ok');btn.textContent=old;},900);}
+    toast(p);
+    var cb=$('openCart');cb.classList.remove('bump');void cb.offsetWidth;cb.classList.add('bump');
+  }
+  /* Small "Added" message at the bottom of the screen */
+  var toastT=null;
+  function toast(p){
+    var t=$('toast');
+    if(!t){t=document.createElement('div');t.id='toast';t.className='toast';t.setAttribute('role','status');document.body.appendChild(t);}
+    var q=qty(p.id);
+    t.innerHTML='<span class="tick" aria-hidden="true">✓</span><span class="tt"><b>Added to cart</b><small>'+esc(p.name)+' · '+q+(q===1?' piece':' pieces')+' in your cart</small></span><button type="button" data-viewcart>View cart</button>';
+    t.classList.add('show');clearTimeout(toastT);toastT=setTimeout(function(){t.classList.remove('show');},3200);
+  }
+  /* Show how many of each part are already in the cart */
+  function syncAdds(){
+    document.querySelectorAll('[data-add]').forEach(function(b){
+      var q=qty(b.getAttribute('data-add'));
+      b.classList.toggle('in',q>0);
+      b.innerHTML=q?'<span aria-hidden="true">✓</span> '+q+' in cart':'Add';
+      b.setAttribute('aria-label',q?q+' in cart. Add one more':'Add to cart');
+    });
+    var pa=$('pAdd'),pc=$('pInCart');
+    if(pa&&PAGE==='part'&&P[0]){initPartWa();
+      var q=qty(P[0].id);
+      pa.textContent=q?'Add one more':'Add to cart';
+      pc.hidden=!q;
+      if(q)pc.innerHTML='<span aria-hidden="true">✓</span> '+q+(q===1?' piece':' pieces')+' of this part in your cart · <button type="button" data-viewcart>View cart</button>';
+    }
+    var da=$('dAdd');
+    if(da&&cur){var q2=qty(cur.id);da.textContent=q2?'✓ '+q2+' in cart · add one more':'Add to cart';}
   }
   function lines(){return Object.keys(cart).map(function(id){return{id:id,c:cart[id]};}).filter(function(l){return l.c&&l.c.q>0;});}
   function waNum(){return (S.whatsapp||'').replace(/\D/g,'');}
@@ -84,6 +113,7 @@
         '<div class="r"><span class="lt">'+money(l.c.price*l.c.q)+'</span><button class="rm" data-rm="'+l.id+'">Remove</button></div></div>';
     }).join(''):'<div class="empty" style="margin-top:14px">Your cart is empty.<br><a class="more" href="'+ROOT+'index.html#shop" data-close>Browse parts →</a></div>';
     setWa($('waBtn'),$('waHint'),msg(),'Opens WhatsApp with your order typed in. Just press send.','Add at least one part to send an order.',!L.length);
+    syncAdds();
   }
 
   /* ---------- Request a part (form on home page) ---------- */
@@ -103,10 +133,11 @@
   /* ---------- Home + shop ---------- */
   var state={cat:'All',scale:'All',brand:'All',q:'',sort:'pop'},wantReq=false;
   function card(p){
+    var q=qty(p.id);
     return '<article class="card"><button class="pic'+(p.images&&p.images.length?' photo':'')+'" style="'+cv(p.category)+'" data-open="'+p.id+'" aria-label="Quick view '+esc(p.name)+'">'+picHTML(p)+'<span class="scale">'+esc(scaleLabel(p))+'</span></button>'+
       '<div class="cbody"><div class="cbrand">'+esc(p.brand)+'</div><a class="cname" href="'+partURL(p)+'">'+esc(p.name)+'</a>'+
       '<div class="cfits">'+(p.fits?'Fits: '+esc(p.fits):'')+'</div>'+
-      '<div class="cfoot"><span class="price">'+money(p.price)+'</span><button class="add" data-add="'+p.id+'">Add</button></div></div></article>';
+      '<div class="cfoot"><span class="price">'+money(p.price)+'</span><button class="add'+(q?' in':'')+'" data-add="'+p.id+'">'+(q?'<span aria-hidden="true">✓</span> '+q+' in cart':'Add')+'</button></div></div></article>';
   }
   function renderHome(){
     $('partCount').textContent=P.length+(P.length===1?' part':' parts');
@@ -164,6 +195,7 @@
     r+='<tr><td>Delivery</td><td>'+DAYS+' days</td></tr>';
     $('dSpecs').innerHTML=r;
     $('dMore').href=partURL(p);
+    syncAdds();
     dlg.classList.add('open');scrim.classList.add('open');$('closeDlg').focus();
   }
   function route(){
@@ -194,16 +226,21 @@
       });
     });
     var b=$('pAdd');if(b)b.addEventListener('click',function(){add(p,b);});
-    var now=$('pNow');
-    if(now){
-      var text='Hi '+S.name+', I would like to order:\n\n1. '+p.name+' ['+p.id+'] x 1 = '+money(p.price)+'\n\nPlease confirm availability and shipping.';
-      setWa(now,$('pHint'),text,'Opens WhatsApp with this part typed in.','',false);
+    initPartWa();
+  }
+  function initPartWa(){
+    var p=P[0],now=$('pNow');
+    if(now&&p){
+      var q=Math.max(1,qty(p.id));
+      var text='Hi '+S.name+', I would like to order:\n\n1. '+p.name+' ['+p.id+'] x '+q+' = '+money(p.price*q)+'\n\nPlease confirm availability and shipping.';
+      setWa(now,$('pHint'),text,'','',false);
+      if(waNum())$('pHint').textContent='';
     }
   }
 
   /* ---------- Events ---------- */
   document.addEventListener('click',function(e){
-    var t=e.target.closest('[data-cat],[data-scale],[data-add],[data-open],[data-inc],[data-dec],[data-rm],[data-go-cat],[data-go-scale],[data-close],[data-go-request]');
+    var t=e.target.closest('[data-cat],[data-scale],[data-add],[data-open],[data-inc],[data-dec],[data-rm],[data-go-cat],[data-go-scale],[data-close],[data-go-request],[data-viewcart]');
     if(!t||t.disabled)return;
     var d=t.dataset;
     if(d.goCat){state.cat=d.goCat;state.scale='All';goShop();}
@@ -217,6 +254,7 @@
     else if(d.rm){delete cart[d.rm];save();renderCart();}
     else if(t.hasAttribute('data-go-request')){if(PAGE!=='home')return;if(location.hash==='#request'){e.preventDefault();route();}}
     else if(t.hasAttribute('data-close')){closeAll();}
+    else if(t.hasAttribute('data-viewcart')){var ts=$('toast');if(ts)ts.classList.remove('show');openCart();}
   });
   $('openCart').addEventListener('click',openCart);
   $('mbar').addEventListener('click',openCart);

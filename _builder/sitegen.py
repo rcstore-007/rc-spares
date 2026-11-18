@@ -53,6 +53,9 @@ def json_block(data):
     return json.dumps(data, ensure_ascii=False, indent=1).replace("</", "<\\/")
 
 
+DEFAULT_BULK_NOTE = "Buying more than one? Message us on WhatsApp for a better price on multiple units."
+
+
 def delivery_text(settings):
     t = str(settings.get("delivery") or "").strip()
     if not t:
@@ -68,6 +71,7 @@ def public_settings(settings):
         "currency": "₹",
         "delivery": delivery_text(settings),
         "categoryImages": {k: v for k, v in (settings.get("category_images") or {}).items() if v},
+        "bulkNote": (settings.get("bulk_note") or DEFAULT_BULK_NOTE).strip(),
     }
 
 
@@ -228,7 +232,9 @@ def build_part(settings, p):
       <p class="desc">{esc(short)}</p>
       <div class="pbtns">
         <button class="add" id="pAdd">Add to cart</button>
+        <div class="incart" id="pInCart" hidden></div>
         <a class="wa" id="pNow" href="#" aria-disabled="true">{wa_icon} Order this on WhatsApp</a>
+        <p class="bulk">{esc(pub["bulkNote"])}</p>
         <p class="note" id="pHint"></p>
       </div>
       <div class="deliv">Delivery in <b>{esc(pub["delivery"])} days</b> across India. Shipping cost is confirmed on WhatsApp.</div>
@@ -299,7 +305,7 @@ def build_sitemap(settings, products):
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "\n".join(urls) + "\n</urlset>\n")
 
 
-PUBLIC_KEYS = ("store_name", "whatsapp", "delivery", "delivery_days", "custom_domain", "site_url", "category_images")
+PUBLIC_KEYS = ("store_name", "whatsapp", "delivery", "delivery_days", "custom_domain", "site_url", "category_images", "bulk_note")
 CATEGORY_DIR = "_categories"   # images/_categories/<file>.jpg
 
 
