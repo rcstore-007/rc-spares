@@ -1,5 +1,25 @@
 [
  {
+  "id": "RC-0098",
+  "slug": "mjx-h18p-rear-axle-shaft",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [
+   "images/mjx-h18p-rear-axle-shaft/1-cc0883.jpg"
+  ],
+  "name": "MJX H18P Rear Axle Shaft",
+  "brand": "MJX",
+  "category": "Gears & Drivetrain",
+  "price": 399,
+  "scale": [
+   "1:18"
+  ],
+  "fits": "MJX H18P",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0097",
   "slug": "mjx-h18p-skid-plate",
   "added": "2026-11-18",
