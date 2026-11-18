@@ -1,5 +1,29 @@
 [
  {
+  "id": "RC-0063",
+  "slug": "mjx-1-12-differential-housing",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [
+   "images/mjx-1-12-differential-housing/1-f60fdf.jpg"
+  ],
+  "name": "MJX 1/12 Differential Housing",
+  "brand": "MJX",
+  "category": "Gears & Drivetrain",
+  "price": 780,
+  "scale": [
+   "1:12"
+  ],
+  "fits": "MJX 1/12 scale models",
+  "desc": "A replacement housing for the differential assembly in 1/12 scale MJX vehicles. It protects the internal gears and holds the necessary lubricants.",
+  "specs": {
+   "Brand": "MJX",
+   "Scale": "1/12",
+   "Part": "Differential Housing"
+  },
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0062",
   "slug": "60a-motor-and-esc-combo",
   "added": "2026-11-18",
