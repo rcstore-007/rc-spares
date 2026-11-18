@@ -1,5 +1,25 @@
 [
  {
+  "id": "RC-0091",
+  "slug": "rlaarlo-1-7-skid-plate-set",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [
+   "images/rlaarlo-1-7-skid-plate-set/1-a4ed61.jpg"
+  ],
+  "name": "Rlaarlo 1/7 Skid plate set",
+  "brand": "Generic",
+  "category": "Gears & Drivetrain",
+  "price": 2999,
+  "scale": [
+   "1:7"
+  ],
+  "fits": "Rlaarlo MK07,TK07,JK07",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0090",
   "slug": "rtw-hex",
   "added": "2026-11-18",
