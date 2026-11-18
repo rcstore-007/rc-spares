@@ -1,5 +1,26 @@
 [
  {
+  "id": "RC-0011",
+  "slug": "rlaarlo-mk07-v2-brushless-esc",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "Rlaarlo MK07 V2 Brushless ESC",
+  "brand": "Rlaarlo",
+  "category": "Motors & ESCs",
+  "price": 9880,
+  "scale": [
+   "1:7"
+  ],
+  "fits": "Rlaarlo MK07 V2",
+  "desc": "An electronic speed controller designed for the brushless version of the Rlaarlo MK07. It regulates the power delivered from the battery to the motor.",
+  "specs": {
+   "Brand": "Rlaarlo",
+   "Type": "Brushless ESC"
+  },
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0010",
   "slug": "electric-screwdriver",
   "added": "2026-11-18",
