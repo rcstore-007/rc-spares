@@ -1,5 +1,25 @@
 [
  {
+  "id": "RC-0100",
+  "slug": "mjx-h18p-front-axle-cvd",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [
+   "images/mjx-h18p-front-axle-cvd/1-0cfc81.jpg"
+  ],
+  "name": "MJX H18P Front Axle Cvd",
+  "brand": "MJX",
+  "category": "Gears & Drivetrain",
+  "price": 599,
+  "scale": [
+   "1:18"
+  ],
+  "fits": "MJX H18P",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0099",
   "slug": "mjx-h18p-front-rear-axle",
   "added": "2026-11-18",
