@@ -185,7 +185,8 @@ textarea{resize:vertical;min-height:84px}
     </div>
 
     <div id="tab-list" hidden>
-      <div class="card" style="padding:12px"><input type="text" id="listQ" placeholder="Search your parts" aria-label="Search your parts"></div>
+      <div class="card" style="padding:12px"><input type="text" id="listQ" placeholder="Search your parts" aria-label="Search your parts">
+        <div style="display:flex;gap:8px;margin-top:8px"><select id="listCat" aria-label="Category" style="flex:1;min-width:0"></select><select id="listScale" aria-label="Scale" style="flex:1;min-width:0"></select></div></div>
       <div class="list" id="list"></div>
     </div>
   </section>
@@ -500,7 +501,12 @@ textarea{resize:vertical;min-height:84px}
   /* ---------- list ---------- */
   function renderList(){
     var q=$('listQ').value.trim().toLowerCase();
-    var rows=PRODUCTS.filter(function(p){return !q||(p.name+' '+(p.brand||'')+' '+p.category+' '+p.id).toLowerCase().indexOf(q)>=0;});
+    if(!$('listCat').options.length){
+      $('listCat').innerHTML='<option value="">All categories</option>'+CATS.map(function(x){return '<option>'+esc(x)+'</option>';}).join('');
+      $('listScale').innerHTML='<option value="">All scales</option>'+SCALES.slice().reverse().map(function(x){return '<option value="'+x+'">'+x+' scale</option>';}).join('');
+    }
+    var fc=$('listCat').value,fs=$('listScale').value;
+    var rows=PRODUCTS.filter(function(p){return (!q||(p.name+' '+(p.brand||'')+' '+p.category+' '+p.id).toLowerCase().indexOf(q)>=0)&&(!fc||p.category===fc)&&(!fs||(p.scale||[]).indexOf(fs)>=0);});
     $('list').innerHTML=rows.length?rows.map(function(p){
       var img=p.images&&p.images.length&&CFG.site_url?'<img src="'+esc(CFG.site_url+p.images[0])+'" alt="" onerror="this.style.visibility=\'hidden\'">':'<div class="noimg">No photo</div>';
       return '<div class="item">'+img+'<div><b>'+esc(p.name)+'</b><div class="meta">'+money(p.price)+' · '+esc(p.category)+' · '+esc((p.scale||[]).join(', '))+'</div></div>'+
@@ -508,6 +514,7 @@ textarea{resize:vertical;min-height:84px}
     }).join(''):'<div class="card hint">'+(PRODUCTS.length?'No parts match.':'No parts yet.')+'</div>';
   }
   $('listQ').addEventListener('input',renderList);
+  $('listCat').addEventListener('change',renderList);$('listScale').addEventListener('change',renderList);
   $('list').addEventListener('click',function(e){
     var ed=e.target.closest('[data-edit]'),del=e.target.closest('[data-del]');
     if(ed)startEdit(ed.dataset.edit);
