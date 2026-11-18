@@ -4,7 +4,10 @@
   "slug": "1-9-inch-silicone-tyre-inserts",
   "added": "2026-11-18",
   "pop": 5,
-  "images": [],
+  "images": [
+   "images/1-9-inch-silicone-tyre-inserts/1-34fff2.jpg",
+   "images/1-9-inch-silicone-tyre-inserts/2-7679a3.jpg"
+  ],
   "name": "1.9 inch Silicone Tyre Inserts",
   "brand": "Generic",
   "category": "Tyres & Wheels",
@@ -18,19 +21,7 @@
    "Size": "1.9 inch",
    "Material": "Silicone"
   },
-  "updated": "2026-11-18",
-  "pending_images": [
-   "https://m.media-amazon.com/images/I/61o5U9cgdFL.jpg",
-   "https://m.media-amazon.com/images/I/51KiGApo0bL._SL500_.jpg"
-  ],
-  "pending_fallback": [
-   "https://m.media-amazon.com/images/I/710Gry9lZxL.jpg",
-   "https://img.joomcdn.net/030273e144088a508b6114c1bb9232bf8b48e592_1024_1024.jpeg",
-   "https://ae01.alicdn.com/kf/S0bbb285dd982487ca09d85f70e62b44bw.jpg",
-   "https://media.s-bol.com/8vlLqp8Op7gj/J6gJQO9/550x413.jpg",
-   "https://m.media-amazon.com/images/I/71RCwEQf+mL._AC_SL1500_.jpg",
-   "https://m.media-amazon.com/images/I/71ubwt0IP3L.jpg"
-  ]
+  "updated": "2026-11-18"
  },
  {
   "id": "RC-0003",
