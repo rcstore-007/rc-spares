@@ -1,5 +1,38 @@
 [
  {
+  "id": "RC-0035",
+  "slug": "mjx-43308-battery",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "MJX 43308 Battery",
+  "brand": "MJX",
+  "category": "Batteries & Chargers",
+  "price": 699,
+  "scale": [
+   "1:30"
+  ],
+  "fits": "MJX models using part 43308",
+  "desc": "A replacement battery pack designed specifically for compatible MJX RC models. It provides the necessary power for vehicle operation.",
+  "specs": {
+   "Brand": "MJX",
+   "Part Number": "43308"
+  },
+  "updated": "2026-11-18",
+  "pending_images": [
+   "https://rc-wing.com/cdn/shop/files/DB0359-07.png?v=1788773057&width=1500"
+  ],
+  "pending_fallback": [
+   "https://ae-pic-a1.aliexpress-media.com/kf/Sdca979cae2dc403e898143059414ccffH.jpg",
+   "https://www.seriousrc.co.uk/cdn/shop/files/rn-image_picker_lib_temp_e10ddb9d-36ec-4bd6-82af-9c08256da160_800x.png?v=1770143157",
+   "https://i5.walmartimages.com/seo/Replace-Battery-1PC-MJX-B2C-B2W-RC-Bugs-2w-2-D80-F18-SP700-2K-Drone-F200SE-B2SE-GPS-Quadcopter-7-4V-3600mAh-Maximalpower_df744a08-7ba5-4dc5-a1f6-07fff6956456.4b7ba90fdb008e85ed217f5d3d66dd40.jpeg",
+   "https://m.media-amazon.com/images/I/41UexYqggWL._AC_UF894,1000_QL80_.jpg",
+   "https://www.modelengines.com.au/assets/full/MJX-B2S20.jpg?20241205135138",
+   "http://www.helidirect.com/cdn/shop/files/s-l1600_5.webp?v=1776411703",
+   "https://techtonichobbies.com.au/cdn/shop/files/MJXS-B4S50T-1.jpg?v=1762931750&width=500"
+  ]
+ },
+ {
   "id": "RC-0034",
   "slug": "flysky-r11p-bs-receiver",
   "added": "2026-11-18",
