@@ -1,5 +1,29 @@
 [
  {
+  "id": "RC-0043",
+  "slug": "mjx-h18p-metal-gearbox",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [
+   "images/mjx-h18p-metal-gearbox/1-2bff92.jpg"
+  ],
+  "name": "MJX H18P Metal Gearbox",
+  "brand": "MJX",
+  "category": "Gears & Drivetrain",
+  "price": 3000,
+  "scale": [
+   "1:18"
+  ],
+  "fits": "MJX H18P",
+  "desc": "This gearbox housing contains the internal gears that manage the power distribution for the RC car. It is a direct replacement component for the MJX H18P chassis.",
+  "specs": {
+   "Brand": "MJX",
+   "Model": "H18P",
+   "Part Type": "Gearbox"
+  },
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0042",
   "slug": "hota-f6-ultra-charger",
   "added": "2026-11-18",
