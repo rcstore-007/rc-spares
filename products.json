@@ -1,5 +1,23 @@
 [
  {
+  "id": "RC-0082",
+  "slug": "scx30-driveshafts",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "SCX30 Driveshafts",
+  "brand": "Generic",
+  "category": "Gears & Drivetrain",
+  "price": 1100,
+  "scale": [
+   "1:30"
+  ],
+  "fits": "Axial SCX30",
+  "desc": "These driveshafts are replacement components for the SCX30 drivetrain system. They transfer rotational power from the transmission to the vehicle axles.",
+  "specs": {},
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0081",
   "slug": "scx30-brushless-upgrade-set",
   "added": "2026-11-18",
