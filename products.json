@@ -4,7 +4,12 @@
   "slug": "rocket-rc-gecko-3660-1800kv-sensored-motor",
   "added": "2026-11-18",
   "pop": 5,
-  "images": [],
+  "images": [
+   "images/rocket-rc-gecko-3660-1800kv-sensored-motor/1-38d259.jpg",
+   "images/rocket-rc-gecko-3660-1800kv-sensored-motor/2-f06244.jpg",
+   "images/rocket-rc-gecko-3660-1800kv-sensored-motor/3-b86b1b.jpg",
+   "images/rocket-rc-gecko-3660-1800kv-sensored-motor/4-209298.jpg"
+  ],
   "name": "Rocket-RC Gecko 3660 1800KV Sensored Motor",
   "brand": "Rocket RC",
   "category": "Motors & ESCs",
@@ -20,19 +25,7 @@
    "KV": "1800KV",
    "Type": "Sensored"
   },
-  "updated": "2026-11-18",
-  "pending_images": [
-   "https://cn.surpass-hobby.com/wp-content/uploads/2025/11/IMG_9121-1.jpg",
-   "https://action-modelisme.com/9610-thickbox_default/moteur-brushless-rocket-gecko-fusion-3660-1800kv.jpg",
-   "https://action-modelisme.com/9617-thickbox_default/moteur-brushless-rocket-gecko-fusion-3660-1800kv.jpg",
-   "https://m.media-amazon.com/images/S/aplus-media-library-service-media/69a57d2f-4b9e-42a0-be56-6aad5c87e653.__CR0,0,970,600_PT0_SX970_V1___.jpg"
-  ],
-  "pending_fallback": [
-   "https://ae-pic-a1.aliexpress-media.com/kf/S97983c571394411e8fcce115c80cc381i.jpg",
-   "https://ae01.alicdn.com/kf/S1e528abbe3c34f07a92e904f322e0388z.png",
-   "https://ae01.alicdn.com/kf/S9ee81bdacd45418bb1a6619cf2ccc38ev.jpg",
-   "https://action-modelisme.com/9615-thickbox_default/moteur-brushless-rocket-gecko-fusion-3660-1800kv.jpg"
-  ]
+  "updated": "2026-11-18"
  },
  {
   "id": "RC-0045",
