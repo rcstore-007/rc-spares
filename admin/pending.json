@@ -2646,7 +2646,7 @@
     "1:12"
    ],
    "price": 9400,
-   "include": true,
+   "include": false,
    "desc": "A hydraulic system set designed for RC trucks and construction equipment. It is used to power lifting or steering mechanisms using fluid pressure.",
    "fits": "RC Trucks",
    "specs": {
@@ -2666,7 +2666,7 @@
     "https://www.rcopworld.com/cdn/shop/files/Metal-Oil-Pump-Oil-Cylinder-Tank-Hydraulics-System-Suit-for-1-14-Tamiya-RC-Truck-Tipper.webp?v=1739196863&width=1445"
    ],
    "searched": true,
-   "edited": "",
+   "edited": "2026-11-18T12:38:46.993Z",
    "added": false
   },
   {
