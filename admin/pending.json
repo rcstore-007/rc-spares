@@ -2203,7 +2203,7 @@
     "1:10"
    ],
    "price": 2850,
-   "include": true,
+   "include": false,
    "desc": "An electronic speed controller designed for brushed motors that supports both forward and reverse operation. It is suitable for high-current applications in RC cars and boats.",
    "fits": "Brushed motor vehicles",
    "specs": {
@@ -2224,7 +2224,7 @@
     "https://i5.walmartimages.com/seo/RC-Brushed-Motor-Speed-Controller-Bidirectional-5A-Two-Way-Dual-ESC-2S-3S-LiPo-Mixed-Independent-Mode-Overheating-Protection-RC-Model-Boat-Tank-Spare_ac1fe220-64e7-4baf-a73e-59eff4f4a81f.9f39f1af639c2eb9ca305fe7d9d3cac3.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF"
    ],
    "searched": true,
-   "edited": "",
+   "edited": "2026-11-18T12:52:48.159Z",
    "added": false
   },
   {
