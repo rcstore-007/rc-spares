@@ -2274,7 +2274,7 @@
     "1:5"
    ],
    "price": 3600,
-   "include": true,
+   "include": false,
    "desc": "Replacement rear tires designed for 1/5 scale RC vehicles. These provide traction and stability for large-scale off-road or on-road driving.",
    "fits": "Losi 1/5 scale models",
    "specs": {
@@ -2296,7 +2296,7 @@
     "https://images.amainhobbies.com/images/large/los/losa7107_1.jpg"
    ],
    "searched": true,
-   "edited": "",
+   "edited": "2026-11-18T12:54:37.563Z",
    "added": false
   },
   {
