@@ -128,11 +128,13 @@
   "slug": "scx30-servo",
   "added": "2026-11-18",
   "pop": 5,
-  "images": [],
+  "images": [
+   "images/scx30-servo/1-0ee4b9.jpg"
+  ],
   "name": "SCX30 Servo",
   "brand": "Generic",
   "category": "Servos",
-  "price": 2790,
+  "price": 2290,
   "scale": [
    "1:30"
   ],
