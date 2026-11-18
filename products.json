@@ -1,5 +1,26 @@
 [
  {
+  "id": "RC-0062",
+  "slug": "60a-motor-and-esc-combo",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "60A Motor and ESC Combo",
+  "brand": "Generic",
+  "category": "Motors & ESCs",
+  "price": 4180,
+  "scale": [
+   "1:10",
+   "1:12"
+  ],
+  "fits": "1/10 scale RC cars and trucks",
+  "desc": "This package includes a brushless motor and a matching 60A electronic speed controller. It is used as a power system upgrade or replacement for various 1/10 scale RC vehicles.",
+  "specs": {
+   "ESC Rating": "60A"
+  },
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0061",
   "slug": "light-control-module",
   "added": "2026-11-18",
