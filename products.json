@@ -1,5 +1,45 @@
 [
  {
+  "id": "RC-0031",
+  "slug": "flysky-g11p-transmitter-english",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "Flysky G11P Transmitter[English]",
+  "brand": "Flysky",
+  "category": "Radios & Receivers",
+  "price": 17500,
+  "scale": [
+   "1:5",
+   "1:7",
+   "1:8",
+   "1:10",
+   "1:12",
+   "1:18",
+   "1:24",
+   "1:30"
+  ],
+  "fits": "RC cars and boats",
+  "desc": "The Flysky G11P is a multi-channel radio transmitter used to control RC vehicles. It provides the wireless interface between the driver and the car's receiver.",
+  "specs": {
+   "Brand": "Flysky",
+   "Model": "G11P"
+  },
+  "updated": "2026-11-18",
+  "pending_images": [
+   "https://images.amainhobbies.com/images/large/fsy/fsy-fs-g11p.jpg",
+   "https://cdn11.bigcommerce.com/s-afq6npz/images/stencil/1280x1280/products/23172/61879/fsy-fs-g11p_8__17612.1744867955.jpg?c=2",
+   "https://www.whiterosehobbies.com/cdn/shop/files/flysky-g11p-ant-11-transmitter-with-fs-r11p-receiver-2_1200x1107.png?v=1765137136"
+  ],
+  "pending_fallback": [
+   "https://images.amainhobbies.com/images/large/fsy/fsy-fs-g11p_1.jpg",
+   "https://down-my.img.susercontent.com/file/my-11134207-7rash-m9va76d6axgg54",
+   "https://www.hobbyhangar.co.nz/images/thumbs/0035846_flysky-fs-g11p-11-ch-radio-24ghz-incl-fs-r11p-receiver.jpeg",
+   "https://m.media-amazon.com/images/I/71t+JF+t7UL._AC_SL1500_.jpg",
+   "https://assets.jakespecial.com/content/2025/06/74cd89b4_product_image.webp"
+  ]
+ },
+ {
   "id": "RC-0030",
   "slug": "5mm-to-7mm-wheel-hex-adapter",
   "added": "2026-11-18",
