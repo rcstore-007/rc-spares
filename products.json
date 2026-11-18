@@ -540,9 +540,11 @@
   "slug": "scx30-battery",
   "added": "2026-11-18",
   "pop": 5,
-  "images": [],
+  "images": [
+   "images/scx30-battery/1-d55248.jpg"
+  ],
   "name": "SCX30 Battery",
-  "brand": "Axial",
+  "brand": "Generic",
   "category": "Batteries & Chargers",
   "price": 1250,
   "scale": [
