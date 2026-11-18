@@ -82,11 +82,11 @@
   "brand": "HobbyPark",
   "category": "Servos",
   "scale": [
-   "1:10",
-   "1:18"
+   "1:18",
+   "1:24"
   ],
   "price": 2490,
-  "fits": "Traxxas TRX-4M, TRX-4MT, 1/18 crawlers, and 1/10 scale shift or diff lock applications",
+  "fits": "Traxxas TRX-4M, TRX-4MT, 1/18 crawlers, FCX18, FCX24, H18P",
   "desc": "This digital mini servo is a high-torque upgrade for small-scale RC crawlers like the TRX-4M. It features stainless steel gears for increased durability and is waterproof for reliable performance in wet conditions. The unit provides 9kg of stall torque to improve steering precision on difficult terrain.",
   "specs": {
    "Dimensions": "23 x 12 x 26.6mm",
