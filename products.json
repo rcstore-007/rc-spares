@@ -1,5 +1,38 @@
 [
  {
+  "id": "RC-0003",
+  "slug": "1-0-inch-crawler-tyres",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "1.0 inch Crawler Tyres",
+  "brand": "Generic",
+  "category": "Tyres & Wheels",
+  "price": 1000,
+  "scale": [
+   "1:24",
+   "1:18"
+  ],
+  "fits": "SCX24, TRX4M, FCX18, FCX24, H18P",
+  "desc": "These 1.0 inch tires are intended for micro crawler wheels. They are used to replace stock tires for better traction during rock crawling.",
+  "specs": {
+   "Size": "1.0 inch"
+  },
+  "updated": "2026-11-18",
+  "pending_images": [
+   "https://www.meusracing.com/cdn/shop/files/M1003_1.0-inch_RC_Rubber_Tires_2.jpg?v=1762831298"
+  ],
+  "pending_fallback": [
+   "https://i5.walmartimages.com/seo/4pcs-63mm-1-0-Inch-Metal-Beadlock-Wheel-Tire-Set-for-1-18-1-24-RC-Crawler-Car-TRX4M-SCX24-AX24-FCX24-Upgrade-Parts-Red_22c9276b-bc2f-4ca5-9567-a1462af9001a.e6c6dcaf4e9c599ee4bcc87487408d16.jpeg",
+   "https://m.media-amazon.com/images/I/71I4uPRWdLL._AC_SL1500_.jpg",
+   "https://m.media-amazon.com/images/S/aplus-media-library-service-media/488d21ac-55be-4bd9-a558-ccdb4423904f.__CR0,0,970,600_PT0_SX970_V1___.jpg",
+   "https://image.pushauction.com/0/0/58233765-eda5-4532-8607-ef1ec022566c/db27f7ee-e810-4431-acf8-1b4ad849f683.jpg",
+   "https://i.ebayimg.com/images/g/5uIAAeSwMXdpeNzO/s-l1600.jpg",
+   "https://m.media-amazon.com/images/I/81KqvwTyTxL._AC_SL1500_.jpg",
+   "https://www.meusracing.com/cdn/shop/files/M1003_1.0-inch_RC_Rubber_Tires_3.jpg?v=1762831308"
+  ]
+ },
+ {
   "id": "RC-0002",
   "slug": "injora-1-0-inch-crawler-tyres",
   "added": "2026-11-18",
