@@ -21,7 +21,8 @@ HERE = Path(__file__).resolve().parent
 TEMPLATE = HERE / "site_template"
 
 CATEGORIES = ["Motors & ESCs", "Tyres & Wheels", "Shocks", "Batteries & Chargers",
-              "Gears & Drivetrain", "Servos", "Lights", "Winch"]
+              "Gears & Drivetrain", "Servos", "Lights", "Winch",
+              "Radios & Receivers", "Tools & Accessories"]
 SCALES = ["1:5", "1:7", "1:8", "1:10", "1:12", "1:18", "1:24", "1:30"]
 
 
@@ -256,7 +257,8 @@ def build_part(settings, p):
 CAT_COLORS = {"Motors & ESCs": ("#f2d8cf", "#b8442f"), "Tyres & Wheels": ("#d6e2ec", "#3d6a8c"),
               "Shocks": ("#d5e4da", "#2e5e4e"), "Batteries & Chargers": ("#f6e6bf", "#9a6a08"),
               "Gears & Drivetrain": ("#e6dbec", "#6b4a7a"), "Servos": ("#d2e8ea", "#1f6f78"),
-              "Lights": ("#f8dcc8", "#c4561b"), "Winch": ("#e9e0c6", "#6b5a2e")}
+              "Lights": ("#f8dcc8", "#c4561b"), "Winch": ("#e9e0c6", "#6b5a2e"),
+              "Axles & Chassis": ("#dfe3e8", "#4a5563"), "Radios & Receivers": ("#f3dde6", "#a23b62"), "Tools & Accessories": ("#e4e8d5", "#55692c"), "RC Cars": ("#dce7ee", "#24485e")}
 
 
 def category_vars(cat):
@@ -275,6 +277,10 @@ def category_art(cat):
         "Servos": '<rect x="48" y="52" width="104" height="58" rx="8"/><circle cx="78" cy="52" r="12"/><line x1="78" y1="52" x2="128" y2="26"/>',
         "Lights": '<rect x="30" y="62" width="140" height="32" rx="10"/><circle cx="58" cy="78" r="8"/><circle cx="86" cy="78" r="8"/><circle cx="114" cy="78" r="8"/><circle cx="142" cy="78" r="8"/>',
         "Winch": '<rect x="40" y="50" width="80" height="50" rx="10"/><line x1="55" y1="50" x2="55" y2="100"/><line x1="105" y1="50" x2="105" y2="100"/><path d="M120 75 h30 a10 10 0 0 1 10 10 v12 a10 10 0 0 1 -20 0"/>',
+        "Axles & Chassis": '<line x1="30" y1="75" x2="170" y2="75"/><circle cx="100" cy="75" r="20"/><rect x="16" y="45" width="16" height="60" rx="5"/><rect x="168" y="45" width="16" height="60" rx="5"/><line x1="100" y1="95" x2="100" y2="130"/>',
+        "Radios & Receivers": '<path d="M72 125 L86 62 H128 L140 125 Z"/><circle cx="64" cy="72" r="22"/><line x1="124" y1="62" x2="150" y2="18"/><circle cx="108" cy="84" r="6"/>',
+        "Tools & Accessories": '<rect x="28" y="60" width="72" height="30" rx="10"/><line x1="100" y1="75" x2="172" y2="75"/><path d="M42 60 v30 M57 60 v30 M72 60 v30"/>',
+        "RC Cars": '<path d="M35 95 h130 l-8 -22 -30 -6 -12 -20 h-40 l-14 20 -20 6 z"/><circle cx="65" cy="102" r="15"/><circle cx="138" cy="102" r="15"/>',
     }
     inner = g.get(cat, g["Gears & Drivetrain"])
     return f'<svg viewBox="0 0 200 150" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{inner}</svg>'
@@ -396,9 +402,8 @@ def build_site(site_dir, settings, products, tools=True, branch="main"):
 def write_tools(site, settings, branch):
     """Builder + workflow (so GitHub rebuilds the site when the phone adds a part) and the phone page."""
     b = site / "_builder"
-    if b.exists():
-        shutil.rmtree(b)
-    shutil.copytree(TEMPLATE, b / "site_template", ignore=shutil.ignore_patterns("admin"))
+    # Overwrite in place (no delete first): OneDrive sometimes locks files for a moment
+    shutil.copytree(TEMPLATE, b / "site_template", ignore=shutil.ignore_patterns("admin"), dirs_exist_ok=True)
     shutil.copy2(HERE / "sitegen.py", b / "sitegen.py")
     shutil.copy2(HERE / "build.py", b / "build.py")
     (b / "settings.json").write_text(json.dumps(builder_settings(settings), ensure_ascii=False, indent=1), encoding="utf-8")
