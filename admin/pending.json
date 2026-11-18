@@ -1422,7 +1422,7 @@
     "1:30"
    ],
    "price": 100,
-   "include": true,
+   "include": false,
    "desc": "These connectors are used to create or repair wiring for servos and receivers. They allow for secure electrical connections between electronic components.",
    "fits": "Universal RC electronics",
    "specs": {
@@ -1442,7 +1442,7 @@
     "https://m.media-amazon.com/images/I/51jl2ZBH4BL.jpg"
    ],
    "searched": true,
-   "edited": "",
+   "edited": "2026-11-18T13:04:08.591Z",
    "added": false
   },
   {
