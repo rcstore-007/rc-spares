@@ -4,7 +4,9 @@
   "slug": "fms-fcx18-driveshafts",
   "added": "2026-11-18",
   "pop": 5,
-  "images": [],
+  "images": [
+   "images/fms-fcx18-driveshafts/1-ac6e5d.png"
+  ],
   "name": "FMS FCX18 Driveshafts",
   "brand": "FMS",
   "category": "Gears & Drivetrain",
@@ -18,19 +20,7 @@
    "Brand": "FMS",
    "Part Type": "Driveshafts"
   },
-  "updated": "2026-11-18",
-  "pending_images": [
-   "https://ozrc.com.au/cdn/shop/files/OZRCStainlessSteelCentreDriveShaftsD-HoleFMSFCX18LC80118RCUpgrade.png?v=1764569992&width=450"
-  ],
-  "pending_fallback": [
-   "https://cdn11.bigcommerce.com/s-afq6npz/images/stencil/1280x1280/products/25571/68452/C3529__33896.1770870502.jpg?c=2",
-   "https://cdn11.bigcommerce.com/s-2nb5ti21/images/stencil/1280x1280/products/10265/38788/C3530__22763.1734423114.jpg?c=2",
-   "https://www.injora.com/cdn/shop/files/DSC06777_2.jpg?v=1747898129&width=720",
-   "https://www.bigsquidrc.com/wp-content/uploads/2023/10/Injora-Stainless-Steel-Drive-Shafts-FCX18-3.jpg",
-   "https://www.bigsquidrc.com/wp-content/uploads/2023/10/Injora-Stainless-Steel-Drive-Shafts-FCX18-5.jpg",
-   "https://www.injora.com/cdn/shop/files/DSC06788.jpg?v=1747898129&width=720",
-   "https://www.bigsquidrc.com/wp-content/uploads/2023/10/Injora-Stainless-Steel-Drive-Shafts-FCX18-2.jpg"
-  ]
+  "updated": "2026-11-18"
  },
  {
   "id": "RC-0077",
