@@ -1,5 +1,45 @@
 [
  {
+  "id": "RC-0042",
+  "slug": "hota-f6-ultra-charger",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "HOTA F6 Ultra Charger",
+  "brand": "HOTA",
+  "category": "Batteries & Chargers",
+  "price": 17000,
+  "scale": [
+   "1:5",
+   "1:7",
+   "1:8",
+   "1:10",
+   "1:12",
+   "1:18",
+   "1:24",
+   "1:30"
+  ],
+  "fits": "LiPo, LiFe, LiIon, NiMH, and Pb batteries",
+  "desc": "A multi-channel smart charger designed for charging and balancing various types of RC batteries. It features a built-in display for monitoring charging parameters and battery health.",
+  "specs": {
+   "Brand": "HOTA",
+   "Type": "Smart Charger"
+  },
+  "updated": "2026-11-18",
+  "pending_images": [
+   "https://ueeshop.ly200-cdn.com/u_file/UPBE/UPBE325/2509/01/products/abe23dba-1868-4eae-9a2f-2d0e40f47467.png",
+   "https://ueeshop.ly200-cdn.com/u_file/UPBE/UPBE325/2509/01/products/7751ebbf-9181-4abd-b0c6-3db399a9853f.png"
+  ],
+  "pending_fallback": [
+   "https://cdn11.bigcommerce.com/s-kgkeg34ccb/images/stencil/1280x1280/products/7153/29274/vjneribuierub__89572.1693240232.1280.1280__47063.1769040103.png?c=2",
+   "https://oscarliang.com/wp-content/uploads/2023/08/Hota-F6-500W-4-Channel-LiPo-Battery-Charger-ir-internal-resistance.jpg",
+   "https://ir-20.ozone.ru/s3/multimedia-1-f/w1200/14857235979.jpg",
+   "https://i5.walmartimages.com/asr/5b37b64a-6ecb-4d27-84d8-9c69d342cb52.1897c0651df4131d6cd4b639b76377d4.bmp?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+   "https://down-br.img.susercontent.com/file/sg-11134201-7rdxh-m043s0lltzne3e",
+   "https://oscarliang.com/wp-content/uploads/2023/08/Hota-F6-500W-4-Channel-LiPo-Battery-Charger-status-charging-voltage-current-power.jpg"
+  ]
+ },
+ {
   "id": "RC-0041",
   "slug": "hobbywing-fusion-8ight-motor-esc",
   "added": "2026-11-18",
