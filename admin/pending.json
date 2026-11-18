@@ -1015,7 +1015,7 @@
     "1:10"
    ],
    "price": 2380,
-   "include": true,
+   "include": false,
    "desc": "Constant Velocity Drive (CVD) shafts for the Rlaarlo S2 platform. These provide a more efficient transfer of power to the wheels compared to standard dogbones.",
    "fits": "Rlaarlo S2",
    "specs": {
@@ -1036,7 +1036,7 @@
     "https://radio-controlled.co.uk/wp-content/uploads/2025/10/R16044_1-600x600.webp"
    ],
    "searched": true,
-   "edited": "",
+   "edited": "2026-11-18T13:58:13.596Z",
    "added": false
   },
   {
