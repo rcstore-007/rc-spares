@@ -1801,7 +1801,7 @@
     "1:8"
    ],
    "price": 1200,
-   "include": true,
+   "include": false,
    "desc": "This pinion gear attaches to the motor shaft to drive the vehicle's transmission system. It is used to adjust the gear ratio for different speed and torque requirements.",
    "fits": "RC vehicles",
    "specs": {
@@ -1822,7 +1822,7 @@
     "https://www.trashop.eu/images/product_images/original_images/gpmmkv61034tsbk.jpg"
    ],
    "searched": true,
-   "edited": "",
+   "edited": "2026-11-18T12:52:34.524Z",
    "added": false
   },
   {
