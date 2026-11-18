@@ -1,5 +1,37 @@
 [
  {
+  "id": "RC-0075",
+  "slug": "scx30-wheels-and-tyres",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "SCX30 Wheels and Tyres",
+  "brand": "Generic",
+  "category": "Tyres & Wheels",
+  "price": 2500,
+  "scale": [
+   "1:30"
+  ],
+  "fits": "Axial SCX24, small-scale crawlers",
+  "desc": "These are pre-mounted wheels and tyres designed for small-scale crawlers. They provide the necessary traction and ground clearance for off-road driving.",
+  "specs": {
+   "Type": "Wheels and Tyres"
+  },
+  "updated": "2026-11-18",
+  "pending_images": [
+   "https://m.media-amazon.com/images/I/71OjuxAVK3L._AC_SL1500_.jpg"
+  ],
+  "pending_fallback": [
+   "https://m.media-amazon.com/images/I/71Yud1Z37RL._AC_SL1500_.jpg",
+   "https://m.media-amazon.com/images/I/81n-6ymePPL._AC_SL1500_.jpg",
+   "https://m.media-amazon.com/images/I/81CxQ5T4bhL._AC_SL1500_.jpg",
+   "https://m.media-amazon.com/images/I/81WtuwOsd5L._AC_SL1500_.jpg",
+   "https://m.media-amazon.com/images/I/81lLt+8iH-L._AC_SL1500_.jpg",
+   "https://m.media-amazon.com/images/I/71nPYDokbrL._AC_SL1500_.jpg",
+   "https://m.media-amazon.com/images/I/81PDw309uLL._AC_SL1500_.jpg"
+  ]
+ },
+ {
   "id": "RC-0074",
   "slug": "side-antenna-scale-accessory",
   "added": "2026-11-18",
