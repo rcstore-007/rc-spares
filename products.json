@@ -1,5 +1,26 @@
 [
  {
+  "id": "RC-0014",
+  "slug": "1-9-inch-crawler-tyres-set",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "1.9 inch Crawler Tyres (Set)",
+  "brand": "Generic",
+  "category": "Tyres & Wheels",
+  "price": 2000,
+  "scale": [
+   "1:10"
+  ],
+  "fits": "1/10 scale crawlers, TRX4, SCX10, FCX10",
+  "desc": "This is a complete set of 1.9 inch tires for 1/10 scale off-road vehicles. They are used to provide traction and durability during trail driving.",
+  "specs": {
+   "Size": "1.9 inch",
+   "Quantity": "Set"
+  },
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0013",
   "slug": "ptk-1-18-high-torque-servo",
   "added": "2026-11-18",
