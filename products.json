@@ -1,5 +1,40 @@
 [
  {
+  "id": "RC-0041",
+  "slug": "hobbywing-fusion-8ight-motor-esc",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "Hobbywing Fusion 8IGHT Motor/ESC",
+  "brand": "Hobbywing",
+  "category": "Motors & ESCs",
+  "price": 16000,
+  "scale": [
+   "1:8",
+   "1:10"
+  ],
+  "fits": "1/8 scale RC vehicles",
+  "desc": "This integrated unit combines a brushless motor and an electronic speed controller into a single housing. It is designed for 1/8 scale vehicles to save space and simplify the electronics setup.",
+  "specs": {
+   "Brand": "Hobbywing",
+   "Series": "Fusion 8IGHT",
+   "Type": "Motor/ESC Combo"
+  },
+  "updated": "2026-11-18",
+  "pending_images": [
+   "https://images.amainhobbies.com/images/large/hwa/hwa30120404.jpg"
+  ],
+  "pending_fallback": [
+   "https://images.amainhobbies.com/images/large/hwa/hwa30109100_1.jpg",
+   "https://down-th.img.susercontent.com/file/sg-11134201-7rccs-m69l0b7uuwn494",
+   "https://down-th.img.susercontent.com/file/sg-11134201-7reot-m2qfxeijd7s730",
+   "https://ae01.alicdn.com/kf/S630564b621b642f1806315fbf9cdccdeI.jpg",
+   "https://ae01.alicdn.com/kf/S5bbb30e255904397bad66e5271c8cd48r.jpg",
+   "https://ae01.alicdn.com/kf/S60e4990e9c0849099a7962aaf9427202N.jpg",
+   "https://cdn.abicart.com/shop/images/223034399-origpic-c869a2/ws59/140259/art59/h4399/HW30109100.jpg"
+  ]
+ },
+ {
   "id": "RC-0040",
   "slug": "flysky-r7d-receiver",
   "added": "2026-11-18",
