@@ -31,7 +31,11 @@
   "slug": "scx30-headlight-bar",
   "added": "2026-11-18",
   "pop": 5,
-  "images": [],
+  "images": [
+   "images/scx30-headlight-bar/1-59e1ca.jpg",
+   "images/scx30-headlight-bar/2-b78c45.jpg",
+   "images/scx30-headlight-bar/3-63148e.jpg"
+  ],
   "name": "SCX30 Headlight Bar",
   "brand": "Generic",
   "category": "Lights",
@@ -44,19 +48,7 @@
   "specs": {
    "Type": "LED"
   },
-  "updated": "2026-11-18",
-  "pending_images": [
-   "https://smallscalerc.com/wp-content/uploads/2026/02/Hobby-Details-SCX30-Bronco-LED-Light-Bar-3-1024x1024.jpg",
-   "https://www.powerhobby.com/cdn/shop/files/PHB7542.jpg?v=1778854656&width=1445",
-   "https://m.media-amazon.com/images/I/61SUIbwU+hL._AC_SL1200_.jpg"
-  ],
-  "pending_fallback": [
-   "https://m.media-amazon.com/images/I/61HfJi9unHL._AC_SL1286_.jpg",
-   "http://www.sy-rc.com/wp-content/uploads/2026/01/IMG_20260113_192255-副本-副本-副本.jpg",
-   "https://makerworld.bblmw.com/makerworld/model/USb892fefad2c81d/design/2026-01-14_c51547f8333218.png?x-oss-process=image/resize,w_1000/format,webp",
-   "https://www.modelsport.co.uk/_images/products/800/GPM-SCX30-lt-g.jpg",
-   "https://www.hobbyshop.ch/images/thumbnails/570/570/detailed/928/hobby-details-hddtscx3039w.jpg.jpg"
-  ]
+  "updated": "2026-11-18"
  },
  {
   "id": "RC-0068",
