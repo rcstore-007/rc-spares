@@ -1,5 +1,25 @@
 [
  {
+  "id": "RC-0077",
+  "slug": "1-10-scale-transparent-display-bag",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "1/10 Scale Transparent Display Bag",
+  "brand": "Generic",
+  "category": "Tools & Accessories",
+  "price": 999,
+  "scale": [
+   "1:10"
+  ],
+  "fits": "1/10 scale RC crawlers",
+  "desc": "A small transparent bag accessory used for scale detailing on 1/10 scale RC vehicles. It can be placed in the cargo area or roof rack for added realism.",
+  "specs": {
+   "Scale": "1/10"
+  },
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0076",
   "slug": "mjx-h18p-metal-differential-set",
   "added": "2026-11-18",
