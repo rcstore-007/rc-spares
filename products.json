@@ -4,7 +4,9 @@
   "slug": "flysky-r7d-receiver",
   "added": "2026-11-18",
   "pop": 5,
-  "images": [],
+  "images": [
+   "images/flysky-r7d-receiver/1-b5d048.jpg"
+  ],
   "name": "Flysky R7D Receiver",
   "brand": "Flysky",
   "category": "Radios & Receivers",
@@ -20,19 +22,7 @@
    "Channels": "7",
    "Brand": "Flysky"
   },
-  "updated": "2026-11-18",
-  "pending_images": [
-   "https://www.ariesrc.gr/33276-thickbox_default/flysky-fs-r7d-24g-ant-protocol-receiver-pwm-single-antenna-for-fs-g7p-g4p-st8.jpg"
-  ],
-  "pending_fallback": [
-   "https://www.rc-race-shop.de/media/40/69/ac/1776162657/flysky-fs026-flysky-r7d-ant-empfnger-7-kanal-mit-led-controller.jpg?ts=1776162657",
-   "https://www.picclickimg.com/WVMAAOSwcz1kJmkr/Flysky-RC-Transmitter-Receiver-24GHz-FS-R7D-for-FS-G7P.webp",
-   "https://cdn11.bigcommerce.com/s-sdwy6qdoez/images/stencil/1280x1280/products/31926/103463/fsy-fs-r7d__73782.1771016690.jpg?c=2",
-   "https://rcdrone.top/cdn/shop/files/Saee30b691f8e461a8e5b5dea7befbe588.webp?v=1714789592",
-   "https://rcdrone.top/cdn/shop/files/S7c49adda033d4ed3850c66f299c99b25o.webp?v=1707140072&width=1445",
-   "https://rcdrone.top/cdn/shop/files/Sab9592a7acd74ae5bf1589224c7f21bb1.webp?v=1711807710&width=1946",
-   "https://imgaz.staticbg.com/images/oaupload/banggood/images/5E/DA/4c44e8e7-5f00-4795-b2cf-c0121805f5c8.jpg.webp"
-  ]
+  "updated": "2026-11-18"
  },
  {
   "id": "RC-0039",
