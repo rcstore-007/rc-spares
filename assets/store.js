@@ -1,5 +1,6 @@
 /* RC store front-end. Used by the home/shop page (body data-page="home") and by each part page (data-page="part"). */
 (function(){
+  document.documentElement.classList.add('js');
   function data(id,fallback){var el=document.getElementById(id);if(!el)return fallback;try{return JSON.parse(el.textContent);}catch(e){return fallback;}}
   var S=data('store-settings',{});
   var P=data('products',[]);
@@ -140,7 +141,7 @@
       '<div class="cfoot"><span class="price">'+money(p.price)+'</span><button class="add'+(q?' in':'')+'" data-add="'+p.id+'">'+(q?'<span aria-hidden="true">✓</span> '+q+' in cart':'Add')+'</button></div></div></article>';
   }
   function renderHome(){
-    $('partCount').textContent=P.length+(P.length===1?' part':' parts');
+    if($('partCount'))$('partCount').textContent=P.length+(P.length===1?' part':' parts');
     $('tiles').innerHTML=CATS.map(function(c){
       var n=P.filter(function(p){return p.category===c;}).length;
       return '<button class="tile" style="'+cv(c)+'" data-go-cat="'+esc(c)+'"><div class="ic'+(CIMG[c]?' photo':'')+'">'+(CIMG[c]?'<img src="'+ROOT+esc(CIMG[c])+'" alt="'+esc(c)+'" loading="lazy">':art(c))+'</div><div><h3>'+esc(c)+'</h3><span>'+(n?n+(n===1?' part':' parts'):'')+'</span></div></button>';
@@ -180,6 +181,7 @@
     $('countLine').textContent=l.length+(l.length===1?' part':' parts')+(bits.length?' · '+bits.join(' · '):'');
     $('clearF').hidden=!(state.cat!=='All'||state.scale!=='All'||state.brand!=='All'||state.q);
     var rc='<div class="reqcard"><h3>Need a part that isn\'t here?</h3><p>We source parts on request for any brand and scale. Tell us what you need and we\'ll quote before you pay.</p><a href="'+ROOT+'index.html#request">Request a part</a></div>';
+    setTimeout(reveal,0);
     $('grid').innerHTML=l.length?l.map(card).join('')+rc:'<div class="empty">'+(P.length?'No parts match these filters right now.':'New parts are being added.')+' We can source parts on request, so tell us what you need.</div>'+rc;
   }
   function refresh(){renderFilters();renderGrid();}
@@ -238,6 +240,25 @@
     }
   }
 
+  /* ---------- Gentle motion: fade things in as they scroll into view, settle the header ---------- */
+  var io=('IntersectionObserver' in window)?new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{rootMargin:'0px 0px -6% 0px',threshold:.08}):null;
+  function reveal(){
+    if(!io){return;}
+    var n=0;
+    document.querySelectorAll('.tile,.card,.step,.source,.qs details,.head,.promise,.faq-side,.strip,.pinfo>*,.gallery').forEach(function(el){
+      if(el.classList.contains('rv'))return;
+      el.classList.add('rv');
+      var r=el.getBoundingClientRect();
+      if(r.top<innerHeight&&r.bottom>0){el.style.transitionDelay=Math.min(n++,8)*40+'ms';}
+      io.observe(el);
+    });
+  }
+  var lastS=false;
+  function onScroll(){var s=window.scrollY>8;if(s!==lastS){document.body.classList.toggle('scrolled',s);lastS=s;}}
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
   /* ---------- Events ---------- */
   document.addEventListener('click',function(e){
     var t=e.target.closest('[data-cat],[data-scale],[data-add],[data-open],[data-inc],[data-dec],[data-rm],[data-go-cat],[data-go-scale],[data-close],[data-go-request],[data-viewcart]');
@@ -274,9 +295,9 @@
     $('dAdd').addEventListener('click',function(e){if(cur)add(cur,e.currentTarget);});
     dlg.addEventListener('click',function(e){if(e.target===dlg)closeAll();});
     window.addEventListener('hashchange',route);
-    renderHome();refresh();renderReq();renderCart();route();
+    renderHome();refresh();renderReq();renderCart();route();reveal();
   } else {
-    initPart();renderCart();
+    initPart();renderCart();reveal();
     if(location.hash==='#cart')openCart();
   }
 })();

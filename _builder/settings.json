@@ -13,5 +13,6 @@
   "Gears & Drivetrain": "images/_categories/gears-drivetrain-e663cd.jpg",
   "Servos": "images/_categories/servos-f740b5.jpg",
   "Radios & Receivers": "images/_categories/radios-receivers-e24e10.jpg"
- }
+ },
+ "theme": "garage"
 }

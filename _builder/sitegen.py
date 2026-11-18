@@ -53,7 +53,8 @@ def json_block(data):
     return json.dumps(data, ensure_ascii=False, indent=1).replace("</", "<\\/")
 
 
-DEFAULT_BULK_NOTE = "Buying more than one? Message us on WhatsApp for a better price on multiple units."
+DEFAULT_BULK_NOTE = "Extra discount when you buy more than one unit."
+THEMES = ("garage", "midnight", "trackday")
 
 
 def delivery_text(settings):
@@ -117,12 +118,17 @@ def head(title, description, root, canonical="", image="", extra=""):
         f'<link rel="icon" type="image/png" href="{root}assets/favicon.png">',
         '<link rel="preconnect" href="https://fonts.googleapis.com">',
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
-        '<link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">',
+        '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">',
         f'<link rel="stylesheet" href="{root}assets/style.css">',
         extra,
         '</head>',
     ]
     return "\n".join(p for p in parts if p)
+
+
+def themed(html_text, settings):
+    t = settings.get("theme") if settings.get("theme") in THEMES else "garage"
+    return html_text.replace('<html lang="en-IN">', f'<html lang="en-IN" data-theme="{t}">', 1)
 
 
 def build_index(settings, products):
@@ -305,7 +311,7 @@ def build_sitemap(settings, products):
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "\n".join(urls) + "\n</urlset>\n")
 
 
-PUBLIC_KEYS = ("store_name", "whatsapp", "delivery", "delivery_days", "custom_domain", "site_url", "category_images", "bulk_note")
+PUBLIC_KEYS = ("store_name", "whatsapp", "delivery", "delivery_days", "custom_domain", "site_url", "category_images", "bulk_note", "theme")
 CATEGORY_DIR = "_categories"   # images/_categories/<file>.jpg
 
 
@@ -365,13 +371,13 @@ def build_site(site_dir, settings, products, tools=True, branch="main"):
             continue
         shutil.copy2(f, dst / f.name)
 
-    (site / "index.html").write_text(build_index(settings, products), encoding="utf-8")
+    (site / "index.html").write_text(themed(build_index(settings, products), settings), encoding="utf-8")
 
     keep = set()
     for p in products:
         name = f"{p['slug']}.html"
         keep.add(name)
-        (site / "parts" / name).write_text(build_part(settings, p), encoding="utf-8")
+        (site / "parts" / name).write_text(themed(build_part(settings, p), settings), encoding="utf-8")
     for f in (site / "parts").glob("*.html"):
         if f.name not in keep:
             f.unlink()
