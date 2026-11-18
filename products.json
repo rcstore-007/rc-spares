@@ -1,5 +1,38 @@
 [
  {
+  "id": "RC-0012",
+  "slug": "40kg-high-torque-servo",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "40kg High Torque Servo",
+  "brand": "Generic",
+  "category": "Servos",
+  "price": 1850,
+  "scale": [
+   "1:10",
+   "1:8"
+  ],
+  "fits": "1/10 and 1/8 scale RC cars, trucks, and crawlers",
+  "desc": "This is a high-torque digital servo capable of providing up to 40kg of pulling power. It is used for steering or other high-load applications in larger RC models.",
+  "specs": {
+   "Torque": "40kg"
+  },
+  "updated": "2026-11-18",
+  "pending_images": [
+   "https://rcbuying.com/wp-content/uploads/2025/07/RC2015994_1.jpg"
+  ],
+  "pending_fallback": [
+   "https://i5.walmartimages.com/seo/Waterproof-Servo-40Kg-High-Torque-Metal-Gear-Digital-Servo-for-1-8-1-10-1-12-RC-Car-Robot-270_ad452e06-a318-4ee2-a1f6-9a42c47e46d7.e858f3979598007fda5bb90f7aec2ff5.jpeg",
+   "https://img.bobshop.co.za/f_auto,q_auto:eco,d_notfound.png/https://imgaz.staticbg.com/thumb/large/oaupload/banggood/images/4A/3E/202d5680-6765-49b9-af56-cf2e74651602.jpg",
+   "https://rcbuying.com/wp-content/uploads/2025/07/RC2015994_2.jpg",
+   "https://lxrcmodel.com/wp-content/uploads/2026/01/8840MG-D-6.jpg",
+   "https://i.ebayimg.com/images/g/KpAAAOSwXT9k6G2D/s-l1200.jpg",
+   "https://img4.dhresource.com/webp/m/0x0/f3/albu/jc/s/12/dc56866d-1b89-4426-ad08-12fd59a14850.jpg",
+   "https://img.drz.lazcdn.com/g/kf/Sf98386d13a4c4f518a4b885bac5bba6bQ.jpg_720x720q80.jpg"
+  ]
+ },
+ {
   "id": "RC-0011",
   "slug": "rlaarlo-mk07-v2-brushless-esc",
   "added": "2026-11-18",
