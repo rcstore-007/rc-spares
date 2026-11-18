@@ -1,5 +1,39 @@
 [
  {
+  "id": "RC-0089",
+  "slug": "rlaarlo-1-7-15t-pinion",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "Rlaarlo 1/7 15T Pinion",
+  "brand": "Rlaarlo",
+  "category": "Gears & Drivetrain",
+  "price": 1399,
+  "scale": [
+   "1:7"
+  ],
+  "fits": "Rlaarlo 1/7 Scale Models",
+  "desc": "A 15-tooth pinion gear designed for 1/7 scale Rlaarlo vehicles. It attaches to the motor shaft to drive the main spur gear.",
+  "specs": {
+   "Brand": "Rlaarlo",
+   "Teeth": "15T",
+   "Scale": "1/7"
+  },
+  "updated": "2026-11-18",
+  "pending_images": [
+   "http://rlaarlo.com/cdn/shop/files/MK07-029_717920a8-82ce-4bfd-999c-23f8bf89feaa.jpg?v=1715246559"
+  ],
+  "pending_fallback": [
+   "https://rlaarlo.com/cdn/shop/files/R11155.jpg?v=1709088937&width=1946",
+   "https://rlaarlo.com/cdn/shop/files/R11155_4a5ee077-adb0-4070-be7b-6d3305c9df95.jpg?v=1709088917&width=1946",
+   "https://rlaarlo.com/cdn/shop/files/R11156.jpg?v=1709110791&width=1445",
+   "https://rlaarlo.com/cdn/shop/files/3-0418_a0e169b2-fa41-4ffc-80bf-7cb6ba66f184.jpg?v=1713429775&width=1445",
+   "https://i.ytimg.com/vi/ukQdbO0ZA9o/maxresdefault.jpg",
+   "https://www.quadifyrc.com/uploads/1/1/0/8/110856949/20221216-214114_orig.jpg",
+   "https://rlaarlo.com/cdn/shop/files/R11108_1.jpg?v=1731462095&width=3000"
+  ]
+ },
+ {
   "id": "RC-0088",
   "slug": "rlaarlo-1-7-diff-cover",
   "added": "2026-11-18",
