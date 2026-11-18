@@ -4,7 +4,9 @@
   "slug": "3-ton-scale-jack-for-1-18",
   "added": "2026-11-18",
   "pop": 5,
-  "images": [],
+  "images": [
+   "images/3-ton-scale-jack-for-1-18/1-b7ccbc.jpg"
+  ],
   "name": "3 Ton Scale Jack for 1/18",
   "brand": "Generic",
   "category": "Tools & Accessories",
@@ -19,19 +21,7 @@
    "Scale": "1/18",
    "Type": "Scale Accessory"
   },
-  "updated": "2026-11-18",
-  "pending_images": [
-   "https://i.ebayimg.com/images/g/dkYAAOSw-l5lBVNW/s-l1600.jpg"
-  ],
-  "pending_fallback": [
-   "https://www.redcatracing.com/cdn/shop/files/A-18_APEX_red_1.jpg?v=1758047869",
-   "https://i.etsystatic.com/35004503/r/il/f67bc1/7549614356/il_fullxfull.7549614356_t6mx.jpg",
-   "https://cdn.shopify.com/s/files/1/0279/0034/6416/files/DSC00765_650x.jpg?v=1684475031",
-   "https://ae01.alicdn.com/kf/H2a11596d80d64dec97bdfb5d6468db18e/Metal-Adjustable-Scissor-Jack-6-Ton-RC-Car-Lift-Repair-Tool-for-1-10-RC-Crawler.jpg",
-   "https://fbi.cults3d.com/uploaders/15681765/illustration-file/7654c372-d60d-46eb-8eab-d060abe5a1c9/20241205_134824.jpg",
-   "https://fbi.cults3d.com/uploaders/15681765/illustration-file/c39fdf9a-db5d-4207-a292-9aad75d270da/IMG_20240521_111325_edit_119392595596885.jpg",
-   "https://fbi.cults3d.com/uploaders/15681765/illustration-file/1de1c877-85d0-41de-afe1-bf3b9ac5657b/20241205_134638.jpg"
-  ]
+  "updated": "2026-11-18"
  },
  {
   "id": "RC-0027",
