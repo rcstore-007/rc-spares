@@ -1,5 +1,27 @@
 [
  {
+  "id": "RC-0087",
+  "slug": "rlaarlo-1-7-wheel-weights",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "Rlaarlo 1/7 Wheel Weights",
+  "brand": "Rlaarlo",
+  "category": "Tyres & Wheels",
+  "price": 6000,
+  "scale": [
+   "1:7"
+  ],
+  "fits": "Rlaarlo 1/7 Scale Models",
+  "desc": "These weights are installed on the wheels of 1/7 scale Rlaarlo vehicles. They lower the center of gravity and improve stability during high-speed runs.",
+  "specs": {
+   "Brand": "Rlaarlo",
+   "Scale": "1/7",
+   "Type": "Wheel Weights"
+  },
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0086",
   "slug": "mn128-brushless-esc-motor",
   "added": "2026-11-18",
