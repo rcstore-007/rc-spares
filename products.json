@@ -1,5 +1,28 @@
 [
  {
+  "id": "RC-0015",
+  "slug": "winch-controller",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [
+   "images/winch-controller/1-d50c43.jpg"
+  ],
+  "name": "Winch Controller",
+  "brand": "Generic",
+  "category": "Winch",
+  "price": 400,
+  "scale": [
+   "1:10",
+   "1:12",
+   "1:18",
+   "1:8"
+  ],
+  "fits": "RC winches",
+  "desc": "An electronic controller used to operate an RC winch from the vehicle's radio system. It regulates the power and direction of the winch motor.",
+  "specs": {},
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0014",
   "slug": "1-9-inch-crawler-tyres-set",
   "added": "2026-11-18",
