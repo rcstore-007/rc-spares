@@ -1361,7 +1361,7 @@
     "1:8"
    ],
    "price": 5100,
-   "include": true,
+   "include": false,
    "desc": "These are replacement tyres featuring the dBoots Fortress tread pattern for multi-surface traction. They are designed for durability and grip on off-road terrain.",
    "fits": "ARRMA vehicles",
    "specs": {
@@ -1382,7 +1382,7 @@
     "https://cdn.ecommercedns.uk/files/5/257435/6/49700426/ara-2024-boots-fortress-glued-tire-set-bronze.jpg"
    ],
    "searched": true,
-   "edited": "",
+   "edited": "2026-11-18T11:57:50.333Z",
    "added": false
   },
   {
