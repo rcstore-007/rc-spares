@@ -1,5 +1,26 @@
 [
  {
+  "id": "RC-0066",
+  "slug": "rlaarlo-mk07-differential-cup",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "Rlaarlo MK07 Differential Cup",
+  "brand": "Rlaarlo",
+  "category": "Gears & Drivetrain",
+  "price": 1520,
+  "scale": [
+   "1:7"
+  ],
+  "fits": "Rlaarlo MK07",
+  "desc": "This is a replacement differential cup for the Rlaarlo MK07. It houses the internal differential gears and connects to the outdrives.",
+  "specs": {
+   "Brand": "Rlaarlo",
+   "Part Type": "Differential Cup"
+  },
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0065",
   "slug": "red-spider-1-9-inch-beadlock-wheels",
   "added": "2026-11-18",
