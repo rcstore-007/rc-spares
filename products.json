@@ -6,7 +6,7 @@
   "updated": "2026-11-18",
   "pop": 5,
   "name": "ZH1.25 Connector",
-  "brand": "",
+  "brand": "Generic",
   "category": "Tools & Accessories",
   "scale": [
    "1:18",
@@ -17,7 +17,11 @@
   "fits": "",
   "desc": "",
   "specs": {},
-  "images": []
+  "images": [
+   "images/zh1-25-connector/1-73e862.jpg",
+   "images/zh1-25-connector/2-4dd2ea.jpg",
+   "images/zh1-25-connector/3-7565b2.jpg"
+  ]
  },
  {
   "id": "RC-0112",
