@@ -4,7 +4,9 @@
   "slug": "scx30-wheels-and-tyres",
   "added": "2026-11-18",
   "pop": 5,
-  "images": [],
+  "images": [
+   "images/scx30-wheels-and-tyres/1-28533c.jpg"
+  ],
   "name": "SCX30 Wheels and Tyres",
   "brand": "Generic",
   "category": "Tyres & Wheels",
@@ -17,19 +19,7 @@
   "specs": {
    "Type": "Wheels and Tyres"
   },
-  "updated": "2026-11-18",
-  "pending_images": [
-   "https://m.media-amazon.com/images/I/71OjuxAVK3L._AC_SL1500_.jpg"
-  ],
-  "pending_fallback": [
-   "https://m.media-amazon.com/images/I/71Yud1Z37RL._AC_SL1500_.jpg",
-   "https://m.media-amazon.com/images/I/81n-6ymePPL._AC_SL1500_.jpg",
-   "https://m.media-amazon.com/images/I/81CxQ5T4bhL._AC_SL1500_.jpg",
-   "https://m.media-amazon.com/images/I/81WtuwOsd5L._AC_SL1500_.jpg",
-   "https://m.media-amazon.com/images/I/81lLt+8iH-L._AC_SL1500_.jpg",
-   "https://m.media-amazon.com/images/I/71nPYDokbrL._AC_SL1500_.jpg",
-   "https://m.media-amazon.com/images/I/81PDw309uLL._AC_SL1500_.jpg"
-  ]
+  "updated": "2026-11-18"
  },
  {
   "id": "RC-0074",
