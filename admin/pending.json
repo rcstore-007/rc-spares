@@ -12,7 +12,7 @@
     "1:8"
    ],
    "price": 2120,
-   "include": true,
+   "include": false,
    "desc": "These extenders increase the track width of a vehicle by 13mm on each side. They are used to improve stability and provide clearance for larger tires.",
    "fits": "1/8 scale RC vehicles",
    "specs": {
@@ -33,7 +33,7 @@
     "https://m.media-amazon.com/images/I/61YF-e9o9bL._AC_SL1000_.jpg"
    ],
    "searched": true,
-   "edited": "2026-11-18T08:44:07+00:00",
+   "edited": "2026-11-18T11:49:08.985Z",
    "added": false
   },
   {
