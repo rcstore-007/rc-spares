@@ -1,5 +1,38 @@
 [
  {
+  "id": "RC-0024",
+  "slug": "winch",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "Winch",
+  "brand": "",
+  "category": "Winch",
+  "price": 1980,
+  "scale": [
+   "1:10",
+   "1:12"
+  ],
+  "fits": "1/10 scale crawlers and off-road RC vehicles",
+  "desc": "A steel winch designed for scale RC crawlers to assist in vehicle recovery and add realism. It provides a mechanical pulling point for vehicles stuck in difficult terrain.",
+  "specs": {
+   "Material": "Steel"
+  },
+  "updated": "2026-11-18",
+  "pending_images": [
+   "https://m.media-amazon.com/images/I/619w+Lw042L._AC_UF894,1000_QL80_.jpg"
+  ],
+  "pending_fallback": [
+   "https://m.media-amazon.com/images/I/61BkYzwFsWL._AC_SL1500_.jpg",
+   "https://images-na.ssl-images-amazon.com/images/I/61KMR2Ap86L._AC_SL1001_.jpg",
+   "https://i.ebayimg.com/images/g/JvgAAOSw1jNnLMvQ/s-l1600.jpg",
+   "https://images-na.ssl-images-amazon.com/images/I/616F4eTpZHL._AC_SL1001_.jpg",
+   "https://winchdiscount.com/wp-content/uploads/2025/10/img_6900c0c4d8f05.jpg",
+   "https://www.integy.com/product-images/C24886GREEN.jpg",
+   "https://m.media-amazon.com/images/I/61fMz3n8gnL._AC_UF894,1000_QL80_.jpg"
+  ]
+ },
+ {
   "id": "RC-0023",
   "slug": "tyre-glue",
   "added": "2026-11-18",
