@@ -592,7 +592,7 @@
     "1:18"
    ],
    "price": 750,
-   "include": true,
+   "include": false,
    "desc": "Replacement ball bearings designed for use in MJX 18210 series vehicles. They help maintain smooth rotation and reduce wear on drivetrain components.",
    "fits": "MJX 18210",
    "specs": {
@@ -613,7 +613,7 @@
     "https://www.seriousrc.co.uk/cdn/shop/files/rn-image_picker_lib_temp_fef227fe-ce48-4b54-a5f8-4f069a166b0f.png?v=1770400280"
    ],
    "searched": true,
-   "edited": "",
+   "edited": "2026-11-18T13:01:39.579Z",
    "added": false
   },
   {
