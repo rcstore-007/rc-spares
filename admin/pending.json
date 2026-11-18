@@ -661,7 +661,7 @@
     "1:18"
    ],
    "price": 875,
-   "include": true,
+   "include": false,
    "desc": "A set of replacement driveshafts for the MJX H18P vehicle. These components transfer power from the gearbox or differential to the wheels.",
    "fits": "MJX H18P",
    "specs": {
@@ -683,7 +683,7 @@
     "https://www.yikongrc.net/cdn/shop/files/MJX_Hyper_Go_H12Y_Upgrades_Front_And_Rear_Drive_Shafts_800x.jpg?v=1749886052"
    ],
    "searched": true,
-   "edited": "",
+   "edited": "2026-11-18T13:33:47.147Z",
    "added": false
   },
   {
