@@ -1,5 +1,29 @@
 [
  {
+  "id": "RC-0044",
+  "slug": "mjx-h18p-metal-servo-mount",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [
+   "images/mjx-h18p-metal-servo-mount/1-68fdfb.jpg"
+  ],
+  "name": "MJX H18P Metal Servo Mount",
+  "brand": "MJX",
+  "category": "Servos",
+  "price": 499,
+  "scale": [
+   "1:18"
+  ],
+  "fits": "MJX H18P",
+  "desc": "This mount is used to securely attach the steering servo to the vehicle's chassis. It ensures the servo remains stable for accurate steering response in the MJX H18P.",
+  "specs": {
+   "Brand": "MJX",
+   "Model": "H18P",
+   "Part Type": "Servo Mount"
+  },
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0043",
   "slug": "mjx-h18p-metal-gearbox",
   "added": "2026-11-18",
