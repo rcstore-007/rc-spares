@@ -1395,7 +1395,7 @@
     "1:10"
    ],
    "price": 2480,
-   "include": true,
+   "include": false,
    "desc": "This kit contains a set of ball bearings used to replace standard bushings or worn-out bearings in an RC drivetrain. They reduce friction and improve the efficiency of moving parts.",
    "fits": "",
    "specs": {
@@ -1415,7 +1415,7 @@
     "https://img.joomcdn.net/f632fffed390b199c53ab57f53e117595538e8cf_1024_1024.jpeg"
    ],
    "searched": true,
-   "edited": "",
+   "edited": "2026-11-18T11:57:59.273Z",
    "added": false
   },
   {
