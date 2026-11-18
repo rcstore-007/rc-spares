@@ -1,5 +1,39 @@
 [
  {
+  "id": "RC-0088",
+  "slug": "rlaarlo-1-7-diff-cover",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "Rlaarlo 1/7 Diff Cover",
+  "brand": "Rlaarlo",
+  "category": "Gears & Drivetrain",
+  "price": 2800,
+  "scale": [
+   "1:7"
+  ],
+  "fits": "Rlaarlo 1/7 Scale Models",
+  "desc": "A protective cover for the differential housing on 1/7 scale Rlaarlo chassis. It seals the gearbox to keep grease in and debris out.",
+  "specs": {
+   "Brand": "Rlaarlo",
+   "Scale": "1/7",
+   "Part Type": "Differential Cover"
+  },
+  "updated": "2026-11-18",
+  "pending_images": [
+   "http://rchotspot.com/cdn/shop/files/MK07-SP-304.jpg?v=1742996423",
+   "https://www.hobbyhabit.com.au/assets/full/R-MK07-305.jpg?20250314142202"
+  ],
+  "pending_fallback": [
+   "https://directrc.com/cdn/shop/files/mk-304_4.webp?v=1776408632&width=900",
+   "https://radio-controlled.co.uk/wp-content/uploads/2025/10/R11010_1.webp",
+   "https://fbi.cults3d.com/uploaders/49260387/illustration-file/43b4d787-2e6e-40f0-b659-bbfc177817e9/photo_5015261731797798108_y.jpg",
+   "https://fbi.cults3d.com/uploaders/26562512/illustration-file/ca5c4a30-2314-4483-b829-907077098dc7/Diffcage3.jpg",
+   "https://i.ytimg.com/vi/-8XtLv1V-_M/oardefault.jpg?sqp=-oaymwEkCJUDENAFSFqQAgHyq4qpAxMIARUAAAAAJQAAyEI9AICiQ3gB&rs=AOn4CLCVv3B65LGSUHOOrCR93SlbmecXTQ&usqp=CCk",
+   "https://cdn.shopify.com/s/files/1/0644/2749/1571/files/FRONT_AND_REAR_DIFFERENTIAL_DESIGN_1f32ed73-c161-44ac-9f27-4808d24fd415.jpg?v=1715138085"
+  ]
+ },
+ {
   "id": "RC-0087",
   "slug": "rlaarlo-1-7-wheel-weights",
   "added": "2026-11-18",
