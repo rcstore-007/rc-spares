@@ -1,5 +1,27 @@
 [
  {
+  "id": "RC-0032",
+  "slug": "mjx-h18p-metal-gearbox-gears-set",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "MJX H18P Metal Gearbox Gears Set",
+  "brand": "MJX",
+  "category": "Gears & Drivetrain",
+  "price": 1200,
+  "scale": [
+   "1:18"
+  ],
+  "fits": "MJX H18P",
+  "desc": "A set of durable metal gears designed for the MJX H18P drivetrain. These offer increased strength and longevity compared to standard plastic gears.",
+  "specs": {
+   "Brand": "MJX",
+   "Model": "H18P",
+   "Material": "Metal"
+  },
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0031",
   "slug": "flysky-g11p-transmitter-english",
   "added": "2026-11-18",
