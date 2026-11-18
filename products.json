@@ -1,5 +1,27 @@
 [
  {
+  "id": "RC-0059",
+  "slug": "70mm-oil-shocks",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "70mm Oil Shocks",
+  "brand": "Generic",
+  "category": "Shocks",
+  "price": 2500,
+  "scale": [
+   "1:18",
+   "1:12"
+  ],
+  "fits": "1/10 scale RC cars and crawlers",
+  "desc": "These are oil-filled shock absorbers designed to dampen vibrations and improve handling on RC vehicles. They are used to replace or upgrade standard shocks for better suspension performance.",
+  "specs": {
+   "Length": "70mm",
+   "Type": "Oil-filled"
+  },
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0058",
   "slug": "2-6-inch-wheels-and-tyres-for-1-7",
   "added": "2026-11-18",
