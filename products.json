@@ -1,5 +1,38 @@
 [
  {
+  "id": "RC-0049",
+  "slug": "rocket-rc-programming-card",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "Rocket RC Programming Card",
+  "brand": "Rocket RC",
+  "category": "Motors & ESCs",
+  "price": 900,
+  "scale": [
+   "1:10",
+   "1:8"
+  ],
+  "fits": "Rocket RC ESCs",
+  "desc": "This programming card is used to adjust the electronic settings of Rocket RC speed controllers. It allows users to modify parameters such as braking and acceleration profiles.",
+  "specs": {
+   "Brand": "Rocket RC"
+  },
+  "updated": "2026-11-18",
+  "pending_images": [
+   "https://down-ph.img.susercontent.com/file/cn-11134208-7r98o-lkt7vfw2c1698b"
+  ],
+  "pending_fallback": [
+   "https://down-my.img.susercontent.com/file/cn-11134207-7r98o-lkt1cp6on6y969",
+   "https://www.lightningrc.com/assets/images/Rocket+V2+ESC+Program+Card.png",
+   "https://thehobbiesgate.fr/17190-large_default/surpass-hobby-rocket-rc-130amp-sensored-brushless-esc-xt60-plug-w-program-card-sp-600001-15.jpg",
+   "https://h2-rd.com/cdn/shop/files/mmexport1739523995955_grande.jpg?v=1739524234",
+   "https://ae01.alicdn.com/kf/Sc55e4cb780c0488dba337572b1a1d906y.jpg",
+   "https://m.media-amazon.com/images/I/71mISXdan4L._AC_SL1500_.jpg",
+   "https://down-my.img.susercontent.com/file/cn-11134208-7r98o-lkt7vfw26ewhfd"
+  ]
+ },
+ {
   "id": "RC-0048",
   "slug": "hobbypark-65kg-servo",
   "added": "2026-11-18",
