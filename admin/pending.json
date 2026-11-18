@@ -1564,7 +1564,7 @@
     "1:30"
    ],
    "price": 2900,
-   "include": true,
+   "include": false,
    "desc": "This is a compact balance charger used for charging various types of RC batteries. It features a digital display and multiple charging modes.",
    "fits": "LiPo, LiFe, LiIon, NiMH batteries",
    "specs": {
@@ -1585,7 +1585,7 @@
     "https://www.hobbyrc.co.uk/images/thumbs/0016937_skyrc-b6-neo-dc-200w-charger.jpeg"
    ],
    "searched": true,
-   "edited": "",
+   "edited": "2026-11-18T13:05:57.419Z",
    "added": false
   },
   {
