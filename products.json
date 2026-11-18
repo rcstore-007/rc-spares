@@ -4,7 +4,9 @@
   "slug": "red-spider-1-9-inch-wheels-with-tyres",
   "added": "2026-11-18",
   "pop": 5,
-  "images": [],
+  "images": [
+   "images/red-spider-1-9-inch-wheels-with-tyres/1-9011fe.jpg"
+  ],
   "name": "Red Spider 1.9 inch Wheels with Tyres",
   "brand": "Red Spider",
   "category": "Tyres & Wheels",
@@ -18,19 +20,7 @@
    "Brand": "Red Spider",
    "Size": "1.9 inch"
   },
-  "updated": "2026-11-18",
-  "pending_images": [
-   "https://youcliq.com/wp-content/uploads/2025/11/Red-Spider-1.9-Inch-Bronze-Crawler-Wheels-with-95mm-Tires.jpg"
-  ],
-  "pending_fallback": [
-   "https://m.media-amazon.com/images/I/71FGxLGkiwL._AC_SL1500_.jpg",
-   "https://i.ebayimg.com/images/g/GhQAAOSww2ti8ywy/s-l1600.jpg",
-   "https://down-ph.img.susercontent.com/file/sg-11134201-7rbkm-lo8i09bbwz3kf6",
-   "https://ae01.alicdn.com/kf/S3386ab2f50cc4207b0cebefd31dfcc2c0.jpg",
-   "https://ae01.alicdn.com/kf/Sf8bd100a7a29466f8c0f6b65d4625785S.jpg",
-   "https://m.media-amazon.com/images/I/61tjfq1WigL._AC_SL1500_.jpg",
-   "https://m.media-amazon.com/images/I/71sIUeNOO5L.jpg"
-  ]
+  "updated": "2026-11-18"
  },
  {
   "id": "RC-0054",
