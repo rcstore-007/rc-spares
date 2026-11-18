@@ -3909,7 +3909,7 @@
     "1:30"
    ],
    "price": 29,
-   "include": true,
+   "include": false,
    "desc": "A compact electrical connector with a 1.25mm pin spacing used for wiring small electronic components. It is frequently used in micro-scale RC applications and sensors.",
    "fits": "Micro RC vehicles, flight controllers",
    "specs": {
@@ -3930,7 +3930,7 @@
     "https://ae01.alicdn.com/kf/H5102a0315f3b4a5ca6f60718849a67dfA.jpg"
    ],
    "searched": true,
-   "edited": "",
+   "edited": "2026-11-18T12:07:49.837Z",
    "added": false
   }
  ]
