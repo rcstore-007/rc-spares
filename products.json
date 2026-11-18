@@ -1,5 +1,31 @@
 [
  {
+  "id": "RC-0006",
+  "slug": "1-10-roof-light-bar",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [
+   "images/1-10-roof-light-bar/1-ec15e0.jpg",
+   "images/1-10-roof-light-bar/2-025520.jpg",
+   "images/1-10-roof-light-bar/3-f62ecf.jpg",
+   "images/1-10-roof-light-bar/4-73880e.jpg"
+  ],
+  "name": "1/10 Roof Light Bar",
+  "brand": "Generic",
+  "category": "Lights",
+  "price": 960,
+  "scale": [
+   "1:10",
+   "1:18"
+  ],
+  "fits": "1/10 scale RC crawlers and trucks",
+  "desc": "An LED light bar designed to be mounted on the roof of a 1/10 scale RC vehicle. It provides additional illumination for night driving and enhances the scale appearance.",
+  "specs": {
+   "Scale": "1/10"
+  },
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0005",
   "slug": "1-10-maintenance-stand",
   "added": "2026-11-18",
