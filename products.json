@@ -4,7 +4,9 @@
   "slug": "engine-sound-simulator",
   "added": "2026-11-18",
   "pop": 5,
-  "images": [],
+  "images": [
+   "images/engine-sound-simulator/1-1e19dd.jpg"
+  ],
   "name": "Engine Sound Simulator",
   "brand": "Generic",
   "category": "Lights",
@@ -18,19 +20,7 @@
   "specs": {
    "Function": "Sound Simulation"
   },
-  "updated": "2026-11-18",
-  "pending_images": [
-   "https://i5.walmartimages.com/seo/Enhanced-Volume-Size-Adjustment-Engine-Sound-Simulator-for-1-10-RC-Car-Realistic-Car-Sound-Effects_5e63d442-8ade-493f-9cb1-ce3be920c638.c9b6f8c8ca6edaf793480bf1302757db.jpeg"
-  ],
-  "pending_fallback": [
-   "https://m.media-amazon.com/images/S/aplus-media-library-service-media/cba00ed1-d9b0-410f-96b5-b0a06eff2d3e.__CR0,0,970,600_PT0_SX970_V1___.png",
-   "https://down-my.img.susercontent.com/file/30b1ee1299f4eb0d45f69979fcc7f3d5",
-   "https://i5.walmartimages.com/seo/Engine-Sound-Simulator-for-1-10-RC-Car-for-Popular-Remote-Controllers_d2b4cad5-aeff-42c0-b0ae-ab1bcdfb9632.e05033e1bd1b704d64c77c924722b121.jpeg",
-   "https://i.ebayimg.com/images/g/LjkAAeSw3pNq88Fn/s-l1600.jpg",
-   "https://down-my.img.susercontent.com/file/my-11134207-7qul4-lk54uf1jcm5633",
-   "https://down-my.img.susercontent.com/file/3edcd99d0c3a1628ca77ed631ea11b22",
-   "https://i.ebayimg.com/images/g/Mf4AAeSw5qRq88FZ/s-l500.jpg"
-  ]
+  "updated": "2026-11-18"
  },
  {
   "id": "RC-0032",
