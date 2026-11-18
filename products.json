@@ -1,5 +1,38 @@
 [
  {
+  "id": "RC-0005",
+  "slug": "1-10-maintenance-stand",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "1/10 Maintenance Stand",
+  "brand": "Generic",
+  "category": "Tools & Accessories",
+  "price": 1500,
+  "scale": [
+   "1:10",
+   "1:12"
+  ],
+  "fits": "1/10 scale RC cars",
+  "desc": "A rotating stand designed to hold 1/10 scale RC vehicles during repair or maintenance. It provides a stable platform to work on the chassis and suspension components.",
+  "specs": {
+   "Scale": "1/10"
+  },
+  "updated": "2026-11-18",
+  "pending_images": [
+   "https://m.media-amazon.com/images/I/61ZK3Pa9qgL.jpg_BO30,255,255,255_UF900,850_SR1910,1000,0,C_QL100_.jpg",
+   "https://m.media-amazon.com/images/I/61ldv3CMggL._AC_SL1500_.jpg"
+  ],
+  "pending_fallback": [
+   "https://m.media-amazon.com/images/I/61v6qsAeJLL._AC_SL1000_.jpg",
+   "https://i5.walmartimages.com/seo/guohui-RC-Car-Work-Stand-Compact-Repair-Workstation-for-1-8-1-10-1-14-Vehicle-C_81829e74-7a9a-40fa-9a45-fd47a5c21172.ac1166a23c227a65a3be168b14538cbd.jpeg",
+   "https://ae01.alicdn.com/kf/S67d486a4b4704322864f602173c2f2faj.jpg",
+   "https://www.imexrc.com/cdn/shop/files/ChatGPT_Image_Jun_1_2026_04_25_20_PM.png?v=1780345532&width=1080",
+   "https://down-ph.img.susercontent.com/file/sg-11134202-7rd4e-m7klk80fwems3d",
+   "https://down-my.img.susercontent.com/file/my-11134207-7rasb-mam8w9c0141670"
+  ]
+ },
+ {
   "id": "RC-0004",
   "slug": "1-9-inch-silicone-tyre-inserts",
   "added": "2026-11-18",
