@@ -3911,7 +3911,7 @@
     "1:5"
    ],
    "price": 1560,
-   "include": true,
+   "include": false,
    "desc": "A dedicated mounting bracket for installing a steering servo into the chassis. It provides a stable base to prevent movement under load.",
    "fits": "Traxxas X-Maxx",
    "specs": {
@@ -3931,7 +3931,7 @@
     "http://www.powerhobby.com/cdn/shop/products/phbtrx486black_1_1024x1024.jpg?v=1778831268"
    ],
    "searched": true,
-   "edited": "",
+   "edited": "2026-11-18T12:46:26.367Z",
    "added": false
   },
   {
