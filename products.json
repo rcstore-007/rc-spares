@@ -1,5 +1,40 @@
 [
  {
+  "id": "RC-0060",
+  "slug": "14t-32p-pinion-gear-5mm",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "14T 32P Pinion Gear (5mm)",
+  "brand": "Generic",
+  "category": "Gears & Drivetrain",
+  "price": 580,
+  "scale": [
+   "1:10",
+   "1:8"
+  ],
+  "fits": "RC cars with 32P spur gears and 5mm motor shafts",
+  "desc": "This is a 14-tooth pinion gear with a 32-pitch tooth profile. It is used to transfer power from the motor to the spur gear in various RC vehicles.",
+  "specs": {
+   "Teeth": "14T",
+   "Pitch": "32P",
+   "Shaft Diameter": "5mm"
+  },
+  "updated": "2026-11-18",
+  "pending_images": [
+   "https://mobileimages.lowes.com/productimages/b8168d88-7d34-4636-b43d-c0be209601e8/81746474.jpeg?size=pdhism"
+  ],
+  "pending_fallback": [
+   "https://cdn11.bigcommerce.com/s-xa1mg/images/stencil/1280x1280/products/22243/107739/IMG_2511__88470_copy__57483.1725461362.jpg?c=2",
+   "https://rc-today.ru/UserFiles/Image/53/85/shesternya_stalnaya_pinion_gear_14t_32p_dlya_vala_5mm_sws_32p_5_14t_68240e7805151_7931_big.png",
+   "https://cdn11.bigcommerce.com/s-xa1mg/images/stencil/1280x1280/products/22243/107741/IMG_2512__02727_copy__70697.1725461362.jpg?c=2",
+   "https://i.ebayimg.com/images/g/GK4AAOSwSlBY2EGT/s-l1600.jpg",
+   "https://i5.walmartimages.com/seo/Steel-40CRO-32P-Motor-Gear-Pinion-5MM-14T-for-1-5-1-6-1-8-1-10-RC-Buggy-Monster-Truck-Drift-Car-Off-Road-Crawler-Upgrade-Accessories_e154f1a1-e250-4429-a36f-2f058f2743b0.6af5d48db9411af82092e1df280bd2cf.jpeg?odnHeight=573&odnWidth=573&odnBg=FFFFFF",
+   "https://cdn.shoplightspeed.com/shops/619385/files/13456761/800x1024x2/robinson-racing-rrp8614-32p-pinion-gear-14t-5mm-bo.jpg",
+   "https://m.media-amazon.com/images/I/61MV6zGRH1L._SL1500_.jpg"
+  ]
+ },
+ {
   "id": "RC-0059",
   "slug": "70mm-oil-shocks",
   "added": "2026-11-18",
