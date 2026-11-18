@@ -1129,7 +1129,7 @@
     "1:30"
    ],
    "price": 1800,
-   "include": true,
+   "include": false,
    "desc": "This hex driver set is manufactured from S2 steel for increased durability and resistance to wear. It is used for tightening and loosening hex fasteners on various RC models.",
    "fits": "Universal",
    "specs": {
@@ -1149,7 +1149,7 @@
     "https://img.drz.lazcdn.com/g/kf/S66a3b28dac3c45b1b44fdf3d7346121eO.jpg_720x720q80.jpg"
    ],
    "searched": true,
-   "edited": "",
+   "edited": "2026-11-18T14:01:45.758Z",
    "added": false
   },
   {
