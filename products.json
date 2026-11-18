@@ -1408,7 +1408,9 @@
   "slug": "mjx-h18p-metal-gearbox-gears-set",
   "added": "2026-11-18",
   "pop": 5,
-  "images": [],
+  "images": [
+   "images/mjx-h18p-metal-gearbox-gears-set/1-db3cd2.jpg"
+  ],
   "name": "MJX H18P Metal Gearbox Gears Set",
   "brand": "MJX",
   "category": "Gears & Drivetrain",
