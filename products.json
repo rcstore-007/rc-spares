@@ -4,7 +4,10 @@
   "slug": "1-10-scale-buckle-straps-5-pcs",
   "added": "2026-11-18",
   "pop": 5,
-  "images": [],
+  "images": [
+   "images/1-10-scale-buckle-straps-5-pcs/1-43ab6a.jpg",
+   "images/1-10-scale-buckle-straps-5-pcs/2-da6640.jpg"
+  ],
   "name": "1/10 Scale Buckle Straps (5 pcs)",
   "brand": "Generic",
   "category": "Tools & Accessories",
@@ -20,19 +23,7 @@
    "Scale": "1/10",
    "Quantity": "5 pcs"
   },
-  "updated": "2026-11-18",
-  "pending_images": [
-   "https://m.media-amazon.com/images/I/51DehMxAdUL._AC_SL1200_.jpg",
-   "https://down-my.img.susercontent.com/file/sg-11134202-7qvg9-lh5rudf37alg03"
-  ],
-  "pending_fallback": [
-   "https://ae01.alicdn.com/kf/S1c8b93cbc7544af9b3b44ff03e2808d2G/5Pcs-Scale-Luggage-Rope-Roof-Rack-Tie-Down-Straps-Buckle-for-1-10-RC-Car-Crawler.jpg",
-   "https://crawlersncustoms.com/cdn/shop/products/image_7f3b6c52-364d-4a13-8229-1ffe8a60d22d.heic?v=1674245500&width=533",
-   "https://www.campbelltownhobbies.com.au/assets/full/YEA-YA-0371.webp?20250513014255",
-   "https://i5.walmartimages.com/seo/RC-Crawler-Car-Model-1-10-Scale-Metal-Rescue-Buckle-Accessory-Spare-Parts-DIY-Black-2PCS_930ded07-732d-46a4-b67c-d13d9129817c.359b072ffbe0b56386bc246cc8754f33.jpeg",
-   "https://i.etsystatic.com/23792362/r/il/8311bd/5166836361/il_1080xN.5166836361_jl00.jpg",
-   "https://bighornrc.co.za/wp-content/uploads/2023/03/IMG_1165.jpeg"
-  ]
+  "updated": "2026-11-18"
  },
  {
   "id": "RC-0008",
