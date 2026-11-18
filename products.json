@@ -1,5 +1,40 @@
 [
  {
+  "id": "RC-0039",
+  "slug": "flysky-r11p-receiver",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "Flysky R11P Receiver",
+  "brand": "Flysky",
+  "category": "Radios & Receivers",
+  "price": 2000,
+  "scale": [
+   "1:7",
+   "1:8",
+   "1:10"
+  ],
+  "fits": "Flysky transmitters",
+  "desc": "The Flysky R11P is an 11-channel receiver used to link your vehicle's electronics to a compatible Flysky transmitter. It provides multiple channels for controlling steering, throttle, and auxiliary functions.",
+  "specs": {
+   "Channels": "11",
+   "Brand": "Flysky"
+  },
+  "updated": "2026-11-18",
+  "pending_images": [
+   "https://images.squarespace-cdn.com/content/v1/5bc852d6b9144934c40d499c/ce86c775-febc-486a-9178-2fc73baeecb6/R11P.jpg"
+  ],
+  "pending_fallback": [
+   "https://images.squarespace-cdn.com/content/v1/5bc852d6b9144934c40d499c/54d709b5-7980-4fa0-b928-983c8bdb1509/L.png?format=500w",
+   "https://www.rc-race-shop.de/media/39/2e/7e/1776162660/flysky-fs098-flysky-r11p-ant-empfnger-11-kanal.jpg?ts=1776162660",
+   "https://www.modelsport.co.uk/_images/products/800/ABS-FS-R11P.jpg",
+   "https://www.ariesrc.gr/37763-thickbox_default/flysky-fs-r11p-bt-bs-24ghz-11ch-2a-bs-protocol-pwm-output-bi-directional-receiver-for-mg11-bt-bs-controller-rc.jpg",
+   "https://cdn11.bigcommerce.com/s-f2tfe1n/images/stencil/608x608/products/3262/12784/FS-R11P-1_1024x1024__57412.1773125462.jpg?c=2",
+   "https://dronkart.com/wp-content/uploads/2026/05/S7493127fbc5644caa96412f036543b45k.png",
+   "https://zonefpv.com/cdn/shop/files/S9e5a5e99b1ae4125822b1762c858d1a2Y.webp?v=1766048028&width=800"
+  ]
+ },
+ {
   "id": "RC-0038",
   "slug": "hobbywing-fusion-se-1800kv-motor-esc",
   "added": "2026-11-18",
