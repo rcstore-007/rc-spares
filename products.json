@@ -1,5 +1,38 @@
 [
  {
+  "id": "RC-0086",
+  "slug": "mn128-brushless-esc-motor",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "MN128 Brushless ESC & Motor",
+  "brand": "MN Model",
+  "category": "Motors & ESCs",
+  "price": 3380,
+  "scale": [
+   "1:12"
+  ],
+  "fits": "MN Model MN128",
+  "desc": "A brushless power system upgrade or replacement for the MN128 crawler. It includes both the electronic speed controller and the brushless motor.",
+  "specs": {
+   "Brand": "MN Model",
+   "Type": "Brushless"
+  },
+  "updated": "2026-11-18",
+  "pending_images": [
+   "https://img.drz.lazcdn.com/static/lk/p/9d6b94fc97019401fbaae46015ab5541.png_720x720q80.png",
+   "https://www.mnmodelrc.com/3535-large_default/mn-model-mn128-upgrade-parts-brushless-motor-brushless-esc-only-for-new-128-or-86-series.jpg"
+  ],
+  "pending_fallback": [
+   "https://down-ph.img.susercontent.com/file/cn-11134207-820l4-mjgt4b8339xgb0",
+   "https://ae01.alicdn.com/kf/Se35180bf2ed54f59bd6e765f9e04d694t.jpg",
+   "https://img.drz.lazcdn.com/g/kf/S18b5a17abf534dc18e634382ede7d5a15.jpg_720x720q80.jpg",
+   "https://down-ph.img.susercontent.com/file/cn-11134208-7ras8-m2kcu11vppg40d",
+   "https://down-ph.img.susercontent.com/file/cn-11134208-7ras8-m2kcu11voavod0",
+   "https://down-ph.img.susercontent.com/file/cn-11134208-7ras8-m2kcu11vvbpw36"
+  ]
+ },
+ {
   "id": "RC-0085",
   "slug": "scx30-servo",
   "added": "2026-11-18",
