@@ -1,5 +1,26 @@
 [
  {
+  "id": "RC-0064",
+  "slug": "1-9-inch-beadlock-wheels",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "1.9 inch Beadlock Wheels",
+  "brand": "Generic",
+  "category": "Tyres & Wheels",
+  "price": 3580,
+  "scale": [
+   "1:10"
+  ],
+  "fits": "1/10 scale crawlers, TRX4, SCX10",
+  "desc": "These 1.9 inch wheels feature a beadlock system that clamps the tire to the rim. This design allows for easy tire changes without the need for adhesive.",
+  "specs": {
+   "Size": "1.9 inch",
+   "Type": "Beadlock"
+  },
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0063",
   "slug": "mjx-1-12-differential-housing",
   "added": "2026-11-18",
