@@ -429,7 +429,7 @@ textarea{resize:vertical;min-height:84px}
      then one row per option: name, price (blank = main price), and an optional photo picked
      from this part's photos. Saved as variants:{label, options:[{name, price, img}]} where img
      is the photo's position (0 = photo 1). */
-  function VarEditor(box,getPhotos){
+  function VarEditor(box,getPhotos,addPhoto){
     var V={on:false,label:'',opts:[]};
     var css=document.createElement('style');
     css.textContent='.vbox{border:1px dashed #cbbfa8;border-radius:12px;padding:12px 14px;background:#fffdf8}'+
@@ -440,6 +440,8 @@ textarea{resize:vertical;min-height:84px}
       '.vrow .vimgs{grid-column:1/-1;display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:#6f6656}'+
       '.vrow .vimgs button{width:46px;height:46px;border-radius:8px;border:2px solid #e6dccb;background:#fff;padding:2px;cursor:pointer;font-size:11px;color:#6f6656}'+
       '.vrow .vimgs button img{width:100%;height:100%;object-fit:contain;display:block}'+
+      '.vrow .vimgs .vup{display:inline-grid;place-items:center;width:auto;height:46px;padding:0 12px;border:2px dashed #cbbfa8;border-radius:8px;cursor:pointer;font-weight:700;font-size:12.5px;color:#2e5e4e;background:#fffdf8}'+
+      '.vrow .vimgs .vup input{display:none}'+
       '.vrow .vimgs button[aria-pressed="true"]{border-color:#2e5e4e;box-shadow:0 0 0 2px rgba(46,94,78,.2)}'+
       '.vrow input{width:100%;min-width:0}'+
       '.vx{border:0;background:#f4ece0;border-radius:8px;width:36px;height:36px;font-size:18px;cursor:pointer}'+
@@ -449,7 +451,7 @@ textarea{resize:vertical;min-height:84px}
     box.innerHTML='<label class="vtick"><input type="checkbox" class="vOn"> This part has variations <span style="font-weight:500;color:#6f6656">(colour, size, CC…)</span></label>'+
       '<div class="vbody" hidden><label class="f">Varied by<input type="text" class="vLabel" placeholder="e.g. Colour, Size, CC" maxlength="30"></label>'+
       '<div class="vrows"></div><div><button type="button" class="btn plain vAdd">+ Add option</button></div>'+
-      '<p class="vhint">Leave the price blank to use the main price. Tap a photo to show it when a customer picks that option (add the photos above first).</p></div>';
+      '<p class="vhint">Leave the price blank to use the main price. For each option you can tap one of this part&#39;s photos or add a new one. It shows when a customer picks that option.</p></div>';
     var q=function(s){return box.querySelector(s);};
     function esc2(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
     function word(){var l=V.label.trim();return l?l.toLowerCase():'option';}
@@ -461,7 +463,8 @@ textarea{resize:vertical;min-height:84px}
         return '<div class="vrow" data-i="'+i+'"><input type="text" class="vN" placeholder="'+esc2(V.label.trim()||'Option')+' '+(i+1)+' (e.g. '+(i%2?'Red':'Blue')+')" value="'+esc2(o.name)+'" maxlength="40">'+
           '<input type="number" class="vP" placeholder="₹ (optional)" min="1" step="1" value="'+esc2(o.price)+'">'+
           '<button type="button" class="vx" aria-label="Remove this option">×</button>'+
-          '<div class="vimgs">'+(ph.length?'Photo: <button type="button" data-ref="" aria-pressed="'+(!o.ref)+'">None</button>'+ph.map(function(p,n){return '<button type="button" data-ref="'+esc2(p.ref)+'" aria-pressed="'+(o.ref===p.ref)+'" title="Photo '+(n+1)+'"><img src="'+esc2(p.src)+'" alt="Photo '+(n+1)+'"></button>';}).join(''):'No photos chosen yet.')+'</div></div>';
+          '<div class="vimgs">Photo: <button type="button" data-ref="" aria-pressed="'+(!o.ref)+'">None</button>'+ph.map(function(p,n){return '<button type="button" data-ref="'+esc2(p.ref)+'" aria-pressed="'+(o.ref===p.ref)+'" title="Photo '+(n+1)+'"><img src="'+esc2(p.src)+'" alt="Photo '+(n+1)+'"></button>';}).join('')+
+          (addPhoto?'<label class="vup">+ Add photo<input type="file" accept="image/*" class="vFile"></label>':'')+'</div></div>';
       }).join('');
       q('.vAdd').textContent='+ Add '+word();
     }
@@ -474,7 +477,15 @@ textarea{resize:vertical;min-height:84px}
       if(e.target.classList.contains('vN'))o.name=e.target.value;
       if(e.target.classList.contains('vP'))o.price=e.target.value;
     });
+    q('.vrows').addEventListener('change',function(e){
+      if(!e.target.classList.contains('vFile')||!e.target.files.length)return;
+      var r=e.target.closest('.vrow'),o=V.opts[+r.dataset.i],file=e.target.files[0];e.target.value='';
+      var lab=e.target.parentNode;lab.firstChild.textContent='Adding…';
+      Promise.resolve().then(function(){return addPhoto(file);}).then(function(ph){o.ref=ph.ref;render();})
+        .catch(function(err){lab.firstChild.textContent='+ Add photo';alert(err&&err.message?err.message:'That photo could not be added.');});
+    });
     q('.vrows').addEventListener('click',function(e){
+      if(e.target.closest('.vup'))return;
       var r=e.target.closest('.vrow');if(!r)return;var i=+r.dataset.i;
       if(e.target.closest('.vx')){V.opts.splice(i,1);render();return;}
       var b=e.target.closest('[data-ref]');if(b){V.opts[i].ref=b.getAttribute('data-ref')||null;render();}
@@ -513,7 +524,10 @@ textarea{resize:vertical;min-height:84px}
     };
   }
 
-  var VE=VarEditor($('vEd'),vePhotos);
+  var VE=VarEditor($('vEd'),vePhotos,function(file){
+    if(F.photos.length>=8)throw new Error('This part already has 8 photos. Remove one at the top first.');
+    return shrink(file).then(function(p){F.photos.push(p);renderPhotos();return {ref:phRef(p),src:p.src};});
+  });
   function resetForm(){
     F={editing:null,pending:null,photos:[],scales:[],sugg:[]};VE.reset();
     $('suggBox').hidden=true;

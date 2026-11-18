@@ -11,6 +11,7 @@ website/
 """
 
 import datetime as dt
+import hashlib
 import html
 import json
 import re
@@ -19,6 +20,14 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 TEMPLATE = HERE / "site_template"
+
+
+def asset_v(name):
+    """Short fingerprint of an asset file, added to its link so browsers fetch the new version after an update."""
+    try:
+        return hashlib.md5((TEMPLATE / "assets" / name).read_bytes()).hexdigest()[:8]
+    except OSError:
+        return "1"
 
 CATEGORIES = ["Motors & ESCs", "Tyres & Wheels", "Shocks", "Batteries & Chargers",
               "Gears & Drivetrain", "Servos", "Lights", "Winch",
@@ -152,7 +161,7 @@ def head(title, description, root, canonical="", image="", extra=""):
         '<link rel="preconnect" href="https://fonts.googleapis.com">',
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
         '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">',
-        f'<link rel="stylesheet" href="{root}assets/style.css">',
+        f'<link rel="stylesheet" href="{root}assets/style.css?v={asset_v("style.css")}">',
         extra,
         '</head>',
     ]
@@ -186,7 +195,7 @@ def build_index(settings, products):
         fill(partial("cart"), settings, ""),
         f'<script id="store-settings" type="application/json">{json_block(pub)}</script>',
         f'<script id="products" type="application/json">{json_block([dict(p, variants=clean_variants(p.get("variants"), len(p.get("images") or []))) for p in products])}</script>',
-        '<script src="assets/store.js"></script>',
+        f'<script src="assets/store.js?v={asset_v("store.js")}"></script>',
         '</body>',
         '</html>',
     ])
@@ -316,7 +325,7 @@ def build_part(settings, p):
         fill(partial("cart"), settings, root),
         f'<script id="store-settings" type="application/json">{json_block(pub)}</script>',
         f'<script id="products" type="application/json">{json_block([product_for_js])}</script>',
-        '<script src="../assets/store.js"></script>',
+        f'<script src="../assets/store.js?v={asset_v("store.js")}"></script>',
         '</body>',
         '</html>',
     ])

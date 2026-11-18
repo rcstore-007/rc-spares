@@ -3,9 +3,15 @@
     <a class="logo" href="{{ROOT}}index.html#home" aria-label="{{STORE}} home">{{MARK}}<span class="wm"><b>{{STORE_HTML}}</b><small>Parts for every scale</small></span></a>
     <div class="links">
       <a href="{{ROOT}}index.html#home" data-nav="home">Home</a>
+      <button type="button" class="srchbtn" id="openSearch" aria-label="Search parts" aria-expanded="false"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button>
       <a href="{{ROOT}}index.html#shop" data-nav="shop">Shop</a>
       <a href="{{ROOT}}index.html#faq" data-nav="faq">FAQ</a>
     </div>
     <button class="cartbtn" id="openCart"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 4h2l2.4 11h11l2-8H6.2"/><circle cx="9" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg><span class="lbl">Cart</span><b id="count">0</b></button>
   </div>
+  <form class="srchbar" id="srchBar" role="search" hidden>
+    <div class="wrap"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input type="search" id="srchIn" placeholder="Search parts, brands or cars (e.g. Hobbywing, TRX-4, 1:10)" autocomplete="off" aria-label="Search parts">
+      <button type="button" id="closeSearch" aria-label="Close search">✕</button></div>
+  </form>
 </nav>
