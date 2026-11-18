@@ -1,5 +1,28 @@
 [
  {
+  "id": "RC-0061",
+  "slug": "light-control-module",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "Light Control Module",
+  "brand": "Generic",
+  "category": "Lights",
+  "price": 400,
+  "scale": [
+   "1:10",
+   "1:18",
+   "1:12",
+   "1:8"
+  ],
+  "fits": "RC cars and trucks",
+  "desc": "A module used to manage and control the lighting systems on an RC vehicle. It allows the user to toggle lights or change modes through the transmitter.",
+  "specs": {
+   "Type": "Light Control"
+  },
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0060",
   "slug": "14t-32p-pinion-gear-5mm",
   "added": "2026-11-18",
