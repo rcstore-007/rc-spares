@@ -1,5 +1,30 @@
 [
  {
+  "id": "RC-0095",
+  "slug": "red-spider-1-10-scale-headlight",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [
+   "images/red-spider-1-10-scale-headlight/1-3f2a75.jpg",
+   "images/red-spider-1-10-scale-headlight/2-a10b3f.jpg",
+   "images/red-spider-1-10-scale-headlight/3-e5d416.jpg",
+   "images/red-spider-1-10-scale-headlight/4-5e6f73.jpg"
+  ],
+  "name": "Red spider 1/10 Scale headlight",
+  "brand": "Redspider",
+  "category": "Lights",
+  "price": 699,
+  "scale": [
+   "1:10",
+   "1:12",
+   "1:8"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0094",
   "slug": "mjx-h18p-metal-clearance-links",
   "added": "2026-11-18",
