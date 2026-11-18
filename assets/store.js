@@ -6,7 +6,8 @@
   var PAGE=document.body.getAttribute('data-page')||'home';
   var ROOT=document.body.getAttribute('data-root')||'';
   var CUR=S.currency||'₹';
-  var DAYS=S.deliveryDays||15;
+  var DAYS=S.delivery||'15–21';
+  var CIMG=S.categoryImages||{};
 
   var CATS=['Motors & ESCs','Tyres & Wheels','Shocks','Batteries & Chargers','Gears & Drivetrain','Servos','Lights','Winch'];
   var SCALES=['1:5','1:7','1:8','1:10','1:12','1:18','1:24','1:30'];
@@ -111,11 +112,11 @@
     $('partCount').textContent=P.length+(P.length===1?' part':' parts');
     $('tiles').innerHTML=CATS.map(function(c){
       var n=P.filter(function(p){return p.category===c;}).length;
-      return '<button class="tile" style="'+cv(c)+'" data-go-cat="'+esc(c)+'"><div class="ic">'+art(c)+'</div><div><h3>'+esc(c)+'</h3><span>'+(n?n+(n===1?' part':' parts'):'On request')+'</span></div></button>';
+      return '<button class="tile" style="'+cv(c)+'" data-go-cat="'+esc(c)+'"><div class="ic'+(CIMG[c]?' photo':'')+'">'+(CIMG[c]?'<img src="'+ROOT+esc(CIMG[c])+'" alt="'+esc(c)+'" loading="lazy">':art(c))+'</div><div><h3>'+esc(c)+'</h3><span>'+(n?n+(n===1?' part':' parts'):'')+'</span></div></button>';
     }).join('');
     $('scaleCards').innerHTML=SCALES.map(function(s,i){
       var n=P.filter(function(p){return (p.scale||[]).indexOf(s)>=0;}).length;
-      return '<button class="scale-card" style="--sc:'+SC[i%SC.length]+'" data-go-scale="'+s+'"><b>'+s+'</b><span>'+(n?n+(n===1?' part':' parts'):'On request')+'</span></button>';
+      return '<button class="scale-card" style="--sc:'+SC[i%SC.length]+'" data-go-scale="'+s+'"><b>'+s+'</b><span>'+(n?n+(n===1?' part':' parts'):'Scale')+'</span></button>';
     }).join('');
     var top=P.slice().sort(function(a,b){return (b.pop||0)-(a.pop||0)||String(b.added||'').localeCompare(String(a.added||''));}).slice(0,4);
     $('popularBlock').hidden=!top.length;
@@ -161,7 +162,7 @@
     $('dDesc').textContent=p.desc||'';
     var r='<tr><td>Scale</td><td>'+esc((p.scale||[]).join(', '))+'</td></tr>'+(p.fits?'<tr><td>Fits</td><td>'+esc(p.fits)+'</td></tr>':'');
     Object.keys(p.specs||{}).forEach(function(k){r+='<tr><td>'+esc(k)+'</td><td>'+esc(p.specs[k])+'</td></tr>';});
-    r+='<tr><td>Delivery</td><td>Within '+DAYS+' days</td></tr>';
+    r+='<tr><td>Delivery</td><td>'+DAYS+' days</td></tr>';
     $('dSpecs').innerHTML=r;
     $('dMore').href=partURL(p);
     dlg.classList.add('open');scrim.classList.add('open');$('closeDlg').focus();

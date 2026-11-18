@@ -1,0 +1,159 @@
+<!-- ============ HOME ============ -->
+<div id="view-home">
+  <header class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Spare parts for RC cars, trucks and crawlers</div>
+        <h1>The part you need, <span>at a fair price.</span></h1>
+        <p>Motors, tyres, shocks, batteries, servos, lights and winches from 1:5 down to 1:30 scale. Choose your parts and send the order to us on WhatsApp.</p>
+        <div class="ctas">
+          <a class="btn primary" href="index.html#shop">Browse parts</a>
+          <a class="btn plain" href="index.html#faq">How ordering works</a>
+        </div>
+        <div class="facts">
+          <div><b>{{DAYS}} days</b>delivery across India</div>
+          <div><b>WhatsApp</b>orders and help</div>
+          <div><b id="partCount">0 parts</b>listed in the shop</div>
+        </div>
+      </div>
+      <div class="hero-pic" aria-hidden="true">
+        <svg viewBox="0 0 420 300" stroke-linecap="round" stroke-linejoin="round">
+          <ellipse cx="212" cy="262" rx="170" ry="10" fill="#2a2420" opacity=".25"/>
+          <path d="M70 168 L104 128 L170 116 L200 86 L280 86 L304 116 L352 126 L362 168 Z" fill="#b8442f" stroke="#2a2420" stroke-width="3"/>
+          <path d="M210 96 L270 96 L288 116 L196 116 Z" fill="#cfe0ec" stroke="#2a2420" stroke-width="3"/>
+          <path d="M110 140 H330" stroke="#fbf7ef" stroke-width="6"/>
+          <rect x="58" y="164" width="316" height="14" rx="5" fill="#2a2420"/>
+          <path d="M120 178 L138 196 M300 178 L282 196" stroke="#e2a72e" stroke-width="7"/>
+          <g><circle cx="116" cy="214" r="46" fill="#2a2420"/><circle cx="116" cy="214" r="48" fill="none" stroke="#2a2420" stroke-width="6" stroke-dasharray="7 6"/><circle cx="116" cy="214" r="22" fill="#e2a72e"/><circle cx="116" cy="214" r="6" fill="#2a2420"/></g>
+          <g><circle cx="306" cy="214" r="46" fill="#2a2420"/><circle cx="306" cy="214" r="48" fill="none" stroke="#2a2420" stroke-width="6" stroke-dasharray="7 6"/><circle cx="306" cy="214" r="22" fill="#e2a72e"/><circle cx="306" cy="214" r="6" fill="#2a2420"/></g>
+          <rect x="202" y="68" width="68" height="10" rx="4" fill="#2a2420"/>
+          <circle cx="216" cy="73" r="3.5" fill="#f6e3a0"/><circle cx="236" cy="73" r="3.5" fill="#f6e3a0"/><circle cx="256" cy="73" r="3.5" fill="#f6e3a0"/>
+          <path d="M352 140 h10" stroke="#f6e3a0" stroke-width="8"/>
+        </svg>
+        <span class="tag" style="top:16px;left:16px"><i style="background:#25a35a"></i>Order on WhatsApp</span>
+        <span class="tag" style="bottom:16px;right:16px"><i style="background:#e2a72e"></i>Sourced on request</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="block" style="padding-top:12px">
+    <div class="wrap">
+      <div class="head"><div><h2>Shop by category</h2><p>Pick a category, then narrow it down by scale.</p></div><a class="more" href="index.html#shop">See all parts →</a></div>
+      <div class="tiles" id="tiles"></div>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0">
+    <div class="wrap">
+      <div class="head"><div><h2>Shop by scale</h2><p>Not sure? The scale is usually printed on your car's box or manual.</p></div></div>
+      <div class="scales" id="scaleCards"></div>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0" id="popularBlock">
+    <div class="wrap">
+      <div class="head"><div><h2>Popular parts</h2><p>What customers order most often.</p></div><a class="more" href="index.html#shop">See all →</a></div>
+      <div class="grid" id="featured" style="padding-bottom:0"></div>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0">
+    <div class="wrap">
+      <div class="head"><h2>How to order</h2></div>
+      <div class="steps">
+        <div class="step"><span class="n">1</span><h3>Add parts to your cart</h3><p>Use the category and scale filters to find parts that fit your car.</p></div>
+        <div class="step"><span class="n">2</span><h3>Send the order on WhatsApp</h3><p>Enter your name and city, then tap send. Your order is typed out for you.</p></div>
+        <div class="step"><span class="n">3</span><h3>We confirm and ship</h3><p>We reply with shipping and payment details. Parts arrive in {{DAYS}} days.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="padding-top:0">
+    <div class="wrap">
+      <div class="source">
+        <div>
+          <h2>Can't find your part? We'll source it for you.</h2>
+          <p>We don't list everything we can get. Tell us what you need and we'll find it, from any brand and any scale.</p>
+          <ul>
+            <li>Send the part name, or a photo of the broken part</li>
+            <li>Tell us your car's model and scale</li>
+            <li>We reply with the price and delivery time before you pay</li>
+          </ul>
+        </div>
+        <form class="rq" id="rqForm">
+          <label for="rqPart">Part you need<input id="rqPart" placeholder="e.g. Rear hub carrier, steering knuckle"></label>
+          <label for="rqCar">Your car and scale<input id="rqCar" placeholder="e.g. Arrma Kraton 6S, 1:8"></label>
+          <label for="rqName">Your name<input id="rqName" autocomplete="name"></label>
+          <a class="wa" id="rqBtn" href="#">Ask for this part on WhatsApp</a>
+          <p class="note" id="rqHint"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="faq" style="padding-top:0">
+    <div class="wrap faq">
+      <div class="faq-side">
+        <h2 style="font-size:clamp(24px,3vw,30px)">Frequently asked questions</h2>
+        <p>Have another question? Message us on WhatsApp and we'll reply as soon as we can.</p>
+      </div>
+      <div class="qs">
+        <details open><summary>How long does delivery take?</summary><p>Orders are delivered in {{DAYS}} days after payment is confirmed. Some arrive sooner, depending on where you are.</p></details>
+        <details><summary>How do I place an order?</summary><p>Add parts to your cart, enter your name and city, and tap "Send order on WhatsApp". Your order reaches us as a message and we reply to confirm it.</p></details>
+        <details><summary>How do I pay?</summary><p>Once we confirm your order and the shipping cost on WhatsApp, we share the payment details. We dispatch after payment is received.</p></details>
+        <details><summary>How much is shipping?</summary><p>It depends on your location and the size of the order. We tell you the exact amount on WhatsApp before you pay.</p></details>
+        <details><summary>How do I know which scale my car is?</summary><p>The scale (for example 1:10 or 1:8) is printed on the box and in the manual. You can also send us your car's name or a photo on WhatsApp.</p></details>
+        <details><summary>How do I know a part fits my car?</summary><p>Each part lists the models and scale it fits. If you're unsure, add your car's name in the order note and we will check before confirming.</p></details>
+        <details><summary>What if a part is wrong or damaged?</summary><p>Message us on WhatsApp within 48 hours of delivery with photos of the part and packaging, and we'll arrange a replacement or return.</p></details>
+        <details><summary>Can you get a part that isn't listed?</summary><p>Yes, we source parts on request. Send us the part name, your car's model and scale, or a photo of the old part. We reply with the price and delivery time before you pay anything.</p></details>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ SHOP ============ -->
+<div id="view-shop" hidden>
+  <div class="shop-top">
+    <div class="wrap">
+      <h1>All parts</h1>
+      <p>Prices in ₹. Delivery in {{DAYS}} days across India.</p>
+      <div class="controls">
+        <label for="q" class="sr">Search parts</label>
+        <input id="q" type="search" placeholder="Search by part, brand or car (e.g. Slash, 3S, winch)">
+        <label for="brandSel" class="sr">Brand</label>
+        <select id="brandSel"></select>
+        <label for="sortSel" class="sr">Sort</label>
+        <select id="sortSel">
+          <option value="pop">Most popular</option>
+          <option value="new">Newest first</option>
+          <option value="lo">Price: low to high</option>
+          <option value="hi">Price: high to low</option>
+          <option value="az">Name A–Z</option>
+        </select>
+      </div>
+      <div class="filter"><span class="lab">Category</span><div class="chips" id="catChips"></div></div>
+      <div class="filter"><span class="lab">Scale</span><div class="chips" id="scaleChips"></div></div>
+      <div class="strip"><span><b>Part not listed?</b> We source parts on request for any brand and scale.</span><a href="index.html#request" data-go-request>Request a part →</a></div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="count-line"><span id="countLine"></span><button class="clear" id="clearF" hidden>Clear filters</button></div>
+    <div class="grid" id="grid"></div>
+  </div>
+</div>
+
+<div class="dlg" id="dlg" role="dialog" aria-modal="true" aria-labelledby="dTitle">
+  <div class="dbox">
+    <button class="x" id="closeDlg" aria-label="Close">✕</button>
+    <div class="dpic" id="dPic"></div>
+    <div class="dtxt">
+      <div class="cbrand" id="dBrand"></div>
+      <h3 id="dTitle"></h3>
+      <div><span class="price" id="dPrice"></span></div>
+      <p id="dDesc"></p>
+      <table class="specs" id="dSpecs"></table>
+      <button class="add" id="dAdd" style="padding:11px">Add to cart</button>
+      <a class="dlink" id="dMore" href="#">See full details →</a>
+    </div>
+  </div>
+</div>

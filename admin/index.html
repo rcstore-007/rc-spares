@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#2e5e4e">
+<title>Store app</title>
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="../assets/logo-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f1e9d8;--paper:#fbf7ef;--sand:#e7dcc5;--ink:#2a2420;--muted:#6f6556;--line:#dccfb6;
+  --green:#2e5e4e;--mustard:#e2a72e;--brick:#b8442f;--denim:#3d6a8c;
+  --font:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.5;padding-bottom:env(safe-area-inset-bottom)}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+h1,h2,h3{margin:0;line-height:1.2}
+[hidden]{display:none !important}
+.wrap{max-width:640px;margin:0 auto;padding:0 14px}
+
+.top{background:var(--paper);border-bottom:4px solid;border-image:linear-gradient(90deg,var(--green) 0 25%,var(--mustard) 25% 50%,var(--brick) 50% 75%,var(--denim) 75%) 1;padding-top:env(safe-area-inset-top)}
+.top .wrap{display:flex;align-items:center;gap:10px;height:56px}
+.top img{width:34px;height:34px}
+.top b{font-weight:800}
+.top small{display:block;font-size:11px;color:var(--green);font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.top .sp{margin-left:auto}
+.link{background:none;border:0;color:var(--green);font-weight:700;cursor:pointer;padding:6px}
+
+.tabs{display:flex;gap:6px;margin:14px 0}
+.tab{flex:1;border:1px solid var(--line);background:var(--paper);padding:10px;border-radius:10px;font-weight:700;cursor:pointer}
+.tab[aria-selected="true"]{background:var(--green);border-color:var(--green);color:#fff}
+
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:12px}
+.card h2{font-size:19px;margin-bottom:10px}
+label.f{display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:700;color:var(--muted);margin-bottom:12px}
+label.f .req{color:var(--brick)}
+input[type=text],input[type=number],input[type=password],select,textarea{background:#fff;border:1px solid var(--line);border-radius:10px;padding:11px 12px;width:100%;font-size:16px}
+textarea{resize:vertical;min-height:84px}
+.btn{border:1px solid transparent;border-radius:11px;padding:12px 18px;font-weight:700;cursor:pointer;background:var(--green);color:#fff;font-size:16px}
+.btn.plain{background:#fff;border-color:var(--line);color:var(--ink)}
+.btn.danger{background:#fff;border-color:#e7b9ae;color:var(--brick)}
+.btn.full{width:100%}
+.btn[disabled]{opacity:.55}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.row>.btn{flex:1}
+.hint{font-size:13px;color:var(--muted);margin:4px 0 0}
+.msg{border-radius:10px;padding:10px 12px;font-size:14px;margin:10px 0}
+.msg.info{background:#e6eef4;border:1px solid #bfd2e1}
+.msg.warn{background:#f6e3c0;border:1px solid #e9c98a}
+.msg.err{background:#f6d8d1;border:1px solid #e7b9ae}
+.msg.ok{background:#d8efdf;border:1px solid #a9d8b8}
+
+.photos{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0}
+.ph{position:relative;aspect-ratio:1;border:2px solid var(--line);border-radius:12px;background:#fff;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:contain}
+.ph .n{position:absolute;top:5px;left:5px;background:var(--green);color:#fff;border-radius:999px;min-width:24px;height:24px;display:grid;place-items:center;font-weight:800;font-size:12px;padding:0 6px}
+.ph .acts{position:absolute;bottom:0;left:0;right:0;display:flex}
+.ph .acts button{flex:1;border:0;background:rgba(251,247,239,.94);font-size:12px;font-weight:700;padding:6px 0;cursor:pointer}
+.ph .acts button+button{border-left:1px solid var(--line);color:var(--brick)}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 13px;font-weight:700;cursor:pointer;font-size:14px}
+.chip[aria-pressed="true"]{background:var(--mustard);border-color:var(--mustard)}
+
+.list{display:flex;flex-direction:column;gap:8px}
+.item{display:grid;grid-template-columns:56px 1fr;gap:10px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:10px}
+.item img,.item .noimg{width:56px;height:56px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:8px}
+.item .noimg{display:grid;place-items:center;font-size:10px;color:var(--muted)}
+.item b{display:block;line-height:1.3}
+.item .meta{font-size:13px;color:var(--muted)}
+.item .row{grid-column:1/-1}
+.item .row .btn{padding:8px 12px;font-size:14px}
+
+.modal{position:fixed;inset:0;background:rgba(42,36,32,.5);display:flex;align-items:flex-end;justify-content:center;z-index:50}
+.mbox{background:var(--paper);border-radius:18px 18px 0 0;width:100%;max-width:640px;max-height:92vh;overflow:auto;padding:20px 16px calc(20px + env(safe-area-inset-bottom))}
+.mbox h2{font-size:20px;margin-bottom:12px}
+.sum{display:grid;grid-template-columns:110px 1fr;gap:12px}
+.sum img,.sum .noimg{width:110px;height:110px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:12px}
+.sum dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:3px 10px;font-size:14px}
+.sum dt{color:var(--muted)}
+.sum dd{margin:0;font-weight:700}
+.spin{width:36px;height:36px;border:4px solid var(--sand);border-top-color:var(--green);border-radius:50%;animation:sp .9s linear infinite;margin:14px auto}
+@keyframes sp{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.spin{animation-duration:3s}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <img src="../assets/logo-mark.png" alt="">
+    <div><b id="storeName">Store</b><small>Phone app</small></div>
+    <button class="link sp" id="lockBtn" hidden>Lock</button>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- ===== LOCK ===== -->
+  <section id="lock" style="margin-top:20px">
+    <div class="card">
+      <h2>Enter your password</h2>
+      <form id="lockForm">
+        <label class="f">Password<input type="password" id="pw" autocomplete="current-password"></label>
+        <label style="display:flex;gap:8px;align-items:center;font-size:14px;margin-bottom:12px"><input type="checkbox" id="remember" checked> Remember on this phone</label>
+        <button class="btn full" id="unlockBtn">Unlock</button>
+      </form>
+      <div id="lockMsg"></div>
+    </div>
+    <p class="hint">Tip: in your phone browser's menu, choose <b>Add to Home screen</b> to open this like an app.</p>
+  </section>
+
+  <!-- ===== APP ===== -->
+  <section id="app" hidden>
+    <div class="tabs" role="tablist">
+      <button class="tab" data-tab="add" aria-selected="true">Add a part</button>
+      <button class="tab" data-tab="list" aria-selected="false">My parts (<span id="nParts">0</span>)</button>
+    </div>
+
+    <div id="tab-add">
+      <div class="card">
+        <h2 id="formTitle">Add a part</h2>
+        <label class="f"><span>Product name <span class="req">*</span></span><input type="text" id="fName" placeholder="e.g. Hobbywing QuicRun 10BL120"></label>
+        <button class="btn plain full" type="button" id="aiBtn">Fill in details with AI</button>
+        <div id="aiMsg"></div>
+      </div>
+
+      <div class="card">
+        <h2>Photos</h2>
+        <p class="hint">Up to 4. Photo 1 is the main photo.</p>
+        <div class="photos" id="photos"></div>
+        <div class="row">
+          <label class="btn plain" for="camIn" style="text-align:center">Take photo</label>
+          <label class="btn plain" for="galIn" style="text-align:center">Choose photos</label>
+        </div>
+        <input type="file" id="camIn" accept="image/*" capture="environment" hidden>
+        <input type="file" id="galIn" accept="image/*" multiple hidden>
+      </div>
+
+      <div class="card">
+        <h2>Details</h2>
+        <label class="f"><span>Price in ₹ <span class="req">*</span></span><input type="number" id="fPrice" inputmode="numeric" min="1" step="1" placeholder="e.g. 6450"></label>
+        <label class="f"><span>Category <span class="req">*</span></span><select id="fCat"></select></label>
+        <div class="f" style="display:block;font-size:13px;font-weight:700;color:var(--muted);margin-bottom:12px"><span>Scale <span class="req">*</span> (tap all that fit)</span><div class="chips" id="fScales" style="margin-top:6px"></div></div>
+        <label class="f">Brand<input type="text" id="fBrand"></label>
+        <label class="f">Fits (cars or models)<input type="text" id="fFits"></label>
+        <label class="f">Description<textarea id="fDesc" rows="4"></textarea></label>
+        <label class="f"><span>Specs (one per line, like Current: 120A)</span><textarea id="fSpecs" rows="3"></textarea></label>
+        <div id="formErr"></div>
+        <div class="row">
+          <button class="btn plain" type="button" id="cancelBtn">Clear</button>
+          <button class="btn" type="button" id="reviewBtn">Review and add</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="tab-list" hidden>
+      <div class="card" style="padding:12px"><input type="text" id="listQ" placeholder="Search your parts" aria-label="Search your parts"></div>
+      <div class="list" id="list"></div>
+    </div>
+  </section>
+</main>
+
+<div class="modal" id="modal" hidden><div class="mbox" id="mbox"></div></div>
+
+<script>
+(function(){
+  var CATS=['Motors & ESCs','Tyres & Wheels','Shocks','Batteries & Chargers','Gears & Drivetrain','Servos','Lights','Winch'];
+  var SCALES=['1:5','1:7','1:8','1:10','1:12','1:18','1:24','1:30'];
+  var $=function(id){return document.getElementById(id);};
+  var CFG=null, PRODUCTS=[], F=null;
+
+  function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function msg(el,kind,text){$(el).innerHTML=text?'<div class="msg '+kind+'">'+text+'</div>':'';}
+  function money(n){return '₹'+Number(n||0).toLocaleString('en-IN');}
+  function store(k,v){try{if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v);}catch(e){}}
+  function load(k){try{return localStorage.getItem(k);}catch(e){return null;}}
+  function today(){return new Date().toISOString().slice(0,10);}
+  function slugify(t){return String(t).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,70).replace(/-+$/,'')||'part';}
+
+  /* ---------- unlock (keys are encrypted with your password) ---------- */
+  function b64d(s){var b=atob(s),u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return u;}
+  async function decrypt(pw,blob){
+    var base=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
+    var key=await crypto.subtle.deriveKey({name:'PBKDF2',salt:b64d(blob.salt),iterations:blob.iter,hash:'SHA-256'},base,{name:'AES-GCM',length:256},false,['decrypt']);
+    var out=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64d(blob.iv)},key,b64d(blob.data));
+    return JSON.parse(new TextDecoder().decode(out));
+  }
+  async function unlock(pw){
+    var r;
+    try{r=await fetch('config.enc.json',{cache:'no-store'});}catch(e){throw new Error('No internet connection.');}
+    if(!r.ok)throw new Error('Phone access is not set up yet. On your computer open the RC Store app → Settings → Phone access.');
+    var blob=await r.json();
+    try{CFG=await decrypt(pw,blob);}catch(e){throw new Error('Wrong password.');}
+  }
+  $('lockForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var pw=$('pw').value;if(!pw)return;
+    $('unlockBtn').disabled=true;msg('lockMsg','info','Unlocking…');
+    unlock(pw).then(function(){
+      if($('remember').checked)store('rc-admin-pw',pw);
+      $('pw').value='';msg('lockMsg','',null);openApp();
+    }).catch(function(err){msg('lockMsg','err',esc(err.message));store('rc-admin-pw',null);})
+    .then(function(){$('unlockBtn').disabled=false;});
+  });
+  $('lockBtn').addEventListener('click',function(){store('rc-admin-pw',null);CFG=null;location.reload();});
+
+  function openApp(){
+    $('lock').hidden=true;$('app').hidden=false;$('lockBtn').hidden=false;
+    $('storeName').textContent=CFG.store_name||'Store';
+    $('fCat').innerHTML='<option value="">Choose…</option>'+CATS.map(function(c){return '<option>'+esc(c)+'</option>';}).join('');
+    resetForm();refreshList();
+  }
+
+  /* ---------- GitHub ---------- */
+  function ghMsg(status,m){
+    if(status===401)return 'GitHub refused the token. It may have expired: make a new one and save Phone access again on your computer.';
+    if(status===403||status===404)return 'GitHub: '+(m||'not allowed')+'. Check the token permissions.';
+    return 'GitHub error '+status+(m?': '+m:'');
+  }
+  function gh(method,path,body,accept){
+    var h={'Authorization':'Bearer '+CFG.token,'Accept':accept||'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'};
+    if(body)h['Content-Type']='application/json';
+    return fetch('https://api.github.com/repos/'+CFG.user+'/'+CFG.repo+path,{method:method,headers:h,body:body?JSON.stringify(body):undefined,cache:'no-store'})
+      .catch(function(){throw new Error('No internet connection.');})
+      .then(function(r){
+        if(!r.ok)return r.json().catch(function(){return {};}).then(function(j){var e=new Error(ghMsg(r.status,j.message));e.status=r.status;throw e;});
+        if(accept&&accept.indexOf('raw')>=0)return r.text();
+        return r.status===204?{}:r.json();
+      });
+  }
+  async function snapshot(){
+    var br=CFG.branch||'main';
+    var ref=await gh('GET','/git/ref/heads/'+br);
+    var head=ref.object.sha;
+    var tree=(await gh('GET','/git/commits/'+head)).tree.sha;
+    var list=[];
+    try{list=JSON.parse(await gh('GET','/contents/products.json?ref='+head,null,'application/vnd.github.raw'));}
+    catch(e){if(e.status!==404)throw e;}
+    return {head:head,tree:tree,products:list};
+  }
+  async function refreshList(){
+    try{var s=await snapshot();PRODUCTS=s.products;}catch(e){msg('aiMsg','err',esc(e.message));}
+    $('nParts').textContent=PRODUCTS.length;renderList();
+  }
+  // change(products) returns {products, add:{path:base64}, del:[paths]}
+  async function commit(change,message){
+    for(var attempt=0;attempt<2;attempt++){
+      var s=await snapshot();
+      var c=await change(JSON.parse(JSON.stringify(s.products)));
+      var entries=[];
+      var pj=await gh('POST','/git/blobs',{content:JSON.stringify(c.products,null,1),encoding:'utf-8'});
+      entries.push({path:'products.json',mode:'100644',type:'blob',sha:pj.sha});
+      for(var path in (c.add||{})){
+        var b=await gh('POST','/git/blobs',{content:c.add[path],encoding:'base64'});
+        entries.push({path:path,mode:'100644',type:'blob',sha:b.sha});
+      }
+      if(c.del&&c.del.length){
+        var all=(await gh('GET','/git/trees/'+s.tree+'?recursive=1')).tree.map(function(t){return t.path;});
+        c.del.forEach(function(p){if(all.indexOf(p)>=0)entries.push({path:p,mode:'100644',type:'blob',sha:null});});
+      }
+      var t=await gh('POST','/git/trees',{base_tree:s.tree,tree:entries});
+      var cm=await gh('POST','/git/commits',{message:message,tree:t.sha,parents:[s.head]});
+      try{await gh('PATCH','/git/refs/heads/'+(CFG.branch||'main'),{sha:cm.sha});PRODUCTS=c.products;return c;}
+      catch(e){if(attempt===1||e.status!==422)throw e;}   // someone else saved at the same moment: try again
+    }
+  }
+
+  /* ---------- AI (Gemini, free tier) ---------- */
+  var PROMPT='You write product listings for a small online shop in India that sells RC car spare parts.\n\nProduct the shop owner typed: "{name}"\n\nUse Google Search if available to check the product. Return ONLY a JSON object with these keys:\n- "name": clean product title, brand first if known, max 80 characters\n- "brand": brand name, or ""\n- "description": 2 to 3 plain sentences for a hobbyist customer: what the part is, what it is used for, one or two key facts. No hype, no emojis, no prices, no shipping promises.\n- "fits": short list of RC models or vehicle types it fits, or ""\n- "specs": object of up to 6 key specifications. Only facts you are sure of.\n- "category": exactly one of '+JSON.stringify(CATS)+'\n- "scales": list using only these values: '+JSON.stringify(SCALES)+'\n- "notes": one short sentence telling the shop owner anything uncertain they should check, or ""\nNever invent compatibility or specs you are not sure about.';
+  var GBASE='https://generativelanguage.googleapis.com/v1beta';
+  var FALLBACK=['gemini-2.5-flash','gemini-3.5-flash','gemini-3-flash-preview','gemini-2.5-flash-lite','gemini-3.1-flash-lite'];
+  var SKIP=['image','tts','live','audio','embedding','robotics','thinking','learnlm','gemma','aqa'];
+  async function models(){
+    var order=[load('rc-ai-model'),CFG.gemini_model].concat(FALLBACK).filter(Boolean),avail=[];
+    try{
+      var r=await fetch(GBASE+'/models?pageSize=1000&key='+encodeURIComponent(CFG.gemini_key));
+      if(r.status===400||r.status===403)throw new Error('Google refused the Gemini key.');
+      if(r.ok)avail=((await r.json()).models||[]).filter(function(m){return (m.supportedGenerationMethods||[]).indexOf('generateContent')>=0;})
+        .map(function(m){return m.name.replace('models/','');}).filter(function(n){return n.indexOf('gemini')===0&&!SKIP.some(function(w){return n.indexOf(w)>=0;});});
+    }catch(e){if(e.message.indexOf('refused')>=0)throw e;}
+    if(avail.length){
+      order=order.filter(function(m){return avail.indexOf(m)>=0;});
+      avail.sort(function(a,b){return (a.indexOf('flash')<0)-(b.indexOf('flash')<0)||(a.indexOf('lite')>=0)-(b.indexOf('lite')>=0);}).forEach(function(m){if(order.indexOf(m)<0)order.push(m);});
+    }
+    return order.filter(function(m,i){return order.indexOf(m)===i;}).slice(0,5);
+  }
+  function parseJSON(t){t=String(t||'').trim().replace(/^```(?:json)?/,'').replace(/```$/,'').trim();var a=t.indexOf('{'),b=t.lastIndexOf('}');return JSON.parse(t.slice(a,b+1));}
+  async function writeListing(name){
+    var tried=[],list=await models();
+    for(var i=0;i<list.length;i++){
+      var m=list[i];
+      var bodies=[
+        {contents:[{role:'user',parts:[{text:PROMPT.replace('{name}',name)}]}],tools:[{google_search:{}}],generationConfig:{temperature:0.3}},
+        {contents:[{role:'user',parts:[{text:PROMPT.replace('{name}',name)}]}],generationConfig:{temperature:0.3,responseMimeType:'application/json'}}
+      ];
+      for(var j=0;j<bodies.length;j++){
+        var r;
+        try{r=await fetch(GBASE+'/models/'+m+':generateContent?key='+encodeURIComponent(CFG.gemini_key),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(bodies[j])});}
+        catch(e){tried.push(m+': no connection');break;}
+        var j2=await r.json().catch(function(){return {};});
+        if(r.ok){
+          try{
+            var parts=j2.candidates[0].content.parts,text=parts.map(function(p){return p.text||'';}).join('');
+            var d=parseJSON(text);store('rc-ai-model',m);return d;
+          }catch(e){tried.push(m+': reply could not be read');continue;}
+        }
+        var em=(j2.error&&j2.error.message)||('error '+r.status);
+        if(r.status===400&&j===0)continue;          // this model can't search: try without search
+        tried.push(m+': '+(r.status===429?'free limit reached':em.slice(0,100)));break;
+      }
+    }
+    throw new Error('AI could not write the details. '+tried.slice(0,3).join(' | '));
+  }
+  $('aiBtn').addEventListener('click',function(){
+    var name=$('fName').value.trim();if(!name){msg('aiMsg','warn','Type the product name first.');return;}
+    var b=this;b.disabled=true;msg('aiMsg','info','<div class="spin"></div><div style="text-align:center">Writing details… about 10–30 seconds.</div>');
+    writeListing(name).then(function(d){
+      if(d.name)$('fName').value=String(d.name).slice(0,90);
+      $('fBrand').value=d.brand||'';$('fFits').value=d.fits||'';$('fDesc').value=d.description||'';
+      var sp=d.specs&&typeof d.specs==='object'?d.specs:{};
+      $('fSpecs').value=Object.keys(sp).slice(0,6).map(function(k){return k+': '+sp[k];}).join('\n');
+      if(CATS.indexOf(d.category)>=0)$('fCat').value=d.category;
+      F.scales=(d.scales||[]).filter(function(s){return SCALES.indexOf(s)>=0;});renderScales();
+      msg('aiMsg','info','AI filled in the details. <b>Check them</b> and add the price.'+(d.notes?'<br><b>Check:</b> '+esc(d.notes):''));
+    }).catch(function(e){msg('aiMsg','warn',esc(e.message)+' You can type the details yourself.');})
+    .then(function(){b.disabled=false;});
+  });
+
+  /* ---------- photos ---------- */
+  async function shrink(file){
+    var bmp;
+    try{bmp=await createImageBitmap(file,{imageOrientation:'from-image'});}catch(e){bmp=await createImageBitmap(file);}
+    var s=Math.min(1,1200/Math.max(bmp.width,bmp.height)),c=document.createElement('canvas');
+    c.width=Math.round(bmp.width*s);c.height=Math.round(bmp.height*s);
+    var x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);x.drawImage(bmp,0,0,c.width,c.height);
+    var url=c.toDataURL('image/jpeg',0.85);
+    return {kind:'new',src:url,data:url.split(',')[1]};
+  }
+  function addFiles(files){
+    [].slice.call(files).forEach(function(f){
+      if(F.photos.length>=4)return;
+      F.photos.push({kind:'loading',src:''});renderPhotos();
+      var slot=F.photos[F.photos.length-1];
+      shrink(f).then(function(p){var i=F.photos.indexOf(slot);if(i>=0)F.photos[i]=p;renderPhotos();})
+      .catch(function(){var i=F.photos.indexOf(slot);if(i>=0)F.photos.splice(i,1);renderPhotos();msg('formErr','warn','One photo could not be read. Try another.');});
+    });
+  }
+  $('camIn').addEventListener('change',function(){addFiles(this.files);this.value='';});
+  $('galIn').addEventListener('change',function(){addFiles(this.files);this.value='';});
+  function renderPhotos(){
+    $('photos').innerHTML=F.photos.map(function(p,i){
+      if(p.kind==='loading')return '<div class="ph"><div class="spin"></div></div>';
+      return '<div class="ph"><img src="'+esc(p.src)+'" alt=""><span class="n">'+(i+1)+'</span><div class="acts">'+(i?'<button data-main="'+i+'">Main</button>':'')+'<button data-rmp="'+i+'">Remove</button></div></div>';
+    }).join('');
+  }
+  $('photos').addEventListener('click',function(e){
+    var m=e.target.closest('[data-main]'),r=e.target.closest('[data-rmp]');
+    if(m){var p=F.photos.splice(+m.dataset.main,1)[0];F.photos.unshift(p);renderPhotos();}
+    if(r){F.photos.splice(+r.dataset.rmp,1);renderPhotos();}
+  });
+
+  function renderScales(){
+    $('fScales').innerHTML=SCALES.map(function(s){return '<button type="button" class="chip" data-s="'+s+'" aria-pressed="'+(F.scales.indexOf(s)>=0)+'">'+s+'</button>';}).join('');
+  }
+  $('fScales').addEventListener('click',function(e){
+    var b=e.target.closest('[data-s]');if(!b)return;var i=F.scales.indexOf(b.dataset.s);
+    if(i>=0)F.scales.splice(i,1);else F.scales.push(b.dataset.s);renderScales();
+  });
+
+  function resetForm(){
+    F={editing:null,photos:[],scales:[]};
+    ['fName','fBrand','fPrice','fFits','fDesc','fSpecs'].forEach(function(id){$(id).value='';});
+    $('fCat').value='';msg('aiMsg','',null);msg('formErr','',null);
+    $('formTitle').textContent='Add a part';$('reviewBtn').textContent='Review and add';
+    renderScales();renderPhotos();
+  }
+  $('cancelBtn').addEventListener('click',resetForm);
+
+  /* ---------- review + save ---------- */
+  function collect(){
+    var specs={};
+    $('fSpecs').value.split('\n').forEach(function(l){var i=l.indexOf(':');if(i>0){var k=l.slice(0,i).trim(),v=l.slice(i+1).trim();if(k&&v)specs[k.slice(0,40)]=v.slice(0,80);}});
+    return {name:$('fName').value.trim().slice(0,90),brand:$('fBrand').value.trim().slice(0,40),category:$('fCat').value,
+      price:parseInt(String($('fPrice').value).replace(/[^\d]/g,''),10)||0,scale:F.scales.slice(),fits:$('fFits').value.trim().slice(0,160),
+      desc:$('fDesc').value.trim().slice(0,600),specs:specs};
+  }
+  $('reviewBtn').addEventListener('click',function(){
+    var d=collect(),err=[];
+    if(!d.name)err.push('Product name is missing.');
+    if(!(d.price>0))err.push('Add a price.');
+    if(!d.category)err.push('Choose a category.');
+    if(!d.scale.length)err.push('Tap at least one scale.');
+    if(F.photos.some(function(p){return p.kind==='loading';}))err.push('Wait for the photos to finish loading.');
+    if(err.length){msg('formErr','err',err.join('<br>'));return;}
+    msg('formErr','',null);
+    var img=F.photos[0]?'<img src="'+esc(F.photos[0].src)+'" alt="">':'<div class="noimg"></div>';
+    modal('<h2>'+(F.editing?'Save these changes?':'Add this part to the website?')+'</h2><div class="sum">'+img+'<dl>'+
+      '<dt>Name</dt><dd>'+esc(d.name)+'</dd><dt>Price</dt><dd>'+money(d.price)+'</dd><dt>Category</dt><dd>'+esc(d.category)+'</dd>'+
+      '<dt>Scale</dt><dd>'+esc(d.scale.join(', '))+'</dd><dt>Photos</dt><dd>'+F.photos.length+'</dd></dl></div>'+
+      (d.desc?'<p class="hint" style="margin-top:12px">'+esc(d.desc)+'</p>':'')+
+      '<div class="row" style="margin-top:14px"><button class="btn plain" data-close>Change</button><button class="btn" id="okBtn">OK, '+(F.editing?'save':'add')+'</button></div>');
+    $('okBtn').addEventListener('click',function(){save(d);});
+  });
+
+  async function hash6(b64){var h=await crypto.subtle.digest('SHA-1',b64d(b64));return [].slice.call(new Uint8Array(h)).slice(0,3).map(function(x){return ('0'+x.toString(16)).slice(-2);}).join('');}
+
+  function save(d){
+    modal('<h2>Saving…</h2><div class="spin"></div><p class="hint" style="text-align:center">Uploading photos and details.</p>');
+    var editing=F.editing,photos=F.photos.slice(),slugOut='';
+    commit(async function(list){
+      var p;
+      if(editing){p=list.find(function(x){return x.id===editing;});if(!p)throw new Error('This part was removed meanwhile.');}
+      else{
+        var nums=list.map(function(x){var m=/^RC-(\d+)$/.exec(x.id||'');return m?+m[1]:0;});
+        var n=(nums.length?Math.max.apply(null,nums):0)+1;
+        var slug=slugify(d.name),base=slug,k=2,taken=list.map(function(x){return x.slug;});
+        while(taken.indexOf(slug)>=0){slug=base+'-'+k;k++;}
+        p={id:'RC-'+('000'+n).slice(-4),slug:slug,added:today(),pop:5,images:[]};list.unshift(p);
+      }
+      var old=(p.images||[]).slice(),add={},imgs=[];
+      for(var i=0;i<photos.length;i++){
+        var ph=photos[i];
+        if(ph.kind==='keep'){imgs.push(ph.path);continue;}
+        var path='images/'+p.slug+'/'+(i+1)+'-'+(await hash6(ph.data))+'.jpg';
+        add[path]=ph.data;imgs.push(path);
+      }
+      Object.assign(p,d,{images:imgs,updated:today()});delete p.stock;
+      slugOut=p.slug;
+      return {products:list,add:add,del:old.filter(function(x){return imgs.indexOf(x)<0;})};
+    },(editing?'Update ':'Add ')+d.name+' (phone)').then(function(){
+      var url=(CFG.site_url||'')+'parts/'+slugOut+'.html';
+      modal('<h2>'+(editing?'Changes saved':'Part added')+'</h2><div class="msg ok">Saved. Your website updates in about 2 minutes.</div>'+
+        (CFG.site_url?'<p><a href="'+esc(url)+'" target="_blank" rel="noopener">Open the part page</a> (refresh it after 2 minutes)</p>':'')+
+        '<button class="btn full" data-close id="nextBtn">'+(editing?'Done':'Add another part')+'</button>');
+      $('nextBtn').addEventListener('click',function(){resetForm();if(editing)showTab('list');});
+      $('nParts').textContent=PRODUCTS.length;renderList();
+    }).catch(function(e){
+      modal('<h2>Not saved</h2><div class="msg err">'+esc(e.message)+'</div><button class="btn full" data-close>Go back</button>');
+    });
+  }
+
+  /* ---------- list ---------- */
+  function renderList(){
+    var q=$('listQ').value.trim().toLowerCase();
+    var rows=PRODUCTS.filter(function(p){return !q||(p.name+' '+(p.brand||'')+' '+p.category+' '+p.id).toLowerCase().indexOf(q)>=0;});
+    $('list').innerHTML=rows.length?rows.map(function(p){
+      var img=p.images&&p.images.length&&CFG.site_url?'<img src="'+esc(CFG.site_url+p.images[0])+'" alt="" onerror="this.style.visibility=\'hidden\'">':'<div class="noimg">No photo</div>';
+      return '<div class="item">'+img+'<div><b>'+esc(p.name)+'</b><div class="meta">'+money(p.price)+' · '+esc(p.category)+' · '+esc((p.scale||[]).join(', '))+'</div></div>'+
+        '<div class="row"><button class="btn plain" data-edit="'+esc(p.id)+'">Edit</button><button class="btn danger" data-del="'+esc(p.id)+'">Remove</button></div></div>';
+    }).join(''):'<div class="card hint">'+(PRODUCTS.length?'No parts match.':'No parts yet.')+'</div>';
+  }
+  $('listQ').addEventListener('input',renderList);
+  $('list').addEventListener('click',function(e){
+    var ed=e.target.closest('[data-edit]'),del=e.target.closest('[data-del]');
+    if(ed)startEdit(ed.dataset.edit);
+    if(del){
+      var p=PRODUCTS.find(function(x){return x.id===del.dataset.del;});if(!p)return;
+      modal('<h2>Remove this part?</h2><p><b>'+esc(p.name)+'</b> will be taken off the website.</p><div class="row"><button class="btn plain" data-close>Keep it</button><button class="btn danger" id="delOk">Remove</button></div>');
+      $('delOk').addEventListener('click',function(){
+        modal('<h2>Removing…</h2><div class="spin"></div>');
+        commit(async function(list){
+          var q=list.find(function(x){return x.id===p.id;});
+          return {products:list.filter(function(x){return x.id!==p.id;}),add:{},del:q?(q.images||[]):[]};
+        },'Remove '+p.name+' (phone)').then(function(){
+          modal('<h2>Removed</h2><div class="msg ok">It disappears from the website in about 2 minutes.</div><button class="btn full" data-close>OK</button>');
+          $('nParts').textContent=PRODUCTS.length;renderList();
+        }).catch(function(e){modal('<h2>Not removed</h2><div class="msg err">'+esc(e.message)+'</div><button class="btn full" data-close>OK</button>');});
+      });
+    }
+  });
+  function startEdit(id){
+    var p=PRODUCTS.find(function(x){return x.id===id;});if(!p)return;
+    resetForm();F.editing=p.id;
+    $('formTitle').textContent='Edit: '+p.name;$('reviewBtn').textContent='Review changes';
+    $('fName').value=p.name;$('fBrand').value=p.brand||'';$('fCat').value=p.category;$('fPrice').value=p.price;
+    $('fFits').value=p.fits||'';$('fDesc').value=p.desc||'';
+    $('fSpecs').value=Object.keys(p.specs||{}).map(function(k){return k+': '+p.specs[k];}).join('\n');
+    F.scales=(p.scale||[]).slice();
+    F.photos=(p.images||[]).map(function(i){return {kind:'keep',path:i,src:(CFG.site_url||'../')+i};});
+    renderScales();renderPhotos();showTab('add');window.scrollTo(0,0);
+  }
+
+  /* ---------- tabs + modal ---------- */
+  document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){showTab(t.dataset.tab);if(t.dataset.tab==='list')refreshList();});});
+  function showTab(n){
+    document.querySelectorAll('.tab').forEach(function(t){t.setAttribute('aria-selected',String(t.dataset.tab===n));});
+    $('tab-add').hidden=n!=='add';$('tab-list').hidden=n!=='list';
+  }
+  function modal(html){$('mbox').innerHTML=html;$('modal').hidden=false;}
+  $('modal').addEventListener('click',function(e){if(e.target.closest('[data-close]')||e.target===$('modal'))$('modal').hidden=true;});
+
+  /* ---------- start ---------- */
+  var saved=load('rc-admin-pw');
+  if(saved){unlock(saved).then(openApp).catch(function(){store('rc-admin-pw',null);});}
+})();
+</script>
+</body>
+</html>

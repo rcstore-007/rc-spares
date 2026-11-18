@@ -300,3 +300,8 @@ a.cname:hover{text-decoration:underline}
 .pbtns .add{padding:13px;font-size:16px;border-radius:11px}
 .pinfo .deliv{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px 14px}
 .pinfo h2{font-size:18px;margin-top:6px}
+
+/* Category photos */
+.tile .ic.photo{background:#fff;overflow:hidden}
+.tile .ic.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.tile span:empty{display:none}
