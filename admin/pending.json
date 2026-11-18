@@ -1049,7 +1049,7 @@
     "1:10"
    ],
    "price": 960,
-   "include": true,
+   "include": false,
    "desc": "This LED light bar is designed to be mounted on the roof of an RC vehicle to provide additional illumination. It enhances the scale appearance and visibility during low-light driving.",
    "fits": "RC crawlers and trucks",
    "specs": {
@@ -1069,7 +1069,7 @@
     "https://thejoybox.com.au/cdn/shop/files/RoofRackwithLEDLightBarforMN82-MN82SLC79RCCrawler_2_d4791b1d-4339-4e59-8a95-d3a581e9612d.jpg?v=1766975090&width=1946"
    ],
    "searched": true,
-   "edited": "",
+   "edited": "2026-11-18T13:59:45.577Z",
    "added": false
   },
   {
