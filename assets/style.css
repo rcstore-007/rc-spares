@@ -583,17 +583,11 @@ a.add{text-decoration:none;display:inline-block;background:#fff;color:var(--ink)
 a.add:hover{border-color:var(--ink);opacity:1}
 .vo-s{color:var(--ink)!important;font-weight:500}
 
-/* Search button and bar in the menu */
+/* "Shop" with a magnifying glass; the shop search box gets the same icon */
 .links{align-items:center}
-.srchbtn{display:grid;place-items:center;width:36px;height:36px;border:0;border-radius:50%;background:none;color:var(--muted);cursor:pointer}
-.srchbtn:hover,.srchbtn[aria-expanded="true"]{color:var(--ink);background:var(--tile)}
-.srchbar{position:absolute;left:0;right:0;top:100%;background:rgba(255,255,255,.96);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid var(--line);opacity:0;transform:translateY(-6px);transition:opacity .25s var(--ease),transform .25s var(--ease)}
-.srchbar.open{opacity:1;transform:none}
-.srchbar .wrap{display:flex;align-items:center;gap:12px;height:64px;color:var(--muted)}
-.srchbar input{flex:1;border:0;background:none;font-size:18px;color:var(--ink);outline:none;min-width:0}
-.srchbar input::-webkit-search-cancel-button{display:none}
-.srchbar button{border:0;background:var(--tile);width:32px;height:32px;border-radius:50%;cursor:pointer;color:var(--ink)}
-.nav{position:sticky}
+.links a.shoplink{display:inline-flex;align-items:center;gap:6px}
+.controls input#q{padding-left:42px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%236e6e73' stroke-width='2.2' stroke-linecap='round'%3E%3Ccircle cx='11' cy='11' r='7'/%3E%3Cpath d='m20 20-3.5-3.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:15px center;background-size:18px}
+.controls input#q:focus{background-color:#fff;border-color:var(--ink);box-shadow:0 0 0 4px rgba(0,0,0,.05);outline:none}
 
 /* Full-screen photo viewer with zoom */
 .lb{position:fixed;inset:0;z-index:80;background:rgba(250,250,250,.98);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .25s var(--ease)}
@@ -611,3 +605,20 @@ a.add:hover{border-color:var(--ink);opacity:1}
 .lb.zoomed .lbh{opacity:0}
 @media (max-width:700px){.lbst{inset:56px 0 48px}.lbp,.lbn{top:auto;bottom:8px;margin:0}.lbh{bottom:20px}}
 .gmain img{cursor:zoom-in}
+
+/* Footer links and the policies page */
+.flinks{display:flex;flex-wrap:wrap;gap:6px 18px}
+.flinks a{color:inherit;text-decoration:none}
+.flinks a:hover{color:var(--ink)}
+.polwrap{max-width:780px}
+.polwrap h1{font-size:clamp(32px,4vw,46px);font-weight:600;letter-spacing:-.025em;margin:14px 0 6px}
+.polsub{color:var(--muted);margin:0 0 18px}
+.poltoc{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+.poltoc a{background:var(--tile);border-radius:999px;padding:7px 14px;font-size:13.5px;color:var(--ink);text-decoration:none;font-weight:500}
+.poltoc a:hover{background:var(--tile2)}
+.pol{padding:30px 0 8px;border-bottom:1px solid var(--line);scroll-margin-top:80px}
+.pol:last-child{border-bottom:0;padding-bottom:40px}
+.pol h2{font-size:22px;font-weight:600;letter-spacing:-.015em;margin:0 0 10px}
+.pol p{color:#3a3a3c;line-height:1.7;margin:0 0 12px}
+.pol a{color:var(--ink)}
+.pol .specs{margin:4px 0 16px}

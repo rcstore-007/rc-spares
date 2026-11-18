@@ -332,6 +332,74 @@ def build_part(settings, p):
     return head(title, desc, root, url, abs_imgs[0] if abs_imgs else "", extra) + "\n" + body
 
 
+DEFAULT_RETURNS = ("If a part arrives damaged, faulty or different from what you ordered, message us on WhatsApp within 48 hours "
+                   "of delivery with photos or an unboxing video. After checking, we will replace the part or refund you. "
+                   "Parts that have been installed, used, modified or damaged by wrong use cannot be returned.")
+DEFAULT_PAYMENT = "UPI or bank transfer"
+
+
+def build_policies(settings):
+    """One page with shipping, returns, payment, privacy and contact details (required for online sellers in India)."""
+    pub = public_settings(settings)
+    base = site_url(settings)
+    g = lambda k: (settings.get(k) or "").strip()
+    name, days = pub["name"], pub["delivery"]
+    wa = re.sub(r"\D", "", settings.get("whatsapp") or "")
+    wa_txt = f'+{wa[:2]} {wa[2:]}' if len(wa) > 10 else wa
+    wa_link = f'<a href="https://wa.me/{wa}">{esc(wa_txt)}</a>' if wa else "our WhatsApp number"
+    legal = g("legal_name") or name
+    paras = lambda t: "".join(f"<p>{esc(x.strip())}</p>" for x in re.split(r"\n\s*\n|\n", t) if x.strip())
+    contact_rows = [("Business name", esc(legal))]
+    if g("address"):
+        contact_rows.append(("Address", esc(g("address")).replace("\n", "<br>")))
+    if wa:
+        contact_rows.append(("WhatsApp / phone", wa_link))
+    if g("email"):
+        contact_rows.append(("Email", f'<a href="mailto:{esc(g("email"))}">{esc(g("email"))}</a>'))
+    if g("gstin"):
+        contact_rows.append(("GSTIN", esc(g("gstin"))))
+    contact = "".join(f"<tr><td>{k}</td><td>{v}</td></tr>" for k, v in contact_rows)
+    griev = esc(g("grievance_name") or legal)
+    griev_contact = wa_link + (f' or <a href="mailto:{esc(g("email"))}">{esc(g("email"))}</a>' if g("email") else "")
+    updated = dt.date.today().strftime("%d %B %Y").lstrip("0")
+    sections = [
+        ("ordering", "Ordering and payment", f"""<p>Add parts to your cart and send the order to us on WhatsApp. We reply to confirm availability, the final price and the shipping cost before you pay. Nothing is charged on this website.</p>
+<p>Payment methods: {esc(g("payment_modes") or DEFAULT_PAYMENT)}. Prices are in Indian rupees (₹).</p>"""),
+        ("shipping", "Shipping and delivery", f"""<p>We deliver across India. Orders usually arrive in <b>{esc(days)} days</b> after payment is confirmed. The shipping cost is confirmed on WhatsApp before you pay, and we share tracking details once your order is sent.</p>
+<p>Many parts are imported. If you need the country of origin or importer details for a part, ask us on WhatsApp and we will share them.</p>"""),
+        ("returns", "Returns, refunds and cancellations", paras(g("returns_policy") or DEFAULT_RETURNS) + """<p>You can cancel an order for a full refund any time before it is shipped. Approved refunds are paid back to the way you paid.</p>"""),
+        ("warranty", "Warranty", "<p>Parts are sold without any warranty. If a part arrives damaged, faulty or different from what you ordered, the returns policy above applies.</p>"),
+        ("privacy", "Privacy", f"""<p>We only collect what we need to deliver your order: your name, phone number and delivery address, which you share with us on WhatsApp. We use them to confirm, ship and support your order, and share them only with the courier delivering it. We do not sell your details.</p>
+<p>This website does not use tracking cookies, analytics or ads. Your cart is saved only in your own browser so it is still there when you come back; you can clear it at any time.</p>
+<p>You can ask us to show, correct or delete the details we hold about you by messaging {wa_link}.</p>"""),
+        ("contact", "Contact and complaints", f"""<table class="specs">{contact}</table>
+<p><b>Grievance officer:</b> {griev}, reachable on {griev_contact}. We acknowledge complaints within 48 hours and aim to resolve them within one month.</p>"""),
+    ]
+    toc = "".join(f'<a href="#{i}">{esc(t)}</a>' for i, t, _ in sections)
+    body_html = "".join(f'<section class="pol" id="{i}"><h2>{esc(t)}</h2>{c}</section>' for i, t, c in sections)
+    main_html = f'''<main class="wrap polwrap">
+  <div class="crumbs"><a href="index.html#home">Home</a> › Policies</div>
+  <h1>Store policies</h1>
+  <p class="polsub">How ordering, delivery, returns and privacy work at {esc(name)}. Last updated {updated}.</p>
+  <nav class="poltoc" aria-label="On this page">{toc}</nav>
+  {body_html}
+</main>'''
+    body = "\n".join([
+        '<body data-page="policies" data-root="">',
+        fill(partial("nav"), settings, ""),
+        main_html,
+        fill(partial("footer"), settings, ""),
+        fill(partial("cart"), settings, ""),
+        f'<script id="store-settings" type="application/json">{json_block(pub)}</script>',
+        '<script id="products" type="application/json">[]</script>',
+        f'<script src="assets/store.js?v={asset_v("store.js")}"></script>',
+        '</body>',
+        '</html>',
+    ])
+    title = f"Store policies – shipping, returns and privacy | {name}"
+    return themed(head(title, f"Shipping, returns, refunds, payment and privacy at {name}.", "", (base + "policies.html") if base else "") + "\n" + body, settings)
+
+
 CAT_COLORS = {"Motors & ESCs": ("#f2d8cf", "#b8442f"), "Tyres & Wheels": ("#d6e2ec", "#3d6a8c"),
               "Shocks": ("#d5e4da", "#2e5e4e"), "Batteries & Chargers": ("#f6e6bf", "#9a6a08"),
               "Gears & Drivetrain": ("#e6dbec", "#6b4a7a"), "Servos": ("#d2e8ea", "#1f6f78"),
@@ -369,7 +437,8 @@ def build_sitemap(settings, products):
     if not base:
         return None
     today = dt.date.today().isoformat()
-    urls = [f"  <url><loc>{esc(base)}</loc><lastmod>{today}</lastmod></url>"]
+    urls = [f"  <url><loc>{esc(base)}</loc><lastmod>{today}</lastmod></url>",
+            f"  <url><loc>{esc(base)}policies.html</loc><lastmod>{today}</lastmod></url>"]
     for p in products:
         lm = (p.get("updated") or p.get("added") or today)[:10]
         urls.append(f"  <url><loc>{esc(base)}parts/{esc(p['slug'])}.html</loc><lastmod>{lm}</lastmod></url>")
@@ -377,7 +446,8 @@ def build_sitemap(settings, products):
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "\n".join(urls) + "\n</urlset>\n")
 
 
-PUBLIC_KEYS = ("store_name", "whatsapp", "delivery", "delivery_days", "custom_domain", "site_url", "category_images", "bulk_note", "theme")
+PUBLIC_KEYS = ("store_name", "whatsapp", "delivery", "delivery_days", "custom_domain", "site_url", "category_images", "bulk_note", "theme",
+               "legal_name", "address", "email", "grievance_name", "payment_modes", "returns_policy", "gstin")
 CATEGORY_DIR = "_categories"   # images/_categories/<file>.jpg
 
 
@@ -438,6 +508,7 @@ def build_site(site_dir, settings, products, tools=True, branch="main"):
         shutil.copy2(f, dst / f.name)
 
     (site / "index.html").write_text(themed(build_index(settings, products), settings), encoding="utf-8")
+    (site / "policies.html").write_text(build_policies(settings), encoding="utf-8")
 
     keep = set()
     for p in products:
