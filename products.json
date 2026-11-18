@@ -1,5 +1,28 @@
 [
  {
+  "id": "RC-0058",
+  "slug": "2-6-inch-wheels-and-tyres-for-1-7",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [
+   "images/2-6-inch-wheels-and-tyres-for-1-7/1-6b8b6a.jpg"
+  ],
+  "name": "2.6 inch Wheels and Tyres for 1/7",
+  "brand": "Red Spider",
+  "category": "Tyres & Wheels",
+  "price": 7600,
+  "scale": [
+   "1:7"
+  ],
+  "fits": "1/7 scale RC vehicles",
+  "desc": "This set includes 2.6-inch wheels pre-mounted with tires, specifically sized for 1/7 scale vehicles. They are used to replace or upgrade the stock wheel and tire assembly.",
+  "specs": {
+   "Diameter": "2.6 inch",
+   "Scale": "1/7"
+  },
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0057",
   "slug": "100mm-oil-shocks",
   "added": "2026-11-18",
