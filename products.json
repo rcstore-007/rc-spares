@@ -1,5 +1,27 @@
 [
  {
+  "id": "RC-0053",
+  "slug": "1-3-inch-72mm-crawler-tyres",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "1.3 inch 72mm Crawler Tyres",
+  "brand": "",
+  "category": "Tyres & Wheels",
+  "price": 1250,
+  "scale": [
+   "1:18",
+   "1:24"
+  ],
+  "fits": "1/24 and 1/18 scale crawlers",
+  "desc": "These tires feature a 1.3 inch inner diameter and a 72mm outer diameter. They are designed for small-scale crawlers looking for a larger tire profile.",
+  "specs": {
+   "Inner Diameter": "1.3 inch",
+   "Outer Diameter": "72mm"
+  },
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0052",
   "slug": "sound-and-light-controller",
   "added": "2026-11-18",
