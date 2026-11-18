@@ -1,5 +1,38 @@
 [
  {
+  "id": "RC-0008",
+  "slug": "d1rc-100mm-shocks",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "D1RC 100mm Shocks",
+  "brand": "D1RC",
+  "category": "Shocks",
+  "price": 5500,
+  "scale": [
+   "1:10"
+  ],
+  "fits": "1/10 scale RC crawlers",
+  "desc": "These 100mm shock absorbers from D1RC are used to provide suspension travel and damping for larger RC models. They are suitable for custom builds or as upgrades for compatible chassis.",
+  "specs": {
+   "Brand": "D1RC",
+   "Length": "100mm"
+  },
+  "updated": "2026-11-18",
+  "pending_images": [
+   "https://images.squarespace-cdn.com/content/v1/67e7899adcd82e7d71b750ef/1f4b81e8-d28b-4c0c-a8d4-d041adfd44aa/454.JPG",
+   "https://down-tw.img.susercontent.com/file/tw-11134207-81ztd-mj29sa7nd8n46e",
+   "https://d1rcxrcrfc.com/cdn/shop/files/ChatGPTImageJul4_2026_02_45_45PM_60d17a51-2831-4431-8ea3-e7bed1514ffc.png?v=1783147820&width=800"
+  ],
+  "pending_fallback": [
+   "https://lookaside.fbsbx.com/lookaside/crawler/media/?media_id=10166429523109899",
+   "https://d1rcxrcrfc.com/cdn/shop/files/ChatGPTImageJul4_2026_12_48_34PM.png?v=1783140531&width=700",
+   "https://d1rcxrcrfc.com/cdn/shop/files/ChatGPTImageJul4_2026_01_02_24PM.png?v=1783141625&width=800",
+   "https://ae01.alicdn.com/kf/S3acfd6b0d48f4c8a9991d083579f4fe0v.jpg",
+   "https://down-my.img.susercontent.com/file/my-11134207-820l9-mggf1pyk86q5a8"
+  ]
+ },
+ {
   "id": "RC-0007",
   "slug": "1-10-roof-luggage-net",
   "added": "2026-11-18",
