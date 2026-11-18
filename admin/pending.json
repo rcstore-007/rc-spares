@@ -216,7 +216,7 @@
     "1:10"
    ],
    "price": 3290,
-   "include": true,
+   "include": false,
    "desc": "These are 2.2-inch wheels featuring a black finish with silver spokes. They are designed for use with standard 2.2-inch RC crawler or truck tires.",
    "fits": "RC crawlers and trucks using 2.2 inch tires",
    "specs": {
@@ -237,7 +237,7 @@
     "https://cdn11.bigcommerce.com/s-5v6sbv5p/images/stencil/590x590/products/108516/359474/903249__07506.1646860103.jpg?c=2"
    ],
    "searched": true,
-   "edited": "",
+   "edited": "2026-11-18T14:06:13.782Z",
    "added": false
   },
   {
