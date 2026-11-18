@@ -1,5 +1,27 @@
 [
  {
+  "id": "RC-0076",
+  "slug": "mjx-h18p-metal-differential-set",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "MJX H18P Metal Differential Set",
+  "brand": "MJX",
+  "category": "Gears & Drivetrain",
+  "price": 1125,
+  "scale": [
+   "1:18"
+  ],
+  "fits": "MJX H18P",
+  "desc": "A complete differential assembly for the MJX H18P series. It allows the wheels to rotate at different speeds during turns for improved handling.",
+  "specs": {
+   "Brand": "MJX",
+   "Model": "H18P",
+   "Part": "Differential Set"
+  },
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0075",
   "slug": "scx30-wheels-and-tyres",
   "added": "2026-11-18",
