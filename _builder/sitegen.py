@@ -314,7 +314,7 @@ on:
     branches: [{branch}]
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 concurrency:
@@ -330,6 +330,12 @@ jobs:
       - uses: actions/checkout@v5
       - name: Build pages from products.json
         run: python3 _builder/build.py
+      - name: Save photos downloaded for parts added from the phone
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || (git commit -m "Website build: save photos and pages" && git push) || echo "Not saved this time; the next build tries again."
       - uses: actions/upload-pages-artifact@v4
         with:
           path: .

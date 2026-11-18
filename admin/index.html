@@ -89,6 +89,11 @@ textarea{resize:vertical;min-height:84px}
 .spin{width:36px;height:36px;border:4px solid var(--sand);border-top-color:var(--green);border-radius:50%;animation:sp .9s linear infinite;margin:14px auto}
 @keyframes sp{to{transform:rotate(360deg)}}
 @media (prefers-reduced-motion:reduce){.spin{animation-duration:3s}}
+.item.off{opacity:.55}
+.note{background:#f6e3c0;border:1px solid #e9c98a;border-radius:8px;padding:4px 8px;font-size:12px;grid-column:1/-1}
+.sg{position:relative;aspect-ratio:1;border:2px dashed var(--line);border-radius:12px;background:#fff;overflow:hidden;padding:0;cursor:pointer}
+.sg img{width:100%;height:100%;object-fit:contain}
+.sg[aria-pressed="true"]{border:2px solid var(--green)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 </style>
 </head>
@@ -119,7 +124,8 @@ textarea{resize:vertical;min-height:84px}
   <!-- ===== APP ===== -->
   <section id="app" hidden>
     <div class="tabs" role="tablist">
-      <button class="tab" data-tab="add" aria-selected="true">Add a part</button>
+      <button class="tab" data-tab="add" aria-selected="true">Add</button>
+      <button class="tab" data-tab="wait" aria-selected="false" id="waitTab" hidden>Waiting (<span id="nWait">0</span>)</button>
       <button class="tab" data-tab="list" aria-selected="false">My parts (<span id="nParts">0</span>)</button>
     </div>
 
@@ -138,6 +144,10 @@ textarea{resize:vertical;min-height:84px}
         <div class="row">
           <label class="btn plain" for="camIn" style="text-align:center">Take photo</label>
           <label class="btn plain" for="galIn" style="text-align:center">Choose photos</label>
+        </div>
+        <div id="suggBox" hidden>
+          <p class="hint" style="margin-top:12px">Suggested photos from the web. Tap to use:</p>
+          <div class="photos" id="sugg"></div>
         </div>
         <input type="file" id="camIn" accept="image/*" capture="environment" hidden>
         <input type="file" id="galIn" accept="image/*" multiple hidden>
@@ -160,6 +170,20 @@ textarea{resize:vertical;min-height:84px}
       </div>
     </div>
 
+    <div id="tab-wait" hidden>
+      <div class="card" style="padding:12px">
+        <p class="hint" style="margin:0 0 8px" id="waitInfo"></p>
+        <button class="btn full" type="button" id="addAllBtn">Add all ready parts</button>
+        <input type="text" id="waitQ" placeholder="Search the waiting parts" aria-label="Search the waiting parts" style="margin-top:10px">
+        <div class="chips" style="margin-top:8px" id="waitF">
+          <button class="chip" data-wf="all" aria-pressed="true">All</button>
+          <button class="chip" data-wf="check" aria-pressed="false">Needs a check</button>
+          <button class="chip" data-wf="skip" aria-pressed="false">Skipped</button>
+        </div>
+      </div>
+      <div class="list" id="waitList"></div>
+    </div>
+
     <div id="tab-list" hidden>
       <div class="card" style="padding:12px"><input type="text" id="listQ" placeholder="Search your parts" aria-label="Search your parts"></div>
       <div class="list" id="list"></div>
@@ -174,7 +198,7 @@ textarea{resize:vertical;min-height:84px}
   var CATS=['Motors & ESCs','Tyres & Wheels','Shocks','Batteries & Chargers','Gears & Drivetrain','Servos','Lights','Winch','Radios & Receivers','Tools & Accessories'];
   var SCALES=['1:5','1:7','1:8','1:10','1:12','1:18','1:24','1:30'];
   var $=function(id){return document.getElementById(id);};
-  var CFG=null, PRODUCTS=[], F=null;
+  var CFG=null, PRODUCTS=[], PENDING=null, F=null, WF='all';
 
   function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
   function msg(el,kind,text){$(el).innerHTML=text?'<div class="msg '+kind+'">'+text+'</div>':'';}
@@ -240,21 +264,27 @@ textarea{resize:vertical;min-height:84px}
     var ref=await gh('GET','/git/ref/heads/'+br);
     var head=ref.object.sha;
     var tree=(await gh('GET','/git/commits/'+head)).tree.sha;
-    var list=[];
+    var list=[],pend=null;
     try{list=JSON.parse(await gh('GET','/contents/products.json?ref='+head,null,'application/vnd.github.raw'));}
     catch(e){if(e.status!==404)throw e;}
-    return {head:head,tree:tree,products:list};
+    try{pend=JSON.parse(await gh('GET','/contents/admin/pending.json?ref='+head,null,'application/vnd.github.raw'));}
+    catch(e){if(e.status!==404)throw e;}
+    return {head:head,tree:tree,products:list,pending:pend};
   }
   async function refreshList(){
-    try{var s=await snapshot();PRODUCTS=s.products;}catch(e){msg('aiMsg','err',esc(e.message));}
-    $('nParts').textContent=PRODUCTS.length;renderList();
+    try{var s=await snapshot();PRODUCTS=s.products;PENDING=s.pending;}catch(e){msg('aiMsg','err',esc(e.message));}
+    $('nParts').textContent=PRODUCTS.length;renderList();renderWait();
   }
   // change(products) returns {products, add:{path:base64}, del:[paths]}
   async function commit(change,message){
     for(var attempt=0;attempt<2;attempt++){
       var s=await snapshot();
-      var c=await change(JSON.parse(JSON.stringify(s.products)));
+      var c=await change(JSON.parse(JSON.stringify(s.products)),s.pending?JSON.parse(JSON.stringify(s.pending)):null);
       var entries=[];
+      if(c.pending){
+        var pb=await gh('POST','/git/blobs',{content:JSON.stringify(c.pending,null,1),encoding:'utf-8'});
+        entries.push({path:'admin/pending.json',mode:'100644',type:'blob',sha:pb.sha});
+      }
       var pj=await gh('POST','/git/blobs',{content:JSON.stringify(c.products,null,1),encoding:'utf-8'});
       entries.push({path:'products.json',mode:'100644',type:'blob',sha:pj.sha});
       for(var path in (c.add||{})){
@@ -267,7 +297,7 @@ textarea{resize:vertical;min-height:84px}
       }
       var t=await gh('POST','/git/trees',{base_tree:s.tree,tree:entries});
       var cm=await gh('POST','/git/commits',{message:message,tree:t.sha,parents:[s.head]});
-      try{await gh('PATCH','/git/refs/heads/'+(CFG.branch||'main'),{sha:cm.sha});PRODUCTS=c.products;return c;}
+      try{await gh('PATCH','/git/refs/heads/'+(CFG.branch||'main'),{sha:cm.sha});PRODUCTS=c.products;if(c.pending)PENDING=c.pending;return c;}
       catch(e){if(attempt===1||e.status!==422)throw e;}   // someone else saved at the same moment: try again
     }
   }
@@ -357,6 +387,7 @@ textarea{resize:vertical;min-height:84px}
   function renderPhotos(){
     $('photos').innerHTML=F.photos.map(function(p,i){
       if(p.kind==='loading')return '<div class="ph"><div class="spin"></div></div>';
+      if(p.kind==='web')return '<div class="ph"><img src="'+esc(p.src)+'" alt="" referrerpolicy="no-referrer" onerror="this.style.opacity=.2"><span class="n">'+(i+1)+'</span><div class="acts">'+(i?'<button data-main="'+i+'">Main</button>':'')+'<button data-rmp="'+i+'">Remove</button></div></div>';
       return '<div class="ph"><img src="'+esc(p.src)+'" alt=""><span class="n">'+(i+1)+'</span><div class="acts">'+(i?'<button data-main="'+i+'">Main</button>':'')+'<button data-rmp="'+i+'">Remove</button></div></div>';
     }).join('');
   }
@@ -364,6 +395,20 @@ textarea{resize:vertical;min-height:84px}
     var m=e.target.closest('[data-main]'),r=e.target.closest('[data-rmp]');
     if(m){var p=F.photos.splice(+m.dataset.main,1)[0];F.photos.unshift(p);renderPhotos();}
     if(r){F.photos.splice(+r.dataset.rmp,1);renderPhotos();}
+    renderSugg();
+  });
+  function renderSugg(){
+    if(!F.sugg||!F.sugg.length){$('suggBox').hidden=true;return;}
+    $('suggBox').hidden=false;
+    var used=F.photos.filter(function(p){return p.kind==='web';}).map(function(p){return p.url;});
+    $('sugg').innerHTML=F.sugg.map(function(u,i){return '<button type="button" class="sg" data-sg="'+i+'" aria-pressed="'+(used.indexOf(u)>=0)+'"><img src="'+esc(u)+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentNode.style.display=\'none\'"></button>';}).join('');
+  }
+  $('sugg').addEventListener('click',function(e){
+    var b=e.target.closest('[data-sg]');if(!b)return;var u=F.sugg[+b.dataset.sg];
+    var i=F.photos.findIndex(function(p){return p.kind==='web'&&p.url===u;});
+    if(i>=0)F.photos.splice(i,1);
+    else{if(F.photos.length>=4){msg('formErr','warn','Up to 4 photos. Remove one first.');return;}F.photos.push({kind:'web',url:u,src:u});}
+    renderPhotos();renderSugg();
   });
 
   function renderScales(){
@@ -375,7 +420,8 @@ textarea{resize:vertical;min-height:84px}
   });
 
   function resetForm(){
-    F={editing:null,photos:[],scales:[]};
+    F={editing:null,pending:null,photos:[],scales:[],sugg:[]};
+    $('suggBox').hidden=true;
     ['fName','fBrand','fPrice','fFits','fDesc','fSpecs'].forEach(function(id){$(id).value='';});
     $('fCat').value='';msg('aiMsg','',null);msg('formErr','',null);
     $('formTitle').textContent='Add a part';$('reviewBtn').textContent='Review and add';
@@ -413,8 +459,8 @@ textarea{resize:vertical;min-height:84px}
 
   function save(d){
     modal('<h2>Saving…</h2><div class="spin"></div><p class="hint" style="text-align:center">Uploading photos and details.</p>');
-    var editing=F.editing,photos=F.photos.slice(),slugOut='';
-    commit(async function(list){
+    var editing=F.editing,pendN=F.pending,sugg=(F.sugg||[]).slice(),photos=F.photos.slice(),slugOut='';
+    commit(async function(list,pend){
       var p;
       if(editing){p=list.find(function(x){return x.id===editing;});if(!p)throw new Error('This part was removed meanwhile.');}
       else{
@@ -424,23 +470,28 @@ textarea{resize:vertical;min-height:84px}
         while(taken.indexOf(slug)>=0){slug=base+'-'+k;k++;}
         p={id:'RC-'+('000'+n).slice(-4),slug:slug,added:today(),pop:5,images:[]};list.unshift(p);
       }
-      var old=(p.images||[]).slice(),add={},imgs=[];
+      var old=(p.images||[]).slice(),add={},imgs=[],web=[];
       for(var i=0;i<photos.length;i++){
         var ph=photos[i];
         if(ph.kind==='keep'){imgs.push(ph.path);continue;}
+        if(ph.kind==='web'){web.push(ph.url);continue;}
         var path='images/'+p.slug+'/'+(i+1)+'-'+(await hash6(ph.data))+'.jpg';
         add[path]=ph.data;imgs.push(path);
       }
       Object.assign(p,d,{images:imgs,updated:today()});delete p.stock;
+      if(web.length){p.pending_images=web;p.pending_fallback=sugg.filter(function(u){return web.indexOf(u)<0;});}
       slugOut=p.slug;
-      return {products:list,add:add,del:old.filter(function(x){return imgs.indexOf(x)<0;})};
+      var out={products:list,add:add,del:old.filter(function(x){return imgs.indexOf(x)<0;})};
+      if(pendN!=null&&pend){var w=pend.items.find(function(x){return x.n===pendN;});if(w){w.added=true;w.product_id=p.id;w.edited=new Date().toISOString();out.pending=pend;}}
+      return out;
     },(editing?'Update ':'Add ')+d.name+' (phone)').then(function(){
       var url=(CFG.site_url||'')+'parts/'+slugOut+'.html';
       modal('<h2>'+(editing?'Changes saved':'Part added')+'</h2><div class="msg ok">Saved. Your website updates in about 2 minutes.</div>'+
         (CFG.site_url?'<p><a href="'+esc(url)+'" target="_blank" rel="noopener">Open the part page</a> (refresh it after 2 minutes)</p>':'')+
         '<button class="btn full" data-close id="nextBtn">'+(editing?'Done':'Add another part')+'</button>');
-      $('nextBtn').addEventListener('click',function(){resetForm();if(editing)showTab('list');});
-      $('nParts').textContent=PRODUCTS.length;renderList();
+      $('nextBtn').addEventListener('click',function(){resetForm();if(editing)showTab('list');else if(pendN!=null)showTab('wait');});
+      if(pendN!=null)$('nextBtn').textContent='Back to waiting parts';
+      $('nParts').textContent=PRODUCTS.length;renderList();renderWait();
     }).catch(function(e){
       modal('<h2>Not saved</h2><div class="msg err">'+esc(e.message)+'</div><button class="btn full" data-close>Go back</button>');
     });
@@ -487,11 +538,95 @@ textarea{resize:vertical;min-height:84px}
     renderScales();renderPhotos();showTab('add');window.scrollTo(0,0);
   }
 
+  /* ---------- waiting parts (from the Excel import on the computer) ---------- */
+  function waitItems(){return PENDING&&PENDING.items?PENDING.items.filter(function(x){return !x.added;}):[];}
+  function isReady(w){return w.include&&w.price>0&&CATS.indexOf(w.category)>=0&&(w.scale||[]).length&&!w.own_photo&&w.searched;}
+  function wPhoto(w){return w.pick||(w.candidates||[])[0]||'';}
+  function renderWait(){
+    var all=waitItems(),ready=all.filter(isReady);
+    $('waitTab').hidden=!all.length;$('nWait').textContent=all.filter(function(w){return w.include;}).length;
+    $('waitInfo').innerHTML='From your Excel list: <b>'+all.filter(function(w){return w.include;}).length+'</b> waiting, <b>'+ready.length+'</b> ready to add. Tap a part to check it, change the photo and add it.';
+    $('addAllBtn').textContent='Add all '+ready.length+' ready parts';$('addAllBtn').disabled=!ready.length;
+    var q=$('waitQ').value.trim().toLowerCase();
+    var rows=all.filter(function(w){
+      if(q&&(w.name+' '+w.excel+' '+w.category).toLowerCase().indexOf(q)<0)return false;
+      if(WF==='check')return w.include&&!!w.note;
+      if(WF==='skip')return !w.include;
+      return true;
+    });
+    $('waitList').innerHTML=rows.map(function(w){
+      var ph=wPhoto(w);
+      var img=ph?'<img src="'+esc(ph)+'" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.outerHTML=\'<div class=noimg>No photo</div>\'">':'<div class="noimg">'+(w.searched?'No photo':'Not searched yet')+'</div>';
+      var state=!w.include?'Skipped':(w.own_photo?'Photo is on your computer: add it there':(isReady(w)?'Ready':(!w.searched?'Photo search not done yet':'Needs price, category or scale')));
+      return '<div class="item'+(w.include?'':' off')+'">'+img+'<div><b>'+esc(w.name)+'</b><div class="meta">'+money(w.price)+' · '+esc(w.category)+' · '+esc((w.scale||[]).join(', '))+'</div><div class="meta">'+esc(state)+'</div></div>'+
+        (w.note&&w.include?'<div class="note"><b>Check:</b> '+esc(w.note)+'</div>':'')+
+        '<div class="row">'+(w.include&&!w.own_photo?'<button class="btn" data-wopen="'+w.n+'">Check and add</button>':'')+'<button class="btn plain" data-wskip="'+w.n+'">'+(w.include?'Skip':'Bring back')+'</button></div></div>';
+    }).join('')||'<div class="card hint">Nothing here.</div>';
+  }
+  $('waitQ').addEventListener('input',renderWait);
+  $('waitF').addEventListener('click',function(e){var b=e.target.closest('[data-wf]');if(!b)return;WF=b.dataset.wf;$('waitF').querySelectorAll('[data-wf]').forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});renderWait();});
+  $('waitList').addEventListener('click',function(e){
+    var o=e.target.closest('[data-wopen]'),k=e.target.closest('[data-wskip]');
+    if(o)startPending(+o.dataset.wopen);
+    if(k){
+      var n=+k.dataset.wskip;k.disabled=true;
+      commit(async function(list,pend){
+        var w=pend&&pend.items.find(function(x){return x.n===n;});if(!w)throw new Error('This part is no longer waiting.');
+        w.include=!w.include;w.edited=new Date().toISOString();
+        return {products:list,pending:pend};
+      },'Waiting list: skip/bring back (phone)').then(renderWait).catch(function(err){alertMsg(err.message);renderWait();});
+    }
+  });
+  function startPending(n){
+    var w=waitItems().find(function(x){return x.n===n;});if(!w)return;
+    resetForm();F.pending=n;
+    $('formTitle').textContent='Waiting part: check and add';$('reviewBtn').textContent='Review and add';
+    $('fName').value=w.name;$('fBrand').value=w.brand||'';$('fCat').value=CATS.indexOf(w.category)>=0?w.category:'';$('fPrice').value=w.price||'';
+    $('fFits').value=w.fits||'';$('fDesc').value=w.desc||'';
+    $('fSpecs').value=Object.keys(w.specs||{}).map(function(k){return k+': '+w.specs[k];}).join('\n');
+    F.scales=(w.scale||[]).filter(function(s){return SCALES.indexOf(s)>=0;});
+    F.sugg=(w.candidates||[]).slice(0,8);
+    var p0=wPhoto(w);if(p0)F.photos=[{kind:'web',url:p0,src:p0}];
+    if(w.pick&&F.sugg.indexOf(w.pick)<0)F.sugg.unshift(w.pick);
+    renderScales();renderPhotos();renderSugg();
+    msg('aiMsg',w.note?'warn':'info',(w.note?'<b>Check:</b> '+esc(w.note)+'<br>':'')+'From your Excel: '+esc(w.excel)+'. Web photos are downloaded by your website when it rebuilds (about 2 minutes).');
+    showTab('add');window.scrollTo(0,0);
+  }
+  $('addAllBtn').addEventListener('click',function(){
+    var ready=waitItems().filter(isReady);if(!ready.length)return;
+    var notes=ready.filter(function(w){return w.note;}).length;
+    modal('<h2>Add '+ready.length+' parts to the website?</h2>'+(notes?'<div class="msg warn">'+notes+' of them still have a "Check" note.</div>':'')+
+      '<p class="hint">Each part is added with its suggested web photo. Photos appear about 2 minutes later, when your website rebuilds.</p>'+
+      '<div class="row"><button class="btn plain" data-close>Cancel</button><button class="btn" id="aaOk">Add them</button></div>');
+    $('aaOk').addEventListener('click',function(){
+      modal('<h2>Adding '+ready.length+' parts…</h2><div class="spin"></div>');
+      var n0=0;
+      commit(async function(list,pend){
+        if(!pend)throw new Error('The waiting list was not found.');
+        var nums=list.map(function(x){var m=/^RC-(\d+)$/.exec(x.id||'');return m?+m[1]:0;});
+        var next=(nums.length?Math.max.apply(null,nums):0)+1,taken=list.map(function(x){return x.slug;});n0=0;
+        pend.items.forEach(function(w){
+          if(w.added||!isReady(w))return;
+          var slug=slugify(w.name),base=slug,k=2;while(taken.indexOf(slug)>=0){slug=base+'-'+k;k++;}taken.push(slug);
+          var p={id:'RC-'+('000'+next).slice(-4),slug:slug,added:today(),updated:today(),pop:5,name:w.name,brand:w.brand||'',category:w.category,
+            scale:w.scale,price:w.price,fits:w.fits||'',desc:w.desc||'',specs:w.specs||{},images:[]};
+          var ph=wPhoto(w);if(ph){p.pending_images=[ph];p.pending_fallback=(w.candidates||[]).filter(function(u){return u!==ph;});}
+          next++;list.unshift(p);w.added=true;w.product_id=p.id;w.edited=new Date().toISOString();n0++;
+        });
+        return {products:list,pending:pend};
+      },'Add waiting parts (phone)').then(function(){
+        modal('<h2>Added '+n0+' parts</h2><div class="msg ok">Your website updates in about 2 minutes. Photos are downloaded during that update.</div><button class="btn full" data-close>OK</button>');
+        $('nParts').textContent=PRODUCTS.length;renderList();renderWait();
+      }).catch(function(e){modal('<h2>Not added</h2><div class="msg err">'+esc(e.message)+'</div><button class="btn full" data-close>OK</button>');});
+    });
+  });
+  function alertMsg(t){modal('<div class="msg err">'+esc(t)+'</div><button class="btn full" data-close>OK</button>');}
+
   /* ---------- tabs + modal ---------- */
-  document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){showTab(t.dataset.tab);if(t.dataset.tab==='list')refreshList();});});
+  document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){showTab(t.dataset.tab);if(t.dataset.tab!=='add')refreshList();});});
   function showTab(n){
     document.querySelectorAll('.tab').forEach(function(t){t.setAttribute('aria-selected',String(t.dataset.tab===n));});
-    $('tab-add').hidden=n!=='add';$('tab-list').hidden=n!=='list';
+    $('tab-add').hidden=n!=='add';$('tab-list').hidden=n!=='list';$('tab-wait').hidden=n!=='wait';
   }
   function modal(html){$('mbox').innerHTML=html;$('modal').hidden=false;}
   $('modal').addEventListener('click',function(e){if(e.target.closest('[data-close]')||e.target===$('modal'))$('modal').hidden=true;});
