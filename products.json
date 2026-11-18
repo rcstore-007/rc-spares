@@ -1,5 +1,31 @@
 [
  {
+  "id": "RC-0051",
+  "slug": "red-spider-headlights",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [
+   "images/red-spider-headlights/1-a1c26f.jpg",
+   "images/red-spider-headlights/2-f27e5d.jpg"
+  ],
+  "name": "Red Spider Headlights",
+  "brand": "Red Spider",
+  "category": "Lights",
+  "price": 960,
+  "scale": [
+   "1:10",
+   "1:12",
+   "1:8"
+  ],
+  "fits": "RC Vehicles",
+  "desc": "Replacement or upgrade LED headlights for RC vehicles. They provide illumination for driving in low-light conditions.",
+  "specs": {
+   "Brand": "Red Spider",
+   "Type": "Headlights"
+  },
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0050",
   "slug": "shock-oil-100-cst",
   "added": "2026-11-18",
