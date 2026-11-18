@@ -4,7 +4,9 @@
   "slug": "flysky-r11p-bs-receiver",
   "added": "2026-11-18",
   "pop": 5,
-  "images": [],
+  "images": [
+   "images/flysky-r11p-bs-receiver/1-09ef99.webp"
+  ],
   "name": "Flysky R11P BS Receiver",
   "brand": "Flysky",
   "category": "Radios & Receivers",
@@ -25,19 +27,7 @@
    "Brand": "Flysky",
    "Model": "R11P BS"
   },
-  "updated": "2026-11-18",
-  "pending_images": [
-   "https://imgaz.staticbg.com/images/oaupload/banggood/images/52/78/6a50f3f3-97c2-4080-a475-e9ccaa2143c6.jpg.webp"
-  ],
-  "pending_fallback": [
-   "https://images.squarespace-cdn.com/content/v1/5bc852d6b9144934c40d499c/ce86c775-febc-486a-9178-2fc73baeecb6/R11P.jpg",
-   "https://images.squarespace-cdn.com/content/v1/5bc852d6b9144934c40d499c/de319570-865c-49d1-a6c4-2b1bbda9f4e9/FS-R11P-EN.jpg",
-   "https://images.squarespace-cdn.com/content/v1/5bc852d6b9144934c40d499c/f629d410-183e-427f-a1fb-d6bd3b20df30/L.png",
-   "https://images.squarespace-cdn.com/content/v1/5bc852d6b9144934c40d499c/08b621ad-f6fb-4857-adc1-a7de548555b9/FS-R11D-ESC-BS.png",
-   "https://www.ariesrc.gr/37763-thickbox_default/flysky-fs-r11p-bt-bs-24ghz-11ch-2a-bs-protocol-pwm-output-bi-directional-receiver-for-mg11-bt-bs-controller-rc.jpg",
-   "https://www.modelsport.co.uk/_images/products/800/ABS-FS-R11P.jpg",
-   "https://www.rc-race-shop.de/media/39/2e/7e/1776162660/flysky-fs098-flysky-r11p-ant-empfnger-11-kanal.jpg?ts=1776162660"
-  ]
+  "updated": "2026-11-18"
  },
  {
   "id": "RC-0033",
