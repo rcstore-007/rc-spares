@@ -1,5 +1,26 @@
 [
  {
+  "id": "RC-0057",
+  "slug": "100mm-oil-shocks",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "100mm Oil Shocks",
+  "brand": "Generic",
+  "category": "Shocks",
+  "price": 2500,
+  "scale": [
+   "1:10"
+  ],
+  "fits": "1/10 scale RC cars",
+  "desc": "Oil-filled shock absorbers designed to provide smooth suspension damping for RC vehicles. These 100mm units help maintain traction and control over uneven surfaces.",
+  "specs": {
+   "Length": "100mm",
+   "Type": "Oil Filled"
+  },
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0056",
   "slug": "1-9-inch-crawler-tyres",
   "added": "2026-11-18",
