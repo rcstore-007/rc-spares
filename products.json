@@ -1,5 +1,32 @@
 [
  {
+  "id": "RC-0070",
+  "slug": "shock-oil-200-cst",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "Shock Oil 200 CST",
+  "brand": "Generic",
+  "category": "Shocks",
+  "price": 800,
+  "scale": [
+   "1:5",
+   "1:7",
+   "1:8",
+   "1:10",
+   "1:12",
+   "1:18",
+   "1:24",
+   "1:30"
+  ],
+  "fits": "RC shock absorbers",
+  "desc": "This silicone oil is used to fill shock absorbers to adjust the damping characteristics of the vehicle. A 200 CST rating offers relatively light damping.",
+  "specs": {
+   "Viscosity": "200 CST"
+  },
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0069",
   "slug": "scx30-headlight-bar",
   "added": "2026-11-18",
