@@ -4,7 +4,10 @@
   "slug": "skyrc-tyre-gluer",
   "added": "2026-11-18",
   "pop": 5,
-  "images": [],
+  "images": [
+   "images/skyrc-tyre-gluer/1-116995.png",
+   "images/skyrc-tyre-gluer/2-f9b77d.jpg"
+  ],
   "name": "SkyRC Tyre Gluer",
   "brand": "SkyRC",
   "category": "Tools & Accessories",
@@ -21,19 +24,7 @@
    "Brand": "SkyRC",
    "Type": "Tyre Gluer"
   },
-  "updated": "2026-11-18",
-  "pending_images": [
-   "https://www.skyrc.com/image/cache/catalog/product/accessory/pit_tool/600162/600162-900x900.png",
-   "https://speedyrc.com.au/cdn/shop/files/7.jpg?v=1776378513"
-  ],
-  "pending_fallback": [
-   "https://rsrc.biz/26623-product_main/skyrc-gluing-station-for-tire-sidewalls.jpg",
-   "https://www.rc-companiet.no/wp-content/uploads/2026/05/Skjermbilde-2026-05-14-kl.-21.52.46.png",
-   "https://rsrc.biz/26622-product_main_2x/skyrc-gluing-station-for-tire-sidewalls.jpg",
-   "https://lightyear.co.nz/cdn/shop/files/SK-6000162-01_SkyRC_Reifen_Klebehilfe_1920x1920_9bc6f398-57b3-42db-aaea-6ee4587078d3.avif?v=1780272516&width=1946",
-   "https://www.modelsport.co.uk/_images/products/800/SKY-SK-600162.jpg",
-   "https://modellismorossi.it/wp-content/uploads/2026/05/RBTSK60016201-24ef93.jpg"
-  ]
+  "updated": "2026-11-18"
  },
  {
   "id": "RC-0070",
