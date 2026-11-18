@@ -305,3 +305,139 @@ a.cname:hover{text-decoration:underline}
 .tile .ic.photo{background:#fff;overflow:hidden}
 .tile .ic.photo img{width:100%;height:100%;object-fit:cover;display:block}
 .tile span:empty{display:none}
+
+/* =====================================================================
+   Clean theme: calm warm neutrals, one deep racing green, one signal
+   orange used sparingly, condensed type only for headings and prices,
+   a thin double racing stripe as the only motorsport detail.
+   ===================================================================== */
+:root{
+  --bg:#f4f1eb; --paper:#fffdf9; --sand:#ece6db; --ink:#1d1b18; --muted:#6b645a; --line:#e4ddd0;
+  --green:#1f4a3d; --accent:var(--green); --signal:#c4521f; --wa:#1f9d55;
+  --display:"Barlow Semi Condensed","Arial Narrow",Arial,sans-serif;
+}
+body{background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}
+h1,h2,h3,.price,.tot strong{font-family:var(--display);letter-spacing:.2px}
+h1,h2{font-weight:600}
+
+/* Header + stripe */
+.nav{background:rgba(244,241,235,.94);backdrop-filter:saturate(1.2) blur(8px)}
+.nav:after{height:4px;background:linear-gradient(var(--green) 0 2px,transparent 2px 3px,var(--signal) 3px 4px)}
+.logo .wm b{font-family:var(--display);font-weight:700;letter-spacing:1.4px;font-size:20px}
+.logo .wm b em{color:var(--signal)}
+.logo .wm small{color:var(--muted);letter-spacing:1.6px}
+.links a{color:var(--muted);font-weight:500}
+.links a[aria-current="page"]{color:var(--ink);text-decoration-color:var(--signal)}
+.cartbtn{background:var(--paper);border-color:var(--line);border-radius:999px}
+.cartbtn b{background:var(--signal)}
+.btn{border-radius:999px;font-weight:600}
+.btn.primary{background:var(--green)}
+.btn.plain{background:transparent}
+
+/* Hero */
+.hero .wrap{padding-top:64px;padding-bottom:56px;align-items:center}
+.hero .eyebrow{color:var(--signal);font-weight:600;font-size:12.5px;letter-spacing:1.8px;text-transform:uppercase}
+.hero h1{font-size:clamp(40px,5.4vw,64px);line-height:1.02;letter-spacing:-.2px}
+.hero h1 span{color:var(--green)}
+.hero p{font-size:17px}
+.facts{gap:32px;margin-top:32px}
+.facts>div,.facts>div:nth-child(2),.facts>div:nth-child(3){border-left:2px solid var(--line);padding-left:12px}
+.facts b{font-family:var(--display);font-weight:600;font-size:19px}
+.hero-side{display:flex;flex-direction:column;gap:14px}
+.mosaic{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mosaic .m{all:unset;cursor:pointer;position:relative;aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:#fff;border:1px solid var(--line)}
+.mosaic .m img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.mosaic .m:hover img{transform:scale(1.04)}
+.mosaic .m:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.mosaic .m span{position:absolute;left:10px;bottom:10px;background:rgba(255,253,249,.92);border-radius:999px;padding:3px 10px;font-size:12px;font-weight:600}
+@media (prefers-reduced-motion:reduce){.mosaic .m img{transition:none}}
+.promise{list-style:none;margin:0;padding:6px 20px;background:var(--paper);border:1px solid var(--line);border-radius:14px;
+  background-image:conic-gradient(var(--ink) 0 25%,transparent 0 50%,var(--ink) 0 75%,transparent 0);background-size:10px 10px;background-repeat:no-repeat;background-position:right 0 top 0;
+  position:relative;overflow:hidden}
+.promise:before{content:"";position:absolute;right:0;top:0;width:40px;height:40px;background:conic-gradient(var(--ink) 0 25%,var(--paper) 0 50%,var(--ink) 0 75%,var(--paper) 0) 0 0/10px 10px;opacity:.07}
+.promise{background-image:none}
+.promise li{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.promise li:last-child{border-bottom:0}
+.promise span{color:var(--muted);font-size:14px}
+.promise b{font-weight:600;font-size:15px;text-align:right}
+.promise.under{padding:2px 16px}
+.promise.under li{padding:9px 0}
+@media (max-width:820px){.mosaic{grid-template-columns:1fr 1fr}}
+
+/* Section heads */
+section.block{padding:44px 0}
+.head h2{font-size:clamp(26px,3vw,32px)}
+.head h2:after{width:28px;height:2px;background:var(--signal);margin-top:10px}
+.more{color:var(--green)}
+
+/* Category tiles */
+.tiles{gap:14px}
+.tile{border:1px solid var(--line);border-top:1px solid var(--line);background:var(--paper);padding:10px 10px 14px;border-radius:14px;transition:border-color .2s, box-shadow .2s}
+.tile:hover{border-color:#cfc6b6;box-shadow:0 6px 18px rgba(29,27,24,.06)}
+.tile .ic{background:var(--sand);border-radius:10px;aspect-ratio:4/3}
+.tile .ic.photo{background:#fff}
+.tile .ic svg{color:var(--muted)!important}
+.tile h3{font-size:18px;font-weight:600;padding:0 4px}
+.tile span{padding:0 4px}
+
+/* How to order */
+.steps{gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.step{background:transparent;border:0;border-radius:0;padding:22px 22px 22px 0}
+.step+.step{border-left:1px solid var(--line);padding-left:22px}
+@media (max-width:760px){.step+.step{border-left:0;border-top:1px solid var(--line);padding-left:0}}
+.step .n,.step:nth-child(1) .n,.step:nth-child(2) .n,.step:nth-child(3) .n{background:none;color:var(--signal);font-family:var(--display);font-weight:700;font-size:15px;width:auto;height:auto;margin-bottom:6px;letter-spacing:1px}
+.step h3{font-size:20px}
+
+/* Source on request */
+.source{background:var(--paper);color:var(--ink);border:1px solid var(--line);border-left:4px solid var(--signal)}
+.source p,.source ul{color:var(--muted)}
+.rq{background:var(--bg);border:1px solid var(--line)}
+.rq input{background:var(--paper)}
+
+/* FAQ */
+.qs summary:after{color:var(--signal)}
+
+/* Shop */
+.shop-top h1{font-size:clamp(32px,4vw,44px)}
+.filter .lab{color:var(--muted);text-transform:uppercase;letter-spacing:1.2px;font-size:11.5px}
+.chip{background:transparent}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.strip{background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--signal)}
+.strip a{color:var(--green)}
+.reqcard{background:var(--green)}
+.reqcard a{background:var(--paper);color:var(--green)}
+
+/* Product cards */
+.card{background:var(--paper);border-radius:14px;transition:border-color .2s, box-shadow .2s}
+.card:hover{border-color:#cfc6b6;box-shadow:0 6px 18px rgba(29,27,24,.06)}
+.pic{background:var(--sand)}
+.pic svg{color:var(--muted)!important}
+.pic .scale{background:var(--paper);border:1px solid var(--line);font-weight:600;color:var(--ink)}
+.cbrand{color:var(--muted);text-transform:uppercase;letter-spacing:1px;font-size:11.5px}
+.price{font-weight:600;font-size:21px}
+.add{background:var(--ink);border-color:var(--ink);border-radius:999px}
+.add.ok{background:var(--wa);border-color:var(--wa)}
+
+/* Cart */
+.drawer{background:var(--paper)}
+.dh h2{font-size:24px}
+.df{background:var(--bg);gap:10px}
+.tot strong{font-size:28px;font-weight:600}
+.wa{border-radius:999px;padding:14px;background:var(--wa)}
+.it .th{background:var(--sand)!important}
+.mbar.show{background:var(--ink)!important}
+
+/* Dialog + part page */
+.dpic,.gmain.art{background:var(--sand)!important}
+.dpic svg,.gmain.art svg{color:var(--muted)!important}
+.pinfo .meta span.sc{background:transparent;border-color:var(--line);font-weight:600}
+.pinfo .pp .price{font-size:34px}
+.crumbs a{color:var(--green)}
+
+/* Footer */
+footer{background:var(--ink);color:#bdb6aa}
+
+.hero h1{font-size:clamp(38px,4.6vw,56px)}
+.promise{padding:10px 24px}
+.promise li{padding:18px 0}
+.promise b{font-family:var(--display);font-size:18px}

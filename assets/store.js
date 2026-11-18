@@ -63,10 +63,7 @@
   function msg(){
     var t=0,o=['Hi '+S.name+', I would like to order:',''];
     lines().forEach(function(l,i){var s=l.c.price*l.c.q;t+=s;o.push((i+1)+'. '+l.c.name+' ['+l.id+'] x '+l.c.q+' = '+money(s));});
-    o.push('','Total: '+money(t));
-    var n=$('cName').value.trim(),c=$('cCity').value.trim(),nt=$('cNote').value.trim();
-    if(n)o.push('Name: '+n);if(c)o.push('City / PIN: '+c);if(nt)o.push('Note: '+nt);
-    o.push('','Please confirm availability and shipping.');
+    o.push('','Total: '+money(t),'','Please confirm availability and shipping.');
     return o.join('\n');
   }
   function setWa(btn,hint,text,okMsg,emptyMsg,isEmpty){
@@ -86,7 +83,6 @@
         '<div class="qty"><button data-dec="'+l.id+'" aria-label="One less">−</button><span>'+l.c.q+'</span><button data-inc="'+l.id+'" aria-label="One more">+</button></div></div>'+
         '<div class="r"><span class="lt">'+money(l.c.price*l.c.q)+'</span><button class="rm" data-rm="'+l.id+'">Remove</button></div></div>';
     }).join(''):'<div class="empty" style="margin-top:14px">Your cart is empty.<br><a class="more" href="'+ROOT+'index.html#shop" data-close>Browse parts →</a></div>';
-    $('preview').textContent=L.length?msg():'(Add parts to see the message)';
     setWa($('waBtn'),$('waHint'),msg(),'Opens WhatsApp with your order typed in. Just press send.','Add at least one part to send an order.',!L.length);
   }
 
@@ -222,7 +218,6 @@
     else if(t.hasAttribute('data-go-request')){if(PAGE!=='home')return;if(location.hash==='#request'){e.preventDefault();route();}}
     else if(t.hasAttribute('data-close')){closeAll();}
   });
-  ['cName','cCity','cNote'].forEach(function(id){$(id).addEventListener('input',renderCart);});
   $('openCart').addEventListener('click',openCart);
   $('mbar').addEventListener('click',openCart);
   $('closeCart').addEventListener('click',closeAll);
