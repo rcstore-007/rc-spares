@@ -45,29 +45,40 @@
   function partURL(p){ return ROOT+'parts/'+p.slug+'.html'; }
   function scaleLabel(p){var s=p.scale||[];return s.length>2?'All scales':s.join(', ');}
   function byId(id){for(var i=0;i<P.length;i++)if(P[i].id===id)return P[i];return null;}
+  /* Variations (colour, size, CC…): each option may have its own price and photo */
+  function opts(p){return p&&p.variants&&p.variants.options&&p.variants.options.length?p.variants.options:null;}
+  function oPrice(p,o){return o&&o.price?o.price:p.price;}
+  function oImg(p,o){return o&&o.img!=null&&p.images&&p.images[o.img]?p.images[o.img]:((p.images&&p.images[0])||'');}
+  function keyOf(p,o){return o?p.id+'::'+o.name:p.id;}
+  function priceRange(p){var o=opts(p);if(!o)return [p.price,p.price];var a=o.map(function(x){return oPrice(p,x);});return [Math.min.apply(null,a),Math.max.apply(null,a)];}
 
   /* ---------- Cart (shared by all pages, kept in this browser) ---------- */
   var cart={};
   try{cart=JSON.parse(localStorage.getItem('rc-cart2')||'{}')||{};}catch(e){cart={};}
   function save(){try{localStorage.setItem('rc-cart2',JSON.stringify(cart));}catch(e){}}
   // On the home page we know every product: refresh prices, drop removed parts
-  if(PAGE==='home'){Object.keys(cart).forEach(function(k){var p=byId(k);if(!p)delete cart[k];else{cart[k].price=p.price;cart[k].name=p.name;}});save();}
-  function snap(p){return{q:0,name:p.name,price:p.price,category:p.category,img:(p.images&&p.images[0])||'',slug:p.slug};}
-  function qty(id){return cart[id]?cart[id].q:0;}
-  function add(p,btn){
+  if(PAGE==='home'){Object.keys(cart).forEach(function(k){
+    var bits=k.split('::'),p=byId(bits[0]),o=null;
+    if(p&&bits.length>1){o=(opts(p)||[]).filter(function(x){return x.name===bits.slice(1).join('::');})[0];if(!o)p=null;}
+    if(!p)delete cart[k];else{cart[k].price=oPrice(p,o);cart[k].name=p.name;cart[k].img=oImg(p,o);}
+  });save();}
+  function snap(p,o){return{q:0,id:p.id,name:p.name,opt:o?p.variants.label+': '+o.name:'',price:oPrice(p,o),category:p.category,img:oImg(p,o),slug:p.slug};}
+  function qty(k){return cart[k]?cart[k].q:0;}
+  function add(p,btn,o){
     if(!p)return;
-    if(!cart[p.id])cart[p.id]=snap(p);
-    cart[p.id].q=Math.min(cart[p.id].q+1,99);save();renderCart();
-    toast(p);
+    var k=keyOf(p,o);
+    if(!cart[k])cart[k]=snap(p,o);
+    cart[k].q=Math.min(cart[k].q+1,99);save();renderCart();
+    toast(p,o);
     var cb=$('openCart');cb.classList.remove('bump');void cb.offsetWidth;cb.classList.add('bump');
   }
   /* Small "Added" message at the bottom of the screen */
   var toastT=null;
-  function toast(p){
+  function toast(p,o){
     var t=$('toast');
     if(!t){t=document.createElement('div');t.id='toast';t.className='toast';t.setAttribute('role','status');document.body.appendChild(t);}
-    var q=qty(p.id);
-    t.innerHTML='<span class="tick" aria-hidden="true">✓</span><span class="tt"><b>Added to cart</b><small>'+esc(p.name)+' · '+q+(q===1?' piece':' pieces')+' in your cart</small></span><button type="button" data-viewcart>View cart</button>';
+    var q=qty(keyOf(p,o));
+    t.innerHTML='<span class="tick" aria-hidden="true">✓</span><span class="tt"><b>Added to cart</b><small>'+esc(p.name)+(o?' ('+esc(o.name)+')':'')+' · '+q+(q===1?' piece':' pieces')+' in your cart</small></span><button type="button" data-viewcart>View cart</button>';
     t.classList.add('show');clearTimeout(toastT);toastT=setTimeout(function(){t.classList.remove('show');},3200);
   }
   /* Show how many of each part are already in the cart */
@@ -80,19 +91,19 @@
     });
     var pa=$('pAdd'),pc=$('pInCart');
     if(pa&&PAGE==='part'&&P[0]){initPartWa();
-      var q=qty(P[0].id);
+      var q=qty(keyOf(P[0],selOpt));
       pa.textContent=q?'Add one more':'Add to cart';
       pc.hidden=!q;
-      if(q)pc.innerHTML='<span aria-hidden="true">✓</span> '+q+(q===1?' piece':' pieces')+' of this part in your cart · <button type="button" data-viewcart>View cart</button>';
+      if(q)pc.innerHTML='<span aria-hidden="true">✓</span> '+q+(q===1?' piece':' pieces')+(selOpt?' of '+esc(selOpt.name):' of this part')+' in your cart · <button type="button" data-viewcart>View cart</button>';
     }
     var da=$('dAdd');
     if(da&&cur){var q2=qty(cur.id);da.textContent=q2?'✓ '+q2+' in cart · add one more':'Add to cart';}
   }
-  function lines(){return Object.keys(cart).map(function(id){return{id:id,c:cart[id]};}).filter(function(l){return l.c&&l.c.q>0;});}
+  function lines(){return Object.keys(cart).map(function(k){return{key:k,id:(cart[k]&&cart[k].id)||k.split('::')[0],c:cart[k]};}).filter(function(l){return l.c&&l.c.q>0;});}
   function waNum(){return (S.whatsapp||'').replace(/\D/g,'');}
   function msg(){
     var t=0,o=['Hi '+S.name+', I would like to order:',''];
-    lines().forEach(function(l,i){var s=l.c.price*l.c.q;t+=s;o.push((i+1)+'. '+l.c.name+' ['+l.id+'] x '+l.c.q+' = '+money(s));});
+    lines().forEach(function(l,i){var s=l.c.price*l.c.q;t+=s;o.push((i+1)+'. '+l.c.name+(l.c.opt?' ('+l.c.opt+')':'')+' ['+l.id+'] x '+l.c.q+' = '+money(s));});
     o.push('','Total: '+money(t),'','Please confirm availability and shipping.');
     return o.join('\n');
   }
@@ -109,9 +120,9 @@
     $('mbarL').textContent=c+(c===1?' item · ':' items · ')+money(t);
     $('items').innerHTML=L.length?L.map(function(l){
       var th=l.c.img?'<img src="'+ROOT+esc(l.c.img)+'" alt="">':art(l.c.category);
-      return '<div class="it"><div class="th" style="'+cv(l.c.category)+'">'+th+'</div><div><div class="t">'+esc(l.c.name)+'</div><div class="s">'+money(l.c.price)+' each</div>'+
-        '<div class="qty"><button data-dec="'+l.id+'" aria-label="One less">−</button><span>'+l.c.q+'</span><button data-inc="'+l.id+'" aria-label="One more">+</button></div></div>'+
-        '<div class="r"><span class="lt">'+money(l.c.price*l.c.q)+'</span><button class="rm" data-rm="'+l.id+'">Remove</button></div></div>';
+      return '<div class="it"><div class="th" style="'+cv(l.c.category)+'">'+th+'</div><div><div class="t">'+esc(l.c.name)+'</div>'+(l.c.opt?'<div class="s vo-s">'+esc(l.c.opt)+'</div>':'')+'<div class="s">'+money(l.c.price)+' each</div>'+
+        '<div class="qty"><button data-dec="'+esc(l.key)+'" aria-label="One less">−</button><span>'+l.c.q+'</span><button data-inc="'+esc(l.key)+'" aria-label="One more">+</button></div></div>'+
+        '<div class="r"><span class="lt">'+money(l.c.price*l.c.q)+'</span><button class="rm" data-rm="'+esc(l.key)+'">Remove</button></div></div>';
     }).join(''):'<div class="empty" style="margin-top:14px">Your cart is empty.<br><a class="more" href="'+ROOT+'index.html#shop" data-close>Browse parts →</a></div>';
     setWa($('waBtn'),$('waHint'),msg(),'Opens WhatsApp with your order typed in. Just press send.','Add at least one part to send an order.',!L.length);
     syncAdds();
@@ -133,11 +144,13 @@
   /* ---------- Home + shop ---------- */
   var state={cat:'All',scale:'All',brand:'All',q:'',sort:'pop'},wantReq=false;
   function card(p){
-    var q=qty(p.id);
-    return '<article class="card"><button class="pic'+(p.images&&p.images.length?' photo':'')+'" style="'+cv(p.category)+'" data-open="'+p.id+'" aria-label="Quick view '+esc(p.name)+'">'+picHTML(p)+'<span class="scale">'+esc(scaleLabel(p))+'</span></button>'+
+    var q=qty(p.id),o=opts(p),r=priceRange(p);
+    var foot=o?'<span class="price">'+(r[0]!==r[1]?'<small>From </small>':'')+money(r[0])+'</span><a class="add" href="'+partURL(p)+'">'+o.length+' options</a>':
+      '<span class="price">'+money(p.price)+'</span><button class="add'+(q?' in':'')+'" data-add="'+p.id+'">'+(q?'<span aria-hidden="true">✓</span> '+q+' in cart':'Add')+'</button>';
+    return '<article class="card"><a class="pic'+(p.images&&p.images.length?' photo':'')+'" style="'+cv(p.category)+'" href="'+partURL(p)+'" aria-label="'+esc(p.name)+'">'+picHTML(p)+'<span class="scale">'+esc(scaleLabel(p))+'</span></a>'+
       '<div class="cbody"><div class="cbrand">'+esc(p.brand)+'</div><a class="cname" href="'+partURL(p)+'">'+esc(p.name)+'</a>'+
       '<div class="cfits">'+(p.fits?'Fits: '+esc(p.fits):'')+'</div>'+
-      '<div class="cfoot"><span class="price">'+money(p.price)+'</span><button class="add'+(q?' in':'')+'" data-add="'+p.id+'">'+(q?'<span aria-hidden="true">✓</span> '+q+' in cart':'Add')+'</button></div></div></article>';
+      '<div class="cfoot">'+foot+'</div></div></article>';
   }
   function renderHome(){
     if($('partCount'))$('partCount').textContent=P.length+(P.length===1?' part':' parts');
@@ -174,7 +187,7 @@
     $('brandSel').innerHTML=b.map(function(x){return '<option value="'+esc(x)+'"'+(x===state.brand?' selected':'')+'>'+(x==='All'?'All brands':esc(x))+'</option>';}).join('');
   }
   function renderGrid(){
-    var f={pop:function(a,b){return(b.pop||0)-(a.pop||0);},lo:function(a,b){return a.price-b.price;},hi:function(a,b){return b.price-a.price;},az:function(a,b){return a.name.localeCompare(b.name);},new:function(a,b){return String(b.added||'').localeCompare(String(a.added||''));}}[state.sort];
+    var f={pop:function(a,b){return(b.pop||0)-(a.pop||0);},lo:function(a,b){return priceRange(a)[0]-priceRange(b)[0];},hi:function(a,b){return priceRange(b)[1]-priceRange(a)[1];},az:function(a,b){return a.name.localeCompare(b.name);},new:function(a,b){return String(b.added||'').localeCompare(String(a.added||''));}}[state.sort];
     var l=P.filter(function(p){return match(p);}).sort(f);
     var bits=[];if(state.cat!=='All')bits.push(state.cat);if(state.scale!=='All')bits.push(state.scale+' scale');
     $('countLine').textContent=l.length+(l.length===1?' part':' parts')+(bits.length?' · '+bits.join(' · '):'');
@@ -217,23 +230,36 @@
   function goShop(){refresh();if(location.hash==='#shop')route();else location.hash='shop';}
 
   /* ---------- Part page ---------- */
+  var selOpt=null;
+  function showPhoto(src){
+    var main=$('gMain');if(!main||!src)return;
+    if(main.getAttribute('src')!==src){main.classList.add('swap');setTimeout(function(){main.src=src;main.classList.remove('swap');},140);}
+    document.querySelectorAll('[data-thumb]').forEach(function(x){x.setAttribute('aria-pressed',String(x.getAttribute('data-thumb')===src));});
+  }
   function initPart(){
     var p=P[0];if(!p)return;
-    var main=$('gMain');
+    var o=opts(p);selOpt=o?o[0]:null;
     document.querySelectorAll('[data-thumb]').forEach(function(t){
+      t.addEventListener('click',function(){showPhoto(t.getAttribute('data-thumb'));});
+    });
+    document.querySelectorAll('[data-vi]').forEach(function(t){
       t.addEventListener('click',function(){
-        main.src=t.getAttribute('data-thumb');
-        document.querySelectorAll('[data-thumb]').forEach(function(x){x.setAttribute('aria-pressed',String(x===t));});
+        selOpt=o[+t.getAttribute('data-vi')];
+        document.querySelectorAll('[data-vi]').forEach(function(x){x.setAttribute('aria-pressed',String(x===t));});
+        $('pVarName').textContent=selOpt.name;
+        $('pPrice').textContent=money(oPrice(p,selOpt));
+        if(selOpt.img!=null)showPhoto(ROOT+oImg(p,selOpt));
+        syncAdds();
       });
     });
-    var b=$('pAdd');if(b)b.addEventListener('click',function(){add(p,b);});
+    var b=$('pAdd');if(b)b.addEventListener('click',function(){add(p,b,selOpt);});
     initPartWa();
   }
   function initPartWa(){
     var p=P[0],now=$('pNow');
     if(now&&p){
-      var q=Math.max(1,qty(p.id));
-      var text='Hi '+S.name+', I would like to order:\n\n1. '+p.name+' ['+p.id+'] x '+q+' = '+money(p.price*q)+'\n\nPlease confirm availability and shipping.';
+      var q=Math.max(1,qty(keyOf(p,selOpt))),pr=oPrice(p,selOpt);
+      var text='Hi '+S.name+', I would like to order:\n\n1. '+p.name+(selOpt?' ('+p.variants.label+': '+selOpt.name+')':'')+' ['+p.id+'] x '+q+' = '+money(pr*q)+'\n\nPlease confirm availability and shipping.';
       setWa(now,$('pHint'),text,'','',false);
       if(waNum())$('pHint').textContent='';
     }

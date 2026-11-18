@@ -48,16 +48,20 @@ def fetch_pending_photos(products):
             continue
         changed = True
         images = list(p.get("images") or [])
-        got = 0
+        got, at = 0, {}
         for url in chosen:
-            if len(images) >= 4:
+            if len(images) >= 8:
                 break
             try:
                 data, ext = download(url)
             except Exception:
                 continue
             got += 1
+            at[url] = len(images)
             images.append(save(p["slug"], len(images) + 1, data, ext))
+        for o in ((p.get("variants") or {}).get("options") or []):    # option photos picked from web links
+            if isinstance(o, dict) and o.get("img_url"):
+                o["img"] = at.get(o.pop("img_url"))
         if not images:                       # none of the chosen photos worked: try a backup for the main photo
             for url in backup[:6]:
                 try:

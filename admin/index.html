@@ -158,6 +158,7 @@ textarea{resize:vertical;min-height:84px}
         <label class="f"><span>Price in ₹ <span class="req">*</span></span><input type="number" id="fPrice" inputmode="numeric" min="1" step="1" placeholder="e.g. 6450"></label>
         <label class="f"><span>Category <span class="req">*</span></span><select id="fCat"></select></label>
         <div class="f" style="display:block;font-size:13px;font-weight:700;color:var(--muted);margin-bottom:12px"><span>Scale <span class="req">*</span> (tap all that fit)</span><div class="chips" id="fScales" style="margin-top:6px"></div></div>
+        <div id="vEd" style="margin-bottom:12px"></div>
         <label class="f">Brand<input type="text" id="fBrand"></label>
         <label class="f">Fits (cars or models)<input type="text" id="fFits"></label>
         <label class="f">Description<textarea id="fDesc" rows="4"></textarea></label>
@@ -376,7 +377,7 @@ textarea{resize:vertical;min-height:84px}
   }
   function addFiles(files){
     [].slice.call(files).forEach(function(f){
-      if(F.photos.length>=4)return;
+      if(F.photos.length>=8)return;
       F.photos.push({kind:'loading',src:''});renderPhotos();
       var slot=F.photos[F.photos.length-1];
       shrink(f).then(function(p){var i=F.photos.indexOf(slot);if(i>=0)F.photos[i]=p;renderPhotos();})
@@ -385,7 +386,10 @@ textarea{resize:vertical;min-height:84px}
   }
   $('camIn').addEventListener('change',function(){addFiles(this.files);this.value='';});
   $('galIn').addEventListener('change',function(){addFiles(this.files);this.value='';});
+  function phRef(p){if(!p.ref)p.ref=p.kind==='keep'?'keep:'+p.path:(p.kind==='web'?'url:'+p.url:'new:'+Math.random().toString(36).slice(2));return p.ref;}
+  function vePhotos(){return ((typeof F!=='undefined'&&F&&F.photos)||[]).filter(function(p){return p.kind!=='loading';}).map(function(p){return {ref:phRef(p),src:p.src};});}
   function renderPhotos(){
+    if(typeof VE!=='undefined'&&VE)setTimeout(VE.refresh,0);
     $('photos').innerHTML=F.photos.map(function(p,i){
       if(p.kind==='loading')return '<div class="ph"><div class="spin"></div></div>';
       if(p.kind==='web')return '<div class="ph"><img src="'+esc(p.src)+'" alt="" referrerpolicy="no-referrer" onerror="this.style.opacity=.2"><span class="n">'+(i+1)+'</span><div class="acts">'+(i?'<button data-main="'+i+'">Main</button>':'')+'<button data-rmp="'+i+'">Remove</button></div></div>';
@@ -408,7 +412,7 @@ textarea{resize:vertical;min-height:84px}
     var b=e.target.closest('[data-sg]');if(!b)return;var u=F.sugg[+b.dataset.sg];
     var i=F.photos.findIndex(function(p){return p.kind==='web'&&p.url===u;});
     if(i>=0)F.photos.splice(i,1);
-    else{if(F.photos.length>=4){msg('formErr','warn','Up to 4 photos. Remove one first.');return;}F.photos.push({kind:'web',url:u,src:u});}
+    else{if(F.photos.length>=8){msg('formErr','warn','Up to 8 photos. Remove one first.');return;}F.photos.push({kind:'web',url:u,src:u});}
     renderPhotos();renderSugg();
   });
 
@@ -420,8 +424,98 @@ textarea{resize:vertical;min-height:84px}
     if(i>=0)F.scales.splice(i,1);else F.scales.push(b.dataset.s);renderScales();
   });
 
+  /* ---------- Variations editor (same code on the PC app and the phone page) ----------
+     A tickbox "This part has variations". When ticked: what it varies by (Colour, Size, CC…),
+     then one row per option: name, price (blank = main price), and an optional photo picked
+     from this part's photos. Saved as variants:{label, options:[{name, price, img}]} where img
+     is the photo's position (0 = photo 1). */
+  function VarEditor(box,getPhotos){
+    var V={on:false,label:'',opts:[]};
+    var css=document.createElement('style');
+    css.textContent='.vbox{border:1px dashed #cbbfa8;border-radius:12px;padding:12px 14px;background:#fffdf8}'+
+      '.vtick{display:flex;gap:10px;align-items:center;font-weight:700;font-size:15px;color:inherit;cursor:pointer}'+
+      '.vtick input{width:20px;height:20px;accent-color:#2e5e4e}'+
+      '.vbody{margin-top:12px;display:flex;flex-direction:column;gap:10px}'+
+      '.vrow{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) auto;gap:8px;align-items:center;background:#fff;border:1px solid #e6dccb;border-radius:10px;padding:8px}'+
+      '.vrow .vimgs{grid-column:1/-1;display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:#6f6656}'+
+      '.vrow .vimgs button{width:46px;height:46px;border-radius:8px;border:2px solid #e6dccb;background:#fff;padding:2px;cursor:pointer;font-size:11px;color:#6f6656}'+
+      '.vrow .vimgs button img{width:100%;height:100%;object-fit:contain;display:block}'+
+      '.vrow .vimgs button[aria-pressed="true"]{border-color:#2e5e4e;box-shadow:0 0 0 2px rgba(46,94,78,.2)}'+
+      '.vrow input{width:100%;min-width:0}'+
+      '.vx{border:0;background:#f4ece0;border-radius:8px;width:36px;height:36px;font-size:18px;cursor:pointer}'+
+      '.vhint{font-size:12.5px;color:#6f6656;margin:0}';
+    document.head.appendChild(css);
+    box.className=(box.className+' vbox').trim();
+    box.innerHTML='<label class="vtick"><input type="checkbox" class="vOn"> This part has variations <span style="font-weight:500;color:#6f6656">(colour, size, CC…)</span></label>'+
+      '<div class="vbody" hidden><label class="f">Varied by<input type="text" class="vLabel" placeholder="e.g. Colour, Size, CC" maxlength="30"></label>'+
+      '<div class="vrows"></div><div><button type="button" class="btn plain vAdd">+ Add option</button></div>'+
+      '<p class="vhint">Leave the price blank to use the main price. Tap a photo to show it when a customer picks that option (add the photos above first).</p></div>';
+    var q=function(s){return box.querySelector(s);};
+    function esc2(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+    function word(){var l=V.label.trim();return l?l.toLowerCase():'option';}
+    function render(){
+      q('.vOn').checked=V.on;q('.vbody').hidden=!V.on;q('.vLabel').value=V.label;
+      var ph=getPhotos(),refs=ph.map(function(p){return p.ref;});
+      V.opts.forEach(function(o){if(o.ref&&refs.indexOf(o.ref)<0)o.ref=null;});
+      q('.vrows').innerHTML=V.opts.map(function(o,i){
+        return '<div class="vrow" data-i="'+i+'"><input type="text" class="vN" placeholder="'+esc2(V.label.trim()||'Option')+' '+(i+1)+' (e.g. '+(i%2?'Red':'Blue')+')" value="'+esc2(o.name)+'" maxlength="40">'+
+          '<input type="number" class="vP" placeholder="₹ (optional)" min="1" step="1" value="'+esc2(o.price)+'">'+
+          '<button type="button" class="vx" aria-label="Remove this option">×</button>'+
+          '<div class="vimgs">'+(ph.length?'Photo: <button type="button" data-ref="" aria-pressed="'+(!o.ref)+'">None</button>'+ph.map(function(p,n){return '<button type="button" data-ref="'+esc2(p.ref)+'" aria-pressed="'+(o.ref===p.ref)+'" title="Photo '+(n+1)+'"><img src="'+esc2(p.src)+'" alt="Photo '+(n+1)+'"></button>';}).join(''):'No photos chosen yet.')+'</div></div>';
+      }).join('');
+      q('.vAdd').textContent='+ Add '+word();
+    }
+    q('.vOn').addEventListener('change',function(){V.on=this.checked;if(V.on&&V.opts.length<2){while(V.opts.length<2)V.opts.push({name:'',price:'',ref:null});}render();});
+    q('.vLabel').addEventListener('input',function(){V.label=this.value;q('.vAdd').textContent='+ Add '+word();
+      box.querySelectorAll('.vN').forEach(function(inp,i){inp.placeholder=(V.label.trim()||'Option')+' '+(i+1);});});
+    q('.vAdd').addEventListener('click',function(){V.opts.push({name:'',price:'',ref:null});render();var n=box.querySelectorAll('.vN');if(n.length)n[n.length-1].focus();});
+    q('.vrows').addEventListener('input',function(e){
+      var r=e.target.closest('.vrow');if(!r)return;var o=V.opts[+r.dataset.i];
+      if(e.target.classList.contains('vN'))o.name=e.target.value;
+      if(e.target.classList.contains('vP'))o.price=e.target.value;
+    });
+    q('.vrows').addEventListener('click',function(e){
+      var r=e.target.closest('.vrow');if(!r)return;var i=+r.dataset.i;
+      if(e.target.closest('.vx')){V.opts.splice(i,1);render();return;}
+      var b=e.target.closest('[data-ref]');if(b){V.opts[i].ref=b.getAttribute('data-ref')||null;render();}
+    });
+    return {
+      refresh:render,
+      reset:function(){V={on:false,label:'',opts:[]};render();},
+      load:function(v,photos){
+        V={on:false,label:'',opts:[]};
+        if(v&&v.options&&v.options.length){
+          V.on=true;V.label=v.label||'';
+          V.opts=v.options.map(function(o){return {name:o.name||'',price:o.price||'',ref:(o.img!=null&&photos[o.img])?photos[o.img].ref:null};});
+        }
+        render();
+      },
+      get:function(){
+        if(!V.on)return null;
+        var refs=getPhotos().map(function(p){return p.ref;});
+        return {label:V.label.trim(),options:V.opts.filter(function(o){return o.name.trim();}).map(function(o){
+          var i=o.ref?refs.indexOf(o.ref):-1;
+          return {name:o.name.trim(),price:(+o.price>0?Math.round(+o.price):null),img:i>=0?i:null};
+        })};
+      },
+      errors:function(){
+        if(!V.on)return [];
+        var e=[],names=V.opts.map(function(o){return o.name.trim().toLowerCase();}).filter(Boolean);
+        if(!V.label.trim())e.push('Variations: type what it varies by (for example Colour or Size).');
+        if(names.length<2)e.push('Variations: add at least 2 options, or untick "This part has variations".');
+        if(names.some(function(n,i){return names.indexOf(n)!==i;}))e.push('Variations: two options have the same name.');
+        return e;
+      },
+      summary:function(money){
+        var v=this.get();if(!v)return '';
+        return esc2(v.label)+': '+v.options.map(function(o){return esc2(o.name)+(o.price?' ('+money(o.price)+')':'')+(o.img!=null?' · photo '+(o.img+1):'');}).join(', ');
+      }
+    };
+  }
+
+  var VE=VarEditor($('vEd'),vePhotos);
   function resetForm(){
-    F={editing:null,pending:null,photos:[],scales:[],sugg:[]};
+    F={editing:null,pending:null,photos:[],scales:[],sugg:[]};VE.reset();
     $('suggBox').hidden=true;
     ['fName','fBrand','fPrice','fFits','fDesc','fSpecs'].forEach(function(id){$(id).value='';});
     $('fCat').value='';msg('aiMsg','',null);msg('formErr','',null);
@@ -436,7 +530,7 @@ textarea{resize:vertical;min-height:84px}
     $('fSpecs').value.split('\n').forEach(function(l){var i=l.indexOf(':');if(i>0){var k=l.slice(0,i).trim(),v=l.slice(i+1).trim();if(k&&v)specs[k.slice(0,40)]=v.slice(0,80);}});
     return {name:$('fName').value.trim().slice(0,90),brand:$('fBrand').value.trim().slice(0,40),category:$('fCat').value,
       price:parseInt(String($('fPrice').value).replace(/[^\d]/g,''),10)||0,scale:F.scales.slice(),fits:$('fFits').value.trim().slice(0,160),
-      desc:$('fDesc').value.trim().slice(0,600),specs:specs};
+      desc:$('fDesc').value.trim().slice(0,600),specs:specs,variants:VE.get()};
   }
   $('reviewBtn').addEventListener('click',function(){
     var d=collect(),err=[];
@@ -445,12 +539,13 @@ textarea{resize:vertical;min-height:84px}
     if(!d.category)err.push('Choose a category.');
     if(!d.scale.length)err.push('Tap at least one scale.');
     if(F.photos.some(function(p){return p.kind==='loading';}))err.push('Wait for the photos to finish loading.');
+    err=err.concat(VE.errors());
     if(err.length){msg('formErr','err',err.join('<br>'));return;}
     msg('formErr','',null);
     var img=F.photos[0]?'<img src="'+esc(F.photos[0].src)+'" alt="">':'<div class="noimg"></div>';
     modal('<h2>'+(F.editing?'Save these changes?':'Add this part to the website?')+'</h2><div class="sum">'+img+'<dl>'+
       '<dt>Name</dt><dd>'+esc(d.name)+'</dd><dt>Price</dt><dd>'+money(d.price)+'</dd><dt>Category</dt><dd>'+esc(d.category)+'</dd>'+
-      '<dt>Scale</dt><dd>'+esc(d.scale.join(', '))+'</dd><dt>Photos</dt><dd>'+F.photos.length+'</dd></dl></div>'+
+      '<dt>Scale</dt><dd>'+esc(d.scale.join(', '))+'</dd><dt>Photos</dt><dd>'+F.photos.length+'</dd>'+(d.variants?'<dt>Variations</dt><dd>'+VE.summary(money)+'</dd>':'')+'</dl></div>'+
       (d.desc?'<p class="hint" style="margin-top:12px">'+esc(d.desc)+'</p>':'')+
       '<div class="row" style="margin-top:14px"><button class="btn plain" data-close>Change</button><button class="btn" id="okBtn">OK, '+(F.editing?'save':'add')+'</button></div>');
     $('okBtn').addEventListener('click',function(){save(d);});
@@ -471,15 +566,21 @@ textarea{resize:vertical;min-height:84px}
         while(taken.indexOf(slug)>=0){slug=base+'-'+k;k++;}
         p={id:'RC-'+('000'+n).slice(-4),slug:slug,added:today(),pop:5,images:[]};list.unshift(p);
       }
-      var old=(p.images||[]).slice(),add={},imgs=[],web=[];
+      var old=(p.images||[]).slice(),add={},imgs=[],web=[],where=[];
       for(var i=0;i<photos.length;i++){
         var ph=photos[i];
-        if(ph.kind==='keep'){imgs.push(ph.path);continue;}
-        if(ph.kind==='web'){web.push(ph.url);continue;}
+        if(ph.kind==='keep'){imgs.push(ph.path);where.push({idx:imgs.length-1});continue;}
+        if(ph.kind==='web'){web.push(ph.url);where.push({url:ph.url});continue;}
         var path='images/'+p.slug+'/'+(i+1)+'-'+(await hash6(ph.data))+'.jpg';
-        add[path]=ph.data;imgs.push(path);
+        add[path]=ph.data;imgs.push(path);where.push({idx:imgs.length-1});
       }
-      Object.assign(p,d,{images:imgs,updated:today()});delete p.stock;
+      // Variations: photo numbers point at the chosen photos; web photos are fetched later on GitHub, so keep their link
+      if(d.variants){d.variants.options.forEach(function(o){
+        var w=o.img!=null?where[o.img]:null;delete o.img_url;
+        if(w&&w.idx!=null)o.img=w.idx;else if(w&&w.url){o.img=null;o.img_url=w.url;}else o.img=null;
+      });}
+      else delete d.variants;
+      Object.assign(p,d,{images:imgs,updated:today()});delete p.stock;if(!d.variants)delete p.variants;
       if(web.length){p.pending_images=web;p.pending_fallback=sugg.filter(function(u){return web.indexOf(u)<0;});}
       slugOut=p.slug;
       var out={products:list,add:add,del:old.filter(function(x){return imgs.indexOf(x)<0;})};
@@ -542,7 +643,7 @@ textarea{resize:vertical;min-height:84px}
     $('fSpecs').value=Object.keys(p.specs||{}).map(function(k){return k+': '+p.specs[k];}).join('\n');
     F.scales=(p.scale||[]).slice();
     F.photos=(p.images||[]).map(function(i){return {kind:'keep',path:i,src:(CFG.site_url||'../')+i};});
-    renderScales();renderPhotos();showTab('add');window.scrollTo(0,0);
+    renderScales();renderPhotos();VE.load(p.variants,vePhotos());showTab('add');window.scrollTo(0,0);
   }
 
   /* ---------- waiting parts (from the Excel import on the computer) ---------- */

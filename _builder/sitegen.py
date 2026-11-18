@@ -30,6 +30,39 @@ def esc(s):
     return html.escape(str(s if s is not None else ""), quote=True)
 
 
+def clean_variants(v, n_images=99):
+    """Tidy a part's variations: {"label": "Colour", "options": [{"name", "price" (int or None), "img" (photo number or None)}]}.
+    Returns None unless there is a label and at least 2 named options."""
+    if not isinstance(v, dict):
+        return None
+    label = re.sub(r"\s+", " ", str(v.get("label") or "")).strip()[:30]
+    opts, seen = [], set()
+    for o in (v.get("options") or [])[:24]:
+        if not isinstance(o, dict):
+            continue
+        name = re.sub(r"\s+", " ", str(o.get("name") or "")).strip()[:40]
+        if not name or name.lower() in seen:
+            continue
+        seen.add(name.lower())
+        price = o.get("price")
+        try:
+            price = int(float(str(price).replace(",", "").replace("₹", ""))) if price not in (None, "") else None
+        except ValueError:
+            price = None
+        if price is not None and price <= 0:
+            price = None
+        img = o.get("img")
+        img = img if isinstance(img, int) and not isinstance(img, bool) and 0 <= img < n_images else None
+        opts.append({"name": name, "price": price, "img": img})
+    if not label or len(opts) < 2:
+        return None
+    return {"label": label, "options": opts}
+
+
+def option_price(p, o):
+    return o["price"] if o and o.get("price") else int(p.get("price") or 0)
+
+
 def slugify(text):
     s = re.sub(r"[^a-z0-9]+", "-", str(text).lower()).strip("-")
     return s[:70].strip("-") or "part"
@@ -152,7 +185,7 @@ def build_index(settings, products):
         fill(partial("footer"), settings, ""),
         fill(partial("cart"), settings, ""),
         f'<script id="store-settings" type="application/json">{json_block(pub)}</script>',
-        f'<script id="products" type="application/json">{json_block(products)}</script>',
+        f'<script id="products" type="application/json">{json_block([dict(p, variants=clean_variants(p.get("variants"), len(p.get("images") or []))) for p in products])}</script>',
         '<script src="assets/store.js"></script>',
         '</body>',
         '</html>',
@@ -173,6 +206,11 @@ def build_part(settings, p):
         desc = desc[:152].rsplit(" ", 1)[0] + "..."
     imgs = p.get("images") or []
     abs_imgs = [base + i for i in imgs] if base else []
+    var = clean_variants(p.get("variants"), len(imgs))
+    first = var["options"][0] if var else None
+    if first:
+        price = f"₹{option_price(p, first):,}"
+    start_img = imgs[first["img"]] if first and first.get("img") is not None else (imgs[0] if imgs else None)
 
     ld = {
         "@context": "https://schema.org/",
@@ -189,6 +227,12 @@ def build_part(settings, p):
             "itemCondition": "https://schema.org/NewCondition",
         },
     }
+    if var:
+        prices = [option_price(p, o) for o in var["options"]]
+        if min(prices) != max(prices):
+            ld["offers"] = {"@type": "AggregateOffer", "priceCurrency": "INR", "lowPrice": str(min(prices)),
+                            "highPrice": str(max(prices)), "offerCount": str(len(prices)),
+                            "availability": "https://schema.org/InStock"}
     if p.get("brand"):
         ld["brand"] = {"@type": "Brand", "name": p["brand"]}
     if abs_imgs:
@@ -205,18 +249,29 @@ def build_part(settings, p):
 
     # Gallery
     if imgs:
-        main = f'<div class="gmain"><img id="gMain" src="{root}{esc(imgs[0])}" alt="{esc(p["name"])}"></div>'
+        main = f'<div class="gmain"><img id="gMain" src="{root}{esc(start_img)}" alt="{esc(p["name"])}"></div>'
         thumbs = ""
         if len(imgs) > 1:
             thumbs = '<div class="thumbs">' + "".join(
-                f'<button data-thumb="{root}{esc(i)}" aria-pressed="{"true" if n == 0 else "false"}" aria-label="Photo {n + 1}"><img src="{root}{esc(i)}" alt=""></button>'
+                f'<button data-thumb="{root}{esc(i)}" aria-pressed="{"true" if i == start_img else "false"}" aria-label="Photo {n + 1}"><img src="{root}{esc(i)}" alt=""></button>'
                 for n, i in enumerate(imgs)) + "</div>"
         gallery = main + thumbs
     else:
         gallery = f'<div class="gmain art" style="{category_vars(p.get("category"))}">{category_art(p.get("category"))}</div>'
 
     scales = "".join(f'<span class="sc">{esc(s)} scale</span>' for s in p.get("scale") or [])
-    rows = ""
+    var_html = ""
+    if var:
+        tiles = ""
+        for n, o in enumerate(var["options"]):
+            pic = f'<img src="{root}{esc(imgs[o["img"]])}" alt="">' if o.get("img") is not None else ""
+            tiles += (f'<button type="button" class="vo{" has-img" if pic else ""}" data-vi="{n}" aria-pressed="{"true" if n == 0 else "false"}">'
+                      f'{pic}<span class="vn">{esc(o["name"])}</span><span class="vp">₹{option_price(p, o):,}</span></button>')
+        var_html = (f'<div class="vars"><div class="vl">{esc(var["label"])}: <b id="pVarName">{esc(first["name"])}</b></div>'
+                    f'<div class="vopts" role="group" aria-label="{esc(var["label"])}">{tiles}</div></div>')
+        rows = f'<tr><td>{esc(var["label"])}</td><td>{esc(", ".join(o["name"] for o in var["options"]))}</td></tr>'
+    else:
+        rows = ""
     if p.get("fits"):
         rows += f'<tr><td>Fits</td><td>{esc(p["fits"])}</td></tr>'
     rows += f'<tr><td>Scale</td><td>{esc(", ".join(p.get("scale") or []))}</td></tr>'
@@ -233,8 +288,9 @@ def build_part(settings, p):
     <div class="pinfo">
       <div class="cbrand">{esc(p.get("brand", ""))}</div>
       <h1>{esc(p["name"])}</h1>
-      <div class="pp"><span class="price">{price}</span></div>
+      <div class="pp"><span class="price" id="pPrice">{price}</span></div>
       <div class="meta">{scales}<span>{esc(p.get("category", ""))}</span></div>
+      {var_html}
       <p class="desc">{esc(short)}</p>
       <div class="pbtns">
         <button class="add" id="pAdd">Add to cart</button>
@@ -251,6 +307,7 @@ def build_part(settings, p):
   </div>
 </main>'''
     product_for_js = {k: p.get(k) for k in ("id", "slug", "name", "price", "category", "images", "brand", "scale")}
+    product_for_js["variants"] = var
     body = "\n".join([
         '<body data-page="part" data-root="../">',
         fill(partial("nav"), settings, root),
