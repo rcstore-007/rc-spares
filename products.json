@@ -1,5 +1,25 @@
 [
  {
+  "id": "RC-0074",
+  "slug": "side-antenna-scale-accessory",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "Side Antenna (Scale Accessory)",
+  "brand": "Generic",
+  "category": "Tools & Accessories",
+  "price": 300,
+  "scale": [
+   "1:10"
+  ],
+  "fits": "RC crawlers, scale trucks",
+  "desc": "This is a decorative scale accessory designed to look like a vehicle antenna. It is used to enhance the realistic appearance of RC crawler or truck bodies.",
+  "specs": {
+   "Type": "Scale Accessory"
+  },
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0073",
   "slug": "shock-oil",
   "added": "2026-11-18",
