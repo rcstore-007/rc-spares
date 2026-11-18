@@ -4,7 +4,9 @@
   "slug": "5mm-to-7mm-wheel-hex-adapter",
   "added": "2026-11-18",
   "pop": 5,
-  "images": [],
+  "images": [
+   "images/5mm-to-7mm-wheel-hex-adapter/1-0730b5.png"
+  ],
   "name": "5mm to 7mm Wheel Hex Adapter",
   "brand": "Generic",
   "category": "Tyres & Wheels",
@@ -19,19 +21,7 @@
    "Input": "5mm",
    "Output": "7mm"
   },
-  "updated": "2026-11-18",
-  "pending_images": [
-   "https://ozrc.com.au/cdn/shop/files/OZRCAluminium5mmto7mmWheelHexHubAdaptersforMNModels4pcs.png?v=1768174237&width=450"
-  ],
-  "pending_fallback": [
-   "https://down-ph.img.susercontent.com/file/cn-11134207-7ras8-m86762rdp7kid2",
-   "https://m.media-amazon.com/images/I/51CCxXzUDuL._AC_UF894,1000_QL80_.jpg",
-   "https://m.media-amazon.com/images/I/719goVVh02L.jpg",
-   "https://images-na.ssl-images-amazon.com/images/I/61a3+cBmkuL._UL500_.jpg",
-   "https://i.ebayimg.com/images/g/vSQAAeSw0MVntWuU/s-l500.jpg",
-   "https://fbi.cults3d.com/uploaders/24679021/photo-file/d103c8a1-645a-4598-a4e7-4160b1f8fd4f/Example4.jpg",
-   "https://fbi.cults3d.com/uploaders/24679021/photo-file/9a3bdabd-0181-4cea-a190-5f6a2f1470bd/Example5.jpg"
-  ]
+  "updated": "2026-11-18"
  },
  {
   "id": "RC-0029",
