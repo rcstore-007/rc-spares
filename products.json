@@ -4,7 +4,9 @@
   "slug": "injora-1-0-inch-crawler-tyres",
   "added": "2026-11-18",
   "pop": 5,
-  "images": [],
+  "images": [
+   "images/injora-1-0-inch-crawler-tyres/1-873e71.png"
+  ],
   "name": "Injora 1.0 inch Crawler Tyres",
   "brand": "Injora",
   "category": "Tyres & Wheels",
@@ -19,19 +21,7 @@
    "Brand": "Injora",
    "Size": "1.0 inch"
   },
-  "updated": "2026-11-18",
-  "pending_images": [
-   "https://upgraderc.be/cdn/shop/files/S673703534c8e4784b5d449c815b1e318V_799x700.webp?v=1749167505"
-  ],
-  "pending_fallback": [
-   "https://www.xtremrc.com/images/Image/Pneus-crawler-INJORA-1-0-64-24-mm-x4-YQT-1011.PNG",
-   "https://cdn11.bigcommerce.com/s-sdwy6qdoez/images/stencil/1280x1280/products/32427/105755/injyqt-1027__56829.1775847116.jpg?c=2",
-   "https://cdn11.bigcommerce.com/s-sdwy6qdoez/images/stencil/1280x1280/products/32428/105757/injyqt-1028__68155.1775848646.jpg?c=2",
-   "https://m.media-amazon.com/images/I/71GefahK0gL.jpg",
-   "https://www.frontlinehobbies.com.au/assets/full/INJ-YQW-1109-1022P.jpg?20241111144526",
-   "https://www.injora.com/cdn/shop/files/00_1_5cb919db-2e29-41d5-b429-4c525c83ac12.jpg?v=1747898093&width=600",
-   "https://m.media-amazon.com/images/I/61PDOPvqIAL.jpg"
-  ]
+  "updated": "2026-11-18"
  },
  {
   "id": "RC-0001",
