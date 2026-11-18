@@ -4,7 +4,10 @@
   "slug": "mn128-brushless-esc-motor",
   "added": "2026-11-18",
   "pop": 5,
-  "images": [],
+  "images": [
+   "images/mn128-brushless-esc-motor/1-dd1cfd.png",
+   "images/mn128-brushless-esc-motor/2-9234fe.jpg"
+  ],
   "name": "MN128 Brushless ESC & Motor",
   "brand": "MN Model",
   "category": "Motors & ESCs",
@@ -18,19 +21,7 @@
    "Brand": "MN Model",
    "Type": "Brushless"
   },
-  "updated": "2026-11-18",
-  "pending_images": [
-   "https://img.drz.lazcdn.com/static/lk/p/9d6b94fc97019401fbaae46015ab5541.png_720x720q80.png",
-   "https://www.mnmodelrc.com/3535-large_default/mn-model-mn128-upgrade-parts-brushless-motor-brushless-esc-only-for-new-128-or-86-series.jpg"
-  ],
-  "pending_fallback": [
-   "https://down-ph.img.susercontent.com/file/cn-11134207-820l4-mjgt4b8339xgb0",
-   "https://ae01.alicdn.com/kf/Se35180bf2ed54f59bd6e765f9e04d694t.jpg",
-   "https://img.drz.lazcdn.com/g/kf/S18b5a17abf534dc18e634382ede7d5a15.jpg_720x720q80.jpg",
-   "https://down-ph.img.susercontent.com/file/cn-11134208-7ras8-m2kcu11vppg40d",
-   "https://down-ph.img.susercontent.com/file/cn-11134208-7ras8-m2kcu11voavod0",
-   "https://down-ph.img.susercontent.com/file/cn-11134208-7ras8-m2kcu11vvbpw36"
-  ]
+  "updated": "2026-11-18"
  },
  {
   "id": "RC-0085",
