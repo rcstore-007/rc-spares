@@ -284,7 +284,7 @@
     "1:10"
    ],
    "price": 1520,
-   "include": true,
+   "include": false,
    "desc": "These 90mm oil-filled shocks provide suspension damping for various RC chassis. They help manage terrain impact and stabilize the vehicle during operation.",
    "fits": "1/10 scale RC crawlers and trucks",
    "specs": {
@@ -305,7 +305,7 @@
     "https://images.nexusapp.co/assets/aa/67/dc/33441615.jpg"
    ],
    "searched": true,
-   "edited": "",
+   "edited": "2026-11-18T14:06:03.063Z",
    "added": false
   },
   {
