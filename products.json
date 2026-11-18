@@ -1,5 +1,29 @@
 [
  {
+  "id": "RC-0013",
+  "slug": "ptk-1-18-high-torque-servo",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [
+   "images/ptk-1-18-high-torque-servo/1-7f3789.jpg"
+  ],
+  "name": "PTK 1/18 High Torque Servo",
+  "brand": "PTK",
+  "category": "Servos",
+  "price": 1920,
+  "scale": [
+   "1:18",
+   "1:24"
+  ],
+  "fits": "1/18 scale RC cars",
+  "desc": "A steering servo with increased torque output designed for 1/18 scale RC vehicles. It provides stronger steering force for better control in demanding conditions.",
+  "specs": {
+   "Scale": "1/18",
+   "Type": "High Torque"
+  },
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0012",
   "slug": "40kg-high-torque-servo",
   "added": "2026-11-18",
