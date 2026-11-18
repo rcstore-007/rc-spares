@@ -148,7 +148,7 @@
     "1:10"
    ],
    "price": 1900,
-   "include": true,
+   "include": false,
    "desc": "Suspension dampers featuring an internal spring design for a clean scale appearance. These 100mm shocks help absorb impacts and stabilize the vehicle chassis.",
    "fits": "1/10 scale RC crawlers and trucks",
    "specs": {
@@ -169,7 +169,7 @@
     "https://down-ph.img.susercontent.com/file/1137462e84f3b62db14b752c25173e53"
    ],
    "searched": true,
-   "edited": "",
+   "edited": "2026-11-18T13:56:21.285Z",
    "added": false
   },
   {
