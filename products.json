@@ -1,5 +1,40 @@
 [
  {
+  "id": "RC-0048",
+  "slug": "hobbypark-65kg-servo",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [],
+  "name": "Hobbypark 65kg Servo",
+  "brand": "Hobbypark",
+  "category": "Servos",
+  "price": 7940,
+  "scale": [
+   "1:8",
+   "1:7"
+  ],
+  "fits": "Large scale RC vehicles",
+  "desc": "This high-torque servo is used to provide steering or mechanical movement in large RC vehicles. It is capable of exerting up to 65kg of force for heavy-duty applications.",
+  "specs": {
+   "Torque": "65kg",
+   "Brand": "Hobbypark",
+   "Part Type": "Servo"
+  },
+  "updated": "2026-11-18",
+  "pending_images": [
+   "https://m.media-amazon.com/images/I/714b6ZQS+-L._AC_SL1500_.jpg"
+  ],
+  "pending_fallback": [
+   "https://m.media-amazon.com/images/S/aplus-media-library-service-media/c68bec62-31b4-4cb4-85bf-84f14ae2360c.__CR0,0,970,600_PT0_SX970_V1___.jpg",
+   "https://m.media-amazon.com/images/S/aplus-media-library-service-media/ff3b7e77-a6cb-4847-99d1-1101438333f2.__CR0,0,970,600_PT0_SX970_V1___.jpg",
+   "https://m.media-amazon.com/images/I/61EETu4kfNL._AC_SL1500_.jpg",
+   "https://m.media-amazon.com/images/I/41Odv026yNL._AC_.jpg",
+   "https://m.media-amazon.com/images/S/aplus-media-library-service-media/1f530002-71ee-4a05-ba6d-0317d00081d6.__CR0,0,970,600_PT0_SX970_V1___.jpg",
+   "https://i5.walmartimages.com/seo/3930KV-F540-4-Poles-Brushless-Motor-High-Torque-Motor-for-1-10-RC-Car-Parts_ab62afba-d3f9-4b45-b766-4b463f06303f.6c2c552090d1e3f75568f96a99437758.jpeg",
+   "https://m.media-amazon.com/images/S/aplus-media-library-service-media/27072c0d-8119-4b47-927e-4558ca0b133f.__CR0,0,970,600_PT0_SX970_V1___.jpg"
+  ]
+ },
+ {
   "id": "RC-0047",
   "slug": "mjx-h18p-gearbox-with-motor",
   "added": "2026-11-18",
