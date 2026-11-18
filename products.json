@@ -4,7 +4,12 @@
   "slug": "hota-d6-ultra-charger",
   "added": "2026-11-18",
   "pop": 5,
-  "images": [],
+  "images": [
+   "images/hota-d6-ultra-charger/1-88c773.jpg",
+   "images/hota-d6-ultra-charger/2-d47931.webp",
+   "images/hota-d6-ultra-charger/3-727fa9.jpg",
+   "images/hota-d6-ultra-charger/4-3ca0f7.webp"
+  ],
   "name": "HOTA D6 Ultra Charger",
   "brand": "HOTA",
   "category": "Batteries & Chargers",
@@ -26,19 +31,7 @@
    "Model": "D6 Ultra",
    "Part Type": "Charger"
   },
-  "updated": "2026-11-18",
-  "pending_images": [
-   "https://gcs.rimg.com.tw/g2/7/91/a6/22646174511526_844.jpg",
-   "https://goprokat.ua/image/cache/webp/catalog/hota/t2002kultra/main-image-2-700x700.webp",
-   "https://thedroneflight.com/cdn/shop/files/S6251439f664c4c58b1390f21b95c6bce1.webp?v=1771461952&width=1080",
-   "https://www.rcbatterywire.com/wp-content/uploads/2026/1/1769334001/hota-d6-ultra-650w-16s-dual-channel-ac-dc-gan-smart-charger.webp"
-  ],
-  "pending_fallback": [
-   "https://flymod.net/usr/img/shop_product_img/i18/17868/FKOIXVjoG0x3_i3.jpg",
-   "https://kvadrocopter.com.ua/image/cache/HOTA+D6+ULTRA+Dual/text/2-1000x1000.jpg",
-   "https://www.drone-fpv-racer.com/84224-product_detail_2x/hota-d6-ultra-gan-sic-acdc-dual-channel-charger.jpg",
-   "https://ae01.alicdn.com/kf/Sb0da4684962943528e5059c2b42648d9K.jpg"
-  ]
+  "updated": "2026-11-18"
  },
  {
   "id": "RC-0044",
