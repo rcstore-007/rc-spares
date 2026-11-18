@@ -977,7 +977,7 @@
     "1:18"
    ],
    "price": 1850,
-   "include": true,
+   "include": false,
    "desc": "This is a replacement electronic speed controller for MJX brand RC vehicles. It regulates the power sent from the battery to the motor based on throttle input.",
    "fits": "MJX RC models",
    "specs": {
@@ -998,7 +998,7 @@
     "https://www.seriousrc.co.uk/cdn/shop/files/d5b3ddad-293a-460f-a573-f4c11f14ce47_jpg_800x.webp?v=1761160283"
    ],
    "searched": true,
-   "edited": "",
+   "edited": "2026-11-18T12:20:35.947Z",
    "added": false
   },
   {
