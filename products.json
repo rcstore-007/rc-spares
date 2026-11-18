@@ -1,5 +1,32 @@
 [
  {
+  "id": "RC-0101",
+  "slug": "screwdriver-bold-wrench-rc-model-tool-hex-1-0-2-0-2-5-3-0-head",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [
+   "images/screwdriver-bold-wrench-rc-model-tool-hex-1-0-2-0-2-5-3-0-head/1-332e52.jpg",
+   "images/screwdriver-bold-wrench-rc-model-tool-hex-1-0-2-0-2-5-3-0-head/2-df9b8a.jpg"
+  ],
+  "name": "Screwdriver Bold Wrench RC Model Tool Hex 1.0/2.0/2.5/3.0 Head",
+  "brand": "Generic",
+  "category": "Tools & Accessories",
+  "price": 1799,
+  "scale": [
+   "1:5",
+   "1:24",
+   "1:8",
+   "1:7",
+   "1:10",
+   "1:12",
+   "1:18"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0100",
   "slug": "mjx-h18p-front-axle-cvd",
   "added": "2026-11-18",
