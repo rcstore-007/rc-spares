@@ -1,5 +1,25 @@
 [
  {
+  "id": "RC-0094",
+  "slug": "mjx-h18p-metal-clearance-links",
+  "added": "2026-11-18",
+  "pop": 5,
+  "images": [
+   "images/mjx-h18p-metal-clearance-links/1-e5f255.jpg"
+  ],
+  "name": "MJX H18P Metal Clearance links",
+  "brand": "Generic",
+  "category": "Batteries & Chargers",
+  "price": 1499,
+  "scale": [
+   "1:18"
+  ],
+  "fits": "MJX H18P",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-18"
+ },
+ {
   "id": "RC-0093",
   "slug": "mjx-h18p-metal-front-bumper",
   "added": "2026-11-18",
