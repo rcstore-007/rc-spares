@@ -31,7 +31,10 @@
   "slug": "skyrc-psa100-power-supply",
   "added": "2026-11-18",
   "pop": 5,
-  "images": [],
+  "images": [
+   "images/skyrc-psa100-power-supply/1-27157e.jpg",
+   "images/skyrc-psa100-power-supply/2-6e45e2.jpg"
+  ],
   "name": "SkyRC PSA100 Power Supply",
   "brand": "SkyRC",
   "category": "Batteries & Chargers",
@@ -52,19 +55,7 @@
    "Brand": "SkyRC",
    "Model": "PSA100"
   },
-  "updated": "2026-11-18",
-  "pending_images": [
-   "https://nexusmodels.co.uk/cdn/shop/files/SKYRCPSA100AC-DCPowerSupplySK-200027-033.jpg?v=1773158650&width=1024",
-   "https://nexusmodels.co.uk/cdn/shop/files/SKYRCPSA100AC-DCPowerSupplySK-200027-032.jpg?v=1773158650&width=1024"
-  ],
-  "pending_fallback": [
-   "https://www.modelsport.co.uk/_images/products/800/sk-200027-03_1.jpg",
-   "https://down-my.img.susercontent.com/file/sg-11134201-824g2-mfp8yucvrcp8b3",
-   "https://www.drone-fpv-racer.com/89471-product_detail_2x/skyrc-psa100-100w-xt60-power-supply-20v-5a-rc-fpv-lipo-charger.jpg",
-   "https://www.trashop.eu/images/product_images/original_images/sk200027-01.jpg",
-   "https://www.drone-fpv-racer.com/89470-product_detail_2x/skyrc-psa100-100w-xt60-power-supply-20v-5a-rc-fpv-lipo-charger.jpg",
-   "https://www.drone-fpv-racer.com/img/cms/SkyRC/PSA100/Capture+d’écran+2026-03-10+141357.jpg"
-  ]
+  "updated": "2026-11-18"
  },
  {
   "id": "RC-0071",
