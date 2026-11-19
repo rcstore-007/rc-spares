@@ -1,5 +1,50 @@
 [
  {
+  "id": "RC-0143",
+  "slug": "1-9-inch-beadlock-wheels-6",
+  "added": "2026-11-19",
+  "pop": 5,
+  "images": [
+   "images/1-9-inch-beadlock-wheels-6/1-6bd387.jpg"
+  ],
+  "name": "1.9 inch Beadlock Wheels",
+  "brand": "Generic",
+  "category": "Tyres & Wheels",
+  "price": 2998,
+  "scale": [
+   "1:10"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Colour",
+   "options": [
+    {
+     "name": "Red",
+     "price": null,
+     "img": null
+    },
+    {
+     "name": "Black",
+     "price": null,
+     "img": null
+    },
+    {
+     "name": "Blue",
+     "price": null,
+     "img": null
+    },
+    {
+     "name": "Titanium",
+     "price": null,
+     "img": null
+    }
+   ]
+  },
+  "updated": "2026-11-19"
+ },
+ {
   "id": "RC-0142",
   "slug": "1-9-inch-beadlock-wheels-5",
   "added": "2026-11-19",
