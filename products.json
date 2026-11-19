@@ -1,5 +1,66 @@
 [
  {
+  "id": "RC-0148",
+  "slug": "pyfore-anti-wear-grease",
+  "added": "2026-11-19",
+  "pop": 5,
+  "images": [
+   "images/pyfore-anti-wear-grease/1-03106b.jpg",
+   "images/pyfore-anti-wear-grease/2-81edd0.jpg",
+   "images/pyfore-anti-wear-grease/3-38e685.jpg",
+   "images/pyfore-anti-wear-grease/4-87eb8f.jpg",
+   "images/pyfore-anti-wear-grease/5-ba67af.jpg",
+   "images/pyfore-anti-wear-grease/6-713fcb.jpg"
+  ],
+  "name": "PYFORE Anti-wear Grease",
+  "brand": "PYFORE",
+  "category": "Gears & Drivetrain",
+  "price": 439,
+  "scale": [
+   "1:5",
+   "1:7",
+   "1:8",
+   "1:10",
+   "1:24",
+   "1:12",
+   "1:18"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Colour",
+   "options": [
+    {
+     "name": "Grey",
+     "price": null,
+     "img": 1
+    },
+    {
+     "name": "Red",
+     "price": null,
+     "img": 2
+    },
+    {
+     "name": "Orange",
+     "price": null,
+     "img": 3
+    },
+    {
+     "name": "Blue",
+     "price": null,
+     "img": 4
+    },
+    {
+     "name": "White",
+     "price": null,
+     "img": 5
+    }
+   ]
+  },
+  "updated": "2026-11-19"
+ },
+ {
   "id": "RC-0147",
   "slug": "pyfore-shock-absorber-oil-high-purity-2",
   "added": "2026-11-19",
