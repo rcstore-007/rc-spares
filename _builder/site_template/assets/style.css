@@ -624,3 +624,10 @@ a.add:hover{border-color:var(--ink);opacity:1}
 .pol .specs{margin:4px 0 16px}
 
 .gmain{touch-action:pan-y}
+
+/* About section */
+.about{padding-top:20px}
+.about-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:40px;border-top:1px solid var(--line);padding-top:48px}
+.about-in h2{font-size:clamp(24px,2.6vw,32px);font-weight:600;letter-spacing:-.02em;margin:0}
+.about-in p{color:var(--muted);font-size:16.5px;line-height:1.7;margin:0 0 14px}
+@media (max-width:760px){.about-in{grid-template-columns:1fr;gap:14px}}

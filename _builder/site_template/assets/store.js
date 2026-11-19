@@ -133,7 +133,7 @@
     if(!$('rqPart'))return;
     var part=$('rqPart').value.trim(),car=$('rqCar').value.trim();
     var o=['Hi '+S.name+', can you source a part for me?','','Part: '+(part||'-'),'Car and scale: '+(car||'-')];
-    setWa($('rqBtn'),$('rqHint'),o.join('\n'),'Opens WhatsApp with your request typed in.','Type the part you need to continue.',!part);
+    setWa($('rqBtn'),$('rqHint'),o.join('\n'),'','Type the part you need to continue.',!part);
   }
 
   /* ---------- Overlays ---------- */
