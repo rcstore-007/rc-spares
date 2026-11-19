@@ -1,5 +1,62 @@
 [
  {
+  "id": "RC-0119",
+  "slug": "metal-bearing-disassembly-puller-tool",
+  "added": "2026-11-19",
+  "pop": 5,
+  "images": [
+   "images/metal-bearing-disassembly-puller-tool/1-9f2b85.jpg",
+   "images/metal-bearing-disassembly-puller-tool/2-c66df9.jpg"
+  ],
+  "name": "Metal Bearing Disassembly & Puller Tool",
+  "brand": "Generic",
+  "category": "Tools & Accessories",
+  "price": 389,
+  "scale": [
+   "1:5",
+   "1:7",
+   "1:24",
+   "1:8",
+   "1:10",
+   "1:12",
+   "1:18"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Colour",
+   "options": [
+    {
+     "name": "Black",
+     "price": null,
+     "img": null
+    },
+    {
+     "name": "Red",
+     "price": null,
+     "img": null
+    },
+    {
+     "name": "Silver",
+     "price": null,
+     "img": null
+    },
+    {
+     "name": "Blue",
+     "price": null,
+     "img": null
+    },
+    {
+     "name": "Grey",
+     "price": null,
+     "img": null
+    }
+   ]
+  },
+  "updated": "2026-11-19"
+ },
+ {
   "id": "RC-0118",
   "slug": "bumper-metal-tow-hook",
   "added": "2026-11-19",
