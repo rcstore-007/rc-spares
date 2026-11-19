@@ -132,7 +132,9 @@
   "added": "2026-11-19",
   "pop": 5,
   "images": [
-   "images/scx30-0-7-inch-brass-wheels/1-524d91.jpg"
+   "images/scx30-0-7-inch-brass-wheels/1-524d91.jpg",
+   "images/scx30-0-7-inch-brass-wheels/2-463419.jpg",
+   "images/scx30-0-7-inch-brass-wheels/3-56b033.jpg"
   ],
   "name": "SCX30 0.7 inch Brass Wheels",
   "brand": "Generic",
@@ -144,7 +146,22 @@
   "fits": "1/30 scale",
   "desc": "",
   "specs": {},
-  "updated": "2026-11-19"
+  "updated": "2026-11-19",
+  "variants": {
+   "label": "Design",
+   "options": [
+    {
+     "name": "Design 1",
+     "price": null,
+     "img": 1
+    },
+    {
+     "name": "Design 2",
+     "price": null,
+     "img": 2
+    }
+   ]
+  }
  },
  {
   "id": "RC-0105",
