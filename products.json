@@ -1,5 +1,30 @@
 [
  {
+  "id": "RC-0116",
+  "slug": "winch-2",
+  "added": "2026-11-19",
+  "pop": 5,
+  "images": [
+   "images/winch-2/1-cb555a.jpg",
+   "images/winch-2/2-d61a5c.jpg",
+   "images/winch-2/3-c0c252.jpg",
+   "images/winch-2/4-d9aa99.jpg"
+  ],
+  "name": "Winch",
+  "brand": "Generic",
+  "category": "Winch",
+  "price": 3199,
+  "scale": [
+   "1:7",
+   "1:8",
+   "1:10"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-19"
+ },
+ {
   "id": "RC-0115",
   "slug": "metal-tooth-puller-remover-repair-tool-for-rc-model",
   "added": "2026-11-19",
