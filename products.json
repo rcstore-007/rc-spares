@@ -3955,33 +3955,6 @@
   "updated": "2026-11-18"
  },
  {
-  "id": "RC-0020",
-  "slug": "differential-oil-50k",
-  "added": "2026-11-18",
-  "pop": 5,
-  "images": [],
-  "name": "Differential Oil 50K",
-  "brand": "Generic",
-  "category": "Gears & Drivetrain",
-  "price": 850,
-  "scale": [
-   "1:5",
-   "1:7",
-   "1:8",
-   "1:10",
-   "1:12",
-   "1:18",
-   "1:24",
-   "1:30"
-  ],
-  "fits": "RC vehicle gear differentials",
-  "desc": "This is 50,000 cst silicone oil designed for use in RC gear differentials. It helps control the power distribution between wheels by providing a specific level of internal resistance.",
-  "specs": {
-   "Viscosity": "50K"
-  },
-  "updated": "2026-11-18"
- },
- {
   "id": "RC-0019",
   "slug": "1-10-scale-travel-bag",
   "added": "2026-11-18",
