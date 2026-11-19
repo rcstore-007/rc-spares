@@ -1,5 +1,45 @@
 [
  {
+  "id": "RC-0135",
+  "slug": "1-10-or-1-8-scale-simulation-luggage-bag",
+  "added": "2026-11-19",
+  "pop": 5,
+  "images": [
+   "images/1-10-or-1-8-scale-simulation-luggage-bag/1-eba9d3.jpg",
+   "images/1-10-or-1-8-scale-simulation-luggage-bag/2-646677.jpg",
+   "images/1-10-or-1-8-scale-simulation-luggage-bag/3-71dc9c.jpg",
+   "images/1-10-or-1-8-scale-simulation-luggage-bag/4-ca5d96.jpg"
+  ],
+  "name": "1/10 or 1/8 scale simulation luggage bag",
+  "brand": "Generic",
+  "category": "Tools & Accessories",
+  "price": 1149,
+  "scale": [
+   "1:7",
+   "1:8",
+   "1:10"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Colour",
+   "options": [
+    {
+     "name": "Orange",
+     "price": null,
+     "img": 2
+    },
+    {
+     "name": "Green",
+     "price": null,
+     "img": 3
+    }
+   ]
+  },
+  "updated": "2026-11-19"
+ },
+ {
   "id": "RC-0134",
   "slug": "e55-one-electric-resin-engine-sound-system-real-sound-simulator-1-10-1",
   "added": "2026-11-19",
