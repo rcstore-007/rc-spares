@@ -1,5 +1,74 @@
 [
  {
+  "id": "RC-0136",
+  "slug": "1-9-inch-beadlock-wheels-2",
+  "added": "2026-11-19",
+  "pop": 5,
+  "images": [
+   "images/1-9-inch-beadlock-wheels-2/1-97f448.jpg",
+   "images/1-9-inch-beadlock-wheels-2/2-346c18.jpg",
+   "images/1-9-inch-beadlock-wheels-2/3-9a6f96.jpg",
+   "images/1-9-inch-beadlock-wheels-2/4-c3696e.jpg",
+   "images/1-9-inch-beadlock-wheels-2/5-2cd521.jpg",
+   "images/1-9-inch-beadlock-wheels-2/6-bf688f.jpg",
+   "images/1-9-inch-beadlock-wheels-2/7-685ecf.jpg"
+  ],
+  "name": "1.9 inch Beadlock Wheels",
+  "brand": "Generic",
+  "category": "Tyres & Wheels",
+  "price": 2998,
+  "scale": [
+   "1:10"
+  ],
+  "fits": "1/10 scale crawlers, TRX4, SCX10, FCX10",
+  "desc": "These 1.9 inch wheels feature a beadlock system that clamps the tire to the rim. This design allows for easy tire changes without the need for adhesive.",
+  "specs": {
+   "Size": "1.9 inch",
+   "Type": "Beadlock"
+  },
+  "variants": {
+   "label": "Design",
+   "options": [
+    {
+     "name": "Design 1",
+     "price": null,
+     "img": 0
+    },
+    {
+     "name": "Design 2",
+     "price": null,
+     "img": 1
+    },
+    {
+     "name": "Design 3",
+     "price": null,
+     "img": 2
+    },
+    {
+     "name": "Design 4",
+     "price": null,
+     "img": 3
+    },
+    {
+     "name": "Design 5",
+     "price": null,
+     "img": 4
+    },
+    {
+     "name": "Design 6",
+     "price": null,
+     "img": 5
+    },
+    {
+     "name": "Design 7",
+     "price": null,
+     "img": 6
+    }
+   ]
+  },
+  "updated": "2026-11-19"
+ },
+ {
   "id": "RC-0135",
   "slug": "1-10-or-1-8-scale-simulation-luggage-bag",
   "added": "2026-11-19",
