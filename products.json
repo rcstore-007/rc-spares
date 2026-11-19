@@ -1,5 +1,60 @@
 [
  {
+  "id": "RC-0115",
+  "slug": "metal-tooth-puller-remover-repair-tool-for-rc-model",
+  "added": "2026-11-19",
+  "pop": 5,
+  "images": [
+   "images/metal-tooth-puller-remover-repair-tool-for-rc-model/1-745c1a.jpg",
+   "images/metal-tooth-puller-remover-repair-tool-for-rc-model/2-596059.jpg",
+   "images/metal-tooth-puller-remover-repair-tool-for-rc-model/3-82e671.jpg",
+   "images/metal-tooth-puller-remover-repair-tool-for-rc-model/4-b36076.jpg",
+   "images/metal-tooth-puller-remover-repair-tool-for-rc-model/5-e8674f.jpg"
+  ],
+  "name": "Metal Tooth Puller Remover Repair Tool for RC Model",
+  "brand": "Generic",
+  "category": "Tools & Accessories",
+  "price": 719,
+  "scale": [
+   "1:5",
+   "1:24",
+   "1:7",
+   "1:8",
+   "1:10",
+   "1:12",
+   "1:18"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Colour",
+   "options": [
+    {
+     "name": "Black",
+     "price": null,
+     "img": 1
+    },
+    {
+     "name": "Blue",
+     "price": null,
+     "img": 2
+    },
+    {
+     "name": "Red",
+     "price": null,
+     "img": null
+    },
+    {
+     "name": "Grey",
+     "price": null,
+     "img": 3
+    }
+   ]
+  },
+  "updated": "2026-11-19"
+ },
+ {
   "id": "RC-0114",
   "slug": "screwdriver-allen-wrench-rc-model-tool-allen-4-0-5-5-7-0-8-0-bits",
   "added": "2026-11-19",
