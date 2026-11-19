@@ -1,5 +1,52 @@
 [
  {
+  "id": "RC-0127",
+  "slug": "metal-multi-function-ball-head-shock-absorber-pliers",
+  "added": "2026-11-19",
+  "pop": 5,
+  "images": [
+   "images/metal-multi-function-ball-head-shock-absorber-pliers/1-172091.jpg"
+  ],
+  "name": "Metal Multi-function Ball Head Shock Absorber Pliers",
+  "brand": "Generic",
+  "category": "Tools & Accessories",
+  "price": 1249,
+  "scale": [
+   "1:5",
+   "1:30",
+   "1:24",
+   "1:8",
+   "1:7",
+   "1:10",
+   "1:12",
+   "1:18"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Colour",
+   "options": [
+    {
+     "name": "Red",
+     "price": null,
+     "img": null
+    },
+    {
+     "name": "Gold",
+     "price": null,
+     "img": null
+    },
+    {
+     "name": "Silver",
+     "price": null,
+     "img": null
+    }
+   ]
+  },
+  "updated": "2026-11-19"
+ },
+ {
   "id": "RC-0126",
   "slug": "metal-magnetic-screw-accessories-tray",
   "added": "2026-11-19",
