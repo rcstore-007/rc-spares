@@ -1,5 +1,32 @@
 [
  {
+  "id": "RC-0129",
+  "slug": "metal-allen-wrench",
+  "added": "2026-11-19",
+  "pop": 5,
+  "images": [
+   "images/metal-allen-wrench/1-e6edcd.jpg",
+   "images/metal-allen-wrench/2-893f23.jpg"
+  ],
+  "name": "Metal Allen Wrench",
+  "brand": "Generic",
+  "category": "Tools & Accessories",
+  "price": 799,
+  "scale": [
+   "1:5",
+   "1:24",
+   "1:7",
+   "1:8",
+   "1:10",
+   "1:12",
+   "1:18"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-19"
+ },
+ {
   "id": "RC-0128",
   "slug": "1-10-1-12-1-8-scale-plastic-simulation-climbing-car-roof-elastic-lugga",
   "added": "2026-11-19",
