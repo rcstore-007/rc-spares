@@ -1,5 +1,63 @@
 [
  {
+  "id": "RC-0114",
+  "slug": "screwdriver-allen-wrench-rc-model-tool-allen-4-0-5-5-7-0-8-0-bits",
+  "added": "2026-11-19",
+  "pop": 5,
+  "images": [
+   "images/screwdriver-allen-wrench-rc-model-tool-allen-4-0-5-5-7-0-8-0-bits/1-18b342.jpg",
+   "images/screwdriver-allen-wrench-rc-model-tool-allen-4-0-5-5-7-0-8-0-bits/2-41601d.jpg",
+   "images/screwdriver-allen-wrench-rc-model-tool-allen-4-0-5-5-7-0-8-0-bits/3-06aab0.jpg",
+   "images/screwdriver-allen-wrench-rc-model-tool-allen-4-0-5-5-7-0-8-0-bits/4-394b80.jpg",
+   "images/screwdriver-allen-wrench-rc-model-tool-allen-4-0-5-5-7-0-8-0-bits/5-0d6395.jpg"
+  ],
+  "name": "Screwdriver Allen Wrench RC Model Tool Allen 4.0/5.5/7.0/8.0 Bits",
+  "brand": "Generic",
+  "category": "Tools & Accessories",
+  "price": 299,
+  "scale": [
+   "1:8",
+   "1:24",
+   "1:10",
+   "1:12",
+   "1:18"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Size",
+   "options": [
+    {
+     "name": "4.0",
+     "price": null,
+     "img": 0
+    },
+    {
+     "name": "5.5",
+     "price": null,
+     "img": 1
+    },
+    {
+     "name": "7.0",
+     "price": null,
+     "img": 2
+    },
+    {
+     "name": "8.0",
+     "price": null,
+     "img": 3
+    },
+    {
+     "name": "Set of 4",
+     "price": 1199,
+     "img": 4
+    }
+   ]
+  },
+  "updated": "2026-11-19"
+ },
+ {
   "id": "RC-0113",
   "slug": "scx30-brass-steering-cup",
   "added": "2026-11-19",
