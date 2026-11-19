@@ -1,5 +1,48 @@
 [
  {
+  "id": "RC-0140",
+  "slug": "pyfore-1-9-inch-beadlock-wheels",
+  "added": "2026-11-19",
+  "pop": 5,
+  "images": [
+   "images/pyfore-1-9-inch-beadlock-wheels/1-fdc92d.jpg",
+   "images/pyfore-1-9-inch-beadlock-wheels/2-e323f4.jpg",
+   "images/pyfore-1-9-inch-beadlock-wheels/3-0ab0f7.jpg",
+   "images/pyfore-1-9-inch-beadlock-wheels/4-4fdecf.jpg"
+  ],
+  "name": "PYFORE 1.9 inch Beadlock Wheels",
+  "brand": "PYFORE",
+  "category": "Tyres & Wheels",
+  "price": 2998,
+  "scale": [
+   "1:10"
+  ],
+  "fits": "1/10 scale crawlers, TRX4, SCX10, FCX10",
+  "desc": "These 1.9 inch wheels feature a beadlock system that clamps the tire to the rim. This design allows for easy tire changes without the need for adhesive.",
+  "specs": {},
+  "variants": {
+   "label": "Colour",
+   "options": [
+    {
+     "name": "Brown",
+     "price": null,
+     "img": 1
+    },
+    {
+     "name": "Black",
+     "price": null,
+     "img": 2
+    },
+    {
+     "name": "Silver",
+     "price": null,
+     "img": 3
+    }
+   ]
+  },
+  "updated": "2026-11-19"
+ },
+ {
   "id": "RC-0139",
   "slug": "retro-1-9inch-brass-beadlock-wheels-weighted",
   "added": "2026-11-19",
