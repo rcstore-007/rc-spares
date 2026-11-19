@@ -1,5 +1,58 @@
 [
  {
+  "id": "RC-0126",
+  "slug": "metal-magnetic-screw-accessories-tray",
+  "added": "2026-11-19",
+  "pop": 5,
+  "images": [
+   "images/metal-magnetic-screw-accessories-tray/1-f6089c.jpg",
+   "images/metal-magnetic-screw-accessories-tray/2-e32efb.jpg"
+  ],
+  "name": "Metal Magnetic Screw Accessories Tray",
+  "brand": "Generic",
+  "category": "Tools & Accessories",
+  "price": 999,
+  "scale": [
+   "1:5",
+   "1:7",
+   "1:24",
+   "1:8",
+   "1:10",
+   "1:12",
+   "1:18",
+   "1:30"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Colour",
+   "options": [
+    {
+     "name": "Black",
+     "price": null,
+     "img": null
+    },
+    {
+     "name": "Red",
+     "price": null,
+     "img": null
+    },
+    {
+     "name": "Blue",
+     "price": null,
+     "img": null
+    },
+    {
+     "name": "Darkblue",
+     "price": null,
+     "img": null
+    }
+   ]
+  },
+  "updated": "2026-11-19"
+ },
+ {
   "id": "RC-0125",
   "slug": "winch-3",
   "added": "2026-11-19",
