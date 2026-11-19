@@ -2415,8 +2415,12 @@
   "added": "2026-11-18",
   "pop": 5,
   "images": [
-   "images/1-9-inch-silicone-tyre-inserts/1-34fff2.jpg",
-   "images/1-9-inch-silicone-tyre-inserts/2-7679a3.jpg"
+   "images/1-9-inch-silicone-tyre-inserts/1-21dc0e.jpg",
+   "images/1-9-inch-silicone-tyre-inserts/2-e1f560.jpg",
+   "images/1-9-inch-silicone-tyre-inserts/3-82f7aa.jpg",
+   "images/1-9-inch-silicone-tyre-inserts/4-27b74e.jpg",
+   "images/1-9-inch-silicone-tyre-inserts/5-216cec.jpg",
+   "images/1-9-inch-silicone-tyre-inserts/6-90dca6.jpg"
   ],
   "name": "1.9 inch Silicone Tyre Inserts",
   "brand": "Generic",
@@ -2431,7 +2435,32 @@
    "Size": "1.9 inch",
    "Material": "Silicone"
   },
-  "updated": "2026-11-18"
+  "updated": "2026-11-19",
+  "variants": {
+   "label": "Colour",
+   "options": [
+    {
+     "name": "Red",
+     "price": null,
+     "img": 3
+    },
+    {
+     "name": "Blue",
+     "price": null,
+     "img": 0
+    },
+    {
+     "name": "Green",
+     "price": null,
+     "img": 1
+    },
+    {
+     "name": "Darkblue",
+     "price": null,
+     "img": 2
+    }
+   ]
+  }
  },
  {
   "id": "RC-0003",
