@@ -4192,8 +4192,11 @@
   "slug": "rlaarlo-mk07-v2-brushless-esc",
   "added": "2026-11-18",
   "pop": 5,
-  "images": [],
-  "name": "Rlaarlo MK07 V2 Brushless ESC",
+  "images": [
+   "images/rlaarlo-mk07-v2-brushless-esc/1-b80c23.jpg",
+   "images/rlaarlo-mk07-v2-brushless-esc/2-4158e1.jpg"
+  ],
+  "name": "Rlaarlo MK07 V2 Brushless ESC [MK07-336]",
   "brand": "Rlaarlo",
   "category": "Motors & ESCs",
   "price": 9880,
@@ -4206,7 +4209,7 @@
    "Brand": "Rlaarlo",
    "Type": "Brushless ESC"
   },
-  "updated": "2026-11-18"
+  "updated": "2026-11-19"
  },
  {
   "id": "RC-0010",
