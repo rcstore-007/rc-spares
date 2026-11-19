@@ -1,5 +1,72 @@
 [
  {
+  "id": "RC-0144",
+  "slug": "1-9-inch-beadlock-wheels-7",
+  "added": "2026-11-19",
+  "pop": 5,
+  "images": [
+   "images/1-9-inch-beadlock-wheels-7/1-815772.jpg",
+   "images/1-9-inch-beadlock-wheels-7/2-f2b61c.jpg",
+   "images/1-9-inch-beadlock-wheels-7/3-86ec1d.jpg",
+   "images/1-9-inch-beadlock-wheels-7/4-cfe72d.jpg"
+  ],
+  "name": "1.9 Inch Beadlock Wheels",
+  "brand": "Generic",
+  "category": "Tyres & Wheels",
+  "scale": [
+   "1:10"
+  ],
+  "price": 2898,
+  "fits": "1/10 scale RC crawlers and scale trail trucks",
+  "desc": "These 1.9-inch beadlock wheels are designed for 1/10 scale RC crawlers and scale trail trucks. The internal beadlock system holds tyres securely without requiring glue, making tyre changes quick and straightforward. They utilize a standard 12mm hex mount compatible with most common crawler axles.",
+  "specs": {
+   "Design": "Beadlock (Glueless)",
+   "Hex Mount": "12mm",
+   "Wheel Diameter": "1.9\""
+  },
+  "updated": "2026-11-19",
+  "variants": {
+   "label": "Colour",
+   "options": [
+    {
+     "name": "Silver",
+     "price": null,
+     "img": null
+    },
+    {
+     "name": "Black",
+     "price": null,
+     "img": null
+    },
+    {
+     "name": "Copper",
+     "price": null,
+     "img": null
+    },
+    {
+     "name": "White",
+     "price": null,
+     "img": null
+    },
+    {
+     "name": "Grey",
+     "price": null,
+     "img": null
+    },
+    {
+     "name": "Gold",
+     "price": null,
+     "img": 1
+    },
+    {
+     "name": "Red",
+     "price": null,
+     "img": 2
+    }
+   ]
+  }
+ },
+ {
   "id": "RC-0143",
   "slug": "1-9-inch-beadlock-wheels-6",
   "added": "2026-11-19",
