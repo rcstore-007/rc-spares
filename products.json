@@ -1,5 +1,56 @@
 [
  {
+  "id": "RC-0128",
+  "slug": "1-10-1-12-1-8-scale-plastic-simulation-climbing-car-roof-elastic-lugga",
+  "added": "2026-11-19",
+  "pop": 5,
+  "images": [
+   "images/1-10-1-12-1-8-scale-plastic-simulation-climbing-car-roof-elastic-lugga/1-bc9df5.jpg",
+   "images/1-10-1-12-1-8-scale-plastic-simulation-climbing-car-roof-elastic-lugga/2-f14eed.jpg",
+   "images/1-10-1-12-1-8-scale-plastic-simulation-climbing-car-roof-elastic-lugga/3-a17e96.jpg",
+   "images/1-10-1-12-1-8-scale-plastic-simulation-climbing-car-roof-elastic-lugga/4-00f3c8.jpg",
+   "images/1-10-1-12-1-8-scale-plastic-simulation-climbing-car-roof-elastic-lugga/5-c20922.jpg"
+  ],
+  "name": "1/10 1/12 1/8 Scale Plastic Simulation Climbing Car Roof Elastic Luggage Net",
+  "brand": "Generic",
+  "category": "Tools & Accessories",
+  "price": 599,
+  "scale": [
+   "1:7",
+   "1:8",
+   "1:10"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Colour",
+   "options": [
+    {
+     "name": "Red",
+     "price": null,
+     "img": 1
+    },
+    {
+     "name": "Black",
+     "price": null,
+     "img": 3
+    },
+    {
+     "name": "Yellow",
+     "price": null,
+     "img": 2
+    },
+    {
+     "name": "Green",
+     "price": null,
+     "img": 4
+    }
+   ]
+  },
+  "updated": "2026-11-19"
+ },
+ {
   "id": "RC-0127",
   "slug": "metal-multi-function-ball-head-shock-absorber-pliers",
   "added": "2026-11-19",
