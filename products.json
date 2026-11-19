@@ -1,5 +1,47 @@
 [
  {
+  "id": "RC-0107",
+  "slug": "scx30-0-7-inch-wheels-2",
+  "added": "2026-11-19",
+  "pop": 5,
+  "images": [
+   "images/scx30-0-7-inch-wheels-2/1-635b7a.jpg",
+   "images/scx30-0-7-inch-wheels-2/2-663321.jpg",
+   "images/scx30-0-7-inch-wheels-2/3-2955f9.jpg"
+  ],
+  "name": "SCX30 0.7 inch Wheels",
+  "brand": "Generic",
+  "category": "Tyres & Wheels",
+  "price": 1739,
+  "scale": [
+   "1:30"
+  ],
+  "fits": "1/30 Scale",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Colour",
+   "options": [
+    {
+     "name": "Grey",
+     "price": null,
+     "img": 0
+    },
+    {
+     "name": "Silver",
+     "price": null,
+     "img": 1
+    },
+    {
+     "name": "Black",
+     "price": null,
+     "img": 2
+    }
+   ]
+  },
+  "updated": "2026-11-19"
+ },
+ {
   "id": "RC-0106",
   "slug": "scx30-0-7-inch-brass-wheels",
   "added": "2026-11-19",
