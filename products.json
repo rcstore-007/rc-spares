@@ -1,5 +1,61 @@
 [
  {
+  "id": "RC-0145",
+  "slug": "hex-key-set",
+  "added": "2026-11-19",
+  "pop": 5,
+  "images": [
+   "images/hex-key-set/1-5c8c7c.jpg",
+   "images/hex-key-set/2-df38cb.jpg",
+   "images/hex-key-set/3-a79f0e.jpg",
+   "images/hex-key-set/4-248f79.jpg",
+   "images/hex-key-set/5-721300.jpg",
+   "images/hex-key-set/6-88d898.jpg"
+  ],
+  "name": "Hex Key Set",
+  "brand": "Generic",
+  "category": "Tools & Accessories",
+  "price": 1098,
+  "scale": [
+   "1:10",
+   "1:7",
+   "1:8",
+   "1:24",
+   "1:12",
+   "1:18",
+   "1:5"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Colour",
+   "options": [
+    {
+     "name": "Black",
+     "price": null,
+     "img": 0
+    },
+    {
+     "name": "Blue",
+     "price": null,
+     "img": 3
+    },
+    {
+     "name": "Pink",
+     "price": null,
+     "img": 4
+    },
+    {
+     "name": "Green",
+     "price": null,
+     "img": 5
+    }
+   ]
+  },
+  "updated": "2026-11-19"
+ },
+ {
   "id": "RC-0144",
   "slug": "1-9-inch-beadlock-wheels-7",
   "added": "2026-11-19",
