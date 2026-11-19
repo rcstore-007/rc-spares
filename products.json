@@ -1,5 +1,55 @@
 [
  {
+  "id": "RC-0118",
+  "slug": "bumper-metal-tow-hook",
+  "added": "2026-11-19",
+  "pop": 5,
+  "images": [
+   "images/bumper-metal-tow-hook/1-798cbe.jpg",
+   "images/bumper-metal-tow-hook/2-36b9c1.jpg",
+   "images/bumper-metal-tow-hook/3-35a424.jpg",
+   "images/bumper-metal-tow-hook/4-effc0f.jpg"
+  ],
+  "name": "Bumper Metal Tow Hook",
+  "brand": "Generic",
+  "category": "Tools & Accessories",
+  "price": 249,
+  "scale": [
+   "1:7",
+   "1:8",
+   "1:10"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Colour",
+   "options": [
+    {
+     "name": "Red",
+     "price": null,
+     "img": 1
+    },
+    {
+     "name": "Black",
+     "price": null,
+     "img": 2
+    },
+    {
+     "name": "Yellow",
+     "price": null,
+     "img": 3
+    },
+    {
+     "name": "Silver",
+     "price": null,
+     "img": null
+    }
+   ]
+  },
+  "updated": "2026-11-19"
+ },
+ {
   "id": "RC-0117",
   "slug": "grc-1-9inch-camel-cup-vintage-metal-wheel-hub",
   "added": "2026-11-19",
