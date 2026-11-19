@@ -1,5 +1,47 @@
 [
  {
+  "id": "RC-0111",
+  "slug": "scx30-25mm-oil-shock-absorbers",
+  "added": "2026-11-19",
+  "pop": 5,
+  "images": [
+   "images/scx30-25mm-oil-shock-absorbers/1-dce041.jpg",
+   "images/scx30-25mm-oil-shock-absorbers/2-554ba2.jpg",
+   "images/scx30-25mm-oil-shock-absorbers/3-77bbd7.jpg"
+  ],
+  "name": "SCX30 25mm Oil Shock Absorbers",
+  "brand": "Generic",
+  "category": "Shocks",
+  "price": 1749,
+  "scale": [
+   "1:30"
+  ],
+  "fits": "1/30 scale",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Colour",
+   "options": [
+    {
+     "name": "Black",
+     "price": null,
+     "img": 0
+    },
+    {
+     "name": "Blue",
+     "price": null,
+     "img": 1
+    },
+    {
+     "name": "Red",
+     "price": null,
+     "img": 2
+    }
+   ]
+  },
+  "updated": "2026-11-19"
+ },
+ {
   "id": "RC-0110",
   "slug": "scx30-21mm-oil-shock-absorbers",
   "added": "2026-11-19",
