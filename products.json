@@ -1,5 +1,46 @@
 [
  {
+  "id": "RC-0120",
+  "slug": "1-8-1-7-climbing-car-simulation-electric-metal-winch",
+  "added": "2026-11-19",
+  "pop": 5,
+  "images": [
+   "images/1-8-1-7-climbing-car-simulation-electric-metal-winch/1-a06f37.jpg",
+   "images/1-8-1-7-climbing-car-simulation-electric-metal-winch/2-2e72b1.jpg",
+   "images/1-8-1-7-climbing-car-simulation-electric-metal-winch/3-115a7f.jpg",
+   "images/1-8-1-7-climbing-car-simulation-electric-metal-winch/4-cba7b6.jpg",
+   "images/1-8-1-7-climbing-car-simulation-electric-metal-winch/5-19e0ae.jpg"
+  ],
+  "name": "1/8 1/7 Climbing Car Simulation Electric Metal Winch",
+  "brand": "Generic",
+  "category": "Tools & Accessories",
+  "price": 2699,
+  "scale": [
+   "1:7",
+   "1:8",
+   "1:10"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Colour",
+   "options": [
+    {
+     "name": "Black",
+     "price": null,
+     "img": 0
+    },
+    {
+     "name": "Red",
+     "price": null,
+     "img": 4
+    }
+   ]
+  },
+  "updated": "2026-11-19"
+ },
+ {
   "id": "RC-0119",
   "slug": "metal-bearing-disassembly-puller-tool",
   "added": "2026-11-19",
