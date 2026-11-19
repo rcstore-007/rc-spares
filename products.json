@@ -1,5 +1,49 @@
 [
  {
+  "id": "RC-0112",
+  "slug": "scx30-metal-clearance-links",
+  "added": "2026-11-19",
+  "pop": 5,
+  "images": [
+   "images/scx30-metal-clearance-links/1-749692.jpg",
+   "images/scx30-metal-clearance-links/2-4b6c9a.jpg",
+   "images/scx30-metal-clearance-links/3-ed2b04.jpg",
+   "images/scx30-metal-clearance-links/4-a133f8.jpg",
+   "images/scx30-metal-clearance-links/5-bd1e4c.jpg"
+  ],
+  "name": "Scx30 Metal Clearance links",
+  "brand": "Generic",
+  "category": "Gears & Drivetrain",
+  "price": 1589,
+  "scale": [
+   "1:30"
+  ],
+  "fits": "Scx30 Bronco, jeep, K10",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Colour",
+   "options": [
+    {
+     "name": "Black",
+     "price": null,
+     "img": 0
+    },
+    {
+     "name": "Silver",
+     "price": null,
+     "img": 2
+    },
+    {
+     "name": "Red",
+     "price": null,
+     "img": 1
+    }
+   ]
+  },
+  "updated": "2026-11-19"
+ },
+ {
   "id": "RC-0111",
   "slug": "scx30-25mm-oil-shock-absorbers",
   "added": "2026-11-19",
