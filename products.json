@@ -1989,12 +1989,17 @@
   "added": "2026-11-18",
   "pop": 5,
   "images": [
-   "images/mjx-h18p-metal-gearbox/1-2bff92.jpg"
+   "images/mjx-h18p-metal-gearbox/1-26b806.jpg",
+   "images/mjx-h18p-metal-gearbox/1-2bff92.jpg",
+   "images/mjx-h18p-metal-gearbox/3-a0edc6.jpg",
+   "images/mjx-h18p-metal-gearbox/4-3d316e.jpg",
+   "images/mjx-h18p-metal-gearbox/5-bdcf29.jpg",
+   "images/mjx-h18p-metal-gearbox/6-4e5e9f.jpg"
   ],
-  "name": "MJX H18P Metal Gearbox",
+  "name": "MJX H18P Metal Gearbox Set",
   "brand": "MJX",
   "category": "Gears & Drivetrain",
-  "price": 3000,
+  "price": 2999,
   "scale": [
    "1:18"
   ],
@@ -2005,7 +2010,42 @@
    "Model": "H18P",
    "Part Type": "Gearbox"
   },
-  "updated": "2026-11-18"
+  "updated": "2026-11-19",
+  "variants": {
+   "label": "Colour",
+   "options": [
+    {
+     "name": "Black",
+     "price": null,
+     "img": 0
+    },
+    {
+     "name": "Red",
+     "price": null,
+     "img": 2
+    },
+    {
+     "name": "Gold",
+     "price": null,
+     "img": 4
+    },
+    {
+     "name": "Silver",
+     "price": null,
+     "img": 5
+    },
+    {
+     "name": "Camouflage green",
+     "price": 3199,
+     "img": 3
+    },
+    {
+     "name": "Camouflage red",
+     "price": 3199,
+     "img": 1
+    }
+   ]
+  }
  },
  {
   "id": "RC-0042",
