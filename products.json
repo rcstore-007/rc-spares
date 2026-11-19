@@ -1,5 +1,29 @@
 [
  {
+  "id": "RC-0131",
+  "slug": "8-1-10-rc-remote-control-off-road-climbing-car-simulation-metal-electr",
+  "added": "2026-11-19",
+  "pop": 5,
+  "images": [
+   "images/8-1-10-rc-remote-control-off-road-climbing-car-simulation-metal-electr/1-1c720c.jpg",
+   "images/8-1-10-rc-remote-control-off-road-climbing-car-simulation-metal-electr/2-5eff74.jpg",
+   "images/8-1-10-rc-remote-control-off-road-climbing-car-simulation-metal-electr/3-21473b.jpg"
+  ],
+  "name": "/8 1/10 RC Remote Control Off-Road Climbing Car Simulation Metal Electric Winch",
+  "brand": "Generic",
+  "category": "Winch",
+  "price": 2999,
+  "scale": [
+   "1:7",
+   "1:8",
+   "1:10"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-19"
+ },
+ {
   "id": "RC-0130",
   "slug": "metal-high-quality-wrench-adjustment-rod-nut-multi-tool",
   "added": "2026-11-19",
