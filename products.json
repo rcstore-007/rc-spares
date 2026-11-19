@@ -1,5 +1,62 @@
 [
  {
+  "id": "RC-0103",
+  "slug": "rtw-screwdriver-handle-aluminum",
+  "added": "2026-11-19",
+  "pop": 5,
+  "images": [
+   "images/rtw-screwdriver-handle-aluminum/1-acceb9.jpg",
+   "images/rtw-screwdriver-handle-aluminum/2-86476b.jpg",
+   "images/rtw-screwdriver-handle-aluminum/3-8a7303.jpg",
+   "images/rtw-screwdriver-handle-aluminum/4-9d83f3.jpg",
+   "images/rtw-screwdriver-handle-aluminum/5-9b786a.jpg",
+   "images/rtw-screwdriver-handle-aluminum/6-0ee87d.jpg"
+  ],
+  "name": "RTW Screwdriver Handle [Aluminum]",
+  "brand": "RTW",
+  "category": "Tools & Accessories",
+  "price": 789,
+  "scale": [
+   "1:5",
+   "1:24",
+   "1:30",
+   "1:7",
+   "1:8",
+   "1:10",
+   "1:12",
+   "1:18"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Colour",
+   "options": [
+    {
+     "name": "Red",
+     "price": null,
+     "img": 5
+    },
+    {
+     "name": "Brown",
+     "price": null,
+     "img": 0
+    },
+    {
+     "name": "Grey",
+     "price": null,
+     "img": 1
+    },
+    {
+     "name": "Blue",
+     "price": null,
+     "img": 2
+    }
+   ]
+  },
+  "updated": "2026-11-19"
+ },
+ {
   "id": "RC-0102",
   "slug": "scx30-silicone-tyre-inserts",
   "added": "2026-11-19",
