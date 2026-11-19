@@ -1,5 +1,27 @@
 [
  {
+  "id": "RC-0113",
+  "slug": "scx30-brass-steering-cup",
+  "added": "2026-11-19",
+  "pop": 5,
+  "images": [
+   "images/scx30-brass-steering-cup/1-44ecf7.jpg",
+   "images/scx30-brass-steering-cup/2-4c5d84.jpg",
+   "images/scx30-brass-steering-cup/3-c379ab.jpg"
+  ],
+  "name": "SCX30 Brass Steering cup",
+  "brand": "Generic",
+  "category": "Gears & Drivetrain",
+  "price": 1579,
+  "scale": [
+   "1:30"
+  ],
+  "fits": "1/30 scale",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-19"
+ },
+ {
   "id": "RC-0112",
   "slug": "scx30-metal-clearance-links",
   "added": "2026-11-19",
