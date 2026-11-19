@@ -1,5 +1,51 @@
 [
  {
+  "id": "RC-0141",
+  "slug": "winch-4",
+  "added": "2026-11-19",
+  "pop": 5,
+  "images": [
+   "images/winch-4/1-c3ff75.jpg",
+   "images/winch-4/2-913e00.jpg",
+   "images/winch-4/3-f1b0af.jpg",
+   "images/winch-4/4-100921.jpg",
+   "images/winch-4/5-cca5a8.jpg"
+  ],
+  "name": "Winch",
+  "brand": "Generic",
+  "category": "Winch",
+  "price": 1998,
+  "scale": [
+   "1:10",
+   "1:8",
+   "1:12"
+  ],
+  "fits": "1/10 scale crawlers, TRX4, SCX10, FCX10",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Colour",
+   "options": [
+    {
+     "name": "Red",
+     "price": null,
+     "img": 2
+    },
+    {
+     "name": "Black",
+     "price": null,
+     "img": 4
+    },
+    {
+     "name": "Grey",
+     "price": null,
+     "img": 4
+    }
+   ]
+  },
+  "updated": "2026-11-19"
+ },
+ {
   "id": "RC-0140",
   "slug": "pyfore-1-9-inch-beadlock-wheels",
   "added": "2026-11-19",
