@@ -2818,7 +2818,9 @@
   "slug": "rlaarlo-mk07-differential-cup",
   "added": "2026-11-18",
   "pop": 5,
-  "images": [],
+  "images": [
+   "images/rlaarlo-mk07-differential-cup/1-91b3ad.jpg"
+  ],
   "name": "Rlaarlo MK07 Differential Cup",
   "brand": "Rlaarlo",
   "category": "Gears & Drivetrain",
@@ -2832,7 +2834,7 @@
    "Brand": "Rlaarlo",
    "Part Type": "Differential Cup"
   },
-  "updated": "2026-11-18"
+  "updated": "2026-11-19"
  },
  {
   "id": "RC-0065",
