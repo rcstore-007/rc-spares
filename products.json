@@ -1,5 +1,28 @@
 [
  {
+  "id": "RC-0125",
+  "slug": "winch-3",
+  "added": "2026-11-19",
+  "pop": 5,
+  "images": [
+   "images/winch-3/1-0372cd.jpg",
+   "images/winch-3/2-8bb239.jpg"
+  ],
+  "name": "Winch",
+  "brand": "Generic",
+  "category": "Winch",
+  "price": 2699,
+  "scale": [
+   "1:7",
+   "1:8",
+   "1:10"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-19"
+ },
+ {
   "id": "RC-0124",
   "slug": "metal-bearing-lubricant-gear-oil",
   "added": "2026-11-19",
