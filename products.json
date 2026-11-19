@@ -1,5 +1,32 @@
 [
  {
+  "id": "RC-0124",
+  "slug": "metal-bearing-lubricant-gear-oil",
+  "added": "2026-11-19",
+  "pop": 5,
+  "images": [
+   "images/metal-bearing-lubricant-gear-oil/1-0ef1f4.jpg",
+   "images/metal-bearing-lubricant-gear-oil/2-31a52e.jpg"
+  ],
+  "name": "Metal Bearing Lubricant Gear Oil",
+  "brand": "Generic",
+  "category": "Tools & Accessories",
+  "price": 499,
+  "scale": [
+   "1:5",
+   "1:24",
+   "1:7",
+   "1:8",
+   "1:10",
+   "1:12",
+   "1:18"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-19"
+ },
+ {
   "id": "RC-0123",
   "slug": "electric-screwdriver-bit-hex",
   "added": "2026-11-19",
