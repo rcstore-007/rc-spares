@@ -51,7 +51,9 @@
   "slug": "mjx-h18p-front-rear-axle",
   "added": "2026-11-18",
   "pop": 5,
-  "images": [],
+  "images": [
+   "images/mjx-h18p-front-rear-axle/1-9f1e1d.jpg"
+  ],
   "name": "MJX H18P Front/ Rear Axle Rod",
   "brand": "MJX",
   "category": "Gears & Drivetrain",
@@ -62,7 +64,7 @@
   "fits": "MJX H18P",
   "desc": "",
   "specs": {},
-  "updated": "2026-11-18"
+  "updated": "2026-11-19"
  },
  {
   "id": "RC-0098",
