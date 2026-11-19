@@ -3871,7 +3871,32 @@
    "Brand": "FMS",
    "Motor Type": "Brushless"
   },
-  "updated": "2026-11-18"
+  "updated": "2026-11-19",
+  "variants": {
+   "label": "Options",
+   "options": [
+    {
+     "name": "Only Brushless motor",
+     "price": 2698,
+     "img": 0
+    },
+    {
+     "name": "Receiver",
+     "price": 2898,
+     "img": 1
+    },
+    {
+     "name": "Brushless ESC",
+     "price": 2798,
+     "img": 2
+    },
+    {
+     "name": "Full Brushless kit",
+     "price": 7999,
+     "img": null
+    }
+   ]
+  }
  },
  {
   "id": "RC-0024",
