@@ -365,8 +365,7 @@ def build_policies(settings):
     sections = [
         ("ordering", "Ordering and payment", f"""<p>Add parts to your cart and send the order to us on WhatsApp. We reply to confirm availability, the final price and the shipping cost before you pay. Nothing is charged on this website.</p>
 <p>Payment methods: {esc(g("payment_modes") or DEFAULT_PAYMENT)}. Prices are in Indian rupees (₹).</p>"""),
-        ("shipping", "Shipping and delivery", f"""<p>We deliver across India. Orders usually arrive in <b>{esc(days)} days</b> after payment is confirmed. The shipping cost is confirmed on WhatsApp before you pay, and we share tracking details once your order is sent.</p>
-<p>Many parts are imported. If you need the country of origin or importer details for a part, ask us on WhatsApp and we will share them.</p>"""),
+        ("shipping", "Shipping and delivery", f"""<p>We deliver across India. Orders usually arrive in <b>{esc(days)} days</b> after payment is confirmed. The shipping cost is confirmed on WhatsApp before you pay, and we share tracking details once your order is sent.</p>"""),
         ("returns", "Returns, refunds and cancellations", paras(g("returns_policy") or DEFAULT_RETURNS) + """<p>You can cancel an order for a full refund any time before it is shipped. Approved refunds are paid back to the way you paid.</p>"""),
         ("warranty", "Warranty", "<p>Parts are sold without any warranty. If a part arrives damaged, faulty or different from what you ordered, the returns policy above applies.</p>"),
         ("privacy", "Privacy", f"""<p>We only collect what we need to deliver your order: your name, phone number and delivery address, which you share with us on WhatsApp. We use them to confirm, ship and support your order, and share them only with the courier delivering it. We do not sell your details.</p>

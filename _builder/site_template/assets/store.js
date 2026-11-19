@@ -256,7 +256,21 @@
     var gm=$('gMain');
     if(gm&&p.images&&p.images.length){
       gm.style.cursor='zoom-in';gm.setAttribute('title','Tap to open and zoom');
-      gm.addEventListener('click',function(){var all=p.images.map(function(i){return ROOT+i;});lightbox(all,all.indexOf(gm.getAttribute('src')));});
+      var swiped=false;
+      gm.addEventListener('click',function(){if(swiped)return;var all=p.images.map(function(i){return ROOT+i;});lightbox(all,all.indexOf(gm.getAttribute('src')));});
+      // Swipe left/right on the photo (phones) to see the next or previous photo
+      if(p.images.length>1){
+        var sx=null,sy=null,box=gm.parentNode;
+        box.addEventListener('touchstart',function(e){if(e.touches.length===1){sx=e.touches[0].clientX;sy=e.touches[0].clientY;swiped=false;}},{passive:true});
+        box.addEventListener('touchend',function(e){
+          if(sx===null)return;var dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;sx=null;
+          if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)*1.3){
+            swiped=true;setTimeout(function(){swiped=false;},400);
+            var all=p.images.map(function(i){return ROOT+i;}),i=all.indexOf(gm.getAttribute('src'));
+            showPhoto(all[(i+(dx<0?1:-1)+all.length)%all.length]);
+          }
+        },{passive:true});
+      }
     }
     initPartWa();
   }

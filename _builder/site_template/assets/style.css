@@ -622,3 +622,5 @@ a.add:hover{border-color:var(--ink);opacity:1}
 .pol p{color:#3a3a3c;line-height:1.7;margin:0 0 12px}
 .pol a{color:var(--ink)}
 .pol .specs{margin:4px 0 16px}
+
+.gmain{touch-action:pan-y}
