@@ -1,5 +1,78 @@
 [
  {
+  "id": "RC-0104",
+  "slug": "rtw-hexdrives",
+  "added": "2026-11-19",
+  "pop": 5,
+  "images": [
+   "images/rtw-hexdrives/1-30851a.jpg",
+   "images/rtw-hexdrives/2-99b2d1.jpg",
+   "images/rtw-hexdrives/3-a9e5fc.jpg",
+   "images/rtw-hexdrives/4-9afa2a.jpg",
+   "images/rtw-hexdrives/5-5a3532.jpg",
+   "images/rtw-hexdrives/6-d553c2.jpg",
+   "images/rtw-hexdrives/7-46053e.jpg"
+  ],
+  "name": "RTW Hexdrives",
+  "brand": "RTW",
+  "category": "Tools & Accessories",
+  "price": 798,
+  "scale": [
+   "1:5",
+   "1:7",
+   "1:8",
+   "1:24",
+   "1:30",
+   "1:10",
+   "1:12",
+   "1:18"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Size",
+   "options": [
+    {
+     "name": "0.9mm",
+     "price": null,
+     "img": 0
+    },
+    {
+     "name": "1.27mm",
+     "price": null,
+     "img": 1
+    },
+    {
+     "name": "1.5mm",
+     "price": null,
+     "img": 2
+    },
+    {
+     "name": "2mm",
+     "price": null,
+     "img": 3
+    },
+    {
+     "name": "2.5mm",
+     "price": null,
+     "img": 4
+    },
+    {
+     "name": "3mm",
+     "price": null,
+     "img": 5
+    },
+    {
+     "name": "4mm",
+     "price": null,
+     "img": 6
+    }
+   ]
+  },
+  "updated": "2026-11-19"
+ },
+ {
   "id": "RC-0103",
   "slug": "rtw-screwdriver-handle-aluminum",
   "added": "2026-11-19",
