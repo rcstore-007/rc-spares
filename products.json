@@ -1,5 +1,58 @@
 [
  {
+  "id": "RC-0146",
+  "slug": "pyfore-shock-absorber-oil-high-purity",
+  "added": "2026-11-19",
+  "pop": 5,
+  "images": [
+   "images/pyfore-shock-absorber-oil-high-purity/1-35e639.jpg",
+   "images/pyfore-shock-absorber-oil-high-purity/2-7361f9.jpg",
+   "images/pyfore-shock-absorber-oil-high-purity/3-0a5aec.jpg",
+   "images/pyfore-shock-absorber-oil-high-purity/4-605c47.jpg",
+   "images/pyfore-shock-absorber-oil-high-purity/5-5f4068.jpg"
+  ],
+  "name": "PYFORE Shock Absorber Oil High Purity",
+  "brand": "PYFORE",
+  "category": "Shocks",
+  "price": 799,
+  "scale": [
+   "1:24",
+   "1:8",
+   "1:10",
+   "1:12",
+   "1:18"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "CST",
+   "options": [
+    {
+     "name": "100cst/10wt",
+     "price": null,
+     "img": 1
+    },
+    {
+     "name": "200cst/20wt",
+     "price": null,
+     "img": 2
+    },
+    {
+     "name": "350cst/30wt",
+     "price": null,
+     "img": 3
+    },
+    {
+     "name": "500cst/40wt",
+     "price": null,
+     "img": 4
+    }
+   ]
+  },
+  "updated": "2026-11-19"
+ },
+ {
   "id": "RC-0145",
   "slug": "hex-key-set",
   "added": "2026-11-19",
