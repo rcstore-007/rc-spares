@@ -1,5 +1,28 @@
 [
  {
+  "id": "RC-0156",
+  "slug": "3548-1200kv-outer-rotor-brushless-motor-80a-esc-combo-for-1-8-1-10-rc",
+  "added": "2026-11-20",
+  "pop": 5,
+  "images": [
+   "images/3548-1200kv-outer-rotor-brushless-motor-80a-esc-combo-for-1-8-1-10-rc/1-71b4e4.jpg",
+   "images/3548-1200kv-outer-rotor-brushless-motor-80a-esc-combo-for-1-8-1-10-rc/2-fda78c.jpg",
+   "images/3548-1200kv-outer-rotor-brushless-motor-80a-esc-combo-for-1-8-1-10-rc/3-927840.jpg",
+   "images/3548-1200kv-outer-rotor-brushless-motor-80a-esc-combo-for-1-8-1-10-rc/4-0b4936.jpg"
+  ],
+  "name": "3548 1200KV Outer Rotor Brushless Motor 80A ESC Combo for 1/8 1/10 RC Crawler Car Upgrade ",
+  "brand": "Generic",
+  "category": "Motors & ESCs",
+  "price": 3999,
+  "scale": [
+   "1:10"
+  ],
+  "fits": "1/10 scale crawlers, TRX4, SCX10,FCX10",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-20"
+ },
+ {
   "id": "RC-0155",
   "slug": "25a-esc-1224-4500kv-outer-rotor-motor-brushless-combo-for-1-24-rc-craw",
   "added": "2026-11-20",
