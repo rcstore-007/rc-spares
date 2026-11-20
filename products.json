@@ -1,5 +1,52 @@
 [
  {
+  "id": "RC-0149",
+  "slug": "waterproof-led-whip-light",
+  "added": "2026-11-20",
+  "pop": 5,
+  "images": [
+   "images/waterproof-led-whip-light/1-9ab768.jpg",
+   "images/waterproof-led-whip-light/2-060a40.jpg",
+   "images/waterproof-led-whip-light/3-8786cc.jpg",
+   "images/waterproof-led-whip-light/4-af5ace.jpg",
+   "images/waterproof-led-whip-light/5-c0d308.jpg",
+   "images/waterproof-led-whip-light/6-4e3875.jpg"
+  ],
+  "name": "Waterproof LED Whip Light",
+  "brand": "Generic",
+  "category": "Lights",
+  "price": 789,
+  "scale": [
+   "1:10",
+   "1:12",
+   "1:18"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Colour",
+   "options": [
+    {
+     "name": "Pink",
+     "price": null,
+     "img": null
+    },
+    {
+     "name": "Green",
+     "price": null,
+     "img": null
+    },
+    {
+     "name": "Blue",
+     "price": null,
+     "img": null
+    }
+   ]
+  },
+  "updated": "2026-11-20"
+ },
+ {
   "id": "RC-0148",
   "slug": "pyfore-anti-wear-grease",
   "added": "2026-11-19",
