@@ -1,5 +1,50 @@
 [
  {
+  "id": "RC-0151",
+  "slug": "1-30-aluminum-transmission-gearbox-assembly-for-axial-scx30",
+  "added": "2026-11-20",
+  "pop": 5,
+  "images": [
+   "images/1-30-aluminum-transmission-gearbox-assembly-for-axial-scx30/1-d52d34.jpg",
+   "images/1-30-aluminum-transmission-gearbox-assembly-for-axial-scx30/2-54465e.jpg",
+   "images/1-30-aluminum-transmission-gearbox-assembly-for-axial-scx30/3-95c321.jpg",
+   "images/1-30-aluminum-transmission-gearbox-assembly-for-axial-scx30/4-32dab1.jpg",
+   "images/1-30-aluminum-transmission-gearbox-assembly-for-axial-scx30/5-7e7ff8.jpg",
+   "images/1-30-aluminum-transmission-gearbox-assembly-for-axial-scx30/6-3eeb1b.jpg"
+  ],
+  "name": "1/30 Aluminum Transmission Gearbox Assembly for Axial SCX30",
+  "brand": "Generic",
+  "category": "Gears & Drivetrain",
+  "price": 2499,
+  "scale": [
+   "1:30"
+  ],
+  "fits": "1/30 scale",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Colour",
+   "options": [
+    {
+     "name": "Red",
+     "price": null,
+     "img": 4
+    },
+    {
+     "name": "Silver",
+     "price": null,
+     "img": 3
+    },
+    {
+     "name": "Black",
+     "price": null,
+     "img": 5
+    }
+   ]
+  },
+  "updated": "2026-11-20"
+ },
+ {
   "id": "RC-0150",
   "slug": "25a-esc-motor-combo-1212-5000kv-outrunner-for-1-30-scx30",
   "added": "2026-11-20",
