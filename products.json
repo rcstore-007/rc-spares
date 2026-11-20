@@ -1,5 +1,27 @@
 [
  {
+  "id": "RC-0161",
+  "slug": "jx-pdi-hv2010mg-digital-servo-11kg-high-torque-mini-size-coreless-moto",
+  "added": "2026-11-20",
+  "pop": 5,
+  "images": [
+   "images/jx-pdi-hv2010mg-digital-servo-11kg-high-torque-mini-size-coreless-moto/1-9cf757.jpg",
+   "images/jx-pdi-hv2010mg-digital-servo-11kg-high-torque-mini-size-coreless-moto/2-35e873.jpg"
+  ],
+  "name": "JX PDI-HV2010MG Digital Servo 11kg High Torque Mini Size, Coreless Motor 8.4V",
+  "brand": "JX Servo",
+  "category": "Servos",
+  "price": 2199,
+  "scale": [
+   "1:18",
+   "1:24"
+  ],
+  "fits": "1/18 Scale",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-20"
+ },
+ {
   "id": "RC-0160",
   "slug": "jx-servo-20-45kg-digital-servo-motor-metal-gear-rc-servo",
   "added": "2026-11-20",
