@@ -1,5 +1,32 @@
 [
  {
+  "id": "RC-0168",
+  "slug": "hobbywing-led-program-box-esc-programming-card-for-xerun-ezrun-quicrun",
+  "added": "2026-11-20",
+  "pop": 5,
+  "images": [
+   "images/hobbywing-led-program-box-esc-programming-card-for-xerun-ezrun-quicrun/1-35ac69.jpg",
+   "images/hobbywing-led-program-box-esc-programming-card-for-xerun-ezrun-quicrun/2-f76483.jpg"
+  ],
+  "name": "Hobbywing LED Program Box ESC Programming Card for XeRun EzRun QuicRun",
+  "brand": "Hobbywing",
+  "category": "Motors & ESCs",
+  "price": 1299,
+  "scale": [
+   "1:5",
+   "1:24",
+   "1:7",
+   "1:8",
+   "1:10",
+   "1:12",
+   "1:18"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-20"
+ },
+ {
   "id": "RC-0167",
   "slug": "hobbywing-quicrun-3650sd-sensored-g2-65-85-105-135-175t-215t-2-3s-race",
   "added": "2026-11-20",
