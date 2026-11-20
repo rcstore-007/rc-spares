@@ -3509,33 +3509,6 @@
   "updated": "2026-11-18"
  },
  {
-  "id": "RC-0050",
-  "slug": "shock-oil-100-cst",
-  "added": "2026-11-18",
-  "pop": 5,
-  "images": [],
-  "name": "Shock Oil 100 CST",
-  "brand": "Generic",
-  "category": "Shocks",
-  "price": 800,
-  "scale": [
-   "1:5",
-   "1:7",
-   "1:8",
-   "1:10",
-   "1:12",
-   "1:18",
-   "1:24",
-   "1:30"
-  ],
-  "fits": "RC shock absorbers",
-  "desc": "This is a low-viscosity silicone oil used for tuning RC shock absorbers. It provides light damping for faster suspension response.",
-  "specs": {
-   "Viscosity": "100 CST"
-  },
-  "updated": "2026-11-18"
- },
- {
   "id": "RC-0049",
   "slug": "rocket-rc-programming-card",
   "added": "2026-11-18",
