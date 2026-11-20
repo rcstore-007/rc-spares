@@ -1,5 +1,47 @@
 [
  {
+  "id": "RC-0165",
+  "slug": "hobbywing-quicrun-wp-16bl30-g2-30a-esc-2435sl-g3-4500kv-6500kv-motor-f",
+  "added": "2026-11-20",
+  "pop": 5,
+  "images": [
+   "images/hobbywing-quicrun-wp-16bl30-g2-30a-esc-2435sl-g3-4500kv-6500kv-motor-f/1-f7c8f2.jpg",
+   "images/hobbywing-quicrun-wp-16bl30-g2-30a-esc-2435sl-g3-4500kv-6500kv-motor-f/2-f7ff69.jpg",
+   "images/hobbywing-quicrun-wp-16bl30-g2-30a-esc-2435sl-g3-4500kv-6500kv-motor-f/3-c0c15a.jpg"
+  ],
+  "name": "Hobbywing QuicRun WP 16BL30 G2 30A ESC/2435SL G3 4500KV/6500KV Motor  for 1/16 1/18 Tourin",
+  "brand": "Hobbywing",
+  "category": "Motors & ESCs",
+  "price": 2099,
+  "scale": [
+   "1:18"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Variant",
+   "options": [
+    {
+     "name": "16BL30 30A ESC",
+     "price": 2499,
+     "img": 0
+    },
+    {
+     "name": "2435 G3 4500KV Motor",
+     "price": 2099,
+     "img": 2
+    },
+    {
+     "name": "2435 G3 6500KV Motor",
+     "price": 2099,
+     "img": 1
+    }
+   ]
+  },
+  "updated": "2026-11-20"
+ },
+ {
   "id": "RC-0164",
   "slug": "hobbywing-quicrun-3652-3660-sl-g2-brushless-motor-waterproof-suitable",
   "added": "2026-11-20",
