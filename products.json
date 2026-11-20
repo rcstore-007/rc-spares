@@ -1,5 +1,27 @@
 [
  {
+  "id": "RC-0182",
+  "slug": "dirc-shock-absorbers-100mm-110mm-120mm",
+  "added": "2026-11-20",
+  "pop": 5,
+  "images": [
+   "images/dirc-shock-absorbers-100mm-110mm-120mm/1-7d6ec2.jpg",
+   "images/dirc-shock-absorbers-100mm-110mm-120mm/2-0ee382.jpg"
+  ],
+  "name": "DIRC SHOCK ABSORBERS [100mm/110mm/120mm]",
+  "brand": "DIRC",
+  "category": "Shocks",
+  "price": 4949,
+  "scale": [
+   "1:10",
+   "1:8"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-20"
+ },
+ {
   "id": "RC-0181",
   "slug": "rc-car-led-lights-bumper-roof-lights-with-axu-controller-for-1-10",
   "added": "2026-11-20",
