@@ -1,5 +1,52 @@
 [
  {
+  "id": "RC-0184",
+  "slug": "dumborc-ddf-350-with-x10fg-x10f-10ch-rc-radio-transmitter-and-receiver",
+  "added": "2026-11-20",
+  "pop": 5,
+  "images": [
+   "images/dumborc-ddf-350-with-x10fg-x10f-10ch-rc-radio-transmitter-and-receiver/1-187b50.jpg",
+   "images/dumborc-ddf-350-with-x10fg-x10f-10ch-rc-radio-transmitter-and-receiver/2-cea2b1.jpg",
+   "images/dumborc-ddf-350-with-x10fg-x10f-10ch-rc-radio-transmitter-and-receiver/3-093a66.jpg",
+   "images/dumborc-ddf-350-with-x10fg-x10f-10ch-rc-radio-transmitter-and-receiver/4-e2d11e.jpg",
+   "images/dumborc-ddf-350-with-x10fg-x10f-10ch-rc-radio-transmitter-and-receiver/5-0f23fd.jpg",
+   "images/dumborc-ddf-350-with-x10fg-x10f-10ch-rc-radio-transmitter-and-receiver/6-a611ad.jpg"
+  ],
+  "name": "DUMBORC DDF-350 With X10FG/X10F 10CH RC Radio Transmitter and Receiver",
+  "brand": "DUMBORC",
+  "category": "Radios & Receivers",
+  "price": 6999,
+  "scale": [
+   "1:5",
+   "1:24",
+   "1:7",
+   "1:30",
+   "1:8",
+   "1:10",
+   "1:12",
+   "1:18"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Variant",
+   "options": [
+    {
+     "name": "DDF350 with X10FG RX",
+     "price": 7499,
+     "img": 5
+    },
+    {
+     "name": "DDF350 with X10F RX",
+     "price": null,
+     "img": 4
+    }
+   ]
+  },
+  "updated": "2026-11-20"
+ },
+ {
   "id": "RC-0183",
   "slug": "hotrc-ct-10b-transmitter",
   "added": "2026-11-20",
