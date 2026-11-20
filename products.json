@@ -1,5 +1,48 @@
 [
  {
+  "id": "RC-0176",
+  "slug": "rc-car-jack-stand-accessory",
+  "added": "2026-11-20",
+  "pop": 5,
+  "images": [
+   "images/rc-car-jack-stand-accessory/1-6714c5.jpg",
+   "images/rc-car-jack-stand-accessory/2-eda676.jpg"
+  ],
+  "name": "Rc Car Jack Stand Accessory",
+  "brand": "Generic",
+  "category": "Tools & Accessories",
+  "price": 899,
+  "scale": [
+   "1:10",
+   "1:8",
+   "1:12"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Colour",
+   "options": [
+    {
+     "name": "Red",
+     "price": null,
+     "img": null
+    },
+    {
+     "name": "Blue",
+     "price": null,
+     "img": null
+    },
+    {
+     "name": "Yellow",
+     "price": null,
+     "img": null
+    }
+   ]
+  },
+  "updated": "2026-11-20"
+ },
+ {
   "id": "RC-0175",
   "slug": "mini-open-lid-metal-fuel-can",
   "added": "2026-11-20",
