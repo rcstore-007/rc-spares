@@ -1,5 +1,27 @@
 [
  {
+  "id": "RC-0157",
+  "slug": "dsservo-35kg-ds3235-pro-digital-servo-steel-gear-coreless-motor-waterp",
+  "added": "2026-11-20",
+  "pop": 5,
+  "images": [
+   "images/dsservo-35kg-ds3235-pro-digital-servo-steel-gear-coreless-motor-waterp/1-29c1ff.jpg",
+   "images/dsservo-35kg-ds3235-pro-digital-servo-steel-gear-coreless-motor-waterp/2-988d0b.jpg"
+  ],
+  "name": "Dsservo 35kg DS3235 PRO Digital Servo Steel Gear Coreless Motor Waterproof",
+  "brand": "DS Servo",
+  "category": "Servos",
+  "price": 2299,
+  "scale": [
+   "1:10",
+   "1:12"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-20"
+ },
+ {
   "id": "RC-0156",
   "slug": "3548-1200kv-outer-rotor-brushless-motor-80a-esc-combo-for-1-8-1-10-rc",
   "added": "2026-11-20",
