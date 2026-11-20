@@ -1,5 +1,28 @@
 [
  {
+  "id": "RC-0180",
+  "slug": "neebrc-2830-2400kv-outrunner-brushless-motor-am32-45a-tplug-esc-1-12-r",
+  "added": "2026-11-20",
+  "pop": 5,
+  "images": [
+   "images/neebrc-2830-2400kv-outrunner-brushless-motor-am32-45a-tplug-esc-1-12-r/1-c7448a.jpg",
+   "images/neebrc-2830-2400kv-outrunner-brushless-motor-am32-45a-tplug-esc-1-12-r/2-e483aa.jpg",
+   "images/neebrc-2830-2400kv-outrunner-brushless-motor-am32-45a-tplug-esc-1-12-r/3-6167d8.jpg",
+   "images/neebrc-2830-2400kv-outrunner-brushless-motor-am32-45a-tplug-esc-1-12-r/4-e97b48.jpg"
+  ],
+  "name": "NEEBRC 2830 2400KV Outrunner Brushless Motor AM32 45A TPlug ESC 1/12 RC Crawler Car MN128/",
+  "brand": "Generic",
+  "category": "Motors & ESCs",
+  "price": 2999,
+  "scale": [
+   "1:12"
+  ],
+  "fits": "MN128, MN86",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-20"
+ },
+ {
   "id": "RC-0179",
   "slug": "hobbywing-quicrun-wp-16bl30-g2-30a-esc-brushless-sensorless-for-1-16-1-2",
   "added": "2026-11-20",
