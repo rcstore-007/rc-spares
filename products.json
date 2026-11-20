@@ -1,5 +1,56 @@
 [
  {
+  "id": "RC-0175",
+  "slug": "mini-open-lid-metal-fuel-can",
+  "added": "2026-11-20",
+  "pop": 5,
+  "images": [
+   "images/mini-open-lid-metal-fuel-can/1-93d661.jpg"
+  ],
+  "name": "Mini open lid metal fuel can",
+  "brand": "Generic",
+  "category": "Tools & Accessories",
+  "price": 419,
+  "scale": [
+   "1:10",
+   "1:8"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Colour",
+   "options": [
+    {
+     "name": "Red",
+     "price": null,
+     "img": null
+    },
+    {
+     "name": "Black",
+     "price": null,
+     "img": null
+    },
+    {
+     "name": "Yellow",
+     "price": null,
+     "img": null
+    },
+    {
+     "name": "Green",
+     "price": null,
+     "img": null
+    },
+    {
+     "name": "Blue",
+     "price": null,
+     "img": null
+    }
+   ]
+  },
+  "updated": "2026-11-20"
+ },
+ {
   "id": "RC-0174",
   "slug": "trx4-m-scx24-1-18-scale-model-accessories",
   "added": "2026-11-20",
