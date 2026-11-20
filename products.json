@@ -1,5 +1,48 @@
 [
  {
+  "id": "RC-0163",
+  "slug": "hobbywing-quicrun-wp-mini24-25a-esc-1621sl-3500kv-brushless-sensorless",
+  "added": "2026-11-20",
+  "pop": 5,
+  "images": [
+   "images/hobbywing-quicrun-wp-mini24-25a-esc-1621sl-3500kv-brushless-sensorless/1-7b58d3.jpg",
+   "images/hobbywing-quicrun-wp-mini24-25a-esc-1621sl-3500kv-brushless-sensorless/2-fbc602.jpg",
+   "images/hobbywing-quicrun-wp-mini24-25a-esc-1621sl-3500kv-brushless-sensorless/3-4b518f.jpg"
+  ],
+  "name": "Hobbywing QuicRun WP-MINI24 25A ESC, 1621SL 3500KV Brushless Sensorless Motor Combo for 1/",
+  "brand": "Hobbywing",
+  "category": "Motors & ESCs",
+  "price": 2999,
+  "scale": [
+   "1:18",
+   "1:24"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Variant",
+   "options": [
+    {
+     "name": "1621-3500KV Motor",
+     "price": 2999,
+     "img": 2
+    },
+    {
+     "name": "WP-MINI24 ESC",
+     "price": 3499,
+     "img": 1
+    },
+    {
+     "name": "Both",
+     "price": 5999,
+     "img": 0
+    }
+   ]
+  },
+  "updated": "2026-11-20"
+ },
+ {
   "id": "RC-0162",
   "slug": "hobbywing-quicrun-wp-10bl80-waterproof-esc-for-1-10-rc-car-2-4s-lipo-8",
   "added": "2026-11-20",
