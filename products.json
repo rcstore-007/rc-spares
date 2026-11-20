@@ -1,5 +1,27 @@
 [
  {
+  "id": "RC-0158",
+  "slug": "dsservo-45kg-coreless-ds3245-digital-servo-metal-motor-7-4v-waterproof",
+  "added": "2026-11-20",
+  "pop": 5,
+  "images": [
+   "images/dsservo-45kg-coreless-ds3245-digital-servo-metal-motor-7-4v-waterproof/1-aa9bf3.jpg",
+   "images/dsservo-45kg-coreless-ds3245-digital-servo-metal-motor-7-4v-waterproof/2-196638.jpg"
+  ],
+  "name": "Dsservo 45kg Coreless DS3245 Digital Servo Metal Motor 7.4V Waterproof IP66 with 25T Servo",
+  "brand": "DS servo",
+  "category": "Servos",
+  "price": 2299,
+  "scale": [
+   "1:10",
+   "1:12"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-20"
+ },
+ {
   "id": "RC-0157",
   "slug": "dsservo-35kg-ds3235-pro-digital-servo-steel-gear-coreless-motor-waterp",
   "added": "2026-11-20",
