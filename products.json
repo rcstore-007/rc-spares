@@ -1,5 +1,28 @@
 [
  {
+  "id": "RC-0153",
+  "slug": "1212-3500kv-outrunner-brushless-motor-25a-metal-esc-combo-for-1-18-trx",
+  "added": "2026-11-20",
+  "pop": 5,
+  "images": [
+   "images/1212-3500kv-outrunner-brushless-motor-25a-metal-esc-combo-for-1-18-trx/1-73c79d.jpg",
+   "images/1212-3500kv-outrunner-brushless-motor-25a-metal-esc-combo-for-1-18-trx/2-4f7bd4.jpg",
+   "images/1212-3500kv-outrunner-brushless-motor-25a-metal-esc-combo-for-1-18-trx/3-b1dbb4.jpg"
+  ],
+  "name": "1212 3500KV Outrunner Brushless Motor 25A Metal ESC Combo for 1/18 TRX4M FCX18 1/24 SCX24 ",
+  "brand": "Generic",
+  "category": "Motors & ESCs",
+  "price": 299,
+  "scale": [
+   "1:18",
+   "1:24"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-20"
+ },
+ {
   "id": "RC-0152",
   "slug": "metal-height-adjustable-3t-6t-jack-repair-stand-for-1-10-rc-crawler",
   "added": "2026-11-20",
