@@ -3952,23 +3952,40 @@
   "added": "2026-11-18",
   "pop": 5,
   "images": [
-   "images/hobbywing-fusion-se-1800kv-motor-esc/1-291a0d.jpg"
+   "images/hobbywing-fusion-se-1800kv-motor-esc/1-e28caa.jpg",
+   "images/hobbywing-fusion-se-1800kv-motor-esc/2-4d229d.jpg",
+   "images/hobbywing-fusion-se-1800kv-motor-esc/3-31af6b.jpg"
   ],
-  "name": "Hobbywing Fusion SE 1800KV Motor/ESC",
+  "name": "Hobbywing Fusion SE 1800KV/1200KV Motor/ESC",
   "brand": "Hobbywing",
   "category": "Motors & ESCs",
-  "price": 7500,
+  "price": 7499,
   "scale": [
    "1:10"
   ],
   "fits": "RC crawlers",
-  "desc": "The Fusion SE is a 2-in-1 motor and ESC system designed for smooth power delivery in RC crawlers. The integrated design reduces wiring complexity and provides 1800KV of power.",
+  "desc": "The Fusion SE is a 2-in-1 motor and ESC system designed for smooth power delivery in RC crawlers. The integrated design reduces wiring complexity and provides 1800KV/1200KV of power.",
   "specs": {
-   "KV Rating": "1800KV",
+   "KV Rating": "1800KV/1200KV",
    "Brand": "Hobbywing",
    "Series": "Fusion SE"
   },
-  "updated": "2026-11-18"
+  "updated": "2026-11-20",
+  "variants": {
+   "label": "KV",
+   "options": [
+    {
+     "name": "1800KV",
+     "price": null,
+     "img": 1
+    },
+    {
+     "name": "1200KV",
+     "price": null,
+     "img": 2
+    }
+   ]
+  }
  },
  {
   "id": "RC-0037",
