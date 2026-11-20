@@ -1,5 +1,27 @@
 [
  {
+  "id": "RC-0173",
+  "slug": "1-10-scale-simulation-climbing-car-accessories-mini-wooden-box",
+  "added": "2026-11-20",
+  "pop": 5,
+  "images": [
+   "images/1-10-scale-simulation-climbing-car-accessories-mini-wooden-box/1-0c1492.jpg",
+   "images/1-10-scale-simulation-climbing-car-accessories-mini-wooden-box/2-11b51b.jpg"
+  ],
+  "name": "1/10 Scale Simulation Climbing Car Accessories Mini Wooden Box",
+  "brand": "Generic",
+  "category": "Tools & Accessories",
+  "price": 449,
+  "scale": [
+   "1:10",
+   "1:8"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-20"
+ },
+ {
   "id": "RC-0172",
   "slug": "roof-light-multi-color-flowing-dual-row-led-lights",
   "added": "2026-11-20",
