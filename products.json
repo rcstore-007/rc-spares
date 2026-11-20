@@ -2999,33 +2999,6 @@
   "updated": "2026-11-18"
  },
  {
-  "id": "RC-0073",
-  "slug": "shock-oil",
-  "added": "2026-11-18",
-  "pop": 5,
-  "images": [],
-  "name": "Shock Oil",
-  "brand": "",
-  "category": "Shocks",
-  "price": 800,
-  "scale": [
-   "1:5",
-   "1:7",
-   "1:8",
-   "1:10",
-   "1:12",
-   "1:18",
-   "1:24",
-   "1:30"
-  ],
-  "fits": "RC shock absorbers",
-  "desc": "This silicone-based fluid is used to fill RC shock absorbers. It provides damping to control the movement of the suspension.",
-  "specs": {
-   "Type": "Silicone Oil"
-  },
-  "updated": "2026-11-18"
- },
- {
   "id": "RC-0072",
   "slug": "skyrc-psa100-power-supply",
   "added": "2026-11-18",
