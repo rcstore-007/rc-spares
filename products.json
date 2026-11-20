@@ -1,5 +1,28 @@
 [
  {
+  "id": "RC-0155",
+  "slug": "25a-esc-1224-4500kv-outer-rotor-motor-brushless-combo-for-1-24-rc-craw",
+  "added": "2026-11-20",
+  "pop": 5,
+  "images": [
+   "images/25a-esc-1224-4500kv-outer-rotor-motor-brushless-combo-for-1-24-rc-craw/1-bcc921.jpg",
+   "images/25a-esc-1224-4500kv-outer-rotor-motor-brushless-combo-for-1-24-rc-craw/2-bb3765.jpg",
+   "images/25a-esc-1224-4500kv-outer-rotor-motor-brushless-combo-for-1-24-rc-craw/3-c2f7d9.jpg",
+   "images/25a-esc-1224-4500kv-outer-rotor-motor-brushless-combo-for-1-24-rc-craw/4-f0be1a.jpg"
+  ],
+  "name": "25A ESC 1224 4500KV Outer Rotor Motor Brushless Combo for 1/24 RC Crawler FMS FCX24 FCX24M",
+  "brand": "Generic",
+  "category": "Motors & ESCs",
+  "price": 3099,
+  "scale": [
+   "1:24"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-20"
+ },
+ {
   "id": "RC-0154",
   "slug": "neebrc-45a-esc-2322-3500kv-brushless-motor-outer-rotor-for-mn99s-mn168",
   "added": "2026-11-20",
