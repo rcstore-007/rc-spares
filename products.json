@@ -1,5 +1,58 @@
 [
  {
+  "id": "RC-0170",
+  "slug": "am32-brushless-esc-30a-100a-2-4s-speed-controller-for-1224-1621-2204-3",
+  "added": "2026-11-20",
+  "pop": 5,
+  "images": [
+   "images/am32-brushless-esc-30a-100a-2-4s-speed-controller-for-1224-1621-2204-3/1-1619da.jpg",
+   "images/am32-brushless-esc-30a-100a-2-4s-speed-controller-for-1224-1621-2204-3/2-e0efaa.jpg",
+   "images/am32-brushless-esc-30a-100a-2-4s-speed-controller-for-1224-1621-2204-3/3-d4a6c9.jpg",
+   "images/am32-brushless-esc-30a-100a-2-4s-speed-controller-for-1224-1621-2204-3/4-54e522.jpg",
+   "images/am32-brushless-esc-30a-100a-2-4s-speed-controller-for-1224-1621-2204-3/5-126b81.jpg"
+  ],
+  "name": "AM32 Brushless ESC 30A-100A 2-4S Speed Controller for 1224 1621 2204 3542 Outrunner Motor",
+  "brand": "Generic",
+  "category": "Motors & ESCs",
+  "price": 2699,
+  "scale": [
+   "1:10",
+   "1:12",
+   "1:18",
+   "1:24",
+   "1:30"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Variant",
+   "options": [
+    {
+     "name": "100A",
+     "price": null,
+     "img": 0
+    },
+    {
+     "name": "60A",
+     "price": null,
+     "img": 4
+    },
+    {
+     "name": "30A",
+     "price": null,
+     "img": 2
+    },
+    {
+     "name": "30A-1",
+     "price": null,
+     "img": 3
+    }
+   ]
+  },
+  "updated": "2026-11-20"
+ },
+ {
   "id": "RC-0169",
   "slug": "hobbywing-quicrun-wp-10bl60-g2-waterproof-brushless-esc-for-1-10-rc-ca",
   "added": "2026-11-20",
