@@ -1,5 +1,26 @@
 [
  {
+  "id": "RC-0162",
+  "slug": "hobbywing-quicrun-wp-10bl80-waterproof-esc-for-1-10-rc-car-2-4s-lipo-8",
+  "added": "2026-11-20",
+  "pop": 5,
+  "images": [
+   "images/hobbywing-quicrun-wp-10bl80-waterproof-esc-for-1-10-rc-car-2-4s-lipo-8/1-be87d8.jpg",
+   "images/hobbywing-quicrun-wp-10bl80-waterproof-esc-for-1-10-rc-car-2-4s-lipo-8/2-fdb9f2.jpg"
+  ],
+  "name": "HobbyWing QuicRun WP 10BL80 Waterproof ESC for 1/10 RC Car 2-4S LiPo 80A",
+  "brand": "HOBBYWING",
+  "category": "Motors & ESCs",
+  "price": 4998,
+  "scale": [
+   "1:10"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-20"
+ },
+ {
   "id": "RC-0161",
   "slug": "jx-pdi-hv2010mg-digital-servo-11kg-high-torque-mini-size-coreless-moto",
   "added": "2026-11-20",
