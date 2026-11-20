@@ -1,5 +1,27 @@
 [
  {
+  "id": "RC-0159",
+  "slug": "mini-20a-esc-rc-boat-car-prototank-top-2khz-forward-reverse-speed-cont",
+  "added": "2026-11-20",
+  "pop": 5,
+  "images": [
+   "images/mini-20a-esc-rc-boat-car-prototank-top-2khz-forward-reverse-speed-cont/1-99d9a2.jpg",
+   "images/mini-20a-esc-rc-boat-car-prototank-top-2khz-forward-reverse-speed-cont/2-9c218c.jpg"
+  ],
+  "name": "Mini 20A ESC RC Boat Car Prototank Top 2KHz Forward Reverse Speed Controller Metal Brush B",
+  "brand": "Generic",
+  "category": "Motors & ESCs",
+  "price": 599,
+  "scale": [
+   "1:24",
+   "1:30"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-20"
+ },
+ {
   "id": "RC-0158",
   "slug": "dsservo-45kg-coreless-ds3245-digital-servo-metal-motor-7-4v-waterproof",
   "added": "2026-11-20",
