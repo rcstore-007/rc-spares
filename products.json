@@ -1,5 +1,44 @@
 [
  {
+  "id": "RC-0166",
+  "slug": "hobbywing-quicrun-outer-3530-sl-1700kv-2200kv-sensorless-brushless-mot",
+  "added": "2026-11-20",
+  "pop": 5,
+  "images": [
+   "images/hobbywing-quicrun-outer-3530-sl-1700kv-2200kv-sensorless-brushless-mot/1-b4be72.jpg",
+   "images/hobbywing-quicrun-outer-3530-sl-1700kv-2200kv-sensorless-brushless-mot/2-0559c7.jpg",
+   "images/hobbywing-quicrun-outer-3530-sl-1700kv-2200kv-sensorless-brushless-mot/3-a0195d.jpg",
+   "images/hobbywing-quicrun-outer-3530-sl-1700kv-2200kv-sensorless-brushless-mot/4-7363eb.jpg"
+  ],
+  "name": "HobbyWing QuicRun Outer 3530 SL 1700KV 2200KV Sensorless Brushless Motor for 1/10 1/12 Car",
+  "brand": "Hobbywing",
+  "category": "Motors & ESCs",
+  "price": 3559,
+  "scale": [
+   "1:10",
+   "1:12"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Variant",
+   "options": [
+    {
+     "name": "3530sl-1700kv",
+     "price": null,
+     "img": 0
+    },
+    {
+     "name": "3530sl-2200kv",
+     "price": null,
+     "img": 2
+    }
+   ]
+  },
+  "updated": "2026-11-20"
+ },
+ {
   "id": "RC-0165",
   "slug": "hobbywing-quicrun-wp-16bl30-g2-30a-esc-2435sl-g3-4500kv-6500kv-motor-f",
   "added": "2026-11-20",
