@@ -1,5 +1,30 @@
 [
  {
+  "id": "RC-0181",
+  "slug": "rc-car-led-lights-bumper-roof-lights-with-axu-controller-for-1-10",
+  "added": "2026-11-20",
+  "pop": 5,
+  "images": [
+   "images/rc-car-led-lights-bumper-roof-lights-with-axu-controller-for-1-10/1-b8bd6a.jpg",
+   "images/rc-car-led-lights-bumper-roof-lights-with-axu-controller-for-1-10/2-45b6b7.jpg",
+   "images/rc-car-led-lights-bumper-roof-lights-with-axu-controller-for-1-10/3-c95812.jpg",
+   "images/rc-car-led-lights-bumper-roof-lights-with-axu-controller-for-1-10/4-978178.jpg",
+   "images/rc-car-led-lights-bumper-roof-lights-with-axu-controller-for-1-10/5-bed4a5.jpg"
+  ],
+  "name": "RC Car LED Lights Bumper & Roof Lights with AXU Controller for 1/10",
+  "brand": "D1RC",
+  "category": "Lights",
+  "price": 2199,
+  "scale": [
+   "1:10",
+   "1:8"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-20"
+ },
+ {
   "id": "RC-0180",
   "slug": "neebrc-2830-2400kv-outrunner-brushless-motor-am32-45a-tplug-esc-1-12-r",
   "added": "2026-11-20",
