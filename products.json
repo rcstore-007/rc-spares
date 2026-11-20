@@ -1,5 +1,27 @@
 [
  {
+  "id": "RC-0154",
+  "slug": "neebrc-45a-esc-2322-3500kv-brushless-motor-outer-rotor-for-mn99s-mn168",
+  "added": "2026-11-20",
+  "pop": 5,
+  "images": [
+   "images/neebrc-45a-esc-2322-3500kv-brushless-motor-outer-rotor-for-mn99s-mn168/1-b4e39e.jpg",
+   "images/neebrc-45a-esc-2322-3500kv-brushless-motor-outer-rotor-for-mn99s-mn168/2-3c2f12.jpg",
+   "images/neebrc-45a-esc-2322-3500kv-brushless-motor-outer-rotor-for-mn99s-mn168/3-3e1c53.jpg"
+  ],
+  "name": "NEEBRC 45A ESC 2322-3500KV Brushless Motor Outer Rotor for MN99S MN168 MN82 MN78 1/12 RC C",
+  "brand": "Generic",
+  "category": "Motors & ESCs",
+  "price": 3099,
+  "scale": [
+   "1:12"
+  ],
+  "fits": "MN99S/MN168/MN82/MN78",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-20"
+ },
+ {
   "id": "RC-0153",
   "slug": "1212-3500kv-outrunner-brushless-motor-25a-metal-esc-combo-for-1-18-trx",
   "added": "2026-11-20",
