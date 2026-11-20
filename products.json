@@ -1,5 +1,27 @@
 [
  {
+  "id": "RC-0178",
+  "slug": "hobbywing-quicrun-wp-16bl30-g2-30a-esc-brushless-sensorless-for-1-16-1",
+  "added": "2026-11-20",
+  "pop": 5,
+  "images": [
+   "images/hobbywing-quicrun-wp-16bl30-g2-30a-esc-brushless-sensorless-for-1-16-1/1-c0eb15.jpg",
+   "images/hobbywing-quicrun-wp-16bl30-g2-30a-esc-brushless-sensorless-for-1-16-1/2-49b0a9.jpg"
+  ],
+  "name": "Hobbywing QuicRun WP 16BL30 G2 30A ESC Brushless Sensorless for 1/16 1/18 RC Car",
+  "brand": "Hobbywing",
+  "category": "Motors & ESCs",
+  "price": 2949,
+  "scale": [
+   "1:18",
+   "1:12"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-20"
+ },
+ {
   "id": "RC-0177",
   "slug": "hobbywing-quicrun-fusion-mini16-30a-3000kv-brushless-2-in-1-esc-motor",
   "added": "2026-11-20",
