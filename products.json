@@ -1,5 +1,28 @@
 [
  {
+  "id": "RC-0150",
+  "slug": "25a-esc-motor-combo-1212-5000kv-outrunner-for-1-30-scx30",
+  "added": "2026-11-20",
+  "pop": 5,
+  "images": [
+   "images/25a-esc-motor-combo-1212-5000kv-outrunner-for-1-30-scx30/1-df048f.jpg",
+   "images/25a-esc-motor-combo-1212-5000kv-outrunner-for-1-30-scx30/2-eae4ae.jpg",
+   "images/25a-esc-motor-combo-1212-5000kv-outrunner-for-1-30-scx30/3-8bca2b.jpg",
+   "images/25a-esc-motor-combo-1212-5000kv-outrunner-for-1-30-scx30/4-2a3a2a.jpg"
+  ],
+  "name": "25A ESC Motor Combo 1212 5000KV Outrunner for 1/30 SCX30",
+  "brand": "Generic",
+  "category": "Motors & ESCs",
+  "price": 3499,
+  "scale": [
+   "1:30"
+  ],
+  "fits": "1/30 scale",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-20"
+ },
+ {
   "id": "RC-0149",
   "slug": "waterproof-led-whip-light",
   "added": "2026-11-20",
