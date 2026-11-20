@@ -7,12 +7,13 @@
   "images": [
    "images/1212-3500kv-outrunner-brushless-motor-25a-metal-esc-combo-for-1-18-trx/1-73c79d.jpg",
    "images/1212-3500kv-outrunner-brushless-motor-25a-metal-esc-combo-for-1-18-trx/2-4f7bd4.jpg",
-   "images/1212-3500kv-outrunner-brushless-motor-25a-metal-esc-combo-for-1-18-trx/3-b1dbb4.jpg"
+   "images/1212-3500kv-outrunner-brushless-motor-25a-metal-esc-combo-for-1-18-trx/3-b1dbb4.jpg",
+   "images/1212-3500kv-outrunner-brushless-motor-25a-metal-esc-combo-for-1-18-trx/4-ead67f.jpg"
   ],
-  "name": "1212 3500KV Outrunner Brushless Motor 25A Metal ESC Combo for 1/18 TRX4M FCX18 1/24 SCX24 ",
+  "name": "1212 3500KV/5000KV Outrunner Brushless Motor 25A Metal ESC Combo for 1/18 TRX4M FCX18 1/24",
   "brand": "Generic",
   "category": "Motors & ESCs",
-  "price": 299,
+  "price": 2999,
   "scale": [
    "1:18",
    "1:24"
@@ -20,7 +21,22 @@
   "fits": "",
   "desc": "",
   "specs": {},
-  "updated": "2026-11-20"
+  "updated": "2026-11-20",
+  "variants": {
+   "label": "KV",
+   "options": [
+    {
+     "name": "3500KV",
+     "price": null,
+     "img": 2
+    },
+    {
+     "name": "5000KV",
+     "price": null,
+     "img": 3
+    }
+   ]
+  }
  },
  {
   "id": "RC-0152",
