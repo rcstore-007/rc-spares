@@ -354,9 +354,7 @@
   "images": [
    "images/grc-18mm-rectangular-dual-beam-spotlight/1-3ad143.jpg",
    "images/grc-18mm-rectangular-dual-beam-spotlight/2-3821e7.jpg",
-   "images/grc-18mm-rectangular-dual-beam-spotlight/3-f1b8e2.jpg",
-   "images/grc-18mm-rectangular-dual-beam-spotlight/4-6dc93e.jpg",
-   "images/grc-18mm-rectangular-dual-beam-spotlight/5-e1b8c6.jpg"
+   "images/grc-18mm-rectangular-dual-beam-spotlight/3-5156f3.jpg"
   ],
   "name": "GRC 18mm rectangular dual-beam spotlight",
   "brand": "GRC",
@@ -370,31 +368,6 @@
   "fits": "",
   "desc": "",
   "specs": {},
-  "variants": {
-   "label": "Variant",
-   "options": [
-    {
-     "name": "Light",
-     "price": null,
-     "img": 0
-    },
-    {
-     "name": "Bracket 1",
-     "price": 419,
-     "img": 2
-    },
-    {
-     "name": "Bracket 2",
-     "price": 419,
-     "img": 3
-    },
-    {
-     "name": "Bracket 3",
-     "price": 419,
-     "img": 4
-    }
-   ]
-  },
   "updated": "2026-11-21"
  },
  {
