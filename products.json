@@ -1,5 +1,30 @@
 [
  {
+  "id": "RC-0211",
+  "slug": "rc-model-car-repair-stand",
+  "added": "2026-11-21",
+  "pop": 5,
+  "images": [
+   "images/rc-model-car-repair-stand/1-2a5b63.jpg",
+   "images/rc-model-car-repair-stand/2-ed57b2.jpg",
+   "images/rc-model-car-repair-stand/3-85f806.jpg",
+   "images/rc-model-car-repair-stand/4-26db20.jpg"
+  ],
+  "name": "Rc model car repair stand",
+  "brand": "Redspider",
+  "category": "Tools & Accessories",
+  "price": 1249,
+  "scale": [
+   "1:10",
+   "1:12",
+   "1:8"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-21"
+ },
+ {
   "id": "RC-0210",
   "slug": "rc-model-car-repair-stand-adjustable-height-hand-crank",
   "added": "2026-11-21",
