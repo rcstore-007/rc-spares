@@ -1,5 +1,29 @@
 [
  {
+  "id": "RC-0199",
+  "slug": "grc-16mm-round-spotlights",
+  "added": "2026-11-21",
+  "pop": 5,
+  "images": [
+   "images/grc-16mm-round-spotlights/1-a0369a.jpg",
+   "images/grc-16mm-round-spotlights/2-437b7b.jpg",
+   "images/grc-16mm-round-spotlights/3-bd18de.jpg"
+  ],
+  "name": "GRC 16mm round spotlights",
+  "brand": "GRC",
+  "category": "Lights",
+  "price": 599,
+  "scale": [
+   "1:8",
+   "1:10",
+   "1:12"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-21"
+ },
+ {
   "id": "RC-0198",
   "slug": "grc-8v-output-voltage-regulator-3-15v-input-suitable-for-the-pro-versi",
   "added": "2026-11-21",
