@@ -1,5 +1,56 @@
 [
  {
+  "id": "RC-0191",
+  "slug": "grc-18mm-rectangular-dual-beam-spotlight",
+  "added": "2026-11-21",
+  "pop": 5,
+  "images": [
+   "images/grc-18mm-rectangular-dual-beam-spotlight/1-3ad143.jpg",
+   "images/grc-18mm-rectangular-dual-beam-spotlight/2-3821e7.jpg",
+   "images/grc-18mm-rectangular-dual-beam-spotlight/3-f1b8e2.jpg",
+   "images/grc-18mm-rectangular-dual-beam-spotlight/4-6dc93e.jpg",
+   "images/grc-18mm-rectangular-dual-beam-spotlight/5-e1b8c6.jpg"
+  ],
+  "name": "GRC 18mm rectangular dual-beam spotlight",
+  "brand": "GRC",
+  "category": "Lights",
+  "price": 849,
+  "scale": [
+   "1:10",
+   "1:8",
+   "1:12"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Variant",
+   "options": [
+    {
+     "name": "Light",
+     "price": null,
+     "img": 0
+    },
+    {
+     "name": "Bracket 1",
+     "price": 419,
+     "img": 2
+    },
+    {
+     "name": "Bracket 2",
+     "price": 419,
+     "img": 3
+    },
+    {
+     "name": "Bracket 3",
+     "price": 419,
+     "img": 4
+    }
+   ]
+  },
+  "updated": "2026-11-21"
+ },
+ {
   "id": "RC-0190",
   "slug": "6-ton-hydraulic-bottle-jack-made-for-rc",
   "added": "2026-11-21",
