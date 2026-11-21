@@ -1,5 +1,49 @@
 [
  {
+  "id": "RC-0187",
+  "slug": "brushless-motor-gearbox-set-for-mn78-mn82-mn168-mn99s-mn98-lc79-mn300",
+  "added": "2026-11-21",
+  "pop": 5,
+  "images": [
+   "images/brushless-motor-gearbox-set-for-mn78-mn82-mn168-mn99s-mn98-lc79-mn300/1-cf4291.jpg",
+   "images/brushless-motor-gearbox-set-for-mn78-mn82-mn168-mn99s-mn98-lc79-mn300/2-d12f46.jpg",
+   "images/brushless-motor-gearbox-set-for-mn78-mn82-mn168-mn99s-mn98-lc79-mn300/3-50e23a.jpg",
+   "images/brushless-motor-gearbox-set-for-mn78-mn82-mn168-mn99s-mn98-lc79-mn300/4-cd1b2f.jpg",
+   "images/brushless-motor-gearbox-set-for-mn78-mn82-mn168-mn99s-mn98-lc79-mn300/5-bff4ed.jpg"
+  ],
+  "name": "Brushless Motor Gearbox Set for MN78 MN82 MN168 MN99S MN98 LC79 MN300",
+  "brand": "Generic",
+  "category": "Motors & ESCs",
+  "price": 3999,
+  "scale": [
+   "1:12"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Colour",
+   "options": [
+    {
+     "name": "Black",
+     "price": null,
+     "img": 4
+    },
+    {
+     "name": "Red",
+     "price": null,
+     "img": 0
+    },
+    {
+     "name": "Silver",
+     "price": null,
+     "img": 3
+    }
+   ]
+  },
+  "updated": "2026-11-21"
+ },
+ {
   "id": "RC-0186",
   "slug": "agfrc-gy04m-v3-5-high-sensitivity-dual-gain-metal-housing-mini-rc-gyro",
   "added": "2026-11-21",
