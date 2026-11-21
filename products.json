@@ -1,5 +1,55 @@
 [
  {
+  "id": "RC-0195",
+  "slug": "grc-spotlight-bracket",
+  "added": "2026-11-21",
+  "pop": 5,
+  "images": [
+   "images/grc-spotlight-bracket/1-e7701a.jpg",
+   "images/grc-spotlight-bracket/2-008c87.jpg",
+   "images/grc-spotlight-bracket/3-d21674.jpg",
+   "images/grc-spotlight-bracket/4-c70797.jpg"
+  ],
+  "name": "GRC spotlight bracket",
+  "brand": "GRC",
+  "category": "Lights",
+  "price": 449,
+  "scale": [
+   "1:10",
+   "1:8",
+   "1:12"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Variant",
+   "options": [
+    {
+     "name": "1/10 universal spotlight bracket",
+     "price": null,
+     "img": 0
+    },
+    {
+     "name": "5-9mm round rod offset spotlight bracket",
+     "price": null,
+     "img": 1
+    },
+    {
+     "name": "1/10 front double-head spotlight bracket",
+     "price": 549,
+     "img": 2
+    },
+    {
+     "name": "1/10 wrangler hood special bracket",
+     "price": null,
+     "img": 3
+    }
+   ]
+  },
+  "updated": "2026-11-21"
+ },
+ {
   "id": "RC-0194",
   "slug": "grc-12mm-square-spotlight-2",
   "added": "2026-11-21",
