@@ -1,5 +1,43 @@
 [
  {
+  "id": "RC-0209",
+  "slug": "rc-simulation-climbing-model-car-adjustable-adjustable-monkey-climbing",
+  "added": "2026-11-21",
+  "pop": 5,
+  "images": [
+   "images/rc-simulation-climbing-model-car-adjustable-adjustable-monkey-climbing/1-27dc27.jpg",
+   "images/rc-simulation-climbing-model-car-adjustable-adjustable-monkey-climbing/2-6ace04.jpg"
+  ],
+  "name": "Rc simulation climbing model car adjustable adjustable monkey climbing pole",
+  "brand": "Generic",
+  "category": "Tools & Accessories",
+  "price": 1899,
+  "scale": [
+   "1:8",
+   "1:10",
+   "1:12"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Colour",
+   "options": [
+    {
+     "name": "Red",
+     "price": null,
+     "img": null
+    },
+    {
+     "name": "Grey",
+     "price": null,
+     "img": null
+    }
+   ]
+  },
+  "updated": "2026-11-21"
+ },
+ {
   "id": "RC-0208",
   "slug": "rc-model-climbing-car-simulation-jack",
   "added": "2026-11-21",
