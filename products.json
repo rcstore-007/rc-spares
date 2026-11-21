@@ -1,5 +1,29 @@
 [
  {
+  "id": "RC-0213",
+  "slug": "rcxaz-75kg-high-torque-brushless-digital-servo-stainless-steel-gear-wa",
+  "added": "2026-11-21",
+  "pop": 5,
+  "images": [
+   "images/rcxaz-75kg-high-torque-brushless-digital-servo-stainless-steel-gear-wa/1-ae73ac.jpg",
+   "images/rcxaz-75kg-high-torque-brushless-digital-servo-stainless-steel-gear-wa/2-4b32d4.jpg",
+   "images/rcxaz-75kg-high-torque-brushless-digital-servo-stainless-steel-gear-wa/3-47ccf6.jpg"
+  ],
+  "name": "RCXAZ 75KG High Torque Brushless Digital Servo Stainless Steel Gear Waterproof HV 6-8.4V",
+  "brand": "RCXAZ",
+  "category": "Servos",
+  "price": 3998,
+  "scale": [
+   "1:8",
+   "1:7",
+   "1:10"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-21"
+ },
+ {
   "id": "RC-0212",
   "slug": "high-torque-digital-servo-ip67-waterproof-steel-gear-hv-6-8-4v",
   "added": "2026-11-21",
