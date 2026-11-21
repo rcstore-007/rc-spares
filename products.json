@@ -1,5 +1,33 @@
 [
  {
+  "id": "RC-0185",
+  "slug": "hotrc-f11-automatic-stability-control-gyroscope",
+  "added": "2026-11-21",
+  "pop": 5,
+  "images": [
+   "images/hotrc-f11-automatic-stability-control-gyroscope/1-885b43.jpg",
+   "images/hotrc-f11-automatic-stability-control-gyroscope/2-77297d.jpg",
+   "images/hotrc-f11-automatic-stability-control-gyroscope/3-f7add3.jpg"
+  ],
+  "name": "HotRC F11 Automatic Stability Control Gyroscope",
+  "brand": "Hotrc",
+  "category": "Servos",
+  "price": 1499,
+  "scale": [
+   "1:5",
+   "1:24",
+   "1:8",
+   "1:7",
+   "1:10",
+   "1:12",
+   "1:18"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-21"
+ },
+ {
   "id": "RC-0184",
   "slug": "dumborc-ddf-350-with-x10fg-x10f-10ch-rc-radio-transmitter-and-receiver",
   "added": "2026-11-20",
