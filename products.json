@@ -1,5 +1,32 @@
 [
  {
+  "id": "RC-0189",
+  "slug": "skyrc-gc401-car-gyroscope",
+  "added": "2026-11-21",
+  "pop": 5,
+  "images": [
+   "images/skyrc-gc401-car-gyroscope/1-b87e02.jpg",
+   "images/skyrc-gc401-car-gyroscope/2-e227e9.jpg",
+   "images/skyrc-gc401-car-gyroscope/3-be0149.jpg"
+  ],
+  "name": "SKYRC GC401 Car Gyroscope",
+  "brand": "SKYRC",
+  "category": "Servos",
+  "price": 2998,
+  "scale": [
+   "1:7",
+   "1:24",
+   "1:10",
+   "1:8",
+   "1:12",
+   "1:18"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-21"
+ },
+ {
   "id": "RC-0188",
   "slug": "gyro",
   "added": "2026-11-21",
