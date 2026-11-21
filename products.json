@@ -1,5 +1,32 @@
 [
  {
+  "id": "RC-0206",
+  "slug": "ess-one-sense-dual-dual-speaker-simulation-throttle-linkage-sound-effe",
+  "added": "2026-11-21",
+  "pop": 5,
+  "images": [
+   "images/ess-one-sense-dual-dual-speaker-simulation-throttle-linkage-sound-effe/1-257d20.jpg",
+   "images/ess-one-sense-dual-dual-speaker-simulation-throttle-linkage-sound-effe/2-838dc2.jpg",
+   "images/ess-one-sense-dual-dual-speaker-simulation-throttle-linkage-sound-effe/3-1c1ff2.jpg",
+   "images/ess-one-sense-dual-dual-speaker-simulation-throttle-linkage-sound-effe/4-999de6.jpg"
+  ],
+  "name": "ESS ONE+ SENSE DUAL+ Dual Speaker Simulation Throttle Linkage Sound Effect",
+  "brand": "Sense",
+  "category": "Lights",
+  "price": 5999,
+  "scale": [
+   "1:5",
+   "1:7",
+   "1:8",
+   "1:10",
+   "1:12"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-21"
+ },
+ {
   "id": "RC-0205",
   "slug": "grc-550-motor-base-thermal-sensor-radiator-cooling-fan",
   "added": "2026-11-21",
