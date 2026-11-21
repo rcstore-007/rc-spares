@@ -1,5 +1,52 @@
 [
  {
+  "id": "RC-0214",
+  "slug": "rcxaz-20kg-25kg-35kg-high-torque-digital-servo",
+  "added": "2026-11-21",
+  "pop": 5,
+  "images": [
+   "images/rcxaz-20kg-25kg-35kg-high-torque-digital-servo/1-dee9e4.jpg"
+  ],
+  "name": "RCXAZ 20KG 25KG 35KG High Torque Digital Servo",
+  "brand": "RCXAZ",
+  "category": "Servos",
+  "price": 1199,
+  "scale": [
+   "1:8",
+   "1:10",
+   "1:12"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Variant",
+   "options": [
+    {
+     "name": "20kg",
+     "price": 1199,
+     "img": null
+    },
+    {
+     "name": "25kg",
+     "price": 1299,
+     "img": null
+    },
+    {
+     "name": "30kg",
+     "price": 1599,
+     "img": null
+    },
+    {
+     "name": "35kg",
+     "price": 1699,
+     "img": null
+    }
+   ]
+  },
+  "updated": "2026-11-21"
+ },
+ {
   "id": "RC-0213",
   "slug": "rcxaz-75kg-high-torque-brushless-digital-servo-stainless-steel-gear-wa",
   "added": "2026-11-21",
