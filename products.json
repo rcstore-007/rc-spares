@@ -1,5 +1,43 @@
 [
  {
+  "id": "RC-0190",
+  "slug": "6-ton-hydraulic-bottle-jack-made-for-rc",
+  "added": "2026-11-21",
+  "pop": 5,
+  "images": [
+   "images/6-ton-hydraulic-bottle-jack-made-for-rc/1-2778ee.jpg",
+   "images/6-ton-hydraulic-bottle-jack-made-for-rc/2-5d5766.jpg"
+  ],
+  "name": "6-ton hydraulic bottle jack made for RC",
+  "brand": "Generic",
+  "category": "Tools & Accessories",
+  "price": 1499,
+  "scale": [
+   "1:10",
+   "1:12",
+   "1:8"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Colour",
+   "options": [
+    {
+     "name": "Red",
+     "price": null,
+     "img": null
+    },
+    {
+     "name": "Green",
+     "price": null,
+     "img": null
+    }
+   ]
+  },
+  "updated": "2026-11-21"
+ },
+ {
   "id": "RC-0189",
   "slug": "skyrc-gc401-car-gyroscope",
   "added": "2026-11-21",
