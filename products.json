@@ -1,5 +1,28 @@
 [
  {
+  "id": "RC-0205",
+  "slug": "grc-550-motor-base-thermal-sensor-radiator-cooling-fan",
+  "added": "2026-11-21",
+  "pop": 5,
+  "images": [
+   "images/grc-550-motor-base-thermal-sensor-radiator-cooling-fan/1-ca49b8.jpg",
+   "images/grc-550-motor-base-thermal-sensor-radiator-cooling-fan/2-e4b545.jpg"
+  ],
+  "name": "GRC 550 Motor Base Thermal Sensor Radiator Cooling Fan",
+  "brand": "GRC",
+  "category": "Motors & ESCs",
+  "price": 1399,
+  "scale": [
+   "1:10",
+   "1:8",
+   "1:12"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-21"
+ },
+ {
   "id": "RC-0204",
   "slug": "grc-thermal-sensor-transparent-cooling-fan",
   "added": "2026-11-21",
