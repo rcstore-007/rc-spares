@@ -1,5 +1,27 @@
 [
  {
+  "id": "RC-0204",
+  "slug": "grc-thermal-sensor-transparent-cooling-fan",
+  "added": "2026-11-21",
+  "pop": 5,
+  "images": [
+   "images/grc-thermal-sensor-transparent-cooling-fan/1-9b0740.jpg"
+  ],
+  "name": "GRC Thermal Sensor Transparent Cooling Fan",
+  "brand": "GRC",
+  "category": "Motors & ESCs",
+  "price": 749,
+  "scale": [
+   "1:8",
+   "1:10",
+   "1:12"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-21"
+ },
+ {
   "id": "RC-0203",
   "slug": "grc-15mm-rectangular-spotlight",
   "added": "2026-11-21",
