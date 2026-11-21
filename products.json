@@ -1,5 +1,49 @@
 [
  {
+  "id": "RC-0192",
+  "slug": "1-10-1-12-rc-luggage-bag",
+  "added": "2026-11-21",
+  "pop": 5,
+  "images": [
+   "images/1-10-1-12-rc-luggage-bag/1-ff296b.jpg",
+   "images/1-10-1-12-rc-luggage-bag/2-86d0a6.jpg",
+   "images/1-10-1-12-rc-luggage-bag/3-f1178c.jpg",
+   "images/1-10-1-12-rc-luggage-bag/4-762b5e.jpg"
+  ],
+  "name": "1:10 1:12 Rc Luggage Bag",
+  "brand": "Generic",
+  "category": "Tools & Accessories",
+  "price": 429,
+  "scale": [
+   "1:10",
+   "1:12"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "variants": {
+   "label": "Colour",
+   "options": [
+    {
+     "name": "Black",
+     "price": null,
+     "img": 3
+    },
+    {
+     "name": "White",
+     "price": null,
+     "img": 2
+    },
+    {
+     "name": "Green",
+     "price": null,
+     "img": 1
+    }
+   ]
+  },
+  "updated": "2026-11-21"
+ },
+ {
   "id": "RC-0191",
   "slug": "grc-18mm-rectangular-dual-beam-spotlight",
   "added": "2026-11-21",
