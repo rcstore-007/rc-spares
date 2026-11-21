@@ -1,5 +1,28 @@
 [
  {
+  "id": "RC-0201",
+  "slug": "grc-universal-spare-tire-mount-height-adjustable-suitable-for-12mm-cou",
+  "added": "2026-11-21",
+  "pop": 5,
+  "images": [
+   "images/grc-universal-spare-tire-mount-height-adjustable-suitable-for-12mm-cou/1-acd28f.jpg",
+   "images/grc-universal-spare-tire-mount-height-adjustable-suitable-for-12mm-cou/2-7c8164.jpg"
+  ],
+  "name": "GRC Universal Spare Tire Mount (Height Adjustable) Suitable for 12mm Coupler Fixed Tire Br",
+  "brand": "GRC",
+  "category": "Tools & Accessories",
+  "price": 549,
+  "scale": [
+   "1:8",
+   "1:10",
+   "1:12"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-21"
+ },
+ {
   "id": "RC-0200",
   "slug": "grc-20mm-retro-round-headlight-pro-version",
   "added": "2026-11-21",
