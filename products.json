@@ -68,7 +68,8 @@
    "images/grc-22mm-round-spotlight-dome-light/2-2bd327.jpg",
    "images/grc-22mm-round-spotlight-dome-light/3-fea4e7.jpg",
    "images/grc-22mm-round-spotlight-dome-light/4-e45aef.jpg",
-   "images/grc-22mm-round-spotlight-dome-light/5-412bd3.jpg"
+   "images/grc-22mm-round-spotlight-dome-light/5-412bd3.jpg",
+   "images/grc-22mm-round-spotlight-dome-light/6-5aa055.jpg"
   ],
   "name": "GRC 22mm Round Spotlight/Dome Light",
   "brand": "GRC",
@@ -94,6 +95,11 @@
      "name": "Variant 2",
      "price": null,
      "img": 2
+    },
+    {
+     "name": "GRC 8V output voltage regulator, 3-15V",
+     "price": 899,
+     "img": 5
     }
    ]
   },
