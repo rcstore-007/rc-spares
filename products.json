@@ -1,5 +1,30 @@
 [
  {
+  "id": "RC-0203",
+  "slug": "grc-15mm-rectangular-spotlight",
+  "added": "2026-11-21",
+  "pop": 5,
+  "images": [
+   "images/grc-15mm-rectangular-spotlight/1-c96806.jpg",
+   "images/grc-15mm-rectangular-spotlight/2-72b509.jpg",
+   "images/grc-15mm-rectangular-spotlight/3-929818.jpg",
+   "images/grc-15mm-rectangular-spotlight/4-1c9e8a.jpg"
+  ],
+  "name": "GRC 15mm rectangular spotlight",
+  "brand": "GRC",
+  "category": "Lights",
+  "price": 559,
+  "scale": [
+   "1:8",
+   "1:10",
+   "1:12"
+  ],
+  "fits": "",
+  "desc": "",
+  "specs": {},
+  "updated": "2026-11-21"
+ },
+ {
   "id": "RC-0202",
   "slug": "grc-rc-remote-control-model-car-simulated-searchlight-20mm-rectangular",
   "added": "2026-11-21",
