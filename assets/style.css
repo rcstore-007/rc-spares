@@ -1051,3 +1051,59 @@ h1,h2,.head h2,.faq-side h2,.about-in h2,.source h2,.shop-top h1,.polwrap h1,.pi
 .holo-foot{color:#8f969d!important}
 .holo:not(.live) .holo-car *{stroke:rgba(200,215,228,.45)!important;fill:none!important}
 .holo-tag{visibility:hidden}
+
+/* =====================================================================
+   PALETTE: one base + one signature colour, used everywhere.
+   Base: warm stone. Signature: petrol (a muted blue-green that sits
+   calmly next to the dirt-and-wood photos).
+   ===================================================================== */
+:root{
+  --bg:#f2f0eb; --bg2:#fbfaf7; --sand:#e7e5df; --sand2:#dde2df; --tile:#ebe9e3; --tile2:#e2e6e3;
+  --ink:#1f2a2c; --muted:#677072; --line:rgba(31,42,44,.11);
+  --acc:#2e5b5f; --acc2:#244a4e; --tint:#e2eae8;
+  --forest:#1b2f32; --forest2:#233a3d; --on-dark:#eef1ef; --on-dark-muted:#a3b3b3;
+  --lime:#2e5b5f; --lime-ink:#2e5b5f; --moss:#677072;
+}
+body{background:var(--bg)}
+/* buttons */
+.btn.primary,.add.full,.pbtns .add,.toast button{background:var(--acc)!important;color:#fff!important}
+.btn.primary:hover,.add.full:hover,.pbtns .add:hover{background:var(--acc2)!important}
+.hero.photo .btn.primary{background:#fff!important;color:var(--acc)!important}
+.hero.photo .btn.primary:hover{background:var(--tint)!important}
+.add.full.in{background:var(--tint)!important;color:var(--acc)!important;border:1.5px solid var(--acc)!important}
+.add.full.in span{color:var(--acc)!important}
+a.add.full{background:transparent!important;color:var(--acc)!important;border:1.5px solid rgba(46,91,95,.35)!important}
+.cartbtn b,.mbar.show{background:var(--acc)!important;color:#fff!important}
+/* links, markers, selected states */
+.hstrip a,.stg .sl a{border-bottom-color:var(--acc)!important}
+.stages .stg .sl a{border-bottom-color:rgba(255,255,255,.45)!important}
+.thumbs button[aria-pressed="true"],.thumbs button:hover{box-shadow:inset 0 0 0 2px var(--acc)!important}
+.vo[aria-pressed="true"]{border-color:var(--acc)!important;box-shadow:inset 0 0 0 1px var(--acc)!important;background:var(--tint)!important}
+.fixc:hover b{text-decoration-color:var(--acc)!important}
+.fixc:hover .fi{background:var(--acc)!important;color:#fff!important}
+.bulk:before{background:var(--acc)!important;color:#fff!important}
+::selection{background:var(--acc);color:#fff}
+.controls input:focus,.controls select:focus{border-color:var(--acc)!important;box-shadow:0 0 0 3px rgba(46,91,95,.15)!important}
+.eyebrow:before{background:var(--acc)}
+.hero.photo .eyebrow:before{background:rgba(255,255,255,.75)!important}
+/* dark bands: stages, footer, "where it fits" */
+.stages,footer{background:var(--forest)!important}
+.stages .stg{background:var(--forest2)!important}
+.holo{background:radial-gradient(130% 100% at 50% 0%,#23393c 0%,#132427 72%)!important}
+
+/* =====================================================================
+   SHOP BY CATEGORY: bigger, and every category visible (no cut-off row)
+   ===================================================================== */
+#tiles.catrow{display:grid;grid-template-columns:repeat(5,1fr);gap:34px 18px;overflow:visible;padding:10px 0 6px}
+#tiles .cat{width:auto}
+#tiles .cat .ci{width:min(100%,168px);height:auto;aspect-ratio:1;background:var(--tint);border:2px solid transparent}
+#tiles .cat .ci img{width:74%;height:74%}
+#tiles .cat .cn{font-size:16px;font-weight:600;margin-top:6px}
+#tiles .cat:hover .ci{border-color:var(--acc)!important;background:#d6e2df;transform:translateY(-3px)}
+#tiles .cat:hover .cn{color:var(--acc)}
+.shopcats .cat .ci{background:var(--tint)}
+.cat.on .ci{border-color:var(--acc)!important}
+.cat.on .cn{text-decoration-color:var(--acc)!important}
+@media (max-width:900px){#tiles.catrow{grid-template-columns:repeat(3,1fr);gap:26px 12px}#tiles .cat .cn{font-size:14px}}
+@media (max-width:420px){#tiles .cat .cn{font-size:13px}}
+@media (max-width:700px){.hero.photo{background-color:var(--forest)!important}.hero.photo .hbg:after,.hero.photo:after{background:linear-gradient(180deg,transparent 30%,var(--forest) 100%)}}
