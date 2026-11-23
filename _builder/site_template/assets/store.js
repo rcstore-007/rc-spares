@@ -207,6 +207,14 @@
   function renderGrid(){
     var f={pop:function(a,b){return(b.pop||0)-(a.pop||0);},lo:function(a,b){return priceRange(a)[0]-priceRange(b)[0];},hi:function(a,b){return priceRange(b)[1]-priceRange(a)[1];},az:function(a,b){return a.name.localeCompare(b.name);},new:function(a,b){return String(b.added||'').localeCompare(String(a.added||''));}}[state.sort];
     var l=P.filter(function(p){return match(p);}).sort(f);
+    // searching: parts whose own name has the words come first, category-only matches last
+    var qw=state.q.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    if(qw.length){
+      var stem=function(w){return w.replace(/(es|s)$/,'');};
+      var score=function(p){var n=p.name.toLowerCase(),b=(p.brand+' '+p.fits).toLowerCase(),sc=0;
+        qw.forEach(function(w){var k=stem(w);sc+=n.indexOf(k)>=0?3:(b.indexOf(k)>=0?1:0);});return sc;};
+      l=l.map(function(p,i){return [score(p),i,p];}).sort(function(a,b){return b[0]-a[0]||a[1]-b[1];}).map(function(x){return x[2];});
+    }
     var bits=[];if(state.cat!=='All')bits.push(state.cat);if(state.scale!=='All')bits.push(state.scale+' scale');
     $('countLine').textContent=l.length+(l.length===1?' part':' parts')+(bits.length?' · '+bits.join(' · '):'');
     $('clearF').hidden=!(state.cat!=='All'||state.scale!=='All'||state.brand!=='All'||state.q);
