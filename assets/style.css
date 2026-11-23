@@ -1125,3 +1125,4 @@ html,body{max-width:100%;overflow-x:clip}
   .pic.two .sdots i{width:6px;height:6px;border-radius:50%;background:rgba(31,42,44,.22);transition:background .2s,width .2s}
   .pic.two .sdots i.on{background:var(--acc);width:16px;border-radius:3px}
 }
+:root{--accent:#2e5b5f}
