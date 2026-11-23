@@ -146,13 +146,25 @@
 
   /* ---------- Home + shop ---------- */
   var state={cat:'All',scale:'All',brand:'All',q:'',sort:'pop'},wantReq=false;
+  // phones: swipe through all of a part's photos right on the card
+  var TOUCH=window.matchMedia&&matchMedia('(hover:none)').matches;
+  function swipeHTML(im){
+    if(!TOUCH)return '';
+    return '<span class="swipe">'+im.map(function(src,i){return '<img src="'+ROOT+esc(src)+'" alt="" loading="'+(i?'lazy':'eager')+'" draggable="false">';}).join('')+'</span>'+
+      '<span class="sdots">'+im.map(function(_,i){return '<i'+(i?'':' class="on"')+'></i>';}).join('')+'</span>';
+  }
+  document.addEventListener('scroll',function(e){
+    var sw=e.target;if(!sw.classList||!sw.classList.contains('swipe'))return;
+    var i=Math.round(sw.scrollLeft/sw.clientWidth),d=sw.parentNode.querySelectorAll('.sdots i');
+    for(var k=0;k<d.length;k++)d[k].className=k===i?'on':'';
+  },true);
   function card(p){
     var q=qty(p.id),o=opts(p),r=priceRange(p),im=p.images||[];
     var price='<span class="price">'+(o&&r[0]!==r[1]?'<small>From </small>':'')+money(o?r[0]:p.price)+'</span>';
     var btn=o?'<a class="add full" href="'+partURL(p)+'">Choose '+esc((p.variants.label||'option').toLowerCase())+'</a>':
       '<button class="add full'+(q?' in':'')+'" data-add="'+p.id+'">'+(q?'<span aria-hidden="true">✓</span> '+q+' in cart':'Add to cart')+'</button>';
     return '<article class="card"><a class="pic'+(im.length?' photo':'')+(im.length>1?' two':'')+'" style="'+cv(p.category)+'" href="'+partURL(p)+'" aria-label="'+esc(p.name)+'">'+picHTML(p)+
-      (im.length>1?'<img class="alt" src="'+ROOT+esc(im[1])+'" alt="" loading="lazy">':'')+'<span class="scale">'+esc(scaleLabel(p))+'</span></a>'+
+      (im.length>1?'<img class="alt" src="'+ROOT+esc(im[1])+'" alt="" loading="lazy">'+swipeHTML(im):'')+'<span class="scale">'+esc(scaleLabel(p))+'</span></a>'+
       '<div class="cbody"><div class="cbrand">'+esc(p.brand)+'</div><a class="cname" href="'+partURL(p)+'">'+esc(p.name)+'</a>'+
       '<div class="cfits">'+(p.fits?'Fits: '+esc(p.fits):'')+'</div>'+
       '<div class="cfoot">'+price+'</div>'+btn+'</div></article>';
