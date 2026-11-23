@@ -89,7 +89,7 @@
     document.querySelectorAll('[data-add]').forEach(function(b){
       var q=qty(b.getAttribute('data-add'));
       b.classList.toggle('in',q>0);
-      b.innerHTML=q?'<span aria-hidden="true">✓</span> '+q+' in cart':'Add';
+      b.innerHTML=q?'<span aria-hidden="true">✓</span> '+q+' in cart':(b.classList.contains('full')?'Add to cart':'Add');
       b.setAttribute('aria-label',q?q+' in cart. Add one more':'Add to cart');
     });
     var pa=$('pAdd'),pc=$('pInCart');
@@ -147,20 +147,22 @@
   /* ---------- Home + shop ---------- */
   var state={cat:'All',scale:'All',brand:'All',q:'',sort:'pop'},wantReq=false;
   function card(p){
-    var q=qty(p.id),o=opts(p),r=priceRange(p);
-    var foot=o?'<span class="price">'+(r[0]!==r[1]?'<small>From </small>':'')+money(r[0])+'</span><a class="add" href="'+partURL(p)+'">'+o.length+' options</a>':
-      '<span class="price">'+money(p.price)+'</span><button class="add'+(q?' in':'')+'" data-add="'+p.id+'">'+(q?'<span aria-hidden="true">✓</span> '+q+' in cart':'Add')+'</button>';
-    return '<article class="card"><a class="pic'+(p.images&&p.images.length?' photo':'')+'" style="'+cv(p.category)+'" href="'+partURL(p)+'" aria-label="'+esc(p.name)+'">'+picHTML(p)+'<span class="scale">'+esc(scaleLabel(p))+'</span></a>'+
+    var q=qty(p.id),o=opts(p),r=priceRange(p),im=p.images||[];
+    var price='<span class="price">'+(o&&r[0]!==r[1]?'<small>From </small>':'')+money(o?r[0]:p.price)+'</span>';
+    var btn=o?'<a class="add full" href="'+partURL(p)+'">Choose '+esc((p.variants.label||'option').toLowerCase())+'</a>':
+      '<button class="add full'+(q?' in':'')+'" data-add="'+p.id+'">'+(q?'<span aria-hidden="true">✓</span> '+q+' in cart':'Add to cart')+'</button>';
+    return '<article class="card"><a class="pic'+(im.length?' photo':'')+(im.length>1?' two':'')+'" style="'+cv(p.category)+'" href="'+partURL(p)+'" aria-label="'+esc(p.name)+'">'+picHTML(p)+
+      (im.length>1?'<img class="alt" src="'+ROOT+esc(im[1])+'" alt="" loading="lazy">':'')+'<span class="scale">'+esc(scaleLabel(p))+'</span></a>'+
       '<div class="cbody"><div class="cbrand">'+esc(p.brand)+'</div><a class="cname" href="'+partURL(p)+'">'+esc(p.name)+'</a>'+
       '<div class="cfits">'+(p.fits?'Fits: '+esc(p.fits):'')+'</div>'+
-      '<div class="cfoot">'+foot+'</div></div></article>';
+      '<div class="cfoot">'+price+'</div>'+btn+'</div></article>';
+  }
+  function catIcon(c,attr,on){
+    return '<button type="button" class="cat'+(on?' on':'')+'" '+attr+'="'+esc(c)+'"><span class="ci">'+(c==='All'?'<b>All</b>':(CIMG[c]?'<img src="'+ROOT+esc(CIMG[c])+'" alt="" loading="lazy">':art(c)))+'</span><span class="cn">'+(c==='All'?'All parts':esc(c))+'</span>'+(GOALS[c]?'<em class="goal">'+GOALS[c]+'</em>':'')+'</button>';
   }
   function renderHome(){
     if($('partCount'))$('partCount').textContent=P.length+(P.length===1?' part':' parts');
-    $('tiles').innerHTML=CATS.map(function(c){
-      var n=P.filter(function(p){return p.category===c;}).length;
-      return '<button class="tile" style="'+cv(c)+'" data-go-cat="'+esc(c)+'"><div class="ic'+(CIMG[c]?' photo':'')+'">'+(CIMG[c]?'<img src="'+ROOT+esc(CIMG[c])+'" alt="'+esc(c)+'" loading="lazy">':art(c))+'</div><div><h3>'+esc(c)+'</h3><span>'+(n?n+(n===1?' part':' parts'):'')+'</span>'+(GOALS[c]?'<em class="goal">'+GOALS[c]+'</em>':'')+'</div></button>';
-    }).join('');
+    $('tiles').innerHTML=CATS.map(function(c){return catIcon(c,'data-go-cat');}).join('');
     if($('scaleCards'))$('scaleCards').innerHTML=SCALES.map(function(s,i){
       var n=P.filter(function(p){return (p.scale||[]).indexOf(s)>=0;}).length;
       return '<button class="scale-card" style="--sc:'+SC[i%SC.length]+'" data-go-scale="'+s+'"><b>'+s+'</b><span>'+(n?n+(n===1?' part':' parts'):'Scale')+'</span></button>';
@@ -177,6 +179,7 @@
     return true;
   }
   function renderFilters(){
+    if($('shopCats'))$('shopCats').innerHTML=['All'].concat(CATS).map(function(c){return catIcon(c,'data-cat',state.cat===c);}).join('');
     $('catSel').innerHTML=['All'].concat(CATS).map(function(c){
       var n=P.filter(function(p){return match(p,'cat')&&(c==='All'||p.category===c);}).length;
       return '<option value="'+esc(c)+'"'+(state.cat===c?' selected':'')+'>'+(c==='All'?'All categories':esc(c))+'</option>';
@@ -226,7 +229,7 @@
     });
     closeAll();
     if(wantReq&&!shop){wantReq=false;$('rqForm').scrollIntoView({block:'center'});setTimeout(function(){$('rqPart').focus();},50);}
-    else if(h==='faq'||h==='about'||h==='stages'){var f=$(h);if(f)f.scrollIntoView();}
+    else if(h==='faq'||h==='about'||h==='stages'||h==='fix'){var f=$(h);if(f)f.scrollIntoView();}
     else window.scrollTo(0,0);
     if(h==='cart')openCart();
   }
@@ -294,7 +297,7 @@
   function reveal(){
     if(!io){return;}
     var n=0;
-    document.querySelectorAll('.tile,.card,.step,.stg,.source,.qs details,.head,.promise,.faq-side,.strip,.pinfo>*,.gallery').forEach(function(el){
+    document.querySelectorAll('.cat,.fixc,.card,.step,.stg,.source,.qs details,.head,.promise,.faq-side,.strip,.pinfo>*,.gallery').forEach(function(el){
       if(el.classList.contains('rv'))return;
       el.classList.add('rv');
       var r=el.getBoundingClientRect();
@@ -364,7 +367,13 @@
   function closeMenu(){sm.classList.remove('open');msc.classList.remove('open');mb.setAttribute('aria-expanded','false');document.documentElement.style.overflow='';setTimeout(function(){if(!sm.classList.contains('open')){sm.hidden=true;msc.hidden=true;}},300);}
   if(mb){
     mb.addEventListener('click',openMenu);$('closeMenu').addEventListener('click',closeMenu);msc.addEventListener('click',closeMenu);
-    sm.addEventListener('click',function(e){if(e.target.closest('a'))closeMenu();});
+    sm.addEventListener('click',function(e){
+      var tg=e.target.closest('.smtoggle');
+      if(tg){var open=tg.getAttribute('aria-expanded')!=='true';tg.setAttribute('aria-expanded',String(open));$(tg.getAttribute('aria-controls')).hidden=!open;return;}
+      var a=e.target.closest('a');if(!a)return;
+      if(a.hasAttribute('data-mcat')&&PAGE==='home'){e.preventDefault();state.cat=a.getAttribute('data-mcat');state.scale='All';goShop();}
+      closeMenu();
+    });
     document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!sm.hidden)closeMenu();});
   }
 
@@ -444,6 +453,7 @@
     $('dAdd').addEventListener('click',function(e){if(cur)add(cur,e.currentTarget);});
     dlg.addEventListener('click',function(e){if(e.target===dlg)closeAll();});
     window.addEventListener('hashchange',route);
+    try{var qc=new URLSearchParams(location.search).get('cat');if(qc&&CATS.indexOf(qc)>=0){state.cat=qc;state.scale='All';history.replaceState(null,'',location.pathname+location.hash);}}catch(e){}
     renderHome();refresh();renderReq();renderCart();route();reveal();tintAll();
     try{if(sessionStorage.getItem('rc-focus')){sessionStorage.removeItem('rc-focus');focusSearch();}}catch(e){}
   } else {

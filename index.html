@@ -14,8 +14,8 @@
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=98e24a6f">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css?v=257f713b">
 <script type="application/ld+json">{
  "@context": "https://schema.org",
  "@type": "Store",
@@ -42,7 +42,14 @@
 <aside class="sidemenu" id="sideMenu" aria-label="Menu" hidden>
   <div class="smhead"><span>Menu</span><button type="button" id="closeMenu" aria-label="Close menu">✕</button></div>
   <a href="index.html#home">Home</a>
-  <a href="index.html#shop">Shop all parts</a>
+  <div class="smgroup">
+    <div class="smrow"><a href="index.html#shop">Shop all parts</a><button type="button" class="smtoggle" aria-expanded="false" aria-controls="smCats" aria-label="Show categories"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></div>
+    <div class="smcats" id="smCats" hidden><a href="index.html?cat=Motors%20%26%20ESCs#shop" data-mcat="Motors &amp; ESCs">Motors &amp; ESCs</a><a href="index.html?cat=Tyres%20%26%20Wheels#shop" data-mcat="Tyres &amp; Wheels">Tyres &amp; Wheels</a><a href="index.html?cat=Shocks#shop" data-mcat="Shocks">Shocks</a><a href="index.html?cat=Batteries%20%26%20Chargers#shop" data-mcat="Batteries &amp; Chargers">Batteries &amp; Chargers</a><a href="index.html?cat=Gears%20%26%20Drivetrain#shop" data-mcat="Gears &amp; Drivetrain">Gears &amp; Drivetrain</a><a href="index.html?cat=Servos#shop" data-mcat="Servos">Servos</a><a href="index.html?cat=Lights#shop" data-mcat="Lights">Lights</a><a href="index.html?cat=Winch#shop" data-mcat="Winch">Winch</a><a href="index.html?cat=Radios%20%26%20Receivers#shop" data-mcat="Radios &amp; Receivers">Radios &amp; Receivers</a><a href="index.html?cat=Tools%20%26%20Accessories#shop" data-mcat="Tools &amp; Accessories">Tools &amp; Accessories</a></div>
+  </div>
+  <div class="smgroup">
+    <div class="smrow"><a href="index.html#fix">Fix a problem</a><button type="button" class="smtoggle" aria-expanded="false" aria-controls="smFix" aria-label="Show problems"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></div>
+    <div class="smcats" id="smFix" hidden><a href="index.html?cat=Gears%20%26%20Drivetrain#shop" data-mcat="Gears &amp; Drivetrain">Stripped gears</a><a href="index.html?cat=Shocks#shop" data-mcat="Shocks">Bottoming out on jumps</a><a href="index.html?cat=Servos#shop" data-mcat="Servos">Weak or slow steering</a><a href="index.html?cat=Batteries%20%26%20Chargers#shop" data-mcat="Batteries &amp; Chargers">Short run time</a><a href="index.html?cat=Tyres%20%26%20Wheels#shop" data-mcat="Tyres &amp; Wheels">Sliding, no grip</a><a href="index.html?cat=Motors%20%26%20ESCs#shop" data-mcat="Motors &amp; ESCs">Not fast enough</a><a href="index.html?cat=Winch#shop" data-mcat="Winch">Stuck on the trail</a><a href="index.html?cat=Radios%20%26%20Receivers#shop" data-mcat="Radios &amp; Receivers">Signal dropouts</a><a href="index.html?cat=Lights#shop" data-mcat="Lights">Can&#x27;t see at night</a></div>
+  </div>
   <a href="index.html#request" data-go-request>Request a part</a>
   <a href="index.html#faq">FAQ</a>
   <a href="index.html#about">About us</a>
@@ -60,16 +67,15 @@
     <div class="wrap">
       <div class="htxt">
         <div class="eyebrow">RC parts &amp; upgrades · India</div>
-        <h1>Stock is just <span>the starting line.</span></h1>
-        <p>Parts and upgrades that make your rig faster, tougher and harder to stop. From 1:30 crawlers to 1:5 bashers, ordered on WhatsApp.</p>
+        <h1>Spare parts for the rigs <em>you actually run.</em></h1>
+        <p>Motors, shocks, tyres and the small bits that break, for crawlers and bashers from 1:30 to 1:5. Picked by a fellow hobbyist and ordered over WhatsApp.</p>
         <div class="ctas">
-          <a class="btn primary" href="index.html#shop">Shop upgrades</a>
-          <a class="btn plain" href="index.html#stages">Where to start</a>
+          <a class="btn primary" href="index.html#shop">Browse parts</a>
+          <a class="btn plain" href="index.html#fix">Fix something</a>
         </div>
       </div>
     </div>
   </header>
-  <div class="ticker" aria-hidden="true"><div class="tk"><span>Brushless power</span><span>Metal gears</span><span>Oil-filled shocks</span><span>Waterproof servos</span><span>LiPo packs</span><span>Crawler tyres</span><span>Aluminium links</span><span>LED light bars</span><span>Winches</span><span>Pinions &amp; spurs</span><span>Brushless power</span><span>Metal gears</span><span>Oil-filled shocks</span><span>Waterproof servos</span><span>LiPo packs</span><span>Crawler tyres</span><span>Aluminium links</span><span>LED light bars</span><span>Winches</span><span>Pinions &amp; spurs</span></div></div>
   <div class="hstrip">
     <div class="wrap">
       <div><span>Shipping</span><b>Usually ships within 14–21 days</b></div>
@@ -80,39 +86,41 @@
 
   <section class="block">
     <div class="wrap">
-      <div class="kick">Categories</div>
-      <div class="head"><h2>Shop by category. <span>Pick what you want to improve.</span></h2><a class="more" href="index.html#shop">See all parts →</a></div>
-      <div class="tiles" id="tiles"></div>
+      <div class="head"><h2>Shop by category</h2><a class="more" href="index.html#shop">See all parts →</a></div>
+      <div class="catrow" id="tiles"></div>
+    </div>
+  </section>
+
+  <section class="block fix" id="fix">
+    <div class="wrap">
+      <div class="head"><h2>Something broke?</h2><p class="sub">Start from the problem. We'll point you to the parts that fix it.</p></div>
+      <div class="fixgrid"><button type="button" class="fixc" data-go-cat="Gears &amp; Drivetrain"><span class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/><circle cx="12" cy="12" r="6.5"/></svg></span><span class="ft"><b>Stripped gears</b><small>Gears &amp; Drivetrain →</small></span></button><button type="button" class="fixc" data-go-cat="Shocks"><span class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3h8M8 21h8M12 3v2M12 19v2M7 7l10 2-10 2 10 2-10 2 10 2"/></svg></span><span class="ft"><b>Bottoming out on jumps</b><small>Shocks →</small></span></button><button type="button" class="fixc" data-go-cat="Servos"><span class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="2.2"/><path d="M12 14.2v6.3M9.9 11.3 4 9.5M14.1 11.3 20 9.5"/></svg></span><span class="ft"><b>Weak or slow steering</b><small>Servos →</small></span></button><button type="button" class="fixc" data-go-cat="Batteries &amp; Chargers"><span class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="16" height="10" rx="2"/><path d="M21 10.5v3M7 12h4M9 10v4"/></svg></span><span class="ft"><b>Short run time</b><small>Batteries &amp; Chargers →</small></span></button><button type="button" class="fixc" data-go-cat="Tyres &amp; Wheels"><span class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></span><span class="ft"><b>Sliding, no grip</b><small>Tyres &amp; Wheels →</small></span></button><button type="button" class="fixc" data-go-cat="Motors &amp; ESCs"><span class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 5 13.5h6L10 22l8-11.5h-6z"/></svg></span><span class="ft"><b>Not fast enough</b><small>Motors &amp; ESCs →</small></span></button><button type="button" class="fixc" data-go-cat="Winch"><span class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v9a4 4 0 1 1-4-4"/><path d="M9 3h6"/></svg></span><span class="ft"><b>Stuck on the trail</b><small>Winch →</small></span></button><button type="button" class="fixc" data-go-cat="Radios &amp; Receivers"><span class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.9 9a10 10 0 0 1 14.2 0M7.8 12a6 6 0 0 1 8.4 0M10.6 15a2 2 0 0 1 2.8 0"/><circle cx="12" cy="18.5" r="1"/></svg></span><span class="ft"><b>Signal dropouts</b><small>Radios &amp; Receivers →</small></span></button><button type="button" class="fixc" data-go-cat="Lights"><span class="fi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg></span><span class="ft"><b>Can&#x27;t see at night</b><small>Lights →</small></span></button></div>
     </div>
   </section>
 
   <section class="block stages" id="stages">
     <div class="wrap">
-      <div class="kick">Upgrade path</div>
-      <div class="head"><h2>Upgrade in stages. <span>Start where your rig needs it most.</span></h2></div>
+      <div class="head"><h2>Where to start upgrading</h2><p class="sub">Most rigs get better in the same order. Grip first, then strength, then power.</p></div>
       <div class="stwrap">
         <div class="stpic"><img src="assets/stages.jpg" alt="An RC crawler climbing over rocks on a forest trail" loading="lazy"></div>
         <div class="stlist">
         <div class="stg">
-          <div class="sn">Stage 1</div>
+          <div class="sn">First</div>
           <h3>Grip &amp; control</h3>
           <p>Better tyres and a stronger servo change how every run feels.</p>
           <div class="sl"><a href="index.html#shop" data-go-cat="Tyres & Wheels">Tyres</a> · <a href="index.html#shop" data-go-cat="Servos">Servos</a> · <a href="index.html#shop" data-go-cat="Radios & Receivers">Radios</a></div>
-          <div class="meters"><div class="mt"><span>Speed</span><i><b style="--v:20%"></b></i></div><div class="mt"><span>Grip</span><i><b style="--v:75%"></b></i></div><div class="mt"><span>Toughness</span><i><b style="--v:30%"></b></i></div></div>
         </div>
         <div class="stg">
-          <div class="sn">Stage 2</div>
+          <div class="sn">Next</div>
           <h3>Take the hits</h3>
           <p>Shocks and metal gears so jumps, rocks and rough landings stop breaking things.</p>
           <div class="sl"><a href="index.html#shop" data-go-cat="Shocks">Shocks</a> · <a href="index.html#shop" data-go-cat="Gears & Drivetrain">Gears &amp; drivetrain</a></div>
-          <div class="meters"><div class="mt"><span>Speed</span><i><b style="--v:30%"></b></i></div><div class="mt"><span>Grip</span><i><b style="--v:50%"></b></i></div><div class="mt"><span>Toughness</span><i><b style="--v:80%"></b></i></div></div>
         </div>
         <div class="stg">
-          <div class="sn">Stage 3</div>
+          <div class="sn">Then</div>
           <h3>More power</h3>
           <p>A brushless motor, ESC and better batteries for real speed and longer runs.</p>
           <div class="sl"><a href="index.html#shop" data-go-cat="Motors & ESCs">Motors &amp; ESCs</a> · <a href="index.html#shop" data-go-cat="Batteries & Chargers">Batteries</a></div>
-          <div class="meters"><div class="mt"><span>Speed</span><i><b style="--v:90%"></b></i></div><div class="mt"><span>Grip</span><i><b style="--v:40%"></b></i></div><div class="mt"><span>Toughness</span><i><b style="--v:55%"></b></i></div></div>
         </div>
         </div>
       </div>
@@ -121,10 +129,9 @@
 
   <section class="block">
     <div class="wrap">
-      <div class="kick">Ordering</div>
-      <div class="head"><h2>How to order.</h2></div>
+      <div class="head"><h2>How ordering works</h2></div>
       <div class="steps">
-        <div class="step"><span class="n">1</span><h3>Pick your parts</h3><p>Filter by category and scale to find parts that fit your rig.</p></div>
+        <div class="step"><span class="n">1</span><h3>Pick your parts</h3><p>Add what you need to the cart. Filter by scale if you are unsure what fits.</p></div>
         <div class="step"><span class="n">2</span><h3>Send the order on WhatsApp</h3><p>Tap the button in your cart. WhatsApp opens with your order typed out, so you just press send.</p></div>
         <div class="step"><span class="n">3</span><h3>We confirm and ship</h3><p>We reply with shipping and payment details. Orders usually ship within 14–21 days.</p></div>
       </div>
@@ -156,7 +163,6 @@
   <section class="block" id="faq" style="padding-top:0">
     <div class="wrap faq">
       <div class="faq-side">
-        <div class="kick">Help</div>
         <h2>Frequently asked questions</h2>
         <p>Have another question? Message us on WhatsApp and we'll reply as soon as we can.</p>
       </div>
@@ -176,10 +182,11 @@
   <section class="block about" id="about">
     <div class="wrap">
       <div class="about-in">
-        <div><div class="kick">Our story</div><h2>About RC Spares</h2><div class="aboutpic"><img src="assets/about.jpg" alt="An RC crawler driving through a muddy puddle on a forest trail" loading="lazy"></div></div>
+        <div><h2>About RC Spares</h2><div class="aboutpic"><img src="assets/about.jpg" alt="An RC crawler driving through a muddy puddle on a forest trail" loading="lazy"></div></div>
         <div>
           <p>RC Spares started the way most RC projects do: with a broken part and nowhere to buy a replacement. As a hobbyist myself, I know how hard it is in India to find the right gear, shock or ESC for a specific car, and how many weekends get lost waiting on parts that never show up.</p>
           <p>This shop is my way of making that easier. Every order is handled carefully, from the moment you message us to the day your parts arrive, so you can spend less time waiting and more time running.</p>
+          <p class="sign">— The RC Spares workshop</p>
         </div>
       </div>
     </div>
@@ -191,6 +198,7 @@
   <div class="shop-top">
     <div class="wrap">
       <h1>All parts</h1>
+      <div class="catrow shopcats" id="shopCats"></div>
       <p>Prices in ₹. Usually ships within 14–21 days.</p>
       <div class="controls">
         <label for="q" class="sr">Search parts</label>
@@ -7516,6 +7524,6 @@
   "variants": null
  }
 ]</script>
-<script src="assets/store.js?v=8baf100a"></script>
+<script src="assets/store.js?v=638d2f1c"></script>
 </body>
 </html>

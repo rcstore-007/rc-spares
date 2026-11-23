@@ -5,16 +5,15 @@
     <div class="wrap">
       <div class="htxt">
         <div class="eyebrow">RC parts &amp; upgrades · India</div>
-        <h1>Stock is just <span>the starting line.</span></h1>
-        <p>Parts and upgrades that make your rig faster, tougher and harder to stop. From 1:30 crawlers to 1:5 bashers, ordered on WhatsApp.</p>
+        <h1>Spare parts for the rigs <em>you actually run.</em></h1>
+        <p>Motors, shocks, tyres and the small bits that break, for crawlers and bashers from 1:30 to 1:5. Picked by a fellow hobbyist and ordered over WhatsApp.</p>
         <div class="ctas">
-          <a class="btn primary" href="index.html#shop">Shop upgrades</a>
-          <a class="btn plain" href="index.html#stages">Where to start</a>
+          <a class="btn primary" href="index.html#shop">Browse parts</a>
+          <a class="btn plain" href="index.html#fix">Fix something</a>
         </div>
       </div>
     </div>
   </header>
-  <div class="ticker" aria-hidden="true"><div class="tk"><span>Brushless power</span><span>Metal gears</span><span>Oil-filled shocks</span><span>Waterproof servos</span><span>LiPo packs</span><span>Crawler tyres</span><span>Aluminium links</span><span>LED light bars</span><span>Winches</span><span>Pinions &amp; spurs</span><span>Brushless power</span><span>Metal gears</span><span>Oil-filled shocks</span><span>Waterproof servos</span><span>LiPo packs</span><span>Crawler tyres</span><span>Aluminium links</span><span>LED light bars</span><span>Winches</span><span>Pinions &amp; spurs</span></div></div>
   <div class="hstrip">
     <div class="wrap">
       <div><span>Shipping</span><b>Usually ships within {{DAYS}} days</b></div>
@@ -25,39 +24,41 @@
 
   <section class="block">
     <div class="wrap">
-      <div class="kick">Categories</div>
-      <div class="head"><h2>Shop by category. <span>Pick what you want to improve.</span></h2><a class="more" href="index.html#shop">See all parts →</a></div>
-      <div class="tiles" id="tiles"></div>
+      <div class="head"><h2>Shop by category</h2><a class="more" href="index.html#shop">See all parts →</a></div>
+      <div class="catrow" id="tiles"></div>
+    </div>
+  </section>
+
+  <section class="block fix" id="fix">
+    <div class="wrap">
+      <div class="head"><h2>Something broke?</h2><p class="sub">Start from the problem. We'll point you to the parts that fix it.</p></div>
+      <div class="fixgrid">{{FIX_GRID}}</div>
     </div>
   </section>
 
   <section class="block stages" id="stages">
     <div class="wrap">
-      <div class="kick">Upgrade path</div>
-      <div class="head"><h2>Upgrade in stages. <span>Start where your rig needs it most.</span></h2></div>
+      <div class="head"><h2>Where to start upgrading</h2><p class="sub">Most rigs get better in the same order. Grip first, then strength, then power.</p></div>
       <div class="stwrap">
         <div class="stpic"><img src="assets/stages.jpg" alt="An RC crawler climbing over rocks on a forest trail" loading="lazy"></div>
         <div class="stlist">
         <div class="stg">
-          <div class="sn">Stage 1</div>
+          <div class="sn">First</div>
           <h3>Grip &amp; control</h3>
           <p>Better tyres and a stronger servo change how every run feels.</p>
           <div class="sl"><a href="index.html#shop" data-go-cat="Tyres & Wheels">Tyres</a> · <a href="index.html#shop" data-go-cat="Servos">Servos</a> · <a href="index.html#shop" data-go-cat="Radios & Receivers">Radios</a></div>
-          <div class="meters"><div class="mt"><span>Speed</span><i><b style="--v:20%"></b></i></div><div class="mt"><span>Grip</span><i><b style="--v:75%"></b></i></div><div class="mt"><span>Toughness</span><i><b style="--v:30%"></b></i></div></div>
         </div>
         <div class="stg">
-          <div class="sn">Stage 2</div>
+          <div class="sn">Next</div>
           <h3>Take the hits</h3>
           <p>Shocks and metal gears so jumps, rocks and rough landings stop breaking things.</p>
           <div class="sl"><a href="index.html#shop" data-go-cat="Shocks">Shocks</a> · <a href="index.html#shop" data-go-cat="Gears & Drivetrain">Gears &amp; drivetrain</a></div>
-          <div class="meters"><div class="mt"><span>Speed</span><i><b style="--v:30%"></b></i></div><div class="mt"><span>Grip</span><i><b style="--v:50%"></b></i></div><div class="mt"><span>Toughness</span><i><b style="--v:80%"></b></i></div></div>
         </div>
         <div class="stg">
-          <div class="sn">Stage 3</div>
+          <div class="sn">Then</div>
           <h3>More power</h3>
           <p>A brushless motor, ESC and better batteries for real speed and longer runs.</p>
           <div class="sl"><a href="index.html#shop" data-go-cat="Motors & ESCs">Motors &amp; ESCs</a> · <a href="index.html#shop" data-go-cat="Batteries & Chargers">Batteries</a></div>
-          <div class="meters"><div class="mt"><span>Speed</span><i><b style="--v:90%"></b></i></div><div class="mt"><span>Grip</span><i><b style="--v:40%"></b></i></div><div class="mt"><span>Toughness</span><i><b style="--v:55%"></b></i></div></div>
         </div>
         </div>
       </div>
@@ -66,10 +67,9 @@
 
   <section class="block">
     <div class="wrap">
-      <div class="kick">Ordering</div>
-      <div class="head"><h2>How to order.</h2></div>
+      <div class="head"><h2>How ordering works</h2></div>
       <div class="steps">
-        <div class="step"><span class="n">1</span><h3>Pick your parts</h3><p>Filter by category and scale to find parts that fit your rig.</p></div>
+        <div class="step"><span class="n">1</span><h3>Pick your parts</h3><p>Add what you need to the cart. Filter by scale if you are unsure what fits.</p></div>
         <div class="step"><span class="n">2</span><h3>Send the order on WhatsApp</h3><p>Tap the button in your cart. WhatsApp opens with your order typed out, so you just press send.</p></div>
         <div class="step"><span class="n">3</span><h3>We confirm and ship</h3><p>We reply with shipping and payment details. Orders usually ship within {{DAYS}} days.</p></div>
       </div>
@@ -101,7 +101,6 @@
   <section class="block" id="faq" style="padding-top:0">
     <div class="wrap faq">
       <div class="faq-side">
-        <div class="kick">Help</div>
         <h2>Frequently asked questions</h2>
         <p>Have another question? Message us on WhatsApp and we'll reply as soon as we can.</p>
       </div>
@@ -121,10 +120,11 @@
   <section class="block about" id="about">
     <div class="wrap">
       <div class="about-in">
-        <div><div class="kick">Our story</div><h2>About {{STORE}}</h2><div class="aboutpic"><img src="assets/about.jpg" alt="An RC crawler driving through a muddy puddle on a forest trail" loading="lazy"></div></div>
+        <div><h2>About {{STORE}}</h2><div class="aboutpic"><img src="assets/about.jpg" alt="An RC crawler driving through a muddy puddle on a forest trail" loading="lazy"></div></div>
         <div>
           <p>{{STORE}} started the way most RC projects do: with a broken part and nowhere to buy a replacement. As a hobbyist myself, I know how hard it is in India to find the right gear, shock or ESC for a specific car, and how many weekends get lost waiting on parts that never show up.</p>
           <p>This shop is my way of making that easier. Every order is handled carefully, from the moment you message us to the day your parts arrive, so you can spend less time waiting and more time running.</p>
+          <p class="sign">— The {{STORE}} workshop</p>
         </div>
       </div>
     </div>
@@ -136,6 +136,7 @@
   <div class="shop-top">
     <div class="wrap">
       <h1>All parts</h1>
+      <div class="catrow shopcats" id="shopCats"></div>
       <p>Prices in ₹. Usually ships within {{DAYS}} days.</p>
       <div class="controls">
         <label for="q" class="sr">Search parts</label>

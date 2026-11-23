@@ -12,6 +12,7 @@ website/
 
 import datetime as dt
 import hashlib
+from urllib.parse import quote
 import html
 import json
 import re
@@ -20,6 +21,14 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 TEMPLATE = HERE / "site_template"
+
+
+FIX_ICONS = {'gear': '<circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/><circle cx="12" cy="12" r="6.5"/>', 'spring': '<path d="M8 3h8M8 21h8M12 3v2M12 19v2M7 7l10 2-10 2 10 2-10 2 10 2"/>', 'steer': '<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="2.2"/><path d="M12 14.2v6.3M9.9 11.3 4 9.5M14.1 11.3 20 9.5"/>', 'battery': '<rect x="3" y="7" width="16" height="10" rx="2"/><path d="M21 10.5v3M7 12h4M9 10v4"/>', 'tyre': '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/>', 'bolt': '<path d="M13 2 5 13.5h6L10 22l8-11.5h-6z"/>', 'hook': '<path d="M12 3v9a4 4 0 1 1-4-4"/><path d="M9 3h6"/>', 'signal': '<path d="M4.9 9a10 10 0 0 1 14.2 0M7.8 12a6 6 0 0 1 8.4 0M10.6 15a2 2 0 0 1 2.8 0"/><circle cx="12" cy="18.5" r="1"/>', 'light': '<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>'}
+FIXES = [('Stripped gears', 'Gears & Drivetrain', 'gear'), ('Bottoming out on jumps', 'Shocks', 'spring'), ('Weak or slow steering', 'Servos', 'steer'), ('Short run time', 'Batteries & Chargers', 'battery'), ('Sliding, no grip', 'Tyres & Wheels', 'tyre'), ('Not fast enough', 'Motors & ESCs', 'bolt'), ('Stuck on the trail', 'Winch', 'hook'), ('Signal dropouts', 'Radios & Receivers', 'signal'), ("Can't see at night", 'Lights', 'light')]
+
+
+def _ic(k):
+    return f'<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">{FIX_ICONS[k]}</svg>'
 
 
 def asset_v(name):
@@ -128,6 +137,9 @@ def fill(text, settings, root):
         "{{DAYS}}": esc(pub["delivery"]),
         "{{MARK}}": mark,
         "{{MARK48}}": mark.replace("<svg ", '<svg width="48" height="48" ', 1),
+        "{{FIX_GRID}}": "".join(f'<button type="button" class="fixc" data-go-cat="{esc(c)}"><span class="fi">{_ic(k)}</span><span class="ft"><b>{esc(t)}</b><small>{esc(c)} →</small></span></button>' for t, c, k in FIXES),
+        "{{MENU_FIX}}": "".join(f'<a href="{root}index.html?cat={quote(c)}#shop" data-mcat="{esc(c)}">{esc(t)}</a>' for t, c, k in FIXES),
+        "{{MENU_CATS}}": "".join(f'<a href="{root}index.html?cat={quote(c)}#shop" data-mcat="{esc(c)}">{esc(c)}</a>' for c in CATEGORIES),
     }
     for k, v in rep.items():
         text = text.replace(k, v)
@@ -160,7 +172,7 @@ def head(title, description, root, canonical="", image="", extra=""):
         f'<link rel="icon" type="image/png" href="{root}assets/favicon.png">',
         '<link rel="preconnect" href="https://fonts.googleapis.com">',
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
-        '<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">',
+        '<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">',
         f'<link rel="stylesheet" href="{root}assets/style.css?v={asset_v("style.css")}">',
         extra,
         '</head>',
@@ -200,6 +212,96 @@ def build_index(settings, products):
         '</html>',
     ])
     return head(title, desc, "", base, (base + "assets/logo.png") if base else "", extra) + "\n" + body
+
+
+HOLO_SVG = '''<svg class="holo-car" viewBox="0 0 600 300" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <g class="h-body">
+    <path d="M70 196 L88 150 L190 140 L232 92 L372 90 L404 136 L520 146 L548 168 L552 196"/>
+    <path d="M244 100 L238 138 M300 96 L300 138 M362 98 L388 138"/>
+    <path d="M70 196 L96 196 M204 196 L396 196 M504 196 L552 196"/>
+    <path d="M110 212 L490 212" class="h-faint"/>
+  </g>
+  <g class="h-part p-light"><path d="M252 82 L360 82"/><path d="M262 82 L262 76 M282 82 L282 76 M302 82 L302 76 M322 82 L322 76 M342 82 L342 76"/><path d="M530 156 l14 4 l0 10 l-14 -2 z"/></g>
+  <g class="h-part p-radio"><rect x="338" y="150" width="34" height="22" rx="3"/><path d="M366 150 L380 112"/><path d="M470 40 h52 v34 h-52 z M484 40 v-14 M508 40 v-10 M482 58 h28" class="h-tx"/></g>
+  <g class="h-part p-battery"><rect x="214" y="158" width="96" height="26" rx="4"/><path d="M228 158 v-6 M244 158 v-6"/></g>
+  <g class="h-part p-motor"><rect x="320" y="178" width="46" height="26" rx="8"/><circle cx="314" cy="191" r="13"/></g>
+  <g class="h-part p-drive"><path d="M152 232 L300 204 L448 232"/><circle cx="300" cy="204" r="9"/><path d="M128 232 h48 M424 232 h48"/></g>
+  <g class="h-part p-servo"><rect x="424" y="176" width="34" height="20" rx="3"/><path d="M441 196 L452 228"/></g>
+  <g class="h-part p-shock"><path d="M118 152 L140 222 M478 152 L458 222"/><path d="M121 166 l10 -3 M124 176 l10 -3 M127 186 l10 -3 M130 196 l10 -3 M475 166 l-10 -3 M472 176 l-10 -3 M469 186 l-10 -3 M466 196 l-10 -3"/></g>
+  <g class="h-part p-winch"><rect x="548" y="186" width="24" height="18" rx="3"/><path d="M572 195 h12 v18 a6 6 0 0 1 -12 0"/></g>
+  <g class="h-part p-wheels"><circle cx="150" cy="232" r="48"/><circle cx="150" cy="232" r="22"/><circle cx="450" cy="232" r="48"/><circle cx="450" cy="232" r="22"/>
+    <path d="M150 184 v10 M150 270 v10 M102 232 h10 M188 232 h10 M450 184 v10 M450 270 v10 M402 232 h10 M488 232 h10"/></g>
+  <line class="h-scan" x1="0" x2="600" y1="0" y2="0"/>
+</svg>'''
+
+HOLO_MAP = {"Tyres & Wheels": ("wheels", "Wheels and tyres"), "Shocks": ("shock", "Suspension, front and rear"),
+            "Motors & ESCs": ("motor", "Motor and speed controller"), "Batteries & Chargers": ("battery", "Battery tray"),
+            "Gears & Drivetrain": ("drive", "Gearbox, driveshafts and axles"), "Servos": ("servo", "Steering servo"),
+            "Lights": ("light", "Light bar and headlights"), "Winch": ("winch", "Front bumper winch"),
+            "Radios & Receivers": ("radio", "Receiver and transmitter"), "Tools & Accessories": ("all", "Works on your whole rig")}
+
+
+FIT_RULES = [  # (words in the product name, zone, label) — first match wins
+    (("beadlock", "rim", "rims"), "rims", "Rims"),
+    (("tyre", "tire"), "tyres", "Tyres"),
+    (("wheel hub", "hex", "counterweight", "wheel weight", "brass weight", "hub"), "hubs", "Wheel hubs"),
+    (("wheel",), "wheels", "Wheels and tyres"),
+    (("diff", "locker", "differential", "spool"), "diff", "Differential"),
+    (("knuckle", "c-hub", "c hub", "steering cup", "portal", "caster block"), "knuckles", "Steering knuckles"),
+    (("axle", "pumpkin", "axle housing"), "axles", "Axles"),
+    (("link", "rod end", "trailing arm"), "links", "Suspension links"),
+    (("shock", "damper", "spring"), "shocks", "Shocks"),
+    (("driveshaft", "drive shaft", "cvd", "dogbone", "dog bone", "universal joint", "propshaft", "prop shaft"), "driveshafts", "Driveshafts"),
+    (("transmission", "gearbox", "gear box", "transfer case"), "transmission", "Gearbox"),
+    (("pinion", "spur", "gear"), "gears", "Gears"),
+    (("servo horn", "servo saver", "steering link", "tie rod", "drag link", "steering"), "steering", "Steering"),
+    (("servo",), "servo", "Steering servo"),
+    (("esc", "speed controller") , "esc", "Speed controller"),
+    (("motor", "fan", "heatsink", "heat sink", "cooling"), "motor", "Motor"),
+    (("battery", "lipo", "li-po", "charger", "balance lead"), "battery", "Battery"),
+    (("transmitter", "radio", "remote"), "radio", "Transmitter and receiver"),
+    (("receiver", "antenna"), "receiver", "Receiver"),
+    (("sound", "speaker", "gyro"), "electronics", "Electronics bay"),
+    (("chassis", "frame", "ladder", "rail"), "chassis", "Chassis"),
+    (("skid",), "skid", "Skid plate"),
+    (("winch",), "winch", "Winch"),
+    (("light", "led", "lamp", "spotlight", "searchlight"), "lights", "Lights"),
+    (("bumper",), "bumper", "Bumpers"),
+    (("body", "shell", "interior", "roof", "luggage", "window"), "body", "Body"),
+]
+CAT_FIT = {"Tyres & Wheels": ("wheels", "Wheels and tyres"), "Shocks": ("shocks", "Shocks"), "Motors & ESCs": ("motoresc", "Motor and speed controller"),
+           "Batteries & Chargers": ("battery", "Battery"), "Gears & Drivetrain": ("drivetrain", "Drivetrain"), "Servos": ("servo", "Steering servo"),
+           "Lights": ("lights", "Lights"), "Winch": ("winch", "Winch"), "Radios & Receivers": ("radio", "Transmitter and receiver"),
+           "Tools & Accessories": ("all", "Works on your whole rig")}
+
+
+def fit_for(p):
+    """Which part of the rig this product belongs to, from its name (falls back to its category)."""
+    if p.get("fit"):
+        return p["fit"], p.get("fit_label") or p["fit"].title()
+    name = " " + re.sub(r"[^a-z0-9]+", " ", (p.get("name") or "").lower()) + " "
+    cat = p.get("category")
+    has = lambda w: (" " + w + " ") in name or (" " + w + "s ") in name or (len(w) > 4 and w in name)
+    if has("motor") and (has("esc") or has("combo")):
+        return "motoresc", "Motor and speed controller"
+    allowed = {"Servos": ("servo", "steering"), "Batteries & Chargers": ("battery",), "Lights": ("lights",), "Winch": ("winch",),
+               "Radios & Receivers": ("radio", "receiver"), "Motors & ESCs": ("motor", "esc", "motoresc", "electronics"),
+               "Tools & Accessories": ("lights", "body", "winch", "bumper", "electronics", "chassis", "receiver")}.get(cat)
+    for words, zone, label in FIT_RULES:
+        if any(has(w) for w in words):
+            if allowed and zone not in allowed:
+                break
+            return zone, label
+    return CAT_FIT.get(cat, ("all", "Works on your whole rig"))
+
+
+def holo_panel(p):
+    zone, label = fit_for(p)
+    scales = ", ".join(p.get("scale") or [])
+    key, _ = HOLO_MAP.get(p.get("category"), ("all", ""))
+    return (f'<div class="holo" data-hl="{key}" data-fit="{zone}"><div class="holo-head"><span>Where it fits</span><b>{esc(label)}</b></div>'
+            f'<div class="holo-stage"><div class="holo-tag">{esc(label)}</div>{HOLO_SVG}</div>'
+            f'<div class="holo-foot">{esc(scales + " scale") if scales else ""}</div></div>')
 
 
 def build_part(settings, p):
@@ -293,7 +395,7 @@ def build_part(settings, p):
     main_html = f'''<main class="wrap">
   <div class="crumbs"><a href="../index.html#home">Home</a> › <a href="../index.html#shop">Shop</a> › {esc(p.get("category", ""))}</div>
   <div class="part">
-    <div class="gallery">{gallery}</div>
+    <div class="gallery">{gallery}{holo_panel(p)}</div>
     <div class="pinfo">
       <div class="cbrand">{esc(p.get("brand", ""))}</div>
       <h1>{esc(p["name"])}</h1>
@@ -326,6 +428,7 @@ def build_part(settings, p):
         f'<script id="store-settings" type="application/json">{json_block(pub)}</script>',
         f'<script id="products" type="application/json">{json_block([product_for_js])}</script>',
         f'<script src="../assets/store.js?v={asset_v("store.js")}"></script>',
+        f'<script src="../assets/holo3d.js?v={asset_v("holo3d.js")}" defer></script>',
         '</body>',
         '</html>',
     ])

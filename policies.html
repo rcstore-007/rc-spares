@@ -13,8 +13,8 @@
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=98e24a6f">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css?v=257f713b">
 </head>
 <body data-page="policies" data-root="">
 <nav class="nav">
@@ -31,7 +31,14 @@
 <aside class="sidemenu" id="sideMenu" aria-label="Menu" hidden>
   <div class="smhead"><span>Menu</span><button type="button" id="closeMenu" aria-label="Close menu">✕</button></div>
   <a href="index.html#home">Home</a>
-  <a href="index.html#shop">Shop all parts</a>
+  <div class="smgroup">
+    <div class="smrow"><a href="index.html#shop">Shop all parts</a><button type="button" class="smtoggle" aria-expanded="false" aria-controls="smCats" aria-label="Show categories"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></div>
+    <div class="smcats" id="smCats" hidden><a href="index.html?cat=Motors%20%26%20ESCs#shop" data-mcat="Motors &amp; ESCs">Motors &amp; ESCs</a><a href="index.html?cat=Tyres%20%26%20Wheels#shop" data-mcat="Tyres &amp; Wheels">Tyres &amp; Wheels</a><a href="index.html?cat=Shocks#shop" data-mcat="Shocks">Shocks</a><a href="index.html?cat=Batteries%20%26%20Chargers#shop" data-mcat="Batteries &amp; Chargers">Batteries &amp; Chargers</a><a href="index.html?cat=Gears%20%26%20Drivetrain#shop" data-mcat="Gears &amp; Drivetrain">Gears &amp; Drivetrain</a><a href="index.html?cat=Servos#shop" data-mcat="Servos">Servos</a><a href="index.html?cat=Lights#shop" data-mcat="Lights">Lights</a><a href="index.html?cat=Winch#shop" data-mcat="Winch">Winch</a><a href="index.html?cat=Radios%20%26%20Receivers#shop" data-mcat="Radios &amp; Receivers">Radios &amp; Receivers</a><a href="index.html?cat=Tools%20%26%20Accessories#shop" data-mcat="Tools &amp; Accessories">Tools &amp; Accessories</a></div>
+  </div>
+  <div class="smgroup">
+    <div class="smrow"><a href="index.html#fix">Fix a problem</a><button type="button" class="smtoggle" aria-expanded="false" aria-controls="smFix" aria-label="Show problems"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></div>
+    <div class="smcats" id="smFix" hidden><a href="index.html?cat=Gears%20%26%20Drivetrain#shop" data-mcat="Gears &amp; Drivetrain">Stripped gears</a><a href="index.html?cat=Shocks#shop" data-mcat="Shocks">Bottoming out on jumps</a><a href="index.html?cat=Servos#shop" data-mcat="Servos">Weak or slow steering</a><a href="index.html?cat=Batteries%20%26%20Chargers#shop" data-mcat="Batteries &amp; Chargers">Short run time</a><a href="index.html?cat=Tyres%20%26%20Wheels#shop" data-mcat="Tyres &amp; Wheels">Sliding, no grip</a><a href="index.html?cat=Motors%20%26%20ESCs#shop" data-mcat="Motors &amp; ESCs">Not fast enough</a><a href="index.html?cat=Winch#shop" data-mcat="Winch">Stuck on the trail</a><a href="index.html?cat=Radios%20%26%20Receivers#shop" data-mcat="Radios &amp; Receivers">Signal dropouts</a><a href="index.html?cat=Lights#shop" data-mcat="Lights">Can&#x27;t see at night</a></div>
+  </div>
   <a href="index.html#request" data-go-request>Request a part</a>
   <a href="index.html#faq">FAQ</a>
   <a href="index.html#about">About us</a>
@@ -96,6 +103,6 @@
  "bulkNote": "Discount available on higher quantities."
 }</script>
 <script id="products" type="application/json">[]</script>
-<script src="assets/store.js?v=8baf100a"></script>
+<script src="assets/store.js?v=638d2f1c"></script>
 </body>
 </html>

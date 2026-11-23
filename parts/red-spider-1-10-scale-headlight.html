@@ -14,8 +14,8 @@
 <link rel="icon" type="image/png" href="../assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/style.css?v=98e24a6f">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css?v=257f713b">
 <script type="application/ld+json">{
  "@context": "https://schema.org/",
  "@type": "Product",
@@ -81,7 +81,14 @@
 <aside class="sidemenu" id="sideMenu" aria-label="Menu" hidden>
   <div class="smhead"><span>Menu</span><button type="button" id="closeMenu" aria-label="Close menu">✕</button></div>
   <a href="../index.html#home">Home</a>
-  <a href="../index.html#shop">Shop all parts</a>
+  <div class="smgroup">
+    <div class="smrow"><a href="../index.html#shop">Shop all parts</a><button type="button" class="smtoggle" aria-expanded="false" aria-controls="smCats" aria-label="Show categories"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></div>
+    <div class="smcats" id="smCats" hidden><a href="../index.html?cat=Motors%20%26%20ESCs#shop" data-mcat="Motors &amp; ESCs">Motors &amp; ESCs</a><a href="../index.html?cat=Tyres%20%26%20Wheels#shop" data-mcat="Tyres &amp; Wheels">Tyres &amp; Wheels</a><a href="../index.html?cat=Shocks#shop" data-mcat="Shocks">Shocks</a><a href="../index.html?cat=Batteries%20%26%20Chargers#shop" data-mcat="Batteries &amp; Chargers">Batteries &amp; Chargers</a><a href="../index.html?cat=Gears%20%26%20Drivetrain#shop" data-mcat="Gears &amp; Drivetrain">Gears &amp; Drivetrain</a><a href="../index.html?cat=Servos#shop" data-mcat="Servos">Servos</a><a href="../index.html?cat=Lights#shop" data-mcat="Lights">Lights</a><a href="../index.html?cat=Winch#shop" data-mcat="Winch">Winch</a><a href="../index.html?cat=Radios%20%26%20Receivers#shop" data-mcat="Radios &amp; Receivers">Radios &amp; Receivers</a><a href="../index.html?cat=Tools%20%26%20Accessories#shop" data-mcat="Tools &amp; Accessories">Tools &amp; Accessories</a></div>
+  </div>
+  <div class="smgroup">
+    <div class="smrow"><a href="../index.html#fix">Fix a problem</a><button type="button" class="smtoggle" aria-expanded="false" aria-controls="smFix" aria-label="Show problems"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></div>
+    <div class="smcats" id="smFix" hidden><a href="../index.html?cat=Gears%20%26%20Drivetrain#shop" data-mcat="Gears &amp; Drivetrain">Stripped gears</a><a href="../index.html?cat=Shocks#shop" data-mcat="Shocks">Bottoming out on jumps</a><a href="../index.html?cat=Servos#shop" data-mcat="Servos">Weak or slow steering</a><a href="../index.html?cat=Batteries%20%26%20Chargers#shop" data-mcat="Batteries &amp; Chargers">Short run time</a><a href="../index.html?cat=Tyres%20%26%20Wheels#shop" data-mcat="Tyres &amp; Wheels">Sliding, no grip</a><a href="../index.html?cat=Motors%20%26%20ESCs#shop" data-mcat="Motors &amp; ESCs">Not fast enough</a><a href="../index.html?cat=Winch#shop" data-mcat="Winch">Stuck on the trail</a><a href="../index.html?cat=Radios%20%26%20Receivers#shop" data-mcat="Radios &amp; Receivers">Signal dropouts</a><a href="../index.html?cat=Lights#shop" data-mcat="Lights">Can&#x27;t see at night</a></div>
+  </div>
   <a href="../index.html#request" data-go-request>Request a part</a>
   <a href="../index.html#faq">FAQ</a>
   <a href="../index.html#about">About us</a>
@@ -95,7 +102,25 @@
 <main class="wrap">
   <div class="crumbs"><a href="../index.html#home">Home</a> › <a href="../index.html#shop">Shop</a> › Lights</div>
   <div class="part">
-    <div class="gallery"><div class="gmain"><img id="gMain" src="../images/red-spider-1-10-scale-headlight/3-e5d416.jpg" alt="Red spider 1/10 Scale headlight"></div><div class="thumbs"><button data-thumb="../images/red-spider-1-10-scale-headlight/3-e5d416.jpg" aria-pressed="true" aria-label="Photo 1"><img src="../images/red-spider-1-10-scale-headlight/3-e5d416.jpg" alt=""></button><button data-thumb="../images/red-spider-1-10-scale-headlight/2-a10b3f.jpg" aria-pressed="false" aria-label="Photo 2"><img src="../images/red-spider-1-10-scale-headlight/2-a10b3f.jpg" alt=""></button><button data-thumb="../images/red-spider-1-10-scale-headlight/3-f6e22d.jpg" aria-pressed="false" aria-label="Photo 3"><img src="../images/red-spider-1-10-scale-headlight/3-f6e22d.jpg" alt=""></button><button data-thumb="../images/red-spider-1-10-scale-headlight/4-65335e.jpg" aria-pressed="false" aria-label="Photo 4"><img src="../images/red-spider-1-10-scale-headlight/4-65335e.jpg" alt=""></button></div></div>
+    <div class="gallery"><div class="gmain"><img id="gMain" src="../images/red-spider-1-10-scale-headlight/3-e5d416.jpg" alt="Red spider 1/10 Scale headlight"></div><div class="thumbs"><button data-thumb="../images/red-spider-1-10-scale-headlight/3-e5d416.jpg" aria-pressed="true" aria-label="Photo 1"><img src="../images/red-spider-1-10-scale-headlight/3-e5d416.jpg" alt=""></button><button data-thumb="../images/red-spider-1-10-scale-headlight/2-a10b3f.jpg" aria-pressed="false" aria-label="Photo 2"><img src="../images/red-spider-1-10-scale-headlight/2-a10b3f.jpg" alt=""></button><button data-thumb="../images/red-spider-1-10-scale-headlight/3-f6e22d.jpg" aria-pressed="false" aria-label="Photo 3"><img src="../images/red-spider-1-10-scale-headlight/3-f6e22d.jpg" alt=""></button><button data-thumb="../images/red-spider-1-10-scale-headlight/4-65335e.jpg" aria-pressed="false" aria-label="Photo 4"><img src="../images/red-spider-1-10-scale-headlight/4-65335e.jpg" alt=""></button></div><div class="holo" data-hl="light" data-fit="lights"><div class="holo-head"><span>Where it fits</span><b>Lights</b></div><div class="holo-stage"><div class="holo-tag">Lights</div><svg class="holo-car" viewBox="0 0 600 300" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <g class="h-body">
+    <path d="M70 196 L88 150 L190 140 L232 92 L372 90 L404 136 L520 146 L548 168 L552 196"/>
+    <path d="M244 100 L238 138 M300 96 L300 138 M362 98 L388 138"/>
+    <path d="M70 196 L96 196 M204 196 L396 196 M504 196 L552 196"/>
+    <path d="M110 212 L490 212" class="h-faint"/>
+  </g>
+  <g class="h-part p-light"><path d="M252 82 L360 82"/><path d="M262 82 L262 76 M282 82 L282 76 M302 82 L302 76 M322 82 L322 76 M342 82 L342 76"/><path d="M530 156 l14 4 l0 10 l-14 -2 z"/></g>
+  <g class="h-part p-radio"><rect x="338" y="150" width="34" height="22" rx="3"/><path d="M366 150 L380 112"/><path d="M470 40 h52 v34 h-52 z M484 40 v-14 M508 40 v-10 M482 58 h28" class="h-tx"/></g>
+  <g class="h-part p-battery"><rect x="214" y="158" width="96" height="26" rx="4"/><path d="M228 158 v-6 M244 158 v-6"/></g>
+  <g class="h-part p-motor"><rect x="320" y="178" width="46" height="26" rx="8"/><circle cx="314" cy="191" r="13"/></g>
+  <g class="h-part p-drive"><path d="M152 232 L300 204 L448 232"/><circle cx="300" cy="204" r="9"/><path d="M128 232 h48 M424 232 h48"/></g>
+  <g class="h-part p-servo"><rect x="424" y="176" width="34" height="20" rx="3"/><path d="M441 196 L452 228"/></g>
+  <g class="h-part p-shock"><path d="M118 152 L140 222 M478 152 L458 222"/><path d="M121 166 l10 -3 M124 176 l10 -3 M127 186 l10 -3 M130 196 l10 -3 M475 166 l-10 -3 M472 176 l-10 -3 M469 186 l-10 -3 M466 196 l-10 -3"/></g>
+  <g class="h-part p-winch"><rect x="548" y="186" width="24" height="18" rx="3"/><path d="M572 195 h12 v18 a6 6 0 0 1 -12 0"/></g>
+  <g class="h-part p-wheels"><circle cx="150" cy="232" r="48"/><circle cx="150" cy="232" r="22"/><circle cx="450" cy="232" r="48"/><circle cx="450" cy="232" r="22"/>
+    <path d="M150 184 v10 M150 270 v10 M102 232 h10 M188 232 h10 M450 184 v10 M450 270 v10 M402 232 h10 M488 232 h10"/></g>
+  <line class="h-scan" x1="0" x2="600" y1="0" y2="0"/>
+</svg></div><div class="holo-foot">1:10, 1:12, 1:8 scale</div></div></div>
     <div class="pinfo">
       <div class="cbrand">Redspider</div>
       <h1>Red spider 1/10 Scale headlight</h1>
@@ -195,6 +220,7 @@
   }
  }
 ]</script>
-<script src="../assets/store.js?v=8baf100a"></script>
+<script src="../assets/store.js?v=638d2f1c"></script>
+<script src="../assets/holo3d.js?v=3a01ab7d" defer></script>
 </body>
 </html>
