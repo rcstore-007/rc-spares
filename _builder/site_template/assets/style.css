@@ -1107,3 +1107,9 @@ a.add.full{background:transparent!important;color:var(--acc)!important;border:1.
 @media (max-width:900px){#tiles.catrow{grid-template-columns:repeat(3,1fr);gap:26px 12px}#tiles .cat .cn{font-size:14px}}
 @media (max-width:420px){#tiles .cat .cn{font-size:13px}}
 @media (max-width:700px){.hero.photo{background-color:var(--forest)!important}.hero.photo .hbg:after,.hero.photo:after{background:linear-gradient(180deg,transparent 30%,var(--forest) 100%)}}
+
+/* phone fit: long brand names in the dropdowns must not widen the page */
+.controls{min-width:0;max-width:100%}
+.controls>*{min-width:0!important;max-width:100%}
+.controls select,.controls input{width:100%!important;min-width:0!important;max-width:100%;text-overflow:ellipsis}
+html,body{max-width:100%;overflow-x:clip}
