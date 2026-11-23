@@ -176,9 +176,9 @@ def themed(html_text, settings):
 def build_index(settings, products):
     pub = public_settings(settings)
     base = site_url(settings)
-    title = f"{pub['name']} – RC Car Spare Parts in India"
-    desc = (f"RC car spare parts in India: motors, ESCs, tyres, shocks, batteries, servos, lights "
-            f"and winches for 1:30 to 1:5 scale. Order on WhatsApp, delivery in {pub['delivery']} days.")
+    title = f"{pub['name']} – RC Car Parts & Upgrades in India"
+    desc = (f"RC car parts and upgrades in India: motors, ESCs, tyres, shocks, batteries, servos, lights "
+            f"and winches for 1:30 to 1:5 scale. Order on WhatsApp, usually ships within {pub['delivery']} days.")
     ld = {"@context": "https://schema.org", "@type": "Store", "name": pub["name"],
           "description": desc, "currenciesAccepted": "INR", "areaServed": "IN"}
     if base:
@@ -287,7 +287,7 @@ def build_part(settings, p):
     for k, v in (p.get("specs") or {}).items():
         rows += f"<tr><td>{esc(k)}</td><td>{esc(v)}</td></tr>"
     rows += f'<tr><td>Part code</td><td>{esc(p["id"])}</td></tr>'
-    rows += f'<tr><td>Delivery</td><td>{esc(pub["delivery"])} days across India</td></tr>'
+    rows += f'<tr><td>Shipping</td><td>Usually ships within {esc(pub["delivery"])} days</td></tr>'
 
     wa_icon = ('<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>')
     main_html = f'''<main class="wrap">
@@ -308,7 +308,7 @@ def build_part(settings, p):
         <p class="bulk">{esc(pub["bulkNote"])}</p>
         <p class="note" id="pHint"></p>
       </div>
-      <div class="deliv">Delivery in <b>{esc(pub["delivery"])} days</b> across India. Shipping cost is confirmed on WhatsApp.</div>
+      <div class="deliv">Usually ships within <b>{esc(pub["delivery"])} days</b>. Shipping cost is confirmed on WhatsApp.</div>
       <h2>Details</h2>
       <table class="specs">{rows}</table>
       <div class="strip"><span><b>Need a different part?</b> We source parts on request for any brand and scale.</span><a href="../index.html#request">Request a part →</a></div>
@@ -365,7 +365,7 @@ def build_policies(settings):
     sections = [
         ("ordering", "Ordering and payment", f"""<p>Add parts to your cart and send the order to us on WhatsApp. We reply to confirm availability, the final price and the shipping cost before you pay. Nothing is charged on this website.</p>
 <p>Payment methods: {esc(g("payment_modes") or DEFAULT_PAYMENT)}. Prices are in Indian rupees (₹).</p>"""),
-        ("shipping", "Shipping and delivery", f"""<p>We deliver across India. Orders usually arrive in <b>{esc(days)} days</b> after payment is confirmed. The shipping cost is confirmed on WhatsApp before you pay, and we share tracking details once your order is sent.</p>"""),
+        ("shipping", "Shipping and delivery", f"""<p>We deliver across India. Orders usually ship within <b>{esc(days)} days</b> after payment is confirmed. The shipping cost is confirmed on WhatsApp before you pay, and we share tracking details once your order is sent.</p>"""),
         ("returns", "Returns, refunds and cancellations", paras(g("returns_policy") or DEFAULT_RETURNS) + """<p>You can cancel an order for a full refund any time before it is shipped. Approved refunds are paid back to the way you paid.</p>"""),
         ("warranty", "Warranty", "<p>Parts are sold without any warranty. If a part arrives damaged, faulty or different from what you ordered, the returns policy above applies.</p>"),
         ("privacy", "Privacy", f"""<p>We only collect what we need to deliver your order: your name, phone number and delivery address, which you share with us on WhatsApp. We use them to confirm, ship and support your order, and share them only with the courier delivering it. We do not sell your details.</p>
