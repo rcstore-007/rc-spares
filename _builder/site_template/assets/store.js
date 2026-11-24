@@ -11,7 +11,8 @@
   var CIMG=S.categoryImages||{};
 
   var CATS=['Motors & ESCs','Tyres & Wheels','Shocks','Batteries & Chargers','Gears & Drivetrain','Servos','Lights','Winch','Radios & Receivers','Tools & Accessories'];
-  var SCALES=['1:30','1:24','1:18','1:12','1:10','1:8','1:7','1:5'];
+  var CARS=data('car-models',[]);
+  var SCALES=['1:32','1:30','1:24','1:18','1:12','1:10','1:8','1:7','1:5'];
   var CC={'Motors & ESCs':['#f2d8cf','#b8442f'],'Tyres & Wheels':['#d6e2ec','#3d6a8c'],'Shocks':['#d5e4da','#2e5e4e'],'Batteries & Chargers':['#f6e6bf','#9a6a08'],'Gears & Drivetrain':['#e6dbec','#6b4a7a'],'Servos':['#d2e8ea','#1f6f78'],'Lights':['#f8dcc8','#c4561b'],'Winch':['#e9e0c6','#6b5a2e'],'Axles & Chassis':['#dfe3e8','#4a5563'],'Radios & Receivers':['#f3dde6','#a23b62'],'Tools & Accessories':['#e4e8d5','#55692c'],'RC Cars':['#dce7ee','#24485e']};
   var SC=['#b8442f','#c4561b','#9a6a08','#2e5e4e','#1f6f78','#3d6a8c','#6b4a7a','#2a2420'];
   P.forEach(function(p){
@@ -145,7 +146,7 @@
   function closeAll(){drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true');if(dlg)dlg.classList.remove('open');scrim.classList.remove('open');}
 
   /* ---------- Home + shop ---------- */
-  var state={cat:'All',scale:'All',brand:'All',q:'',sort:'pop'},wantReq=false;
+  var state={cat:'All',scale:'All',brand:'All',q:'',sort:'pop',car:'',size:''},wantReq=false;
   // phones: swipe through all of a part's photos right on the card
   var TOUCH=window.matchMedia&&matchMedia('(hover:none)').matches;
   function swipeHTML(im){
@@ -165,7 +166,7 @@
       '<button class="add full'+(q?' in':'')+'" data-add="'+p.id+'">'+(q?'<span aria-hidden="true">✓</span> '+q+' in cart':'Add to cart')+'</button>';
     return '<article class="card"><a class="pic'+(im.length?' photo':'')+(im.length>1?' two':'')+'" style="'+cv(p.category)+'" href="'+partURL(p)+'" aria-label="'+esc(p.name)+'">'+picHTML(p)+
       (im.length>1?'<img class="alt" src="'+ROOT+esc(im[1])+'" alt="" loading="lazy">'+swipeHTML(im):'')+'<span class="scale">'+esc(scaleLabel(p))+'</span></a>'+
-      '<div class="cbody"><div class="cbrand">'+esc(p.brand)+'</div><a class="cname" href="'+partURL(p)+'">'+esc(p.name)+'</a>'+
+      '<div class="cbody"><div class="cbrand">'+esc(p.brand)+(p.kind?'<span class="ckind">'+(p.brand?' · ':'')+esc(p.kind)+'</span>':'')+'</div><a class="cname" href="'+partURL(p)+'">'+esc(p.name)+'</a>'+
       '<div class="cfits">'+(p.fits?'Fits: '+esc(p.fits):'')+'</div>'+
       '<div class="cfoot">'+price+'</div>'+btn+'</div></article>';
   }
@@ -182,12 +183,39 @@
     var top=P.slice().sort(function(a,b){return (b.pop||0)-(a.pop||0)||String(b.added||'').localeCompare(String(a.added||''));}).slice(0,4);
     if($('popularBlock')){$('popularBlock').hidden=!top.length;$('featured').innerHTML=top.map(card).join('');}
   }
+  // "Find parts for my car": parts made for the car, then universal parts of the same scale
+  function carScale(){for(var i=0;i<CARS.length;i++)if(CARS[i].name===state.car)return CARS[i].scale;return '';}
+  function carInfo(n){for(var i=0;i<CARS.length;i++)if(CARS[i].name===n)return CARS[i];return {};}
+  function madeFor(p){
+    if(!state.car)return false;
+    var m=p.models||[],me=carInfo(state.car);
+    if(m.indexOf(state.car)>=0)return true;
+    if(me.parent&&m.indexOf(me.parent)>=0)return true;              // "all versions" parts fit each version
+    return m.some(function(x){return carInfo(x).parent===state.car;});  // version parts show under "all versions"
+  }
+  function carOK(p){
+    if(!state.car)return true;
+    if(madeFor(p))return true;
+    return !(p.models&&p.models.length)&&(p.scale||[]).indexOf(carScale())>=0;
+  }
+  function carOptions(sel,blank){
+    var groups={};CARS.forEach(function(c){(groups[c.scale]=groups[c.scale]||[]).push(c);});
+    var o='<option value="">'+blank+'</option>';
+    SCALES.forEach(function(s){if(groups[s])o+='<optgroup label="'+s+' scale">'+groups[s].map(function(c){return '<option value="'+esc(c.name)+'"'+(state.car===c.name?' selected':'')+'>'+esc(c.name)+'</option>';}).join('')+'</optgroup>';});
+    sel.innerHTML=o;
+  }
+  function sizeOK(p){
+    if(!state.size)return true;
+    var k=state.size.split('|');return ((p.sizes||{})[k[0]]||[]).indexOf(k[1])>=0;
+  }
   function match(p,ignore){
+    if(!carOK(p))return false;
+    if(ignore!=='size'&&!sizeOK(p))return false;
     if(ignore!=='cat'&&state.cat!=='All'&&p.category!==state.cat)return false;
     if(ignore!=='scale'&&state.scale!=='All'&&(p.scale||[]).indexOf(state.scale)<0)return false;
     if(state.brand!=='All'&&p.brand!==state.brand)return false;
     var q=state.q.trim().toLowerCase();
-    if(q){var h=(p.name+' '+p.brand+' '+p.fits+' '+p.category+' '+(p.scale||[]).join(' ')+' '+p.id).toLowerCase();if(!q.split(/\s+/).every(function(w){return h.indexOf(w)>=0;}))return false;}
+    if(q){var h=(p.name+' '+p.brand+' '+p.fits+' '+(p.models||[]).join(' ')+' '+(p.kind||'')+' '+p.category+' '+(p.scale||[]).join(' ')+' '+p.id).toLowerCase();if(!q.split(/\s+/).every(function(w){return h.indexOf(w)>=0;}))return false;}
     return true;
   }
   function renderFilters(){
@@ -202,6 +230,15 @@
     }).join('');
     var b=['All'];P.forEach(function(p){if(p.brand&&b.indexOf(p.brand)<0)b.push(p.brand);});
     b=[b[0]].concat(b.slice(1).sort());
+    if($('carSel'))carOptions($('carSel'),'Any car');
+    if($('sizeSel')){
+      var sz={};P.forEach(function(p){if(!match(p,'size'))return;var s=p.sizes||{};Object.keys(s).forEach(function(k){s[k].forEach(function(v){(sz[k]=sz[k]||{})[v]=1;});});});
+      var num=function(a,b){var x=parseFloat(a),y=parseFloat(b);return (isNaN(x)||isNaN(y))?String(a).localeCompare(b):x-y;},o='<option value="">Any size / type</option>',any=false;
+      ['Wheel size','Shock length','Wheel hex','Battery cells','Plug'].forEach(function(k){if(!sz[k])return;any=true;
+        o+='<optgroup label="'+k+'">'+Object.keys(sz[k]).sort(num).map(function(v){var key=k+'|'+v;return '<option value="'+esc(key)+'"'+(state.size===key?' selected':'')+'>'+esc(k==='Wheel hex'?v+' hex':k==='Battery cells'?v+' battery':k==='Plug'?v+' plug':v)+'</option>';}).join('')+'</optgroup>';});
+      if(state.size&&!any)state.size='';
+      $('sizeSel').innerHTML=o;$('sizeSel').hidden=!any&&!state.size;
+    }
     $('brandSel').innerHTML=b.map(function(x){return '<option value="'+esc(x)+'"'+(x===state.brand?' selected':'')+'>'+(x==='All'?'All brands':esc(x))+'</option>';}).join('');
   }
   function renderGrid(){
@@ -215,11 +252,20 @@
         qw.forEach(function(w){var k=stem(w);sc+=n.indexOf(k)>=0?3:(b.indexOf(k)>=0?1:0);});return sc;};
       l=l.map(function(p,i){return [score(p),i,p];}).sort(function(a,b){return b[0]-a[0]||a[1]-b[1];}).map(function(x){return x[2];});
     }
-    var bits=[];if(state.cat!=='All')bits.push(state.cat);if(state.scale!=='All')bits.push(state.scale+' scale');
-    $('countLine').textContent=l.length+(l.length===1?' part':' parts')+(bits.length?' · '+bits.join(' · '):'');
-    $('clearF').hidden=!(state.cat!=='All'||state.scale!=='All'||state.brand!=='All'||state.q);
+    var bits=[];if(state.cat!=='All')bits.push(state.cat);if(state.scale!=='All')bits.push(state.scale+' scale');if(state.size)bits.push(state.size.split('|')[1]+(state.size.indexOf('hex')>=0?' hex':''));
+    var mine=[],uni=[];
+    if(state.car){l.forEach(function(p){(madeFor(p)?mine:uni).push(p);});l=mine.concat(uni);}
+    $('countLine').textContent=state.car?(mine.length+' made for '+state.car+' · '+uni.length+' universal '+carScale()+' parts'+(bits.length?' · '+bits.join(' · '):''))
+      :l.length+(l.length===1?' part':' parts')+(bits.length?' · '+bits.join(' · '):'');
+    $('clearF').hidden=!(state.cat!=='All'||state.scale!=='All'||state.brand!=='All'||state.q||state.car||state.size);
     var rc='<div class="reqcard"><h3>Need a part that isn\'t here?</h3><p>We source parts on request for any brand and scale. Tell us what you need and we\'ll quote before you pay.</p><a href="'+ROOT+'index.html#request">Request a part</a></div>';
     setTimeout(reveal,0);
+    if(state.car&&l.length){
+      var dv='<div class="cardiv"><b>Universal '+carScale()+' parts</b><span>These suit most '+carScale()+' models. Check the size and mounting, or send us a photo of your car on WhatsApp.</span></div>';
+      var top=mine.length?'':'<div class="cardiv first"><b>Nothing made just for the '+esc(state.car)+' yet</b><span>We can source it for you. Request a part below, or browse the universal parts.</span></div>';
+      $('grid').innerHTML=top+mine.map(card).join('')+(uni.length?dv+uni.map(card).join(''):'')+rc;
+      return;
+    }
     $('grid').innerHTML=l.length?l.map(card).join('')+rc:'<div class="empty">'+(P.length?'No parts match these filters right now.':'New parts are being added.')+' We can source parts on request, so tell us what you need.</div>'+rc;
   }
   function refresh(){renderFilters();renderGrid();}
@@ -465,14 +511,18 @@
     $('brandSel').addEventListener('change',function(e){state.brand=e.target.value;refresh();});
     $('catSel').addEventListener('change',function(e){state.cat=e.target.value;refresh();});
     $('scaleSel').addEventListener('change',function(e){state.scale=e.target.value;refresh();});
+    if($('sizeSel'))$('sizeSel').addEventListener('change',function(e){state.size=e.target.value;refresh();});
+    if($('carSel'))$('carSel').addEventListener('change',function(e){state.car=e.target.value;if(state.car)state.scale='All';refresh();});
+    if($('hCarSel')){carOptions($('hCarSel'),'Choose your car');$('hCarSel').addEventListener('change',function(e){if(!e.target.value)return;state.car=e.target.value;state.scale='All';state.cat='All';goShop();e.target.value='';});}
     $('sortSel').addEventListener('change',function(e){state.sort=e.target.value;renderGrid();});
-    $('clearF').addEventListener('click',function(){state={cat:'All',scale:'All',brand:'All',q:'',sort:state.sort};$('q').value='';refresh();});
+    $('clearF').addEventListener('click',function(){state={cat:'All',scale:'All',brand:'All',q:'',sort:state.sort,car:'',size:''};$('q').value='';refresh();});
     ['rqPart','rqCar'].forEach(function(id){$(id).addEventListener('input',renderReq);});
     $('rqForm').addEventListener('submit',function(e){e.preventDefault();});
     $('closeDlg').addEventListener('click',closeAll);
     $('dAdd').addEventListener('click',function(e){if(cur)add(cur,e.currentTarget);});
     dlg.addEventListener('click',function(e){if(e.target===dlg)closeAll();});
     window.addEventListener('hashchange',route);
+    try{var qcar=new URLSearchParams(location.search).get('car');if(qcar&&CARS.some(function(c){return c.name===qcar;})){state.car=qcar;history.replaceState(null,'',location.pathname+location.hash);}}catch(e){}
     try{var qc=new URLSearchParams(location.search).get('cat');if(qc&&CATS.indexOf(qc)>=0){state.cat=qc;state.scale='All';history.replaceState(null,'',location.pathname+location.hash);}}catch(e){}
     renderHome();refresh();renderReq();renderCart();route();reveal();tintAll();
     try{if(sessionStorage.getItem('rc-focus')){sessionStorage.removeItem('rc-focus');focusSearch();}}catch(e){}

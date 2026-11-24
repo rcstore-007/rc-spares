@@ -1197,3 +1197,38 @@ a.fixc{text-decoration:none}
 .fixall{display:inline-block;margin-top:22px;color:var(--acc);font-weight:500;text-decoration:none;border-bottom:1.5px solid rgba(46,91,95,.35);padding-bottom:2px}
 .fixall:hover{border-bottom-color:var(--acc)}
 .fixall.ondark{color:#eef1ef;border-bottom-color:rgba(255,255,255,.4);margin-top:16px;font-size:15px}
+.gfaq{display:flex;flex-direction:column;gap:14px}
+.gfq h4{font-size:15.5px;font-weight:600;margin:0 0 3px;color:var(--ink)}
+.gfq p{margin:0;color:var(--ink);opacity:.85;font-size:15px;line-height:1.6}
+
+/* =====================================================================
+   FIND PARTS FOR MY CAR
+   ===================================================================== */
+.carbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:var(--tint);border:1px solid rgba(46,91,95,.25);border-radius:12px;padding:12px 14px;margin:0 0 12px;color:var(--acc)}
+.carbar label{font-weight:600;color:var(--ink);font-size:15.5px}
+.carbar select{flex:1;min-width:0;max-width:420px;font:inherit;font-size:15.5px;padding:10px 12px;border-radius:9px;border:1.5px solid rgba(46,91,95,.35);background:#fff;color:var(--ink)}
+.carbar select:focus{outline:0;border-color:var(--acc);box-shadow:0 0 0 3px rgba(46,91,95,.15)}
+.hcar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:18px;max-width:520px}
+.hcar label{color:rgba(255,255,255,.85);font-size:14.5px;font-weight:500}
+.hcar select{flex:1;min-width:200px;font:inherit;font-size:15px;padding:11px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.95);color:#1f2a2c}
+.cardiv{grid-column:1/-1;display:flex;flex-direction:column;gap:3px;padding:18px 0 6px;border-top:1px solid var(--line);margin-top:8px}
+.cardiv.first{border-top:0;margin-top:0;padding-top:0}
+.cardiv b{font-size:17px;font-weight:600}
+.cardiv span{color:var(--muted);font-size:14.5px}
+/* part page: made for / fits */
+.pfit{margin:16px 0 4px;padding:14px 16px;background:var(--tint);border-radius:10px;display:flex;flex-direction:column;gap:8px}
+.pfl{font-size:12.5px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--acc)}
+.fchips{display:flex;flex-wrap:wrap;gap:6px}
+.fchip{background:#fff;border:1px solid rgba(46,91,95,.3);border-radius:999px;padding:5px 11px;font-size:14px;color:var(--ink);text-decoration:none}
+.fchip:hover{border-color:var(--acc);color:var(--acc)}
+.fwhat{margin:0;font-size:14.5px;line-height:1.5}
+.pask{font-size:14px;color:var(--acc);font-weight:500;text-decoration:none}
+.pask:hover{text-decoration:underline}
+@media (max-width:600px){.carbar select{flex-basis:100%;max-width:none}.hcar select{min-width:0;flex-basis:100%}}
+/* part type label */
+.ckind{color:var(--acc);font-weight:500}
+.meta .kind{background:var(--tint)!important;color:var(--acc)!important;font-weight:500}
+/* shop filters: room for the Size filter */
+.controls{grid-template-columns:minmax(220px,2fr) repeat(5,minmax(0,1fr))!important}
+.controls select[hidden]{display:none}
+@media (max-width:900px){.controls{grid-template-columns:1fr 1fr!important}}

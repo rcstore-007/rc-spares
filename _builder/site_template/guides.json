@@ -32,7 +32,25 @@
    "spur",
    "gear"
   ],
-  "more": "Gears & Drivetrain"
+  "more": "Gears & Drivetrain",
+  "faq": [
+   [
+    "Why does my RC car keep stripping spur gears?",
+    "Almost always gear mesh. Too tight and the teeth overheat and melt; too loose and the pinion skips over the tips and shears them. A loose motor mount, a fully locked slipper clutch or landing jumps on throttle make it worse."
+   ],
+   [
+    "Metal or plastic spur gear: which is better?",
+    "On 2S–3S 1/10 cars a plastic spur is fine and acts as a cheap fuse: it strips before more expensive diff gears do. Hardened steel spurs make sense on heavy 4S–6S trucks and high-torque brushless crawlers, as long as the mesh is set accurately."
+   ],
+   [
+    "How do I check gear mesh without a tool?",
+    "Use the paper method: a strip of normal paper between pinion and spur, push them together, tighten the motor and roll the paper out. Light tooth marks without tearing means the mesh is right."
+   ],
+   [
+    "Can I use a 32P pinion with a Mod 0.8 spur?",
+    "No. They look almost identical but the tooth shapes differ, and mixing them strips both gears quickly. Always match the pitch printed on the spur gear."
+   ]
+  ]
  },
  {
   "id": "bottoming-out",
@@ -63,7 +81,25 @@
    "oil",
    "spring"
   ],
-  "more": "Shocks"
+  "more": "Shocks",
+  "faq": [
+   [
+    "Why do my shock caps keep popping off?",
+    "Usually the shock is overfilled with oil or has trapped air, so pressure builds on hard landings. Fill to just below the rim, let bubbles rise before closing, and bleed off the excess. Aluminium caps and a turn of Teflon tape on the threads help on bashers."
+   ],
+   [
+    "Why are my shocks leaking oil?",
+    "Oil at the top points to a damaged bladder or cap; oil at the bottom points to worn O-rings or a scratched shaft. Rebuild with fresh seals and check the shaft for scratches or bends."
+   ],
+   [
+    "What shock oil should I use for a crawler?",
+    "Crawlers usually run thicker oil than bashers, often in the 500–800 cSt range, so the chassis settles smoothly instead of bouncing. In Indian summer heat, going one step thicker keeps damping consistent."
+   ],
+   [
+    "Does tightening the spring collar make suspension stiffer?",
+    "No. Preload collars only raise ride height. To make the suspension stiffer you need stiffer springs or thicker oil."
+   ]
+  ]
  },
  {
   "id": "weak-steering",
@@ -98,7 +134,29 @@
    "horn",
    "link"
   ],
-  "more": "Servos"
+  "more": "Servos",
+  "faq": [
+   [
+    "Why do my wheels turn in the air but not on the ground?",
+    "The servo is losing to tyre grip. Check dual rate first, then look for binding in the steering, a soft servo saver, or a servo that's simply too weak for the tyres."
+   ],
+   [
+    "Why does my servo buzz or get hot at full lock?",
+    "The endpoints are set past the steering's mechanical stops, so the servo keeps pushing against them. Reduce EPA on each side until the buzzing stops."
+   ],
+   [
+    "Why does my steering servo keep stripping?",
+    "Stock plastic-gear servos on small crawlers like the SCX24 and TRX-4M strip easily on rocks. A metal-gear servo with correctly set endpoints usually solves it for good."
+   ],
+   [
+    "Are cheap MG996R servos good for RC cars?",
+    "They're robotics servos, and many sold online are copies with plastic gears inside. For a 1/10 car, a waterproof 20–35 kg digital RC servo is far more reliable."
+   ],
+   [
+    "Plastic or aluminium servo horn?",
+    "Use a servo saver on fast bashers so impacts don't strip the servo. A rigid aluminium horn suits slow crawlers, but only with a metal-gear servo and properly set endpoints."
+   ]
+  ]
  },
  {
   "id": "short-run-time",
@@ -130,7 +188,25 @@
    "lipo",
    "charger"
   ],
-  "more": "Batteries & Chargers"
+  "more": "Batteries & Chargers",
+  "faq": [
+   [
+    "Why does my RC car stop after a few minutes?",
+    "Usually the low-voltage cutoff is tripping because an ageing or low-C battery sags under load. Check each cell's voltage, spin the wheels for drag, and clean the plugs."
+   ],
+   [
+    "How long should an RC LiPo battery last?",
+    "Looked after properly and stored at storage voltage, a good pack lasts a few hundred charge cycles. Stored full or run flat, it can wear out in under a hundred."
+   ],
+   [
+    "Is my LiPo battery dead if it won't charge?",
+    "If the charger shows low voltage, a cell has dropped below about 3.0V. Packs discharged that far are not worth reviving; replace the battery."
+   ],
+   [
+    "Smart LiPo or regular LiPo?",
+    "Smart packs add convenience features but cost more and need matching chargers. A regular LiPo with a standard balance lead works with any balance charger and is usually the better value."
+   ]
+  ]
  },
  {
   "id": "no-grip",
@@ -165,7 +241,25 @@
    "weight",
    "beadlock"
   ],
-  "more": "Tyres & Wheels"
+  "more": "Tyres & Wheels",
+  "faq": [
+   [
+    "Which tyres are best for rock crawling?",
+    "Soft compound tyres with deep lugs and soft foam or silicone inserts, so the tyre wraps around the rock. Add weight low and to the front for steeper climbs."
+   ],
+   [
+    "Why do my RC tyres balloon at high speed?",
+    "Non-belted tyres stretch outward at high RPM, which makes the car unstable. Belted tyres stop it; gearing down slightly also helps."
+   ],
+   [
+    "Should I vent my RC tyres?",
+    "Venting stops water and mud getting trapped inside. Seal the holes in the rim and make a few small holes in the centre of the tread instead, so spinning throws water out."
+   ],
+   [
+    "How do I glue RC tyres to the rim?",
+    "Clean the bead and rim with isopropyl alcohol, centre the insert, then run a thin line of CA tyre glue into the bead groove a section at a time, pressing firmly. Let it cure fully before driving."
+   ]
+  ]
  },
  {
   "id": "not-fast",
@@ -199,7 +293,21 @@
    "fusion",
    "pinion"
   ],
-  "more": "Motors & ESCs"
+  "more": "Motors & ESCs",
+  "faq": [
+   [
+    "How can I make my RC car faster?",
+    "First check for a throttle limit or training mode and calibrate the ESC. Then try a pinion one or two teeth bigger, watching temperatures. The big step up is a brushless motor and ESC."
+   ],
+   [
+    "How do I increase top speed on an SCX24?",
+    "Crawlers are geared for control, not speed. A faster motor or higher-speed gearing helps, but the worm or plastic gears may need upgrading to cope."
+   ],
+   [
+    "Does a bigger pinion make my car faster?",
+    "Yes, more teeth gives more top speed but less acceleration and more heat. Change one or two teeth at a time and check the motor temperature after each run."
+   ]
+  ]
  },
  {
   "id": "stuck-on-trail",
@@ -233,7 +341,21 @@
    "weight",
    "insert"
   ],
-  "more": "Winch"
+  "more": "Winch",
+  "faq": [
+   [
+    "Why does my crawler lift a front wheel when climbing?",
+    "That's torque twist: the driveshaft's reaction twists the chassis. Stiffer springs or thicker oil on the rear corner that compresses, and weight on the lifting wheel, reduce it."
+   ],
+   [
+    "Bumper winch or internal servo winch?",
+    "A bumper winch looks the part but small ones strip under heavy pulls. A servo winch mounted inside the chassis is much stronger for real recovery."
+   ],
+   [
+    "How do I add weight to my RC crawler?",
+    "Use brass wheels, hubs, steering cups or knuckles: low down and towards the front. Avoid weight high up on the body, which makes the car tip."
+   ]
+  ]
  },
  {
   "id": "signal-dropouts",
@@ -267,7 +389,21 @@
    "radio",
    "antenna"
   ],
-  "more": "Radios & Receivers"
+  "more": "Radios & Receivers",
+  "faq": [
+   [
+    "Why is my RC car not responding to the controller?",
+    "Check controller batteries, then that the receiver is bound and plugs are fully seated (steering CH1, ESC CH2). If it worked before, re-bind it."
+   ],
+   [
+    "Why does my RC car glitch when I steer?",
+    "A strong servo can pull the receiver's voltage down for a moment. A separate BEC or a capacitor (glitch buster) on a spare receiver port fixes it."
+   ],
+   [
+    "Can I use a different brand controller with my receiver?",
+    "Usually not. Even within one brand, different protocols don't bind. Buy the controller and receiver as a matching set."
+   ]
+  ]
  },
  {
   "id": "lights",
@@ -300,7 +436,17 @@
    "spotlight",
    "lamp"
   ],
-  "more": "Lights"
+  "more": "Lights",
+  "faq": [
+   [
+    "Why are my RC LED lights so dim?",
+    "They likely need 12V but are running off the receiver's 5–6V. Power 12V lights from the battery (3S) or a 12V BEC."
+   ],
+   [
+    "Why do my RC lights flicker?",
+    "Loose receiver pins, or a BEC that sags when the servo works. Seat every plug fully and give the lights their own power supply."
+   ]
+  ]
  },
  {
   "id": "esc-blinking",
@@ -333,7 +479,21 @@
    "program",
    "fan"
   ],
-  "more": "Motors & ESCs"
+  "more": "Motors & ESCs",
+  "faq": [
+   [
+    "Why is my ESC blinking red?",
+    "On most ESCs a blinking red light means low voltage or overheating. Charge the battery, let everything cool, and check the manual for that exact pattern."
+   ],
+   [
+    "Why is my ESC blinking red and green?",
+    "Commonly a battery-type mismatch or voltage protection: for example LiPo cutoff selected with a NiMH pack, or too many cells. Check the battery setting and your ESC's maximum voltage."
+   ],
+   [
+    "How do I calibrate my ESC?",
+    "Most ESCs: hold the set button while switching on, then show it neutral, full throttle and full brake as the beeps or lights prompt. Follow your ESC's manual for the exact sequence."
+   ]
+  ]
  },
  {
   "id": "overheating",
@@ -366,7 +526,17 @@
    "cooling",
    "pinion"
   ],
-  "more": "Motors & ESCs"
+  "more": "Motors & ESCs",
+  "faq": [
+   [
+    "How hot is too hot for an RC motor?",
+    "If you can't keep a finger on it for about 3 seconds, it's too hot. Gear down a tooth or two and check for drag."
+   ],
+   [
+    "Why does my RC car cut out when it gets hot?",
+    "The ESC's thermal protection is pausing power to protect the electronics. Let it cool naturally, then fit a smaller pinion or add a fan."
+   ]
+  ]
  },
  {
   "id": "wheel-wobble",
@@ -399,7 +569,17 @@
    "nut",
    "axle"
   ],
-  "more": "Tyres & Wheels"
+  "more": "Tyres & Wheels",
+  "faq": [
+   [
+    "How do I fix a stripped wheel hex?",
+    "Replace the hex if it's metal and rounded. If the hex socket in a plastic wheel is worn, the wheel itself needs replacing; metal hexes with a clamping nut last much longer."
+   ],
+   [
+    "Why does my RC car wobble at high speed?",
+    "Common causes are a waterlogged tyre foam, an unglued tyre, a bent axle or a loose wheel nut. Check each wheel by spinning it and watching for a wobble."
+   ]
+  ]
  },
  {
   "id": "driveshaft-popping",
@@ -430,7 +610,54 @@
    "dogbone",
    "shaft"
   ],
-  "more": "Gears & Drivetrain"
+  "more": "Gears & Drivetrain",
+  "faq": [
+   [
+    "Why does my dogbone keep falling out?",
+    "The suspension droops further than the dogbone can reach, or the cups are worn. Limit droop slightly, or switch to longer driveshafts or CVDs that stay engaged."
+   ],
+   [
+    "Why does my crawler jerk at low speed?",
+    "The driveshaft joints are out of phase. Set both U-joint yokes on each shaft to face the same direction."
+   ]
+  ]
+ },
+ {
+  "id": "body-shell",
+  "kind": "problem",
+  "icon": "gear",
+  "title": "Body shell cracking or paint peeling",
+  "summary": "The polycarbonate body splits at the corners or mounting holes, or the paint flakes off.",
+  "words": "body shell cracked cracking split broken lexan polycarbonate paint peeling flaking body post holes repair reinforce",
+  "causes": [
+   "Thin polycarbonate (Lexan) splits at corners and body-post holes after repeated impacts, especially in cold weather.",
+   "Paint flakes when the shell wasn't washed before painting, or when the wrong paint type was used."
+  ],
+  "steps": [
+   "Wash the inside of the shell with warm soapy water to remove mould-release oil before any repair or paint.",
+   "Reinforce high-stress areas from the inside with self-adhesive fibreglass mesh tape, then a thin layer of flexible shoe-repair adhesive over it.",
+   "Stitch existing cracks with small zip ties through drilled holes, then cover with the same adhesive.",
+   "Paint only with polycarbonate paint, sprayed on the inside of the shell, darkest colours first.",
+   "Let paint cure 24–48 hours before adding decals or reinforcement."
+  ],
+  "warn": "Ordinary hobby or acrylic paint isn't flexible enough for a polycarbonate shell and will crack off at the first impact.",
+  "tip": "Reinforce a new body before its first run. It's far easier than repairing it later.",
+  "cats": [],
+  "pwords": [
+   "body shell",
+   "lexan"
+  ],
+  "more": "",
+  "faq": [
+   [
+    "How do I stop my RC body from cracking?",
+    "Reinforce the inside with fibreglass mesh tape and a flexible adhesive at the corners and post holes, before the first run."
+   ],
+   [
+    "Why is the paint peeling off my RC body?",
+    "Either the mould-release oil wasn't washed off, or non-polycarbonate paint was used. Polycarbonate paint, sprayed inside the shell, flexes with it."
+   ]
+  ]
  },
  {
   "id": "first-upgrades",
@@ -463,7 +690,21 @@
    "servo",
    "tyre"
   ],
-  "more": ""
+  "more": "",
+  "faq": [
+   [
+    "What is the first upgrade for a new RC car?",
+    "A good balance charger and spare battery, followed by tyres for your terrain and a stronger metal-gear servo. They improve every run before you spend on power."
+   ],
+   [
+    "What tools do I need for RC cars?",
+    "Quality hex drivers in 1.5, 2.0 and 2.5 mm, nut drivers in 5.5 and 7 mm, blue threadlock, shock pliers and a cell checker cover most jobs. Cheap hex keys round off screws."
+   ],
+   [
+    "Which RC parts break most often?",
+    "Typically spur gears, servo gears, driveshafts, suspension arms and wheel hexes. It's worth keeping a spare of whatever your model is known to break."
+   ]
+  ]
  },
  {
   "id": "going-brushless",
@@ -495,7 +736,17 @@
    "driveshaft",
    "gear"
   ],
-  "more": "Motors & ESCs"
+  "more": "Motors & ESCs",
+  "faq": [
+   [
+    "Is brushless worth it for a beginner?",
+    "Yes, once the car is reliable. It gives more speed, cooler running and longer run time. Strengthen the drivetrain first and start on 2S."
+   ],
+   [
+    "What KV motor should I choose?",
+    "Lower KV for higher voltage and heavier cars, higher KV for 2S and lighter cars. A matched motor and ESC combo takes the guesswork out."
+   ]
+  ]
  },
  {
   "id": "metal-vs-plastic",
@@ -524,7 +775,17 @@
    "brass",
    "cnc"
   ],
-  "more": ""
+  "more": "",
+  "faq": [
+   [
+    "Are aluminium suspension arms better than plastic?",
+    "Not for bashing or racing. Plastic arms flex and return, and protect the bulkheads behind them; aluminium arms bend permanently and pass the impact on."
+   ],
+   [
+    "Which parts are worth upgrading to metal?",
+    "Shock caps and bodies, motor mounts, servo horns, steering knuckles and C-hubs, and diff cases. Keep arms and bumpers plastic."
+   ]
+  ]
  },
  {
   "id": "better-crawling",
@@ -557,7 +818,17 @@
    "servo",
    "beadlock"
   ],
-  "more": "Tyres & Wheels"
+  "more": "Tyres & Wheels",
+  "faq": [
+   [
+    "What should I upgrade first on an SCX24?",
+    "A metal-gear servo, sticky tyres and a little brass weight low at the front. Then steel worm gears if you upgrade the motor."
+   ],
+   [
+    "What are the common TRX-4M problems?",
+    "Owners often report drag from plastic bushings, a weak stock servo and plastic diff gears. A sealed bearing kit is usually the first fix, then a metal-gear servo."
+   ]
+  ]
  },
  {
   "id": "which-gear-fits",
@@ -584,7 +855,17 @@
    "spur",
    "gear"
   ],
-  "more": "Gears & Drivetrain"
+  "more": "Gears & Drivetrain",
+  "faq": [
+   [
+    "How do I know which pinion fits my car?",
+    "Match the pitch printed on your spur gear (for example 48P, 32P, Mod 0.8 or Mod 1) and the motor shaft size, usually 3.175 mm or 5 mm."
+   ],
+   [
+    "What does 32P or Mod 0.8 mean?",
+    "Both describe tooth size. 'P' (pitch) counts teeth per inch, 'Mod' measures tooth size in millimetres. They're close but not interchangeable."
+   ]
+  ]
  },
  {
   "id": "after-every-run",
@@ -615,7 +896,17 @@
    "oil",
    "lubricant"
   ],
-  "more": "Tools & Accessories"
+  "more": "Tools & Accessories",
+  "faq": [
+   [
+    "How often should I service my RC car?",
+    "A quick check after every run, a closer look every five runs, and bearings and shocks every 10–15 batteries or after any wet or muddy run."
+   ],
+   [
+    "How do I clean RC car bearings?",
+    "Soak them in cleaner, spin them dry, then add a drop of light bearing oil. Replace any that still feel gritty."
+   ]
+  ]
  },
  {
   "id": "summer-heat",
@@ -645,7 +936,13 @@
    "oil",
    "pinion"
   ],
-  "more": ""
+  "more": "",
+  "faq": [
+   [
+    "Is it okay to run my RC car in 40°C heat?",
+    "Yes, with care: gear down a tooth or two, add a motor fan, run in the morning or evening, and let things cool between packs."
+   ]
+  ]
  },
  {
   "id": "dust-and-monsoon",
@@ -674,7 +971,17 @@
    "lubricant",
    "brush"
   ],
-  "more": ""
+  "more": "",
+  "faq": [
+   [
+    "Can I drive my RC car in the rain?",
+    "Only if the electronics are waterproof, and even then bearings, screws and foams still need drying and oiling afterwards. Never close up a damp car."
+   ],
+   [
+    "How do I stop my RC car rusting?",
+    "Dry it fully after wet runs and spray a little water-displacing oil on screws, pins and drive cups, wiping off the excess."
+   ]
+  ]
  },
  {
   "id": "lipo-care",
@@ -702,6 +1009,20 @@
    "battery",
    "lipo"
   ],
-  "more": "Batteries & Chargers"
+  "more": "Batteries & Chargers",
+  "faq": [
+   [
+    "What should I do with a puffed LiPo battery?",
+    "Stop using it. Don't charge, press or puncture it; tape the plug and take it to an e-waste or battery collection point."
+   ],
+   [
+    "What voltage should I store a LiPo at?",
+    "About 3.80–3.85V per cell. Most balance chargers have a storage mode that does this automatically."
+   ],
+   [
+    "Is my cheap balance charger genuine?",
+    "Copies of popular chargers are common and some overcharge or lack proper cooling. Buy from a trusted seller and check the maker's authenticity code where offered."
+   ]
+  ]
  }
 ]

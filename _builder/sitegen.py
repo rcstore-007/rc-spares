@@ -198,6 +198,149 @@ def themed(html_text, settings):
     return html_text.replace('<html lang="en-IN">', f'<html lang="en-IN" data-theme="{t}">', 1)
 
 
+# Car models customers can pick. (shown name, scale, pattern found in a part's name / "Fits" line / description)
+CAR_MODELS = [  # (shown name, scale, pattern, parent model for body versions)
+    ("Axial SCX24 (all versions)", "1:24", r"scx ?24", None),
+    ("Axial SCX24 – C10 / JLU / Bronco / Deadbolt / Base Camp / 4Runner", "1:24", r"c10|jlu|wrangler|bronco|deadbolt|base ?camp|4runner|betty", "Axial SCX24 (all versions)"),
+    ("Axial SCX24 – Gladiator / Power Wagon / JT", "1:24", r"gladiator|power ?wagon|\bjt\b", "Axial SCX24 (all versions)"),
+    ("Axial AX24", "1:24", r"\bax ?24\b", None),
+    ("FMS FCX24 / FCX24M (Power Wagon, Smasher, K5, Lemur, Unimog)", "1:24", r"fcx ?24|smasher|lemur|unimog ?421", None),
+    ("Redcat Ascent-32", "1:32", r"ascent[- ]?32", None),
+    ("Axial SCX30", "1:30", r"scx ?30", None),
+    ("Traxxas TRX-4M", "1:18", r"trx[- ]?4 ?m", None),
+    ("FMS FCX18 / FCX18 II (LC80, Bronco, F-100, K10)", "1:18", r"fcx ?18", None),
+    ("MJX H18P", "1:18", r"h18p", None),
+    ("Redcat Ascent-18 / APEX", "1:18", r"ascent[- ]?18", None),
+    ("Axial UTB18 Capra", "1:18", r"utb ?18|capra", None),
+    ("JJRC C8801 / C8809 / C8823", "1:18", r"\bc88(01|09|23)\b", None),
+    ("MJX Hyper Go 1/16 & 1/14", "1:16", r"hyper ?go|\b1620[0-9]\b|\b142[01][0-9]\b|\b1430[0-9]\b|\b18208\b|\b20208\b", None),
+    ("WPL C24 / C54", "1:16", r"wpl ?c\d+|\bc24\b|\bc54\b", None),
+    ("HB Toys R1601–R1612", "1:16", r"hb ?toys|\br16(0[1-9]|1[0-2])\b", None),
+    ("MN 1/12 series (MN82, MN99S, MN168…)", "1:12", r"\bmn ?(78|82|86|98|99|128|168)", None),
+    ("MJX H12P / H12Y", "1:12", r"\bh12[py]\b", None),
+    ("Axial SCX10", "1:10", r"scx ?10", None),
+    ("Traxxas TRX-4", "1:10", r"trx[- ]?4(?! ?m)", None),
+    ("FMS FCX10", "1:10", r"fcx ?10", None),
+    ("Redcat Vertex-10", "1:10", r"vertex[- ]?10", None),
+    ("RGT EX86100 series", "1:10", r"\bex86\d{3}\b|\bex136100\b|\brgt\b", None),
+    ("JJRC C8815", "1:10", r"\bc8815\b", None),
+    ("WPL D12", "1:10", r"wpl ?d12|\bd12\b", None),
+    ("Yikong YK4107", "1:10", r"yikong|\byk ?41\d\d\b", None),
+    ("MJX H8H / H8E", "1:8", r"\bh8[he]\b", None),
+    ("Rlaarlo 1/7", "1:7", r"rlaarlo|mk07", None),
+]
+
+
+PART_KINDS = ("Replacement", "Upgrade", "Accessory")
+_UPGRADE = r"\b(metal|brass|alumin(i)?um|alloy|steel|stainless|cnc|carbon|titanium|hardened|upgrade[ds]?|brushless|coreless|high torque|beadlock|silicone|weight(s|ed)?|heavy[- ]duty|portal)\b"
+_ACCESSORY = r"\b(lights?|led|spotlights?|searchlight|headlights?|lamp|stand|jack|bag|luggage|net|sticker|decal|tools?|screwdriver|wrench|hex key|allen|sound|speaker|tire mount|spare tire|roof rack|winch|charger|power supply|bracket)\b"
+
+
+def part_kind(p):
+    """Replacement / Upgrade / Accessory: the owner's choice if set, otherwise a guess from the name."""
+    if p.get("kind") in PART_KINDS:
+        return p["kind"]
+    name = (p.get("name") or "").lower()
+    if p.get("category") in ("Lights", "Winch", "Tools & Accessories") or re.search(_ACCESSORY, name):
+        return "Accessory"
+    if re.search(_UPGRADE, name):
+        return "Upgrade"
+    return "Replacement"
+
+
+def models_for(p):
+    """Car models a part is made for, read from its name, "Fits" line and description.
+    Body versions (e.g. SCX24 Gladiator) count only when the parent model is named too."""
+    text = " ".join([p.get("name") or "", p.get("fits") or "", (p.get("desc") or "")[:400]]).lower()
+    found = [(m, parent) for m, sc, pat, parent in CAR_MODELS if re.search(pat, text)]
+    names = {m for m, parent in found}
+    out = []
+    for m, parent in found:
+        if parent and parent not in names:
+            continue          # e.g. "Bronco" alone is not an SCX24
+        out.append(m)
+    kids = {m for m, parent in found if parent and parent in names}
+    if kids:                  # a part for one body version is not "all versions"
+        out = [m for m in out if m not in {pa for _, _, _, pa in CAR_MODELS if pa} or not any(
+            pa == m for k in kids for mm, _, _, pa in CAR_MODELS if mm == k)]
+    return out
+
+
+def car_picker_models(products):
+    """Models that have at least one part, with their scale (and parent for body versions)."""
+    have = {m for p in products for m in models_for(p)}
+    out = []
+    for m, sc, pat, parent in CAR_MODELS:
+        if m in have or (parent and parent in have) or any(pa == m and k in have for k, _, _, pa in CAR_MODELS):
+            out.append({"name": m, "scale": sc, "parent": parent} if parent else {"name": m, "scale": sc})
+    return out
+
+
+SIZE_KEYS = ("Wheel size", "Shock length", "Wheel hex")
+
+
+def sizes_for(p):
+    """Wheel size / shock length / hex size, from the specs if given, else from the name and options."""
+    specs = {k.lower(): str(v) for k, v in (p.get("specs") or {}).items()}
+    opts = " ".join(o.get("name", "") for o in ((p.get("variants") or {}).get("options") or []))
+    name = (p.get("name") or "").lower()
+    text = (name + " " + opts.lower())
+    cat = p.get("category")
+    out = {}
+    given = specs.get("wheel size") or specs.get("rim size")
+    if given:
+        out["Wheel size"] = [x + " inch" for x in re.findall(r"[12]\.\d{1,2}", given)]
+    elif cat == "Tyres & Wheels" or re.search(r"wheel|tyre|tire|rim|beadlock|insert", name):
+        vals = re.findall(r"(?<![\d.])([12]\.\d{1,2})\s*(?:-|\s)?(?:inch|in\b|\"|”)", text) or \
+            re.findall(r"(?<![\d.])([12]\.\d{1,2})(?=\s*(?:beadlock|wheel|tyre|tire|crawler|rim))", text)
+        if vals:
+            out["Wheel size"] = [v + " inch" for v in vals]
+    given = specs.get("shock length") or specs.get("length")
+    if given and (cat == "Shocks" or "shock" in name):
+        out["Shock length"] = [x + " mm" for x in re.findall(r"\d{2,3}", given)]
+    elif cat == "Shocks" or "shock" in name:
+        vals = re.findall(r"(\d{2,3})\s*mm", text)
+        if vals:
+            out["Shock length"] = [v + " mm" for v in vals]
+    given = specs.get("wheel hex") or specs.get("hex size") or specs.get("hex")
+    if given:
+        out["Wheel hex"] = [x + " mm" for x in re.findall(r"\d{1,2}", given)]
+    elif "hex" in name:
+        vals = re.findall(r"(\d{1,2})\s*mm", name)
+        if vals:
+            out["Wheel hex"] = [v + " mm" for v in vals]
+    # batteries and leads: cell count and plug type
+    alltext = " ".join([name, opts.lower(), " ".join(f"{k} {v}" for k, v in specs.items())])
+    if cat == "Batteries & Chargers" or re.search(r"\b(battery|lipo|li-?ion|nimh|lead|connector|adapter|plug)\b", name):
+        is_batt = re.search(r"\b(battery|lipo|li-?ion|nimh|pack)\b", name) or "battery" in str(specs.get("part type", "")).lower()
+        if is_batt:
+            cells = [c.upper() + "S" for c in re.findall(r"\b([1-8])\s*s\b", alltext)]
+            volt = {"7.4": "2S", "7.6": "2S", "11.1": "3S", "11.4": "3S", "14.8": "4S", "22.2": "6S"}
+            cells += [volt[v] for v in re.findall(r"(7\.4|7\.6|11\.1|11\.4|14\.8|22\.2)\s*v", alltext)]
+            given = specs.get("cells")
+            if given:
+                cells = [c.upper() + "S" for c in re.findall(r"([1-8])", given)]
+            if cells:
+                out["Battery cells"] = cells
+        plugs = {"xt30": "XT30", "xt60": "XT60", "xt90": "XT90", "deans": "Deans / T-plug", "t-plug": "Deans / T-plug", "t plug": "Deans / T-plug",
+                 "ec3": "EC3", "ec5": "EC5", "tamiya": "Tamiya", "trx": "Traxxas", "sm-2p": "SM", "jst": "JST", "ph2.0": "PH2.0"}
+        given = specs.get("plug") or specs.get("connector")
+        src = given.lower() if given else alltext
+        found = [v for k, v in plugs.items() if k in src]
+        if found:
+            out["Plug"] = found
+    clean = {}
+    for k, v in out.items():
+        seen = []
+        for x in v:
+            if x not in seen:
+                seen.append(x)
+        if seen:
+            clean[k] = seen
+    return clean
+
+
+
 def build_index(settings, products):
     pub = public_settings(settings)
     base = site_url(settings)
@@ -219,7 +362,8 @@ def build_index(settings, products):
         fill(partial("footer"), settings, ""),
         fill(partial("cart"), settings, ""),
         f'<script id="store-settings" type="application/json">{json_block(pub)}</script>',
-        f'<script id="products" type="application/json">{json_block([dict(p, variants=clean_variants(p.get("variants"), len(p.get("images") or []))) for p in products])}</script>',
+        f'<script id="products" type="application/json">{json_block([dict(p, variants=clean_variants(p.get("variants"), len(p.get("images") or [])), models=models_for(p), kind=part_kind(p), sizes=sizes_for(p)) for p in products])}</script>',
+        f'<script id="car-models" type="application/json">{json_block(car_picker_models(products))}</script>',
         f'<script src="assets/store.js?v={asset_v("store.js")}"></script>',
         '</body>',
         '</html>',
@@ -401,9 +545,26 @@ def build_part(settings, p):
     rows += f'<tr><td>Scale</td><td>{esc(", ".join(p.get("scale") or []))}</td></tr>'
     for k, v in (p.get("specs") or {}).items():
         rows += f"<tr><td>{esc(k)}</td><td>{esc(v)}</td></tr>"
+    have_keys = {k.lower() for k in (p.get("specs") or {})}
+    for k, v in sizes_for(p).items():
+        if k.lower() not in have_keys:
+            rows += f"<tr><td>{esc(k)}</td><td>{esc(', '.join(v))}</td></tr>"
     rows += f'<tr><td>Part code</td><td>{esc(p["id"])}</td></tr>'
     rows += f'<tr><td>Shipping</td><td>Usually ships within {esc(pub["delivery"])} days</td></tr>'
 
+    mods = models_for(p)
+    wa_num = re.sub(r"\D", "", settings.get("whatsapp") or "")
+    ask = ""
+    if wa_num:
+        msg = f"Hi, will this part fit my car? {p['name']} ({p['id']}). My car is: "
+        ask = f'<a class="pask" href="https://wa.me/{wa_num}?text={quote(msg)}" target="_blank" rel="noopener">Not sure it fits? Send us a photo of your car on WhatsApp →</a>'
+    if mods:
+        chips = "".join(f'<a class="fchip" href="{root}index.html?car={quote(m)}#shop">{esc(m)}</a>' for m in mods)
+        fit_html = f'<div class="pfit"><div class="pfl">Made for</div><div class="fchips">{chips}</div>{ask}</div>'
+    else:
+        sc = " / ".join(p.get("scale") or [])
+        what = esc(p["fits"]) if p.get("fits") else (f"Universal part for {esc(sc)} scale models. Check the size and mounting before ordering." if sc else "Universal part. Check the size and mounting before ordering.")
+        fit_html = f'<div class="pfit"><div class="pfl">Fits</div><p class="fwhat">{what}</p>{ask}</div>'
     wa_icon = ('<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>')
     main_html = f'''<main class="wrap">
   <div class="crumbs"><a href="../index.html#home">Home</a> › <a href="../index.html#shop">Shop</a> › {esc(p.get("category", ""))}</div>
@@ -413,7 +574,8 @@ def build_part(settings, p):
       <div class="cbrand">{esc(p.get("brand", ""))}</div>
       <h1>{esc(p["name"])}</h1>
       <div class="pp"><span class="price" id="pPrice">{price}</span></div>
-      <div class="meta">{scales}<span>{esc(p.get("category", ""))}</span></div>
+      <div class="meta">{scales}<span>{esc(p.get("category", ""))}</span><span class="kind k-{part_kind(p).lower()}">{part_kind(p)}</span></div>
+      {fit_html}
       {var_html}
       <p class="desc">{esc(short)}</p>
       <div class="pbtns">
@@ -580,10 +742,14 @@ def build_guides(settings, products):
             body += f'<p class="gwarn"><b>Careful:</b> {esc(g["warn"])}</p>'
         if g.get("tip"):
             body += f'<p class="gtip"><b>Good to know:</b> {esc(g["tip"])}</p>'
+        if g.get("faq"):
+            body += '<h3>Common questions</h3><div class="gfaq">' + "".join(
+                f'<div class="gfq"><h4>{esc(q)}</h4><p>{esc(a)}</p></div>' for q, a in g["faq"]) + '</div>'
         if pc:
             body += f'<h3>Parts that help</h3><div class="gparts">{pc}</div>{more}'
         body += '<p class="gask">Still stuck? <a href="index.html#request">Tell us the problem on WhatsApp →</a></p>'
-        text = " ".join([g["title"], g["summary"], g.get("words", ""), " ".join(g.get("causes") or []), " ".join(g["steps"])]).lower()
+        text = " ".join([g["title"], g["summary"], g.get("words", ""), " ".join(g.get("causes") or []), " ".join(g["steps"]),
+                         " ".join(q for q, a in g.get("faq") or [])]).lower()
         cards.append(
             f'<article class="guide" id="g-{esc(g["id"])}" data-kind="{esc(g["kind"])}" data-key="{esc((g["title"] + " " + g.get("words", "")).lower())}" data-text="{esc(text)}">'
             f'<button type="button" class="gq" aria-expanded="false" aria-controls="gb-{esc(g["id"])}">'
@@ -605,6 +771,9 @@ def build_guides(settings, products):
   <div class="gnone" id="gnone" hidden><b>Nothing matches that yet.</b> Tell us what's happening and we'll help you find the fix and the part.<a class="btn primary" href="index.html#request">Tell us the problem</a></div>
 </main>'''
     nav = fill(partial("nav"), settings, "").replace('class="guidelink"', 'class="guidelink on"', 1)
+    faq_ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}}
+        for g in guides for q, a in g.get("faq") or []]}
     body = "\n".join([
         '<body data-page="guides" data-root="">',
         nav,
@@ -615,6 +784,7 @@ def build_guides(settings, products):
         '<script id="products" type="application/json">[]</script>',
         f'<script src="assets/store.js?v={asset_v("store.js")}"></script>',
         f'<script src="assets/guides.js?v={asset_v("guides.js")}"></script>',
+        f'<script type="application/ld+json">{json_block(faq_ld)}</script>',
         '</body>',
         '</html>',
     ])

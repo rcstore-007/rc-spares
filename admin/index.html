@@ -161,6 +161,7 @@ textarea{resize:vertical;min-height:84px}
         <div class="f" style="display:block;font-size:13px;font-weight:700;color:var(--muted);margin-bottom:12px"><span>Scale <span class="req">*</span> (tap all that fit)</span><div class="chips" id="fScales" style="margin-top:6px"></div></div>
         <div id="vEd" style="margin-bottom:12px"></div>
         <label class="f">Brand<input type="text" id="fBrand"></label>
+<label class="f">Type<select id="fKind"><option value="">Auto (guess from name)</option><option>Replacement</option><option>Upgrade</option><option>Accessory</option></select></label>
         <label class="f">Fits (cars or models)<input type="text" id="fFits"></label>
         <label class="f">Description<textarea id="fDesc" rows="4"></textarea></label>
         <label class="f"><span>Specs (one per line, like Current: 120A)</span><textarea id="fSpecs" rows="3"></textarea></label>
@@ -532,7 +533,7 @@ textarea{resize:vertical;min-height:84px}
   function resetForm(){
     F={editing:null,pending:null,photos:[],scales:[],sugg:[]};VE.reset();
     $('suggBox').hidden=true;
-    ['fName','fBrand','fPrice','fFits','fDesc','fSpecs'].forEach(function(id){$(id).value='';});
+    ['fName','fBrand','fPrice','fFits','fKind','fDesc','fSpecs'].forEach(function(id){$(id).value='';});
     $('fCat').value='';msg('aiMsg','',null);msg('formErr','',null);
     $('formTitle').textContent='Add a part';$('reviewBtn').textContent='Review and add';
     renderScales();renderPhotos();
@@ -544,7 +545,7 @@ textarea{resize:vertical;min-height:84px}
     var specs={};
     $('fSpecs').value.split('\n').forEach(function(l){var i=l.indexOf(':');if(i>0){var k=l.slice(0,i).trim(),v=l.slice(i+1).trim();if(k&&v)specs[k.slice(0,40)]=v.slice(0,80);}});
     return {name:$('fName').value.trim().slice(0,90),brand:$('fBrand').value.trim().slice(0,40),category:$('fCat').value,
-      price:parseInt(String($('fPrice').value).replace(/[^\d]/g,''),10)||0,scale:F.scales.slice(),fits:$('fFits').value.trim().slice(0,160),
+      price:parseInt(String($('fPrice').value).replace(/[^\d]/g,''),10)||0,scale:F.scales.slice(),fits:$('fFits').value.trim().slice(0,160),kind:$('fKind').value,
       desc:$('fDesc').value.trim().slice(0,600),specs:specs,variants:VE.get()};
   }
   $('reviewBtn').addEventListener('click',function(){
@@ -664,7 +665,7 @@ textarea{resize:vertical;min-height:84px}
     resetForm();F.editing=p.id;
     $('formTitle').textContent='Edit: '+p.name;$('reviewBtn').textContent='Review changes';
     $('fName').value=p.name;$('fBrand').value=p.brand||'';$('fCat').value=p.category;$('fPrice').value=p.price;
-    $('fFits').value=p.fits||'';$('fDesc').value=p.desc||'';
+    $('fFits').value=p.fits||'';$('fKind').value=p.kind||'';$('fDesc').value=p.desc||'';
     $('fSpecs').value=Object.keys(p.specs||{}).map(function(k){return k+': '+p.specs[k];}).join('\n');
     F.scales=(p.scale||[]).slice();
     F.photos=(p.images||[]).map(function(i){return {kind:'keep',path:i,src:(CFG.site_url||'../')+i};});

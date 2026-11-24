@@ -11,6 +11,7 @@
           <a class="btn primary" href="index.html#shop">Browse parts</a>
           <a class="btn plain" href="guides.html">Fix something</a>
         </div>
+        <div class="hcar"><label for="hCarSel">Find parts for my car</label><select id="hCarSel"></select></div>
       </div>
     </div>
   </header>
@@ -140,6 +141,7 @@
       <h1>All parts</h1>
       <div class="catrow shopcats" id="shopCats"></div>
       <p>Prices in ₹. Usually ships within {{DAYS}} days.</p>
+      <div class="carbar"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 15v-3l2-5h11l3 5h2v3"/><circle cx="7" cy="16.5" r="2.2"/><circle cx="17" cy="16.5" r="2.2"/><path d="M9.2 16.5h5.6M5 12h14"/></svg><label for="carSel">Find parts for my car</label><select id="carSel"></select></div>
       <div class="controls">
         <label for="q" class="sr">Search parts</label>
         <input id="q" type="search" placeholder="Search parts, brands or cars">
@@ -150,6 +152,8 @@
         <select id="catSel"></select>
         <label for="scaleSel" class="sr">Scale</label>
         <select id="scaleSel"></select>
+        <label for="sizeSel" class="sr">Size</label>
+        <select id="sizeSel" hidden></select>
         <select id="sortSel">
           <option value="pop">Sort by</option>
           <option value="lo">Price: low to high</option>
