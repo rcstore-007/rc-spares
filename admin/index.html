@@ -188,7 +188,7 @@ textarea{resize:vertical;min-height:84px}
 
     <div id="tab-list" hidden>
       <div class="card" style="padding:12px"><input type="text" id="listQ" placeholder="Search your parts" aria-label="Search your parts">
-        <div style="display:flex;gap:8px;margin-top:8px"><select id="listCat" aria-label="Category" style="flex:1;min-width:0"></select><select id="listScale" aria-label="Scale" style="flex:1;min-width:0"></select></div></div>
+        <div style="display:flex;gap:8px;margin-top:8px"><select id="listCat" aria-label="Category" style="flex:1;min-width:0"></select><select id="listScale" aria-label="Scale" style="flex:1;min-width:0"></select></div><select id="listSort" aria-label="Sort" style="width:100%;margin-top:8px"><option value="new">Latest added</option><option value="hi">Price: high to low</option><option value="lo">Price: low to high</option><option value="az">Name A–Z</option></select></div>
       <div class="list" id="list"></div>
     </div>
   </section>
@@ -615,6 +615,15 @@ textarea{resize:vertical;min-height:84px}
   }
 
   /* ---------- list ---------- */
+  function listSort(rows,how){
+    var pr=function(p){if(p.price!=null&&p.price!=='')return +p.price;var o=(p.variants&&p.variants.options)||[],v=o.map(function(x){return x.price;}).filter(function(x){return x!=null&&x!=='';});return v.length?Math.min.apply(null,v.map(Number)):0;};
+    var r=rows.map(function(p,i){return [p,i];});
+    if(how==='lo')r.sort(function(a,b){return pr(a[0])-pr(b[0])||a[1]-b[1];});
+    else if(how==='hi')r.sort(function(a,b){return pr(b[0])-pr(a[0])||a[1]-b[1];});
+    else if(how==='new')r.sort(function(a,b){return String(b[0].added||'').localeCompare(String(a[0].added||''))||(parseInt(String(b[0].id).replace(/\D/g,''))||0)-(parseInt(String(a[0].id).replace(/\D/g,''))||0);});
+    else if(how==='az')r.sort(function(a,b){return a[0].name.localeCompare(b[0].name);});
+    return r.map(function(x){return x[0];});
+  }
   function renderList(){
     var q=$('listQ').value.trim().toLowerCase();
     if(!$('listCat').options.length){
@@ -623,6 +632,7 @@ textarea{resize:vertical;min-height:84px}
     }
     var fc=$('listCat').value,fs=$('listScale').value;
     var rows=PRODUCTS.filter(function(p){return (!q||(p.name+' '+(p.brand||'')+' '+p.category+' '+p.id).toLowerCase().indexOf(q)>=0)&&(!fc||p.category===fc)&&(!fs||(p.scale||[]).indexOf(fs)>=0);});
+    rows=listSort(rows,$('listSort').value);
     $('list').innerHTML=rows.length?rows.map(function(p){
       var img=p.images&&p.images.length&&CFG.site_url?'<img src="'+esc(CFG.site_url+p.images[0])+'" alt="" onerror="this.style.visibility=\'hidden\'">':'<div class="noimg">No photo</div>';
       return '<div class="item">'+img+'<div><b>'+esc(p.name)+'</b><div class="meta">'+money(p.price)+' · '+esc(p.category)+' · '+esc((p.scale||[]).join(', '))+'</div></div>'+
@@ -630,7 +640,7 @@ textarea{resize:vertical;min-height:84px}
     }).join(''):'<div class="card hint">'+(PRODUCTS.length?'No parts match.':'No parts yet.')+'</div>';
   }
   $('listQ').addEventListener('input',renderList);
-  $('listCat').addEventListener('change',renderList);$('listScale').addEventListener('change',renderList);
+  $('listCat').addEventListener('change',renderList);$('listScale').addEventListener('change',renderList);$('listSort').addEventListener('change',renderList);
   $('list').addEventListener('click',function(e){
     var ed=e.target.closest('[data-edit]'),del=e.target.closest('[data-del]');
     if(ed)startEdit(ed.dataset.edit);

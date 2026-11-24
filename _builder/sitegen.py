@@ -395,7 +395,7 @@ def build_part(settings, p):
     main_html = f'''<main class="wrap">
   <div class="crumbs"><a href="../index.html#home">Home</a> › <a href="../index.html#shop">Shop</a> › {esc(p.get("category", ""))}</div>
   <div class="part">
-    <div class="gallery">{gallery}{holo_panel(p)}</div>
+    <div class="gallery">{gallery}</div>
     <div class="pinfo">
       <div class="cbrand">{esc(p.get("brand", ""))}</div>
       <h1>{esc(p["name"])}</h1>
@@ -413,6 +413,7 @@ def build_part(settings, p):
       <div class="deliv">Usually ships within <b>{esc(pub["delivery"])} days</b>. Shipping cost is confirmed on WhatsApp.</div>
       <h2>Details</h2>
       <table class="specs">{rows}</table>
+      {holo_panel(p)}
       <div class="strip"><span><b>Need a different part?</b> We source parts on request for any brand and scale.</span><a href="../index.html#request">Request a part →</a></div>
     </div>
   </div>
