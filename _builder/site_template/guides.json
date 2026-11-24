@@ -1,0 +1,707 @@
+[
+ {
+  "id": "stripped-gears",
+  "kind": "problem",
+  "icon": "gear",
+  "title": "Gears grinding or stripped",
+  "summary": "You hear grinding or clicking, or the motor spins but the car doesn't move.",
+  "words": "grinding clicking stripped gear gears teeth broken noise crunching motor spins car not moving no drive pinion spur mesh slipper clutch",
+  "causes": [
+   "The gear mesh (how tightly the teeth of the two gears sit together) is too tight or too loose.",
+   "The motor screws have come loose, so the motor moves away from the gear.",
+   "The slipper clutch (a part that lets the gears slip a little to protect them from hard hits) is tightened all the way.",
+   "Landing jumps with the throttle on, or small stones getting into the gears."
+  ],
+  "steps": [
+   "Unplug the battery and take off the gear cover.",
+   "Look at the teeth on the pinion (the small metal gear on the motor) and the spur gear (the big gear it drives). Missing or melted teeth mean the gear needs replacing.",
+   "Loosen the motor screws just enough for the motor to slide.",
+   "Put a strip of normal paper between the two gears, push the motor in so the paper is squeezed between the teeth, and tighten the motor screws.",
+   "Turn the gears to roll the paper out. It should come out with tooth marks but not torn.",
+   "Hold the spur gear still and gently rock the pinion. You should feel a tiny click of play. No play at all means too tight; a clear wobble means too loose.",
+   "Turn the spur gear a quarter turn and check again, all the way round. Spur gears are rarely perfectly round, so set the mesh at the tightest spot.",
+   "If your car has a slipper clutch, don't tighten it fully. Tighten it, then loosen it about half a turn."
+  ],
+  "warn": "Never mix gear pitches (the size of the teeth), even if two gears look the same. A 32P gear will not work with a Mod 0.8 or 48P gear, and both will strip.",
+  "tip": "Put a small drop of threadlock (a screw glue that can still be undone later) on the grub screw (the tiny screw that holds the pinion on the motor shaft).",
+  "cats": [
+   "Gears & Drivetrain"
+  ],
+  "pwords": [
+   "pinion",
+   "spur",
+   "gear"
+  ],
+  "more": "Gears & Drivetrain"
+ },
+ {
+  "id": "bottoming-out",
+  "kind": "problem",
+  "icon": "spring",
+  "title": "Bottoming out or bouncy suspension",
+  "summary": "The chassis slams the ground on jumps, the car bounces a lot, or a shock leaks oil.",
+  "words": "bottoming out bottom hits ground jumps landing bouncy bounce suspension too soft shocks leaking oil leak shock absorber damper spring sag",
+  "causes": [
+   "The shock oil (the oil inside each shock that slows its movement) is too thin. Heat makes it even thinner, so this is worse in summer.",
+   "The springs are too soft for the weight of the car.",
+   "Oil has leaked out, or there are air bubbles inside the shock."
+  ],
+  "steps": [
+   "Look for oil on the outside of each shock. Oil at the top means the cap or bladder (the rubber cup under the cap) is damaged; oil at the bottom means the O-rings (small rubber seals around the shaft) are worn.",
+   "Push down each corner of the car and let go. Left and right should come back up at the same speed.",
+   "Refill with thicker shock oil. Shock oil thickness is measured in cSt (centistokes); a bigger number means thicker. Go up about 50 to 100 cSt at a time.",
+   "When filling, pour the oil in slowly, move the shaft up and down gently a few times, then leave the shock standing for 5 to 10 minutes so air bubbles rise out before closing it.",
+   "If the car sits low even when standing still, it needs stiffer springs. Spring collars only raise the car; they don't make the spring stiffer."
+  ],
+  "warn": "Never hold a shock shaft with bare pliers. Scratches on the shaft cause leaks. Wrap it in tape first or use shock pliers.",
+  "tip": "Check the cSt number, not the 'wt' number. Different brands' 30wt oils can be very different thicknesses.",
+  "cats": [
+   "Shocks"
+  ],
+  "pwords": [
+   "shock",
+   "oil",
+   "spring"
+  ],
+  "more": "Shocks"
+ },
+ {
+  "id": "weak-steering",
+  "kind": "problem",
+  "icon": "steer",
+  "title": "Weak, slow or buzzing steering",
+  "summary": "The wheels turn in the air but not on the ground, steering is slow, or the servo buzzes.",
+  "words": "steering weak slow won't turn not turning wheels don't turn servo buzzing humming jitter shaking not centering pulls one side steering not straight servo saver dual rate",
+  "causes": [
+   "The D/R (dual rate, a knob on the controller that limits how far the wheels turn) has been turned down.",
+   "Something in the steering is stiff, bent or rubbing.",
+   "The servo saver (a spring part that protects the servo from hits) is too soft and gives way.",
+   "The servo (the small motor that turns the wheels) is too weak for the tyres, or its gears are worn.",
+   "The BEC (the part that gives power to the servo, usually inside the speed controller) can't supply enough power for a big servo."
+  ],
+  "steps": [
+   "Check the steering D/R knob on your controller is turned all the way up.",
+   "Take the servo horn (the arm on top of the servo) off the servo and move the front wheels by hand. They should swing side to side smoothly. If not, look for bent parts, dirt or tight screws.",
+   "Check the plugs: steering goes in channel 1 (CH1) on the receiver.",
+   "To centre it properly, switch on the controller and the car with the horn off, then fit the horn straight across.",
+   "Set the EPA (end point adjustment, how far the servo is allowed to turn each way) so the servo stops just before the wheels hit their limit. A servo that buzzes at full lock is pushing against a stop and will overheat.",
+   "If the steering still gives way on the ground, tighten the servo saver or fit a stronger servo. For a 1/10 crawler, look for at least 20 kg torque with metal gears."
+  ],
+  "warn": "If your servo is rated for high voltage (HV), check the BEC voltage it gets. A servo rated at 7.4V loses roughly a fifth of its strength on 6V.",
+  "tip": "A slow, sticky or shaky servo can also be worn inside. If it jitters even with the horn off, it's time for a new one.",
+  "cats": [
+   "Servos"
+  ],
+  "pwords": [
+   "servo",
+   "steering",
+   "horn",
+   "link"
+  ],
+  "more": "Servos"
+ },
+ {
+  "id": "short-run-time",
+  "kind": "problem",
+  "icon": "battery",
+  "title": "Battery runs out too fast",
+  "summary": "The car slows down or stops after only a few minutes.",
+  "words": "battery dies fast quickly short run time runtime stops after few minutes cuts out cutoff slows down lipo nimh drains charge not lasting low voltage",
+  "causes": [
+   "The battery is old. LiPo batteries (the usual flat rechargeable packs) wear out after a few hundred charges.",
+   "The LVC (low-voltage cutoff, a safety feature in the speed controller that stops the car when the battery gets low) is switching off early because the battery voltage drops under load.",
+   "Something is dragging, like a stiff bearing or gears that are too tight.",
+   "Dirty or loose battery plugs."
+  ],
+  "steps": [
+   "Charge the battery fully and check each cell (each section inside the battery) with a cell checker. A full cell reads 4.20V, and all cells should read almost the same.",
+   "Spin each wheel by hand with the battery unplugged. They should spin freely. Gritty or stiff wheels mean the bearings (small metal rings the wheel spins on) need cleaning or replacing.",
+   "Clean the battery and speed controller plugs with isopropyl alcohol and a cotton bud.",
+   "Check the speed controller is set to the right battery type (LiPo or NiMH). The wrong setting can cut power early.",
+   "Charge with a balance charger at 1C (the battery's capacity in amps: a 2200 mAh battery charges at 2.2A)."
+  ],
+  "warn": "If a LiPo battery is puffed up (swollen), stop using it. Don't charge it, press it or puncture it. Never charge a LiPo when nobody is around. If one catches fire, use sand, not water.",
+  "tip": "If you won't use a LiPo for more than a day or two, use the charger's storage mode to keep it at about 3.80 to 3.85V per cell. Stored full, it wears out much faster.",
+  "cats": [
+   "Batteries & Chargers"
+  ],
+  "pwords": [
+   "battery",
+   "lipo",
+   "charger"
+  ],
+  "more": "Batteries & Chargers"
+ },
+ {
+  "id": "no-grip",
+  "kind": "problem",
+  "icon": "tyre",
+  "title": "Sliding, no grip or can't climb",
+  "summary": "The wheels spin, the car slides around, or it can't get up rocks and slopes.",
+  "words": "no grip sliding slipping spinning wheels spin traction can't climb slope rocks tyres slipping slides out spin out loose",
+  "causes": [
+   "The tyre tread (the pattern on the tyre) or compound (how soft the rubber is) doesn't suit the surface.",
+   "Old, hard or dirty tyres.",
+   "The foam inserts (the sponge inside the tyre that holds its shape) are squashed or wet.",
+   "On crawlers, the weight is too high or too far back."
+  ],
+  "steps": [
+   "Match the tread to where you drive: big blocks or lugs for dirt, mud and rocks; small pins for grass and turf; smooth slicks only for clean, flat ground.",
+   "Wash the tyres in warm soapy water and let them dry. Dust on the rubber kills grip.",
+   "Check the tyre is still glued to the rim all the way round.",
+   "Press the tyre. If it folds flat easily, the insert is worn and needs replacing.",
+   "For crawlers, add weight low down and towards the front, like brass (heavy metal) wheels, hubs or steering parts. It helps the car climb without tipping back."
+  ],
+  "warn": "",
+  "tip": "Softer tyres grip better on rocks but wear faster on rough ground and hot roads.",
+  "cats": [
+   "Tyres & Wheels"
+  ],
+  "pwords": [
+   "tyre",
+   "tire",
+   "insert",
+   "brass",
+   "weight",
+   "beadlock"
+  ],
+  "more": "Tyres & Wheels"
+ },
+ {
+  "id": "not-fast",
+  "kind": "problem",
+  "icon": "bolt",
+  "title": "Car is too slow",
+  "summary": "Top speed is lower than it should be, or the car feels lazy.",
+  "words": "slow not fast enough top speed speed more speed power lacks power sluggish lazy faster acceleration punch",
+  "causes": [
+   "A speed limit setting is switched on, on the controller or the speed controller.",
+   "The ESC (electronic speed controller, the box that controls the motor) hasn't been set up with your controller.",
+   "Something in the drivetrain (all the parts between motor and wheels) is dragging.",
+   "The gearing is set for climbing or control, not speed."
+  ],
+  "steps": [
+   "Check your controller for a throttle limit switch or knob (often marked 50% / 75% / 100%) and set it to 100%.",
+   "Check the ESC isn't in a training or beginner mode. The manual shows how to switch modes.",
+   "Calibrate the ESC so it knows your controller's full throttle and brake. Usually you hold the set button, then show it neutral, full throttle and full brake, following the beeps in the manual.",
+   "Lift the car and spin the wheels by hand. They should turn easily.",
+   "For more speed, fit a pinion (the small gear on the motor) one or two teeth bigger. More teeth means more speed but more heat."
+  ],
+  "warn": "After changing gearing, drive for 3 to 5 minutes and touch the motor. If you can't hold your finger on it for 3 seconds, it's too hot. Go back to the smaller pinion.",
+  "tip": "The biggest speed jump is going from a brushed motor to a brushless one (a motor without brushes inside, which wastes far less power). See the 'Going brushless' guide first.",
+  "cats": [
+   "Motors & ESCs"
+  ],
+  "pwords": [
+   "kv",
+   "esc",
+   "combo",
+   "fusion",
+   "pinion"
+  ],
+  "more": "Motors & ESCs"
+ },
+ {
+  "id": "stuck-on-trail",
+  "kind": "problem",
+  "icon": "hook",
+  "title": "Stuck on the trail",
+  "summary": "Your crawler can't get over an obstacle, tips over on climbs, or the winch struggles.",
+  "words": "stuck trail can't climb crawler rock tips over flips backward hill winch recovery pull rescue stall",
+  "causes": [
+   "Weight sits too high or too far back, so the car tips on climbs.",
+   "Tyres or inserts are too hard to grip the rock.",
+   "A winch powered from the receiver doesn't get enough power under load."
+  ],
+  "steps": [
+   "Drive slowly. Most crawler climbs are won with steady, low throttle.",
+   "Add weight low and to the front: brass wheels, hubs or steering cups.",
+   "Fit softer tyres or inserts so the tyre wraps around the rock.",
+   "For a heavy pull, double the winch line with a snatch block (a small pulley hooked to the car), which halves the load on the winch.",
+   "Power the winch straight from the battery or from a separate BEC, not only from the receiver.",
+   "If the winch stops and blinks, its overload protection has switched on. Let it cool for a few minutes."
+  ],
+  "warn": "",
+  "tip": "A cheap bumper winch looks great, but for real pulling a stronger winch with metal gears lasts much longer.",
+  "cats": [
+   "Winch",
+   "Tyres & Wheels"
+  ],
+  "pwords": [
+   "winch",
+   "brass",
+   "weight",
+   "insert"
+  ],
+  "more": "Winch"
+ },
+ {
+  "id": "signal-dropouts",
+  "kind": "problem",
+  "icon": "signal",
+  "title": "Car not responding or glitching",
+  "summary": "The car twitches, ignores the controller, loses signal at short range, or runs off on its own.",
+  "words": "signal glitch glitching not responding no response lost signal range twitching runs away controller not working remote not working receiver bind pairing antenna dropouts failsafe",
+  "causes": [
+   "Weak batteries in the controller.",
+   "The receiver antenna (the thin wire coming out of the receiver) is cut, kinked or sitting against metal.",
+   "The receiver sits right next to the motor, speed controller or battery wires.",
+   "A big servo pulls so much power that the receiver resets for a moment."
+  ],
+  "steps": [
+   "Put fresh batteries in the controller.",
+   "Check the antenna wire isn't cut or bent sharply. Run it up through a plastic antenna tube so the tip stands straight up, away from metal and carbon fibre.",
+   "Move the receiver as far as you can from the motor, speed controller and thick battery wires.",
+   "Check every plug is pushed fully into the receiver: steering in CH1, speed controller in CH2.",
+   "Re-bind (pair) the controller and receiver again, following the manual.",
+   "Test the failsafe (what the car does when it loses signal): with the wheels off the ground, switch off the controller. The car should stop, not keep driving."
+  ],
+  "warn": "Controllers and receivers from different brands, or even different systems from the same brand, usually can't pair. Check they match before buying.",
+  "tip": "If the glitches happen when you steer hard, the servo is draining the power. A separate BEC fixes it.",
+  "cats": [
+   "Radios & Receivers"
+  ],
+  "pwords": [
+   "receiver",
+   "transmitter",
+   "radio",
+   "antenna"
+  ],
+  "more": "Radios & Receivers"
+ },
+ {
+  "id": "lights",
+  "kind": "problem",
+  "icon": "light",
+  "title": "Lights dim, flickering or not working",
+  "summary": "New lights won't switch on, glow weakly, or flicker while driving.",
+  "words": "lights not working dim flicker flickering led headlight light bar night spotlight lamp roof light dark",
+  "causes": [
+   "The light needs more voltage than the receiver gives. Receiver ports give about 5 to 6V; many light bars need 12V.",
+   "The LEDs are connected the wrong way round.",
+   "A plug is loose or only half pushed in.",
+   "Too many lights on the receiver, so they dim when the servo works."
+  ],
+  "steps": [
+   "Check the voltage on the light's label or listing. 12V lights need power straight from the battery (a 3S LiPo) or from a 12V BEC, not from the receiver.",
+   "Check LED direction: the longer leg is plus (+); the flat edge on the LED is minus (−).",
+   "Connect several LEDs side by side (in parallel), not one after another.",
+   "Push every plug in fully and check none of the little pins have backed out.",
+   "If lights flicker when you steer, they share power with the servo. Give them their own power supply."
+  ],
+  "warn": "Never connect a bare LED straight to a battery without the right resistor. It burns out instantly.",
+  "tip": "A light controller lets you switch lights from your transmitter and keeps the wiring neat when you take the body off.",
+  "cats": [
+   "Lights"
+  ],
+  "pwords": [
+   "light",
+   "led",
+   "spotlight",
+   "lamp"
+  ],
+  "more": "Lights"
+ },
+ {
+  "id": "esc-blinking",
+  "kind": "problem",
+  "icon": "bolt",
+  "title": "Speed controller blinking or car won't move",
+  "summary": "The ESC flashes or beeps, the motor stops, or the car has no power at all.",
+  "words": "esc blinking flashing beeping red light green light won't move car not moving no power motor not working motor stopped cuts out thermal shutdown calibrate",
+  "causes": [
+   "The battery is flat, or the low-voltage cutoff has switched on.",
+   "The ESC (electronic speed controller) or motor got too hot and paused to protect itself.",
+   "The ESC isn't calibrated to your controller, or the throttle trim isn't at zero.",
+   "A loose motor or battery wire."
+  ],
+  "steps": [
+   "Most blinking is a safety message, not damage. Look up the blink pattern in your ESC's manual first.",
+   "Charge the battery and check the ESC is set to the right battery type.",
+   "If the motor or ESC is very hot, let them cool by themselves. Don't put them in a fridge or freezer.",
+   "Set the throttle trim knob on the controller back to zero.",
+   "Calibrate the ESC again following its manual.",
+   "Check the three motor wires and the battery plug are pushed in fully and not burnt."
+  ],
+  "warn": "If it keeps overheating, fit a smaller pinion and check nothing is dragging. Running hot again and again will damage the motor and ESC.",
+  "tip": "A program card lets you change ESC settings like cutoff voltage and brake strength without counting beeps.",
+  "cats": [
+   "Motors & ESCs"
+  ],
+  "pwords": [
+   "esc",
+   "program",
+   "fan"
+  ],
+  "more": "Motors & ESCs"
+ },
+ {
+  "id": "overheating",
+  "kind": "problem",
+  "icon": "bolt",
+  "title": "Motor or ESC getting too hot",
+  "summary": "The motor is too hot to touch, or the car keeps cutting out after a few minutes.",
+  "words": "hot overheating overheat motor hot esc hot too hot thermal heat shuts down summer temperature burning smell",
+  "causes": [
+   "The pinion is too big for the motor, battery or tyres.",
+   "Something is dragging: tight gears, dirty bearings, grass wrapped around an axle.",
+   "Hot weather. In 40°C summers there is very little room before parts overheat.",
+   "Bigger, heavier tyres than stock, which work like a bigger pinion."
+  ],
+  "steps": [
+   "Drive 3 to 5 minutes, stop, and touch the motor. If you can't keep your finger on it for 3 seconds (about 75°C), it's too hot.",
+   "Fit a pinion one or two teeth smaller and test again.",
+   "Spin the wheels by hand to check nothing drags, and pull out any grass or string around the axles.",
+   "Fit a motor cooling fan and keep the fins clean.",
+   "In summer, drive early morning or in the evening, and rest the car between batteries."
+  ],
+  "warn": "Don't check temperature right after driving through water. The water cools the outside and hides the heat.",
+  "tip": "Keep LiPo batteries in a cool room indoors, never in a parked car or a sunny shed.",
+  "cats": [
+   "Motors & ESCs",
+   "Gears & Drivetrain"
+  ],
+  "pwords": [
+   "fan",
+   "cooling",
+   "pinion"
+  ],
+  "more": "Motors & ESCs"
+ },
+ {
+  "id": "wheel-wobble",
+  "kind": "problem",
+  "icon": "tyre",
+  "title": "Wheel wobbling or coming off",
+  "summary": "A wheel shakes, sits crooked, or the wheel nut keeps coming loose.",
+  "words": "wheel wobble wobbling shaking wheel loose falls off wheel nut hex stripped crooked bent axle tyre came off rim",
+  "causes": [
+   "A loose wheel nut.",
+   "A worn or stripped wheel hex (the six-sided adapter between the axle and the wheel).",
+   "A bent axle or driveshaft.",
+   "Wet foam inside the tyre, which makes it heavy on one side."
+  ],
+  "steps": [
+   "Tighten the wheel nut until it's snug. Too tight can stop the wheel turning freely.",
+   "Take the wheel off and check the hex and its small drive pin. Rounded corners mean it needs replacing.",
+   "Roll the axle on a flat table. If it wobbles as it rolls, it's bent.",
+   "Squeeze the tyre. If water comes out, let it dry fully before driving again."
+  ],
+  "warn": "",
+  "tip": "A nut with a nylon ring inside (a lock nut) won't shake loose as easily.",
+  "cats": [
+   "Tyres & Wheels",
+   "Gears & Drivetrain"
+  ],
+  "pwords": [
+   "hex",
+   "hub",
+   "nut",
+   "axle"
+  ],
+  "more": "Tyres & Wheels"
+ },
+ {
+  "id": "driveshaft-popping",
+  "kind": "problem",
+  "icon": "gear",
+  "title": "Driveshaft popping out or clicking",
+  "summary": "A driveshaft falls out, or the car clicks or jerks when turning or climbing.",
+  "words": "driveshaft drive shaft popping out falls out dogbone cvd clicking jerking lurching turning full lock universal joint",
+  "causes": [
+   "The driveshaft is too short or the suspension drops too far, so it slips out.",
+   "The joints at each end of a driveshaft aren't lined up, which makes the car jerk at low speed.",
+   "Worn plastic driveshafts or cups."
+  ],
+  "steps": [
+   "With the battery out, turn the steering to full lock and let the suspension hang down. Check the driveshaft still sits fully in its cups.",
+   "Line up both end joints of each driveshaft so they face the same way. This is called phasing and stops low-speed jerks.",
+   "Replace plastic driveshafts with metal ones, especially after a motor upgrade."
+  ],
+  "warn": "",
+  "tip": "Metal driveshafts should match your car model exactly. Lengths differ even between similar trucks.",
+  "cats": [
+   "Gears & Drivetrain"
+  ],
+  "pwords": [
+   "driveshaft",
+   "drive shaft",
+   "cvd",
+   "dogbone",
+   "shaft"
+  ],
+  "more": "Gears & Drivetrain"
+ },
+ {
+  "id": "first-upgrades",
+  "kind": "upgrade",
+  "icon": "gear",
+  "title": "Your first upgrades, in the right order",
+  "summary": "What's worth upgrading first, so your money makes the car better and more reliable.",
+  "words": "first upgrade upgrades beginner start what to buy new car starter where to start best upgrade order",
+  "causes": [],
+  "steps": [
+   "A good balance charger and a spare battery. More driving time and safer charging come first.",
+   "Good hex drivers (screwdrivers with six-sided tips). Cheap ones round off screws.",
+   "Tyres that suit where you drive. This changes how the car feels more than anything else.",
+   "A stronger metal-gear servo, so the steering keeps up with the new tyres.",
+   "Sealed bearings, if your car came with plastic bushings (simple sleeves instead of bearings).",
+   "Then drive it until something breaks, and upgrade that part. Your car will show you its own weak spots."
+  ],
+  "warn": "",
+  "tip": "Before upgrading the motor, make the drivetrain stronger. More power just breaks weak gears faster.",
+  "cats": [
+   "Batteries & Chargers",
+   "Tools & Accessories",
+   "Servos",
+   "Tyres & Wheels"
+  ],
+  "pwords": [
+   "charger",
+   "hex",
+   "screwdriver",
+   "servo",
+   "tyre"
+  ],
+  "more": ""
+ },
+ {
+  "id": "going-brushless",
+  "kind": "upgrade",
+  "icon": "bolt",
+  "title": "Going brushless",
+  "summary": "How to move from a brushed to a brushless motor without breaking the rest of the car.",
+  "words": "brushless upgrade brushed to brushless motor esc combo kv more power faster 2s 3s conversion",
+  "causes": [],
+  "steps": [
+   "Buy a matched brushless combo (motor and ESC sold together), so they work together out of the box.",
+   "Choose the KV (how fast the motor spins per volt) for your battery. Higher voltage needs a lower KV, or the motor will overheat.",
+   "Before fitting it, strengthen the drivetrain: metal gears and metal driveshafts.",
+   "Start on 2S (a 2-cell LiPo battery). Only move to 3S once the car survives 2S without breaking.",
+   "When you go up in battery cells, fit a pinion one or two teeth smaller.",
+   "Check the motor temperature after every few runs until you know the setup is safe."
+  ],
+  "warn": "Check your car's maximum battery rating before going to 3S or higher. Many small cars are only built for 2S.",
+  "tip": "Brushless motors waste much less power as heat, so you usually get more speed and longer run time from the same battery.",
+  "cats": [
+   "Motors & ESCs",
+   "Gears & Drivetrain"
+  ],
+  "pwords": [
+   "brushless",
+   "combo",
+   "kv",
+   "esc",
+   "driveshaft",
+   "gear"
+  ],
+  "more": "Motors & ESCs"
+ },
+ {
+  "id": "metal-vs-plastic",
+  "kind": "upgrade",
+  "icon": "gear",
+  "title": "Metal or plastic? Where metal actually helps",
+  "summary": "More metal isn't always better. Here's where it helps and where plastic is the smarter choice.",
+  "words": "metal aluminium aluminum plastic upgrade alloy cnc which parts metal vs plastic stronger durable",
+  "causes": [],
+  "steps": [
+   "Keep suspension arms and bumpers plastic. Good plastic bends and springs back in a crash; metal bends for good and passes the hit on to more expensive parts.",
+   "Go metal for parts that must stay stiff and exact: steering knuckles, shock towers, motor mounts, servo horns and shock caps.",
+   "On crawlers, metal or brass parts low down also add useful weight.",
+   "Skip cheap 'full metal' upgrade kits. They make the car heavier and often less reliable."
+  ],
+  "warn": "",
+  "tip": "A cheap plastic part that breaks is often protecting a more expensive part behind it.",
+  "cats": [
+   "Gears & Drivetrain",
+   "Tyres & Wheels"
+  ],
+  "pwords": [
+   "metal",
+   "aluminium",
+   "aluminum",
+   "brass",
+   "cnc"
+  ],
+  "more": ""
+ },
+ {
+  "id": "better-crawling",
+  "kind": "upgrade",
+  "icon": "hook",
+  "title": "Better crawling",
+  "summary": "Upgrades that make a scale crawler climb better, in the order that helps most.",
+  "words": "crawler crawling better climbing scale trail rock upgrades scx24 scx10 trx4 fcx crawl",
+  "causes": [],
+  "steps": [
+   "Soft tyres with good inserts. This is the single biggest improvement.",
+   "Weight low and at the front: brass wheels, hubs or steering cups.",
+   "A strong, metal-gear steering servo, so the wheels turn even when pressed into rocks.",
+   "Slightly thicker shock oil, so the car settles smoothly instead of bouncing.",
+   "A motor and ESC with good low-speed control and drag brake (holds the car still on slopes when you let go of the throttle)."
+  ],
+  "warn": "",
+  "tip": "Practice slow, steady throttle. Driving style matters as much as parts on the rocks.",
+  "cats": [
+   "Tyres & Wheels",
+   "Servos",
+   "Shocks",
+   "Winch"
+  ],
+  "pwords": [
+   "insert",
+   "tyre",
+   "brass",
+   "weight",
+   "servo",
+   "beadlock"
+  ],
+  "more": "Tyres & Wheels"
+ },
+ {
+  "id": "which-gear-fits",
+  "kind": "upgrade",
+  "icon": "gear",
+  "title": "Which gear fits my car?",
+  "summary": "How to read pitch, tooth count and shaft size before buying a pinion or spur gear.",
+  "words": "which gear fits pitch module mod 0.8 32p 48p 64p mod1 pinion size teeth tooth count shaft bore 3.175 5mm gear compatibility",
+  "causes": [],
+  "steps": [
+   "Find the pitch (tooth size) of your spur gear. It's usually printed on the gear or in the manual: 48P, 32P, Mod 0.8 and Mod 1 are the common ones.",
+   "Buy a pinion with the same pitch. 32P and Mod 0.8 look almost the same but are not the same.",
+   "Check the bore (the hole for the motor shaft): 3.175 mm (1/8 inch) on most 1/10 motors, 5 mm on bigger ones.",
+   "Count the teeth. More teeth on the pinion means more speed and more heat; fewer means more climbing power and cooler running.",
+   "Change one or two teeth at a time, and check the motor temperature after each change."
+  ],
+  "warn": "Copying someone else's tooth count only works if they have the same car. Different gearboxes change the final result.",
+  "tip": "Roughly: 48P for 1/10 buggies and touring cars, 32P or Mod 0.8 for 1/10 trucks and crawlers, Mod 1 for 1/8 and heavy trucks.",
+  "cats": [
+   "Gears & Drivetrain"
+  ],
+  "pwords": [
+   "pinion",
+   "spur",
+   "gear"
+  ],
+  "more": "Gears & Drivetrain"
+ },
+ {
+  "id": "after-every-run",
+  "kind": "care",
+  "icon": "gear",
+  "title": "5-minute check after every run",
+  "summary": "A quick routine that prevents most breakdowns.",
+  "words": "maintenance after run check routine care cleaning service regular checklist prevent",
+  "causes": [],
+  "steps": [
+   "Unplug the battery straight away.",
+   "Brush dirt off the motor and speed controller so they can cool.",
+   "Spin each wheel by hand and listen for grinding bearings.",
+   "Check the screws that shake loose most: servo horn, steering links, lower shock screws, suspension pins and wheel nuts.",
+   "Every 5 runs, check gear mesh, driveshafts, tyre glue and steering endpoints.",
+   "Every 10 to 15 batteries, or after mud or water, clean and oil the bearings and check the shocks."
+  ],
+  "warn": "",
+  "tip": "Store the car on a stand so the tyres don't get flat spots.",
+  "cats": [
+   "Tools & Accessories"
+  ],
+  "pwords": [
+   "stand",
+   "tool",
+   "hex",
+   "screwdriver",
+   "oil",
+   "lubricant"
+  ],
+  "more": "Tools & Accessories"
+ },
+ {
+  "id": "summer-heat",
+  "kind": "care",
+  "icon": "bolt",
+  "title": "Driving in Indian summer heat",
+  "summary": "At 40°C and above, parts overheat much sooner. Simple changes keep the car running.",
+  "words": "summer heat hot weather temperature india 40 degrees overheating sun afternoon",
+  "causes": [],
+  "steps": [
+   "Drive early in the morning or in the evening, not in the afternoon sun.",
+   "Fit a pinion one or two teeth smaller than in winter.",
+   "Add a cooling fan to the motor and keep air flowing through the body.",
+   "Use slightly thicker shock oil, because heat thins it.",
+   "Rest the car between batteries and let the motor cool.",
+   "Keep LiPo batteries indoors in a cool room. Never leave them in a parked car or in the sun."
+  ],
+  "warn": "Don't charge a LiPo that is still hot from driving. Let it cool down first.",
+  "tip": "",
+  "cats": [
+   "Motors & ESCs",
+   "Shocks"
+  ],
+  "pwords": [
+   "fan",
+   "cooling",
+   "oil",
+   "pinion"
+  ],
+  "more": ""
+ },
+ {
+  "id": "dust-and-monsoon",
+  "kind": "care",
+  "icon": "tyre",
+  "title": "Dust and monsoon care",
+  "summary": "Fine dust and wet weather wear out bearings and rust metal parts fast. Here's what to do.",
+  "words": "dust dirt mud water wet rain monsoon rust corrosion waterproof cleaning washing after rain",
+  "causes": [],
+  "steps": [
+   "Use rubber-sealed bearings (marked 2RS) instead of metal-shielded ones. They keep fine dust out much longer.",
+   "Keep the gear cover on and closed.",
+   "Brush dust off with a soft brush. Don't blow hard with compressed air; it pushes grit into the bearings.",
+   "After a wet run, unplug the battery, spin the water out of the tyres, and wipe or rinse off mud gently. Never use a pressure washer.",
+   "Dry the car, then spray a little water-displacing spray on screws, pins and drive cups and wipe off the extra.",
+   "Open the receiver box and let it air-dry for a few hours. Never close a damp car in a bag."
+  ],
+  "warn": "'Waterproof' electronics don't stop bearings, screws and foams from rusting or rotting. They still need drying after every wet run.",
+  "tip": "",
+  "cats": [
+   "Tools & Accessories"
+  ],
+  "pwords": [
+   "bearing",
+   "oil",
+   "lubricant",
+   "brush"
+  ],
+  "more": ""
+ },
+ {
+  "id": "lipo-care",
+  "kind": "care",
+  "icon": "battery",
+  "title": "LiPo battery safety and storage",
+  "summary": "How to charge, store and get rid of LiPo batteries safely so they last longer.",
+  "words": "lipo battery safety storage charging puffed swollen fire storage voltage balance charge dispose old battery",
+  "causes": [],
+  "steps": [
+   "Always use a balance charger (a charger that fills each cell evenly) on the LiPo setting.",
+   "Charge at 1C: a 2200 mAh battery at 2.2A, a 5000 mAh battery at 5A.",
+   "Never charge when nobody is around, and never charge on a bed, sofa or carpet.",
+   "If you won't use it for more than a day or two, use storage mode (about 3.80 to 3.85V per cell).",
+   "Never run a cell below 3.0V. Set the speed controller's cutoff to LiPo.",
+   "Keep batteries in a fireproof LiPo bag or a metal box, in a cool room."
+  ],
+  "warn": "A puffed (swollen) battery should never be charged, pressed or punctured. Tape the plug, keep it away from anything that burns, and take it to an e-waste or battery collection point.",
+  "tip": "A LiPo kept at storage voltage lasts hundreds of charges. One stored full or run flat often lasts under a hundred.",
+  "cats": [
+   "Batteries & Chargers"
+  ],
+  "pwords": [
+   "charger",
+   "battery",
+   "lipo"
+  ],
+  "more": "Batteries & Chargers"
+ }
+]

@@ -25,6 +25,9 @@ TEMPLATE = HERE / "site_template"
 
 FIX_ICONS = {'gear': '<circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/><circle cx="12" cy="12" r="6.5"/>', 'spring': '<path d="M8 3h8M8 21h8M12 3v2M12 19v2M7 7l10 2-10 2 10 2-10 2 10 2"/>', 'steer': '<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="2.2"/><path d="M12 14.2v6.3M9.9 11.3 4 9.5M14.1 11.3 20 9.5"/>', 'battery': '<rect x="3" y="7" width="16" height="10" rx="2"/><path d="M21 10.5v3M7 12h4M9 10v4"/>', 'tyre': '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/>', 'bolt': '<path d="M13 2 5 13.5h6L10 22l8-11.5h-6z"/>', 'hook': '<path d="M12 3v9a4 4 0 1 1-4-4"/><path d="M9 3h6"/>', 'signal': '<path d="M4.9 9a10 10 0 0 1 14.2 0M7.8 12a6 6 0 0 1 8.4 0M10.6 15a2 2 0 0 1 2.8 0"/><circle cx="12" cy="18.5" r="1"/>', 'light': '<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>'}
 FIXES = [('Stripped gears', 'Gears & Drivetrain', 'gear'), ('Bottoming out on jumps', 'Shocks', 'spring'), ('Weak or slow steering', 'Servos', 'steer'), ('Short run time', 'Batteries & Chargers', 'battery'), ('Sliding, no grip', 'Tyres & Wheels', 'tyre'), ('Not fast enough', 'Motors & ESCs', 'bolt'), ('Stuck on the trail', 'Winch', 'hook'), ('Signal dropouts', 'Radios & Receivers', 'signal'), ("Can't see at night", 'Lights', 'light')]
+FIX_GUIDE = {'Stripped gears': 'stripped-gears', 'Bottoming out on jumps': 'bottoming-out', 'Weak or slow steering': 'weak-steering',
+             'Short run time': 'short-run-time', 'Sliding, no grip': 'no-grip', 'Not fast enough': 'not-fast',
+             'Stuck on the trail': 'stuck-on-trail', 'Signal dropouts': 'signal-dropouts', "Can't see at night": 'lights'}
 
 
 def _ic(k):
@@ -137,8 +140,8 @@ def fill(text, settings, root):
         "{{DAYS}}": esc(pub["delivery"]),
         "{{MARK}}": mark,
         "{{MARK48}}": mark.replace("<svg ", '<svg width="48" height="48" ', 1),
-        "{{FIX_GRID}}": "".join(f'<button type="button" class="fixc" data-go-cat="{esc(c)}"><span class="fi">{_ic(k)}</span><span class="ft"><b>{esc(t)}</b><small>{esc(c)} →</small></span></button>' for t, c, k in FIXES),
-        "{{MENU_FIX}}": "".join(f'<a href="{root}index.html?cat={quote(c)}#shop" data-mcat="{esc(c)}">{esc(t)}</a>' for t, c, k in FIXES),
+        "{{FIX_GRID}}": "".join(f'<a class="fixc" href="{root}guides.html#g-{FIX_GUIDE[t]}"><span class="fi">{_ic(k)}</span><span class="ft"><b>{esc(t)}</b><small>How to fix it →</small></span></a>' for t, c, k in FIXES),
+        "{{MENU_FIX}}": "".join(f'<a href="{root}guides.html#g-{FIX_GUIDE[t]}">{esc(t)}</a>' for t, c, k in FIXES),
         "{{MENU_CATS}}": "".join(f'<a href="{root}index.html?cat={quote(c)}#shop" data-mcat="{esc(c)}">{esc(c)}</a>' for c in CATEGORIES),
     }
     for k, v in rep.items():
@@ -503,6 +506,113 @@ def build_policies(settings):
     return themed(head(title, f"Shipping, returns, refunds, payment and privacy at {name}.", "", (base + "policies.html") if base else "") + "\n" + body, settings)
 
 
+GUIDE_KINDS = [("problem", "Problems"), ("upgrade", "Upgrades"), ("care", "Care")]
+GUIDE_CHIPS = ["Steering weak", "Battery dies fast", "Gears grinding", "Car too slow", "No grip", "Motor too hot"]
+
+
+def load_guides():
+    f = TEMPLATE / "guides.json"
+    return json.loads(f.read_text(encoding="utf-8")) if f.exists() else []
+
+
+def _from_price(p):
+    opts = (p.get("variants") or {}).get("options") or []
+    prices = [o["price"] for o in opts if o.get("price")] or [int(p.get("price") or 0)]
+    lo = min(prices)
+    return ("from " if len(set(prices)) > 1 else "") + "₹" + f"{lo:,}"
+
+
+def guide_parts(g, products, limit=6):
+    """Parts from the shop for a guide. Takes turns over the guide's part words (most important first),
+    so each kind of part gets a place; tops up from its categories only when few names match."""
+    cats, words = g.get("cats") or [], [w.lower() for w in g.get("pwords") or []]
+    pool = [p for p in products if not cats or p.get("category") in cats]
+    picked, seen = [], set()
+    has = lambda w, p: re.search(r"(?<![a-z])" + re.escape(w), (p.get("name") or "").lower())
+    buckets = [[p for p in pool if has(w, p)] for w in words]
+    while len(picked) < limit and any(buckets):
+        for bk in buckets:
+            while bk and bk[0]["slug"] in seen:
+                bk.pop(0)
+            if bk and len(picked) < limit:
+                p = bk.pop(0)
+                picked.append(p)
+                seen.add(p["slug"])
+    if len(picked) < 3:
+        for p in pool:
+            if len(picked) >= 3:
+                break
+            if p["slug"] not in seen and p.get("category") == (cats[0] if cats else None):
+                picked.append(p)
+                seen.add(p["slug"])
+    return picked
+
+
+def build_guides(settings, products):
+    pub = public_settings(settings)
+    base = site_url(settings)
+    name = pub["name"]
+    guides = load_guides()
+    icons = dict(FIX_ICONS)
+    cards = []
+    for g in guides:
+        parts = guide_parts(g, products)
+        pc = "".join(
+            f'<a class="gpart" href="parts/{esc(p["slug"])}.html">'
+            + (f'<img src="{esc(p["images"][0])}" alt="" loading="lazy">' if p.get("images") else '<span class="noimg"></span>')
+            + f'<span class="gpn">{esc(p["name"])}</span><span class="gpp">{_from_price(p)}</span></a>' for p in parts)
+        more = (f'<a class="gmore" href="index.html?cat={quote(g["more"])}#shop">See all {esc(g["more"])} →</a>' if g.get("more") else "")
+        body = ""
+        if g.get("causes"):
+            body += '<h3>Why it happens</h3><ul>' + "".join(f"<li>{esc(c)}</li>" for c in g["causes"]) + "</ul>"
+        body += f'<h3>{"Check these, in order" if g["kind"] == "problem" else "Step by step"}</h3><ol>' + "".join(f"<li>{esc(x)}</li>" for x in g["steps"]) + "</ol>"
+        if g.get("warn"):
+            body += f'<p class="gwarn"><b>Careful:</b> {esc(g["warn"])}</p>'
+        if g.get("tip"):
+            body += f'<p class="gtip"><b>Good to know:</b> {esc(g["tip"])}</p>'
+        if pc:
+            body += f'<h3>Parts that help</h3><div class="gparts">{pc}</div>{more}'
+        body += '<p class="gask">Still stuck? <a href="index.html#request">Tell us the problem on WhatsApp →</a></p>'
+        text = " ".join([g["title"], g["summary"], g.get("words", ""), " ".join(g.get("causes") or []), " ".join(g["steps"])]).lower()
+        cards.append(
+            f'<article class="guide" id="g-{esc(g["id"])}" data-kind="{esc(g["kind"])}" data-key="{esc((g["title"] + " " + g.get("words", "")).lower())}" data-text="{esc(text)}">'
+            f'<button type="button" class="gq" aria-expanded="false" aria-controls="gb-{esc(g["id"])}">'
+            f'<span class="gi">{_ic(g.get("icon") or "gear")}</span><span class="gt"><b>{esc(g["title"])}</b><small>{esc(g["summary"])}</small></span>'
+            f'<span class="gch" aria-hidden="true"></span></button>'
+            f'<div class="gbody" id="gb-{esc(g["id"])}" hidden>{body}</div></article>')
+    tabs = '<button type="button" class="gtab on" data-kind="all" aria-pressed="true">All</button>' + "".join(
+        f'<button type="button" class="gtab" data-kind="{k}" aria-pressed="false">{t}</button>' for k, t in GUIDE_KINDS)
+    chips = "".join(f'<button type="button" class="gchip">{esc(c)}</button>' for c in GUIDE_CHIPS)
+    main_html = f'''<main class="wrap gwrap">
+  <div class="crumbs"><a href="index.html#home">Home</a> › Fix &amp; upgrade</div>
+  <h1>Fix &amp; upgrade</h1>
+  <p class="gsub">Tell us what's wrong with your rig. Each guide explains why it happens, what to check first, and which parts fix it.</p>
+  <div class="gsearch"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="gq" type="search" placeholder="What's wrong? e.g. steering weak, battery dies fast" autocomplete="off" aria-label="Describe the problem"><button type="button" id="gclear" aria-label="Clear search" hidden>✕</button></div>
+  <div class="gchips" id="gchips"><span>Common:</span>{chips}</div>
+  <div class="gtabs" role="group" aria-label="Show">{tabs}</div>
+  <p class="gcount" id="gcount" aria-live="polite"></p>
+  <div class="glist" id="glist">{"".join(cards)}</div>
+  <div class="gnone" id="gnone" hidden><b>No guide for that yet.</b> Tell us what's happening and we'll help you find the fix and the part.<a class="btn primary" href="index.html#request">Tell us the problem</a></div>
+</main>'''
+    nav = fill(partial("nav"), settings, "").replace('class="guidelink"', 'class="guidelink on"', 1)
+    body = "\n".join([
+        '<body data-page="guides" data-root="">',
+        nav,
+        main_html,
+        fill(partial("footer"), settings, ""),
+        fill(partial("cart"), settings, ""),
+        f'<script id="store-settings" type="application/json">{json_block(pub)}</script>',
+        '<script id="products" type="application/json">[]</script>',
+        f'<script src="assets/store.js?v={asset_v("store.js")}"></script>',
+        f'<script src="assets/guides.js?v={asset_v("guides.js")}"></script>',
+        '</body>',
+        '</html>',
+    ])
+    title = f"Fix & upgrade your RC car – problems, upgrades and care | {name}"
+    desc = "Beginner-friendly RC car fixes: stripped gears, weak steering, short battery life, no grip and more, with the parts that fix them."
+    return themed(head(title, desc, "", (base + "guides.html") if base else "") + "\n" + body, settings)
+
+
 CAT_COLORS = {"Motors & ESCs": ("#f2d8cf", "#b8442f"), "Tyres & Wheels": ("#d6e2ec", "#3d6a8c"),
               "Shocks": ("#d5e4da", "#2e5e4e"), "Batteries & Chargers": ("#f6e6bf", "#9a6a08"),
               "Gears & Drivetrain": ("#e6dbec", "#6b4a7a"), "Servos": ("#d2e8ea", "#1f6f78"),
@@ -541,6 +651,7 @@ def build_sitemap(settings, products):
         return None
     today = dt.date.today().isoformat()
     urls = [f"  <url><loc>{esc(base)}</loc><lastmod>{today}</lastmod></url>",
+            f"  <url><loc>{esc(base)}guides.html</loc><lastmod>{today}</lastmod></url>",
             f"  <url><loc>{esc(base)}policies.html</loc><lastmod>{today}</lastmod></url>"]
     for p in products:
         lm = (p.get("updated") or p.get("added") or today)[:10]
@@ -612,6 +723,7 @@ def build_site(site_dir, settings, products, tools=True, branch="main"):
 
     (site / "index.html").write_text(themed(build_index(settings, products), settings), encoding="utf-8")
     (site / "policies.html").write_text(build_policies(settings), encoding="utf-8")
+    (site / "guides.html").write_text(build_guides(settings, products), encoding="utf-8")
 
     keep = set()
     for p in products:
