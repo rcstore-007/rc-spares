@@ -33,11 +33,11 @@
         x[1].hidden = !ok; if (ok) shown++;
         list.appendChild(x[1]);
       });
-      count.textContent = shown ? (shown === 1 ? '1 guide matches' : shown + ' guides match') : '';
+      count.textContent = shown ? (shown === 1 ? '1 result' : shown + ' results') : '';
       if (shown === 1) open(sc[0][1], true);
     } else {
       guides.forEach(function (g) { list.appendChild(g); var ok = kind === 'all' || g.getAttribute('data-kind') === kind; g.hidden = !ok; if (ok) shown++; });
-      count.textContent = shown + ' guides';
+      count.textContent = shown + ' topics';
     }
     none.hidden = shown > 0;
   }

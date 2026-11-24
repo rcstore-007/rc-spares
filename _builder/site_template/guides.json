@@ -188,7 +188,7 @@
    "For more speed, fit a pinion (the small gear on the motor) one or two teeth bigger. More teeth means more speed but more heat."
   ],
   "warn": "After changing gearing, drive for 3 to 5 minutes and touch the motor. If you can't hold your finger on it for 3 seconds, it's too hot. Go back to the smaller pinion.",
-  "tip": "The biggest speed jump is going from a brushed motor to a brushless one (a motor without brushes inside, which wastes far less power). See the 'Going brushless' guide first.",
+  "tip": "The biggest speed jump is going from a brushed motor to a brushless one (a motor without brushes inside, which wastes far less power). Read 'Going brushless' under Upgrades first.",
   "cats": [
    "Motors & ESCs"
   ],
