@@ -264,6 +264,7 @@
     var mine=[],uni=[],other=[];
     if(state.car){l.forEach(function(p){if(madeFor(p))mine.push(p);else if(p.models&&p.models.length)other.push(p);else uni.push(p);});l=mine.concat(uni,other);}
     $('countLine').textContent=bits.length?bits.join(' · '):'All parts';
+    if($('shopTitle'))$('shopTitle').textContent=state.car?state.car.replace(/\s*\(all versions\)$/,''):(state.cat!=='All'?state.cat:'All parts');
     $('clearF').hidden=!(state.cat!=='All'||state.scale!=='All'||state.brand!=='All'||state.q||state.car||state.size);
     var rc='<div class="reqcard"><h3>Need a part that isn\'t here?</h3><p>We source parts on request for any brand and scale. Tell us what you need and we\'ll quote before you pay.</p><a href="'+ROOT+'index.html#request">Request a part</a></div>';
     setTimeout(reveal,0);
