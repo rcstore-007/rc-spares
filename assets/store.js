@@ -12,7 +12,7 @@
 
   var CATS=['Motors & ESCs','Tyres & Wheels','Shocks','Batteries & Chargers','Gears & Drivetrain','Servos','Lights','Winch','Radios & Receivers','Tools & Accessories'];
   var CARS=data('car-models',[]);
-  var SCALES=['1:32','1:30','1:24','1:18','1:12','1:10','1:8','1:7','1:5'];
+  var SCALES=['1:30','1:24','1:18','1:12','1:10','1:8','1:7','1:5'];
   var CC={'Motors & ESCs':['#f2d8cf','#b8442f'],'Tyres & Wheels':['#d6e2ec','#3d6a8c'],'Shocks':['#d5e4da','#2e5e4e'],'Batteries & Chargers':['#f6e6bf','#9a6a08'],'Gears & Drivetrain':['#e6dbec','#6b4a7a'],'Servos':['#d2e8ea','#1f6f78'],'Lights':['#f8dcc8','#c4561b'],'Winch':['#e9e0c6','#6b5a2e'],'Axles & Chassis':['#dfe3e8','#4a5563'],'Radios & Receivers':['#f3dde6','#a23b62'],'Tools & Accessories':['#e4e8d5','#55692c'],'RC Cars':['#dce7ee','#24485e']};
   var SC=['#b8442f','#c4561b','#9a6a08','#2e5e4e','#1f6f78','#3d6a8c','#6b4a7a','#2a2420'];
   P.forEach(function(p){
@@ -201,7 +201,7 @@
   function carOptions(sel,blank){
     var groups={};CARS.forEach(function(c){(groups[c.scale]=groups[c.scale]||[]).push(c);});
     var o='<option value="">'+blank+'</option>';
-    SCALES.forEach(function(s){if(groups[s])o+='<optgroup label="'+s+' scale">'+groups[s].map(function(c){return '<option value="'+esc(c.name)+'"'+(state.car===c.name?' selected':'')+'>'+esc(c.name)+'</option>';}).join('')+'</optgroup>';});
+    Object.keys(groups).sort(function(a,b){return parseFloat(b.split(':')[1])-parseFloat(a.split(':')[1]);}).forEach(function(s){o+='<optgroup label="'+s+' scale">'+groups[s].map(function(c){return '<option value="'+esc(c.name)+'"'+(state.car===c.name?' selected':'')+'>'+esc(c.name)+'</option>';}).join('')+'</optgroup>';});
     sel.innerHTML=o;
   }
   function sizeOK(p){
@@ -231,6 +231,13 @@
     var b=['All'];P.forEach(function(p){if(p.brand&&b.indexOf(p.brand)<0)b.push(p.brand);});
     b=[b[0]].concat(b.slice(1).sort());
     if($('carSel'))carOptions($('carSel'),'Any car');
+    if($('carTiles')){
+      var top=CARS.filter(function(c){return !c.parent;});
+      $('carTiles').innerHTML=top.map(function(c){
+        var on=state.car===c.name||carInfo(state.car).parent===c.name;
+        return '<button type="button" class="ctile'+(on?' on':'')+'" data-car="'+esc(c.name)+'">'+(c.photo?'<img src="'+ROOT+esc(c.photo)+'" alt="" loading="lazy">':'<span class="cnoimg"></span>')+
+          '<span>'+esc(c.name.replace(/\s*\(.*$/,''))+'</span></button>';}).join('');
+    }
     if($('sizeSel')){
       var sz={};P.forEach(function(p){if(!match(p,'size'))return;var s=p.sizes||{};Object.keys(s).forEach(function(k){s[k].forEach(function(v){(sz[k]=sz[k]||{})[v]=1;});});});
       var num=function(a,b){var x=parseFloat(a),y=parseFloat(b);return (isNaN(x)||isNaN(y))?String(a).localeCompare(b):x-y;},o='<option value="">Any size / type</option>',any=false;
@@ -512,6 +519,7 @@
     $('catSel').addEventListener('change',function(e){state.cat=e.target.value;refresh();});
     $('scaleSel').addEventListener('change',function(e){state.scale=e.target.value;refresh();});
     if($('sizeSel'))$('sizeSel').addEventListener('change',function(e){state.size=e.target.value;refresh();});
+    if($('carTiles'))$('carTiles').addEventListener('click',function(e){var b=e.target.closest('[data-car]');if(!b)return;var n=b.getAttribute('data-car');state.car=(state.car===n?'':n);if(state.car)state.scale='All';refresh();});
     if($('carSel'))$('carSel').addEventListener('change',function(e){state.car=e.target.value;if(state.car)state.scale='All';refresh();});
     if($('hCarSel')){carOptions($('hCarSel'),'Choose your car');$('hCarSel').addEventListener('change',function(e){if(!e.target.value)return;state.car=e.target.value;state.scale='All';state.cat='All';goShop();e.target.value='';});}
     $('sortSel').addEventListener('change',function(e){state.sort=e.target.value;renderGrid();});

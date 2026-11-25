@@ -1,4 +1,176 @@
 {
+ "cars": [
+  {
+   "name": "Axial SCX24 (all versions)",
+   "scale": "1:24",
+   "pattern": "scx ?24",
+   "photo": "images/cars/axial-scx24-all-versions-12f098.jpg"
+  },
+  {
+   "name": "Axial SCX24 – C10 / JLU / Bronco / Deadbolt / Base Camp / 4Runner",
+   "scale": "1:24",
+   "pattern": "c10|jlu|wrangler|bronco|deadbolt|base ?camp|4runner|betty",
+   "parent": "Axial SCX24 (all versions)",
+   "photo": "images/cars/axial-scx24-c10-jlu-bronco-deadbolt-base-camp-4runner-12f098.jpg"
+  },
+  {
+   "name": "Axial SCX24 – Gladiator / Power Wagon / JT",
+   "scale": "1:24",
+   "pattern": "gladiator|power ?wagon|\\bjt\\b",
+   "parent": "Axial SCX24 (all versions)",
+   "photo": "images/cars/axial-scx24-gladiator-power-wagon-jt-12f098.jpg"
+  },
+  {
+   "name": "Axial AX24",
+   "scale": "1:24",
+   "pattern": "\\bax ?24\\b",
+   "photo": "images/cars/axial-ax24-a6a75e.jpg"
+  },
+  {
+   "name": "FMS FCX24 / FCX24M (Power Wagon, Smasher, K5, Lemur, Unimog)",
+   "scale": "1:24",
+   "pattern": "fcx ?24|smasher|lemur|unimog ?421",
+   "photo": "images/cars/fms-fcx24-fcx24m-power-wagon-smasher-k5-lemur-unimog-7f8f8d.jpg"
+  },
+  {
+   "name": "Redcat Ascent-32",
+   "scale": "1:32",
+   "pattern": "ascent[- ]?32",
+   "photo": "images/cars/redcat-ascent-32-79f171.jpg"
+  },
+  {
+   "name": "Axial SCX30",
+   "scale": "1:30",
+   "pattern": "scx ?30",
+   "photo": "images/cars/axial-scx30-aa8494.jpg"
+  },
+  {
+   "name": "Traxxas TRX-4M",
+   "scale": "1:18",
+   "pattern": "trx[- ]?4[- ]?m\\b",
+   "photo": "images/cars/traxxas-trx-4m-bb201b.jpg"
+  },
+  {
+   "name": "FMS FCX18 / FCX18 II (LC80, Bronco, F-100, K10)",
+   "scale": "1:18",
+   "pattern": "fcx ?18",
+   "photo": "images/cars/fms-fcx18-fcx18-ii-lc80-bronco-f-100-k10-0717a0.jpg"
+  },
+  {
+   "name": "MJX H18P",
+   "scale": "1:18",
+   "pattern": "h18p",
+   "photo": "images/cars/mjx-h18p-2fcc1e.jpg"
+  },
+  {
+   "name": "Redcat Ascent-18 / APEX",
+   "scale": "1:18",
+   "pattern": "ascent[- ]?18",
+   "photo": "images/cars/redcat-ascent-18-apex-0ba955.jpg"
+  },
+  {
+   "name": "Axial UTB18 Capra",
+   "scale": "1:18",
+   "pattern": "utb ?18|capra",
+   "photo": "images/cars/axial-utb18-capra-a4f9d6.jpg"
+  },
+  {
+   "name": "JJRC C8801 / C8809 / C8823",
+   "scale": "1:18",
+   "pattern": "\\bc88(01|09|23)\\b",
+   "photo": "images/cars/jjrc-c8801-c8809-c8823-a2b1a0.jpg"
+  },
+  {
+   "name": "MJX Hyper Go 1/16 & 1/14",
+   "scale": "1:16",
+   "pattern": "hyper ?go|\\b1620[0-9]\\b|\\b142[01][0-9]\\b|\\b1430[0-9]\\b|\\b18208\\b|\\b20208\\b",
+   "photo": "images/cars/mjx-hyper-go-1-16-1-14-c6dc90.jpg"
+  },
+  {
+   "name": "WPL C24 / C54",
+   "scale": "1:16",
+   "pattern": "wpl ?c\\d+|\\bc24\\b|\\bc54\\b",
+   "photo": "images/cars/wpl-c24-c54-6c18ba.jpg"
+  },
+  {
+   "name": "HB Toys R1601–R1612",
+   "scale": "1:16",
+   "pattern": "hb ?toys|\\br16(0[1-9]|1[0-2])\\b",
+   "photo": "images/cars/hb-toys-r1601-r1612-bfe7f5.jpg"
+  },
+  {
+   "name": "MN 1/12 series (MN82, MN99S, MN168…)",
+   "scale": "1:12",
+   "pattern": "\\bmn ?(78|82|86|98|99|128|168)",
+   "photo": "images/cars/mn-1-12-series-mn82-mn99s-mn168-37725c.jpg"
+  },
+  {
+   "name": "MJX H12P / H12Y",
+   "scale": "1:12",
+   "pattern": "\\bh12[py]\\b",
+   "photo": "images/cars/mjx-h12p-h12y-c2cb11.jpg"
+  },
+  {
+   "name": "Axial SCX10",
+   "scale": "1:10",
+   "pattern": "scx ?10",
+   "photo": "images/cars/axial-scx10-acd986.jpg"
+  },
+  {
+   "name": "Traxxas TRX-4",
+   "scale": "1:10",
+   "pattern": "trx[- ]?4(?![- ]?m\\b)",
+   "photo": "images/cars/traxxas-trx-4-885c60.jpg"
+  },
+  {
+   "name": "FMS FCX10",
+   "scale": "1:10",
+   "pattern": "fcx ?10",
+   "photo": "images/cars/fms-fcx10-d2ec3d.jpg"
+  },
+  {
+   "name": "Redcat Vertex-10",
+   "scale": "1:10",
+   "pattern": "vertex[- ]?10",
+   "photo": "images/cars/redcat-vertex-10-aa16bc.jpg"
+  },
+  {
+   "name": "RGT EX86100 series",
+   "scale": "1:10",
+   "pattern": "\\bex86\\d{3}\\b|\\bex136100\\b|\\brgt\\b",
+   "photo": "images/cars/rgt-ex86100-series-a5fb57.jpg"
+  },
+  {
+   "name": "JJRC C8815",
+   "scale": "1:10",
+   "pattern": "\\bc8815\\b",
+   "photo": "images/cars/jjrc-c8815-cda5fc.jpg"
+  },
+  {
+   "name": "WPL D12",
+   "scale": "1:10",
+   "pattern": "wpl ?d12|\\bd12\\b",
+   "photo": "images/cars/wpl-d12-a8307c.jpg"
+  },
+  {
+   "name": "Yikong YK4107",
+   "scale": "1:10",
+   "pattern": "yikong|\\byk ?41\\d\\d\\b",
+   "photo": "images/cars/yikong-yk4107-15c322.jpg"
+  },
+  {
+   "name": "MJX H8H / H8E",
+   "scale": "1:8",
+   "pattern": "\\bh8[he]\\b",
+   "photo": "images/cars/mjx-h8h-h8e-65f01e.jpg"
+  },
+  {
+   "name": "Rlaarlo 1/7",
+   "scale": "1:7",
+   "pattern": "rlaarlo|mk07",
+   "photo": "images/cars/rlaarlo-1-7-0f02e3.jpg"
+  }
+ ],
  "store_name": "RC Spares",
  "whatsapp": "919346631998",
  "delivery": "14–21",

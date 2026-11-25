@@ -1232,3 +1232,18 @@ a.fixc{text-decoration:none}
 .controls{grid-template-columns:minmax(220px,2fr) repeat(5,minmax(0,1fr))!important}
 .controls select[hidden]{display:none}
 @media (max-width:900px){.controls{grid-template-columns:1fr 1fr!important}}
+
+/* cart: count sits on the top-right of the cart icon */
+.cartbtn{gap:6px!important;padding:6px 10px!important}
+.cartbtn .cico{position:relative;display:inline-flex}
+.cartbtn .cico b{position:absolute!important;top:-7px;right:-9px;min-width:18px!important;height:18px;line-height:18px;padding:0 5px!important;
+  border-radius:999px;font-size:11px!important;font-weight:700;background:var(--acc)!important;color:#fff!important;text-align:center;box-shadow:0 0 0 2px var(--bg)}
+.cartbtn .lbl{margin-left:6px}
+/* car tiles under "Find parts for my car" */
+.cartiles{flex-basis:100%;display:flex;gap:10px;overflow-x:auto;padding:6px 2px 4px;scrollbar-width:thin}
+.ctile{flex:none;width:104px;display:flex;flex-direction:column;align-items:center;gap:6px;border:1.5px solid transparent;background:#fff;border-radius:12px;padding:8px 6px;cursor:pointer;font:inherit;color:var(--ink)}
+.ctile img,.ctile .cnoimg{width:84px;height:84px;border-radius:50%;object-fit:cover;background:var(--tint)}
+.ctile .cnoimg{background:var(--tint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232e5b5f' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 15v-3l2-5h11l3 5h2v3'/%3E%3Ccircle cx='7' cy='16.5' r='2.2'/%3E%3Ccircle cx='17' cy='16.5' r='2.2'/%3E%3C/svg%3E") center/52% no-repeat}
+.ctile span{font-size:12.5px;line-height:1.25;text-align:center;font-weight:500}
+.ctile:hover{border-color:rgba(46,91,95,.35)}
+.ctile.on{border-color:var(--acc);background:var(--tint)}

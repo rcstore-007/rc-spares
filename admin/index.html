@@ -96,6 +96,16 @@ textarea{resize:vertical;min-height:84px}
 .sg[aria-pressed="true"]{border:2px solid var(--green)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 #waitTab,#tab-wait{display:none!important}
+.cpHead{margin-bottom:6px}
+.cpNote{background:#eef3f2;border-left:3px solid #2e5b5f;border-radius:6px;padding:8px 10px;margin:6px 0 8px;font-size:14px;line-height:1.5}
+.cpNote.check{background:#fbf1e6;border-left-color:#b8732e}
+.cpGroup{display:flex;gap:8px;align-items:flex-start;margin:6px 0}
+.cpScale{flex:none;width:42px;font-size:12px;font-weight:700;color:#777;padding-top:5px}
+.cpSum{margin-top:6px}
+.btn.sm{padding:3px 9px;font-size:12px}
+.tag-check{display:inline-block;background:#fbf1e6;color:#8a5419;border-radius:999px;padding:1px 8px;font-size:11.5px;font-weight:700;margin-left:6px}
+.tag-auto{display:inline-block;background:#eef3f2;color:#2e5b5f;border-radius:999px;padding:1px 8px;font-size:11.5px;font-weight:700;margin-left:6px}
+
 </style>
 </head>
 <body>
@@ -162,6 +172,7 @@ textarea{resize:vertical;min-height:84px}
         <div id="vEd" style="margin-bottom:12px"></div>
         <label class="f">Brand<input type="text" id="fBrand"></label>
 <label class="f">Type<select id="fKind"><option value="">Auto (guess from name)</option><option>Replacement</option><option>Upgrade</option><option>Accessory</option></select></label>
+        <div class="f" id="cpEd"></div>
         <label class="f">Fits (cars or models)<input type="text" id="fFits"></label>
         <label class="f">Description<textarea id="fDesc" rows="4"></textarea></label>
         <label class="f"><span>Specs (one per line, like Current: 120A)</span><textarea id="fSpecs" rows="3"></textarea></label>
@@ -189,7 +200,7 @@ textarea{resize:vertical;min-height:84px}
 
     <div id="tab-list" hidden>
       <div class="card" style="padding:12px"><input type="text" id="listQ" placeholder="Search your parts" aria-label="Search your parts">
-        <div style="display:flex;gap:8px;margin-top:8px"><select id="listCat" aria-label="Category" style="flex:1;min-width:0"></select><select id="listScale" aria-label="Scale" style="flex:1;min-width:0"></select></div><select id="listSort" aria-label="Sort" style="width:100%;margin-top:8px"><option value="new">Latest added</option><option value="hi">Price: high to low</option><option value="lo">Price: low to high</option><option value="az">Name A–Z</option></select></div>
+        <div style="display:flex;gap:8px;margin-top:8px"><select id="listCat" aria-label="Category" style="flex:1;min-width:0"></select><select id="listScale" aria-label="Scale" style="flex:1;min-width:0"></select></div><select id="listFit" aria-label="Car fit" style="width:100%;margin-top:8px"><option value="">All car links</option><option value="check">To check</option><option value="auto">Guessed (new parts)</option></select><select id="listSort" aria-label="Sort" style="width:100%;margin-top:8px"><option value="new">Latest added</option><option value="hi">Price: high to low</option><option value="lo">Price: low to high</option><option value="az">Name A–Z</option></select></div>
       <div class="list" id="list"></div>
     </div>
   </section>
@@ -244,6 +255,7 @@ textarea{resize:vertical;min-height:84px}
     $('storeName').textContent=CFG.store_name||'Store';
     $('fCat').innerHTML='<option value="">Choose…</option>'+CATS.map(function(c){return '<option>'+esc(c)+'</option>';}).join('');
     resetForm();refreshList();
+    fetch('cars.json',{cache:'no-store'}).then(function(r){return r.json();}).then(function(cd){CP.setData(cd);renderList();}).catch(function(){});
   }
 
   /* ---------- GitHub ---------- */
@@ -526,12 +538,55 @@ textarea{resize:vertical;min-height:84px}
     };
   }
 
+  /* ---------- "Fits these cars" chooser (same on PC and phone) ---------- */
+  function CarPick(el){
+    var CD={cars:[],links:{}},sel=[],status='new',touched=false,own=null,info={};
+    function esc2(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+    function render(){
+      var groups={},order=[];
+      CD.cars.forEach(function(c){if(!groups[c.scale]){groups[c.scale]=[];order.push(c.scale);}groups[c.scale].push(c);});
+      order.sort(function(a,b){return parseFloat(b.split(':')[1])-parseFloat(a.split(':')[1]);});
+      var head='<div class="cpHead"><b>Fits these cars</b> <span class="hint">Tick every car this part is made for. Leave all unticked for a universal part (fits any car of the scales ticked above).</span></div>';
+      var note='';
+      if(status==='check'&&!touched)note='<div class="cpNote check"><b>Waiting for your check.</b> '+esc2(info.why||'Not sure which cars this fits.')+
+        (info.suggest&&info.suggest.length?'<br>Suggested: '+info.suggest.map(esc2).join(', ')+' <button type="button" class="btn plain sm" data-cpuse>Use suggestion</button>':'')+
+        '<br><span class="hint">Tick the right cars (or none for universal) and save. It then leaves the "To check" list.</span></div>';
+      else if(status==='auto'&&!touched&&sel.length)note='<div class="cpNote">Guessed from the name. Check the ticks are right.</div>';
+      var body=order.map(function(s){return '<div class="cpGroup"><span class="cpScale">'+esc2(s)+'</span><div class="chips sm">'+groups[s].map(function(c){
+        return '<button type="button" class="chip" data-car="'+esc2(c.name)+'" aria-pressed="'+(sel.indexOf(c.name)>=0)+'">'+esc2(c.name)+'</button>';}).join('')+'</div></div>';}).join('');
+      el.innerHTML=head+note+'<div class="cpBody">'+body+'</div><div class="hint cpSum">'+(sel.length?'Made for: '+sel.map(esc2).join(', '):'Universal part')+'</div>';
+    }
+    el.addEventListener('click',function(e){
+      var b=e.target.closest('[data-car]');
+      if(b){var n=b.getAttribute('data-car'),i=sel.indexOf(n);if(i>=0)sel.splice(i,1);else sel.push(n);touched=true;render();return;}
+      if(e.target.closest('[data-cpuse]')){sel=(info.suggest||[]).slice();touched=true;render();}
+    });
+    return {
+      setData:function(cd){CD=cd||CD;render();},
+      load:function(p){
+        info=(p&&CD.links[p.id])||{};own=p?{cars:p.cars,fit:p.fit}:null;
+        sel=(info.cars||[]).slice();status=p?(info.fit||'auto'):'new';touched=false;render();
+      },
+      reset:function(){sel=[];status='new';touched=false;own=null;info={};render();},
+      get:function(){
+        if(touched)return {cars:sel.slice(),fit:'ok'};
+        if(own&&own.fit)return {cars:own.cars||[],fit:own.fit};
+        return {cars:null,fit:null};
+      },
+      waiting:function(p){var l=CD.links[p.id];return !!(l&&l.fit==='check');},
+      guessed:function(p){var l=CD.links[p.id];return !!(l&&l.fit==='auto'&&l.cars&&l.cars.length);},
+      update:function(id,cars,fit){if(fit)CD.links[id]={cars:cars||[],fit:fit,suggest:[],why:''};},
+      data:function(){return CD;}
+    };
+  }
+
+  var CP=CarPick($('cpEd'));
   var VE=VarEditor($('vEd'),vePhotos,function(file){
     if(F.photos.length>=8)throw new Error('This part already has 8 photos. Remove one at the top first.');
     return shrink(file).then(function(p){F.photos.push(p);renderPhotos();return {ref:phRef(p),src:p.src};});
   });
   function resetForm(){
-    F={editing:null,pending:null,photos:[],scales:[],sugg:[]};VE.reset();
+    F={editing:null,pending:null,photos:[],scales:[],sugg:[]};VE.reset();CP.reset();
     $('suggBox').hidden=true;
     ['fName','fBrand','fPrice','fFits','fKind','fDesc','fSpecs'].forEach(function(id){$(id).value='';});
     $('fCat').value='';msg('aiMsg','',null);msg('formErr','',null);
@@ -546,7 +601,7 @@ textarea{resize:vertical;min-height:84px}
     $('fSpecs').value.split('\n').forEach(function(l){var i=l.indexOf(':');if(i>0){var k=l.slice(0,i).trim(),v=l.slice(i+1).trim();if(k&&v)specs[k.slice(0,40)]=v.slice(0,80);}});
     return {name:$('fName').value.trim().slice(0,90),brand:$('fBrand').value.trim().slice(0,40),category:$('fCat').value,
       price:parseInt(String($('fPrice').value).replace(/[^\d]/g,''),10)||0,scale:F.scales.slice(),fits:$('fFits').value.trim().slice(0,160),kind:$('fKind').value,
-      desc:$('fDesc').value.trim().slice(0,600),specs:specs,variants:VE.get()};
+      desc:$('fDesc').value.trim().slice(0,600),specs:specs,variants:VE.get(),cars:CP.get().cars,fit:CP.get().fit};
   }
   $('reviewBtn').addEventListener('click',function(){
     var d=collect(),err=[];
@@ -596,7 +651,7 @@ textarea{resize:vertical;min-height:84px}
         if(w&&w.idx!=null)o.img=w.idx;else if(w&&w.url){o.img=null;o.img_url=w.url;}else o.img=null;
       });}
       else delete d.variants;
-      Object.assign(p,d,{images:imgs,updated:today()});delete p.stock;if(!d.variants)delete p.variants;
+      Object.assign(p,d,{images:imgs,updated:today()});if(d.fit)CP.update(p.id,d.cars,d.fit);delete p.stock;if(!d.variants)delete p.variants;
       if(web.length){p.pending_images=web;p.pending_fallback=sugg.filter(function(u){return web.indexOf(u)<0;});}
       slugOut=p.slug;
       var out={products:list,add:add,del:old.filter(function(x){return imgs.indexOf(x)<0;})};
@@ -631,17 +686,18 @@ textarea{resize:vertical;min-height:84px}
       $('listCat').innerHTML='<option value="">All categories</option>'+CATS.map(function(x){return '<option>'+esc(x)+'</option>';}).join('');
       $('listScale').innerHTML='<option value="">All scales</option>'+SCALES.slice().reverse().map(function(x){return '<option value="'+x+'">'+x+' scale</option>';}).join('');
     }
-    var fc=$('listCat').value,fs=$('listScale').value;
-    var rows=PRODUCTS.filter(function(p){return (!q||(p.name+' '+(p.brand||'')+' '+p.category+' '+p.id).toLowerCase().indexOf(q)>=0)&&(!fc||p.category===fc)&&(!fs||(p.scale||[]).indexOf(fs)>=0);});
+    var fc=$('listCat').value,fs=$('listScale').value,ff=$('listFit').value;
+    var rows=PRODUCTS.filter(function(p){return (!q||(p.name+' '+(p.brand||'')+' '+p.category+' '+p.id).toLowerCase().indexOf(q)>=0)&&(!fc||p.category===fc)&&(!fs||(p.scale||[]).indexOf(fs)>=0)&&(!ff||(ff==='check'?CP.waiting(p):CP.guessed(p)));});
     rows=listSort(rows,$('listSort').value);
+    $('listFit').options[1].text='To check ('+PRODUCTS.filter(function(p){return CP.waiting(p);}).length+')';
     $('list').innerHTML=rows.length?rows.map(function(p){
       var img=p.images&&p.images.length&&CFG.site_url?'<img src="'+esc(CFG.site_url+p.images[0])+'" alt="" onerror="this.style.visibility=\'hidden\'">':'<div class="noimg">No photo</div>';
-      return '<div class="item">'+img+'<div><b>'+esc(p.name)+'</b><div class="meta">'+money(p.price)+' · '+esc(p.category)+' · '+esc((p.scale||[]).join(', '))+'</div></div>'+
+      return '<div class="item">'+img+'<div><b>'+esc(p.name)+'</b>'+(CP.waiting(p)?'<span class="tag-check">Check cars</span>':(CP.guessed(p)?'<span class="tag-auto">Cars guessed</span>':''))+'<div class="meta">'+money(p.price)+' · '+esc(p.category)+' · '+esc((p.scale||[]).join(', '))+'</div></div>'+
         '<div class="row"><button class="btn plain" data-edit="'+esc(p.id)+'">Edit</button><button class="btn danger" data-del="'+esc(p.id)+'">Remove</button></div></div>';
     }).join(''):'<div class="card hint">'+(PRODUCTS.length?'No parts match.':'No parts yet.')+'</div>';
   }
   $('listQ').addEventListener('input',renderList);
-  $('listCat').addEventListener('change',renderList);$('listScale').addEventListener('change',renderList);$('listSort').addEventListener('change',renderList);
+  $('listCat').addEventListener('change',renderList);$('listScale').addEventListener('change',renderList);$('listSort').addEventListener('change',renderList);$('listFit').addEventListener('change',renderList);
   $('list').addEventListener('click',function(e){
     var ed=e.target.closest('[data-edit]'),del=e.target.closest('[data-del]');
     if(ed)startEdit(ed.dataset.edit);
@@ -669,7 +725,7 @@ textarea{resize:vertical;min-height:84px}
     $('fSpecs').value=Object.keys(p.specs||{}).map(function(k){return k+': '+p.specs[k];}).join('\n');
     F.scales=(p.scale||[]).slice();
     F.photos=(p.images||[]).map(function(i){return {kind:'keep',path:i,src:(CFG.site_url||'../')+i};});
-    renderScales();renderPhotos();VE.load(p.variants,vePhotos());showTab('add');window.scrollTo(0,0);
+    renderScales();renderPhotos();VE.load(p.variants,vePhotos());CP.load(p);showTab('add');window.scrollTo(0,0);
   }
 
   /* ---------- waiting parts (from the Excel import on the computer) ---------- */

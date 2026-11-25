@@ -207,7 +207,7 @@ CAR_MODELS = [  # (shown name, scale, pattern, parent model for body versions)
     ("FMS FCX24 / FCX24M (Power Wagon, Smasher, K5, Lemur, Unimog)", "1:24", r"fcx ?24|smasher|lemur|unimog ?421", None),
     ("Redcat Ascent-32", "1:32", r"ascent[- ]?32", None),
     ("Axial SCX30", "1:30", r"scx ?30", None),
-    ("Traxxas TRX-4M", "1:18", r"trx[- ]?4 ?m", None),
+    ("Traxxas TRX-4M", "1:18", r"trx[- ]?4[- ]?m\b", None),
     ("FMS FCX18 / FCX18 II (LC80, Bronco, F-100, K10)", "1:18", r"fcx ?18", None),
     ("MJX H18P", "1:18", r"h18p", None),
     ("Redcat Ascent-18 / APEX", "1:18", r"ascent[- ]?18", None),
@@ -219,7 +219,7 @@ CAR_MODELS = [  # (shown name, scale, pattern, parent model for body versions)
     ("MN 1/12 series (MN82, MN99S, MN168…)", "1:12", r"\bmn ?(78|82|86|98|99|128|168)", None),
     ("MJX H12P / H12Y", "1:12", r"\bh12[py]\b", None),
     ("Axial SCX10", "1:10", r"scx ?10", None),
-    ("Traxxas TRX-4", "1:10", r"trx[- ]?4(?! ?m)", None),
+    ("Traxxas TRX-4", "1:10", r"trx[- ]?4(?![- ]?m\b)", None),
     ("FMS FCX10", "1:10", r"fcx ?10", None),
     ("Redcat Vertex-10", "1:10", r"vertex[- ]?10", None),
     ("RGT EX86100 series", "1:10", r"\bex86\d{3}\b|\bex136100\b|\brgt\b", None),
@@ -248,32 +248,96 @@ def part_kind(p):
     return "Replacement"
 
 
-def models_for(p):
-    """Car models a part is made for, read from its name, "Fits" line and description.
+# ---- cars: the list comes from Settings (so new cars can be added in the app), else the defaults above
+ACTIVE_CARS = []          # set by build_site
+CAR_LINKS = {}            # checked links for the catalogue (site_template/car_links.json)
+
+
+def default_cars():
+    return [{"name": m, "scale": sc, "pattern": pat, **({"parent": pa} if pa else {})} for m, sc, pat, pa in CAR_MODELS]
+
+
+def cars_list(settings):
+    cars = (settings or {}).get("cars")
+    return [c for c in cars if c.get("name") and c.get("scale")] if cars else default_cars()
+
+
+def _car_pattern(c):
+    if c.get("pattern"):
+        return c["pattern"]
+    words = [w.strip().lower() for w in re.split(r"[,\n]", c.get("words") or "") if w.strip()] + [c["name"].lower()]
+    return "|".join(re.escape(w).replace(r"\ ", r"[\s-]?").replace(r"\-", r"[\s-]?") for w in words)
+
+
+def load_car_links():
+    f = TEMPLATE / "car_links.json"
+    try:
+        return json.loads(f.read_text(encoding="utf-8")) if f.exists() else {}
+    except ValueError:
+        return {}
+
+
+def models_for(p, cars=None):
+    """Guess the cars a part is made for from its name, "Fits" line and description.
     Body versions (e.g. SCX24 Gladiator) count only when the parent model is named too."""
+    cars = cars or ACTIVE_CARS or default_cars()
     text = " ".join([p.get("name") or "", p.get("fits") or "", (p.get("desc") or "")[:400]]).lower()
-    found = [(m, parent) for m, sc, pat, parent in CAR_MODELS if re.search(pat, text)]
-    names = {m for m, parent in found}
-    out = []
-    for m, parent in found:
-        if parent and parent not in names:
-            continue          # e.g. "Bronco" alone is not an SCX24
-        out.append(m)
-    kids = {m for m, parent in found if parent and parent in names}
-    if kids:                  # a part for one body version is not "all versions"
-        out = [m for m in out if m not in {pa for _, _, _, pa in CAR_MODELS if pa} or not any(
-            pa == m for k in kids for mm, _, _, pa in CAR_MODELS if mm == k)]
-    return out
+    found = []
+    for c in cars:
+        try:
+            if re.search(_car_pattern(c), text):
+                found.append((c["name"], c.get("parent")))
+        except re.error:
+            continue
+    names = {m for m, pa in found}
+    out = [m for m, pa in found if not pa or pa in names]
+    kids = {pa for m, pa in found if pa and pa in names}
+    return [m for m in out if m not in kids]
+
+
+CAR_SPECIFIC_CATS = ("Gears & Drivetrain", "Shocks", "Tyres & Wheels", "Axles & Chassis")
+
+
+def car_link(p):
+    """(cars, status) for a part. status: ok = checked, check = waiting for the owner, auto = guessed for a new part.
+    The owner's own choice (saved on the part) wins, then the checked catalogue links, then a guess."""
+    known = {c["name"] for c in ACTIVE_CARS or default_cars()}
+    if p.get("fit") in ("ok", "check"):
+        return ([c for c in p.get("cars") or [] if c in known] if p["fit"] == "ok" else []), p["fit"]
+    l = CAR_LINKS.get(p.get("id"))
+    if l:
+        return ([c for c in l.get("cars") or [] if c in known] if l.get("fit") == "ok" else []), l.get("fit", "ok")
+    guess = models_for(p)
+    if guess:
+        return guess, "auto"
+    return [], ("check" if p.get("category") in CAR_SPECIFIC_CATS else "auto")
 
 
 def car_picker_models(products):
-    """Models that have at least one part, with their scale (and parent for body versions)."""
-    have = {m for p in products for m in models_for(p)}
+    """Cars that have at least one part, with scale, photo and parent (for body versions)."""
+    cars = ACTIVE_CARS or default_cars()
+    have = {m for p in products for m in car_link(p)[0]}
     out = []
-    for m, sc, pat, parent in CAR_MODELS:
-        if m in have or (parent and parent in have) or any(pa == m and k in have for k, _, _, pa in CAR_MODELS):
-            out.append({"name": m, "scale": sc, "parent": parent} if parent else {"name": m, "scale": sc})
+    for c in cars:
+        m, pa = c["name"], c.get("parent")
+        if m in have or (pa and pa in have) or any(k.get("parent") == m and k["name"] in have for k in cars):
+            d = {"name": m, "scale": c["scale"]}
+            if pa:
+                d["parent"] = pa
+            if c.get("photo"):
+                d["photo"] = c["photo"]
+            out.append(d)
     return out
+
+
+def admin_car_data(products):
+    """For the PC and phone admin: the car list and each part's links and status."""
+    links = {}
+    for p in products:
+        cars, st = car_link(p)
+        l = CAR_LINKS.get(p.get("id")) or {}
+        links[p["id"]] = {"cars": cars, "fit": st, "suggest": l.get("suggest") or models_for(p), "why": l.get("why", "")}
+    return {"cars": ACTIVE_CARS or default_cars(), "links": links}
 
 
 SIZE_KEYS = ("Wheel size", "Shock length", "Wheel hex")
@@ -362,7 +426,7 @@ def build_index(settings, products):
         fill(partial("footer"), settings, ""),
         fill(partial("cart"), settings, ""),
         f'<script id="store-settings" type="application/json">{json_block(pub)}</script>',
-        f'<script id="products" type="application/json">{json_block([dict(p, variants=clean_variants(p.get("variants"), len(p.get("images") or [])), models=models_for(p), kind=part_kind(p), sizes=sizes_for(p)) for p in products])}</script>',
+        f'<script id="products" type="application/json">{json_block([dict(p, variants=clean_variants(p.get("variants"), len(p.get("images") or [])), models=car_link(p)[0], kind=part_kind(p), sizes=sizes_for(p)) for p in products])}</script>',
         f'<script id="car-models" type="application/json">{json_block(car_picker_models(products))}</script>',
         f'<script src="assets/store.js?v={asset_v("store.js")}"></script>',
         '</body>',
@@ -552,7 +616,7 @@ def build_part(settings, p):
     rows += f'<tr><td>Part code</td><td>{esc(p["id"])}</td></tr>'
     rows += f'<tr><td>Shipping</td><td>Usually ships within {esc(pub["delivery"])} days</td></tr>'
 
-    mods = models_for(p)
+    mods = car_link(p)[0]
     wa_num = re.sub(r"\D", "", settings.get("whatsapp") or "")
     ask = ""
     if wa_num:
@@ -840,7 +904,7 @@ def build_sitemap(settings, products):
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "\n".join(urls) + "\n</urlset>\n")
 
 
-PUBLIC_KEYS = ("store_name", "whatsapp", "delivery", "delivery_days", "custom_domain", "site_url", "category_images", "bulk_note", "theme",
+PUBLIC_KEYS = ("cars", "store_name", "whatsapp", "delivery", "delivery_days", "custom_domain", "site_url", "category_images", "bulk_note", "theme",
                "legal_name", "address", "email", "grievance_name", "payment_modes", "returns_policy", "gstin")
 CATEGORY_DIR = "_categories"   # images/_categories/<file>.jpg
 
@@ -889,6 +953,9 @@ jobs:
 def build_site(site_dir, settings, products, tools=True, branch="main"):
     """Write every generated file into site_dir.
     tools=True also writes the builder, the GitHub workflow and the phone page (used by the PC app)."""
+    global ACTIVE_CARS, CAR_LINKS
+    ACTIVE_CARS = cars_list(settings)
+    CAR_LINKS = load_car_links()
     site = Path(site_dir)
     (site / "parts").mkdir(parents=True, exist_ok=True)
     (site / "images").mkdir(parents=True, exist_ok=True)
@@ -904,6 +971,8 @@ def build_site(site_dir, settings, products, tools=True, branch="main"):
     (site / "index.html").write_text(themed(build_index(settings, products), settings), encoding="utf-8")
     (site / "policies.html").write_text(build_policies(settings), encoding="utf-8")
     (site / "guides.html").write_text(build_guides(settings, products), encoding="utf-8")
+    (site / "admin").mkdir(exist_ok=True)
+    (site / "admin" / "cars.json").write_text(json.dumps(admin_car_data(products), ensure_ascii=False), encoding="utf-8")
 
     keep = set()
     for p in products:
@@ -917,7 +986,8 @@ def build_site(site_dir, settings, products, tools=True, branch="main"):
     # Remove photos no part (or category) uses any more
     used = {i for p in products for i in (p.get("images") or [])}
     used |= {v for v in (settings.get("category_images") or {}).values() if v}
-    live = {p["slug"] for p in products} | {CATEGORY_DIR}
+    used |= {c["photo"] for c in ACTIVE_CARS if c.get("photo")}
+    live = {p["slug"] for p in products} | {CATEGORY_DIR, "cars"}
     for d in (site / "images").iterdir():
         if d.is_dir() and d.name not in live:
             shutil.rmtree(d)

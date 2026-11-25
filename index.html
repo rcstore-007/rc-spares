@@ -15,7 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=1073e592">
+<link rel="stylesheet" href="assets/style.css?v=bc6d14ee">
 <script type="application/ld+json">{
  "@context": "https://schema.org",
  "@type": "Store",
@@ -36,7 +36,7 @@
       <a href="index.html#shop" data-nav="shop" class="shoplink" data-shopsearch><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Shop</a>
       <a href="guides.html" class="guidelink"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L3.5 17.3a1.8 1.8 0 0 0 2.5 2.5l5.8-5.8a4 4 0 0 0 5.2-5.4l-2.4 2.4-2.1-.5-.5-2.1z"/></svg><span class="gl-long">Fix &amp; upgrade</span><span class="gl-short">Fix</span></a>
     </div>
-    <button class="cartbtn" id="openCart"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 4h2l2.4 11h11l2-8H6.2"/><circle cx="9" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg><span class="lbl">Cart</span><b id="count">0</b></button>
+    <button class="cartbtn" id="openCart" aria-label="Cart"><span class="cico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11h11l2-8H6.2"/><circle cx="9" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg><b id="count">0</b></span><span class="lbl">Cart</span></button>
   </div>
 </nav>
 <div class="mscrim" id="menuScrim" hidden></div>
@@ -204,7 +204,7 @@
       <h1>All parts</h1>
       <div class="catrow shopcats" id="shopCats"></div>
       <p>Prices in ₹. Usually ships within 14–21 days.</p>
-      <div class="carbar"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 15v-3l2-5h11l3 5h2v3"/><circle cx="7" cy="16.5" r="2.2"/><circle cx="17" cy="16.5" r="2.2"/><path d="M9.2 16.5h5.6M5 12h14"/></svg><label for="carSel">Find parts for my car</label><select id="carSel"></select></div>
+      <div class="carbar"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 15v-3l2-5h11l3 5h2v3"/><circle cx="7" cy="16.5" r="2.2"/><circle cx="17" cy="16.5" r="2.2"/><path d="M9.2 16.5h5.6M5 12h14"/></svg><label for="carSel">Find parts for my car</label><select id="carSel"></select><div class="cartiles" id="carTiles"></div></div>
       <div class="controls">
         <label for="q" class="sr">Search parts</label>
         <input id="q" type="search" placeholder="Search parts, brands or cars">
@@ -2092,8 +2092,8 @@
   },
   "updated": "2026-11-20",
   "models": [
-   "Axial SCX24 (all versions)",
-   "Traxxas TRX-4"
+   "Traxxas TRX-4M",
+   "Axial SCX24 (all versions)"
   ],
   "kind": "Accessory",
   "sizes": {}
@@ -2218,10 +2218,7 @@
    ]
   },
   "updated": "2026-11-20",
-  "models": [
-   "Axial SCX10",
-   "Traxxas TRX-4"
-  ],
+  "models": [],
   "kind": "Accessory",
   "sizes": {}
  },
@@ -3421,7 +3418,11 @@
     }
    ]
   },
-  "models": [],
+  "models": [
+   "Axial SCX10",
+   "Traxxas TRX-4",
+   "FMS FCX10"
+  ],
   "kind": "Upgrade",
   "sizes": {
    "Wheel size": [
@@ -3473,7 +3474,11 @@
    ]
   },
   "updated": "2026-11-19",
-  "models": [],
+  "models": [
+   "Axial SCX10",
+   "Traxxas TRX-4",
+   "FMS FCX10"
+  ],
   "kind": "Upgrade",
   "sizes": {
    "Wheel size": [
@@ -3525,7 +3530,11 @@
    ]
   },
   "updated": "2026-11-19",
-  "models": [],
+  "models": [
+   "Axial SCX10",
+   "Traxxas TRX-4",
+   "FMS FCX10"
+  ],
   "kind": "Upgrade",
   "sizes": {
    "Wheel size": [
@@ -4655,7 +4664,11 @@
    ]
   },
   "updated": "2026-11-19",
-  "models": [],
+  "models": [
+   "Axial SCX10",
+   "Traxxas TRX-4",
+   "FMS FCX10"
+  ],
   "kind": "Upgrade",
   "sizes": {
    "Wheel size": [
@@ -6142,9 +6155,7 @@
   },
   "updated": "2026-11-18",
   "variants": null,
-  "models": [
-   "Rlaarlo 1/7"
-  ],
+  "models": [],
   "kind": "Upgrade",
   "sizes": {}
  },
@@ -6173,8 +6184,8 @@
   "updated": "2026-11-18",
   "variants": null,
   "models": [
-   "FMS FCX24 / FCX24M (Power Wagon, Smasher, K5, Lemur, Unimog)",
-   "FMS FCX18 / FCX18 II (LC80, Bronco, F-100, K10)"
+   "FMS FCX18 / FCX18 II (LC80, Bronco, F-100, K10)",
+   "FMS FCX24 / FCX24M (Power Wagon, Smasher, K5, Lemur, Unimog)"
   ],
   "kind": "Upgrade",
   "sizes": {}
@@ -6430,7 +6441,11 @@
     }
    ]
   },
-  "models": [],
+  "models": [
+   "Axial SCX10",
+   "Traxxas TRX-4",
+   "FMS FCX10"
+  ],
   "kind": "Upgrade",
   "sizes": {
    "Wheel size": [
@@ -6517,7 +6532,11 @@
   },
   "updated": "2026-11-18",
   "variants": null,
-  "models": [],
+  "models": [
+   "Axial SCX10",
+   "Traxxas TRX-4",
+   "FMS FCX10"
+  ],
   "kind": "Upgrade",
   "sizes": {
    "Wheel size": [
@@ -7911,7 +7930,11 @@
   },
   "updated": "2026-11-18",
   "variants": null,
-  "models": [],
+  "models": [
+   "Axial SCX10",
+   "Traxxas TRX-4",
+   "FMS FCX10"
+  ],
   "kind": "Replacement",
   "sizes": {
    "Wheel size": [
@@ -8325,7 +8348,11 @@
     }
    ]
   },
-  "models": [],
+  "models": [
+   "Axial SCX10",
+   "Traxxas TRX-4",
+   "FMS FCX10"
+  ],
   "kind": "Upgrade",
   "sizes": {
    "Wheel size": [
@@ -8358,9 +8385,9 @@
   "variants": null,
   "models": [
    "Axial SCX24 (all versions)",
-   "FMS FCX24 / FCX24M (Power Wagon, Smasher, K5, Lemur, Unimog)",
    "Traxxas TRX-4M",
    "FMS FCX18 / FCX18 II (LC80, Bronco, F-100, K10)",
+   "FMS FCX24 / FCX24M (Power Wagon, Smasher, K5, Lemur, Unimog)",
    "MJX H18P"
   ],
   "kind": "Replacement",
@@ -8396,9 +8423,9 @@
   "variants": null,
   "models": [
    "Axial SCX24 (all versions)",
-   "FMS FCX24 / FCX24M (Power Wagon, Smasher, K5, Lemur, Unimog)",
    "Traxxas TRX-4M",
    "FMS FCX18 / FCX18 II (LC80, Bronco, F-100, K10)",
+   "FMS FCX24 / FCX24M (Power Wagon, Smasher, K5, Lemur, Unimog)",
    "MJX H18P"
   ],
   "kind": "Replacement",
@@ -8437,9 +8464,9 @@
   "updated": "2026-11-18",
   "variants": null,
   "models": [
-   "FMS FCX24 / FCX24M (Power Wagon, Smasher, K5, Lemur, Unimog)",
    "Traxxas TRX-4M",
    "FMS FCX18 / FCX18 II (LC80, Bronco, F-100, K10)",
+   "FMS FCX24 / FCX24M (Power Wagon, Smasher, K5, Lemur, Unimog)",
    "MJX H18P"
   ],
   "kind": "Upgrade",
@@ -8449,59 +8476,72 @@
 <script id="car-models" type="application/json">[
  {
   "name": "Axial SCX24 (all versions)",
-  "scale": "1:24"
+  "scale": "1:24",
+  "photo": "images/cars/axial-scx24-all-versions-12f098.jpg"
  },
  {
   "name": "Axial SCX24 – C10 / JLU / Bronco / Deadbolt / Base Camp / 4Runner",
   "scale": "1:24",
-  "parent": "Axial SCX24 (all versions)"
+  "parent": "Axial SCX24 (all versions)",
+  "photo": "images/cars/axial-scx24-c10-jlu-bronco-deadbolt-base-camp-4runner-12f098.jpg"
  },
  {
   "name": "Axial SCX24 – Gladiator / Power Wagon / JT",
   "scale": "1:24",
-  "parent": "Axial SCX24 (all versions)"
+  "parent": "Axial SCX24 (all versions)",
+  "photo": "images/cars/axial-scx24-gladiator-power-wagon-jt-12f098.jpg"
  },
  {
   "name": "FMS FCX24 / FCX24M (Power Wagon, Smasher, K5, Lemur, Unimog)",
-  "scale": "1:24"
+  "scale": "1:24",
+  "photo": "images/cars/fms-fcx24-fcx24m-power-wagon-smasher-k5-lemur-unimog-7f8f8d.jpg"
  },
  {
   "name": "Axial SCX30",
-  "scale": "1:30"
+  "scale": "1:30",
+  "photo": "images/cars/axial-scx30-aa8494.jpg"
  },
  {
   "name": "Traxxas TRX-4M",
-  "scale": "1:18"
+  "scale": "1:18",
+  "photo": "images/cars/traxxas-trx-4m-bb201b.jpg"
  },
  {
   "name": "FMS FCX18 / FCX18 II (LC80, Bronco, F-100, K10)",
-  "scale": "1:18"
+  "scale": "1:18",
+  "photo": "images/cars/fms-fcx18-fcx18-ii-lc80-bronco-f-100-k10-0717a0.jpg"
  },
  {
   "name": "MJX H18P",
-  "scale": "1:18"
+  "scale": "1:18",
+  "photo": "images/cars/mjx-h18p-2fcc1e.jpg"
  },
  {
   "name": "MN 1/12 series (MN82, MN99S, MN168…)",
-  "scale": "1:12"
+  "scale": "1:12",
+  "photo": "images/cars/mn-1-12-series-mn82-mn99s-mn168-37725c.jpg"
  },
  {
   "name": "Axial SCX10",
-  "scale": "1:10"
+  "scale": "1:10",
+  "photo": "images/cars/axial-scx10-acd986.jpg"
  },
  {
   "name": "Traxxas TRX-4",
-  "scale": "1:10"
+  "scale": "1:10",
+  "photo": "images/cars/traxxas-trx-4-885c60.jpg"
  },
  {
   "name": "FMS FCX10",
-  "scale": "1:10"
+  "scale": "1:10",
+  "photo": "images/cars/fms-fcx10-d2ec3d.jpg"
  },
  {
   "name": "Rlaarlo 1/7",
-  "scale": "1:7"
+  "scale": "1:7",
+  "photo": "images/cars/rlaarlo-1-7-0f02e3.jpg"
  }
 ]</script>
-<script src="assets/store.js?v=45cb7915"></script>
+<script src="assets/store.js?v=93d1092f"></script>
 </body>
 </html>

@@ -1,0 +1,1057 @@
+{
+ "RC-0214": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0213": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0212": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0211": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0210": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0209": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0208": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0207": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0206": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0205": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0204": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0203": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0202": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0201": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0200": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0199": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0198": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0197": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0196": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0195": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0194": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0193": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0192": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0191": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0190": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0189": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0188": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0187": {
+  "cars": [
+   "MN 1/12 series (MN82, MN99S, MN168…)"
+  ],
+  "fit": "ok"
+ },
+ "RC-0186": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0185": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0184": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0183": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0182": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0181": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0180": {
+  "cars": [
+   "MN 1/12 series (MN82, MN99S, MN168…)"
+  ],
+  "fit": "ok"
+ },
+ "RC-0179": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0178": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0177": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0176": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0175": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0174": {
+  "cars": [
+   "Traxxas TRX-4M",
+   "Axial SCX24 (all versions)"
+  ],
+  "fit": "ok"
+ },
+ "RC-0173": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0172": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0171": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0170": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0169": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0168": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0167": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0166": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0165": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0164": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0163": {
+  "cars": [],
+  "fit": "check",
+  "suggest": [
+   "Axial SCX24 (all versions)",
+   "FMS FCX24 / FCX24M (Power Wagon, Smasher, K5, Lemur, Unimog)"
+  ],
+  "why": "Motor/ESC combo for 1/18–1/24: which cars does the motor mount fit?"
+ },
+ "RC-0162": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0161": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0160": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0159": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0158": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0157": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0156": {
+  "cars": [
+   "Axial SCX10",
+   "Traxxas TRX-4",
+   "FMS FCX10"
+  ],
+  "fit": "ok"
+ },
+ "RC-0155": {
+  "cars": [
+   "FMS FCX24 / FCX24M (Power Wagon, Smasher, K5, Lemur, Unimog)"
+  ],
+  "fit": "ok"
+ },
+ "RC-0154": {
+  "cars": [
+   "MN 1/12 series (MN82, MN99S, MN168…)"
+  ],
+  "fit": "ok"
+ },
+ "RC-0153": {
+  "cars": [
+   "Traxxas TRX-4M",
+   "FMS FCX18 / FCX18 II (LC80, Bronco, F-100, K10)"
+  ],
+  "fit": "ok"
+ },
+ "RC-0152": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0151": {
+  "cars": [
+   "Axial SCX30"
+  ],
+  "fit": "ok"
+ },
+ "RC-0150": {
+  "cars": [
+   "Axial SCX30"
+  ],
+  "fit": "ok"
+ },
+ "RC-0149": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0148": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0147": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0146": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0145": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0144": {
+  "cars": [
+   "Axial SCX10",
+   "Traxxas TRX-4",
+   "FMS FCX10"
+  ],
+  "fit": "ok"
+ },
+ "RC-0143": {
+  "cars": [
+   "Axial SCX10",
+   "Traxxas TRX-4",
+   "FMS FCX10"
+  ],
+  "fit": "ok"
+ },
+ "RC-0142": {
+  "cars": [
+   "Axial SCX10",
+   "Traxxas TRX-4",
+   "FMS FCX10"
+  ],
+  "fit": "ok"
+ },
+ "RC-0141": {
+  "cars": [
+   "Axial SCX10",
+   "Traxxas TRX-4",
+   "FMS FCX10"
+  ],
+  "fit": "ok"
+ },
+ "RC-0140": {
+  "cars": [
+   "Axial SCX10",
+   "Traxxas TRX-4",
+   "FMS FCX10"
+  ],
+  "fit": "ok"
+ },
+ "RC-0139": {
+  "cars": [
+   "Axial SCX10",
+   "Traxxas TRX-4",
+   "FMS FCX10"
+  ],
+  "fit": "ok"
+ },
+ "RC-0138": {
+  "cars": [
+   "Axial SCX10",
+   "Traxxas TRX-4",
+   "FMS FCX10"
+  ],
+  "fit": "ok"
+ },
+ "RC-0137": {
+  "cars": [
+   "Axial SCX10",
+   "Traxxas TRX-4",
+   "FMS FCX10"
+  ],
+  "fit": "ok"
+ },
+ "RC-0136": {
+  "cars": [
+   "Axial SCX10",
+   "Traxxas TRX-4",
+   "FMS FCX10"
+  ],
+  "fit": "ok"
+ },
+ "RC-0135": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0134": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0133": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0132": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0131": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0130": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0129": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0128": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0127": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0126": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0125": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0124": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0123": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0122": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0121": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0120": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0119": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0118": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0117": {
+  "cars": [
+   "Axial SCX10",
+   "Traxxas TRX-4",
+   "FMS FCX10"
+  ],
+  "fit": "ok"
+ },
+ "RC-0116": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0115": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0114": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0113": {
+  "cars": [
+   "Axial SCX30"
+  ],
+  "fit": "ok"
+ },
+ "RC-0112": {
+  "cars": [
+   "Axial SCX30"
+  ],
+  "fit": "ok"
+ },
+ "RC-0111": {
+  "cars": [
+   "Axial SCX30"
+  ],
+  "fit": "ok"
+ },
+ "RC-0110": {
+  "cars": [
+   "Axial SCX30"
+  ],
+  "fit": "ok"
+ },
+ "RC-0109": {
+  "cars": [
+   "Axial SCX30"
+  ],
+  "fit": "ok"
+ },
+ "RC-0108": {
+  "cars": [
+   "Axial SCX30"
+  ],
+  "fit": "ok"
+ },
+ "RC-0107": {
+  "cars": [
+   "Axial SCX30"
+  ],
+  "fit": "ok"
+ },
+ "RC-0106": {
+  "cars": [
+   "Axial SCX30"
+  ],
+  "fit": "ok"
+ },
+ "RC-0105": {
+  "cars": [
+   "Axial SCX30"
+  ],
+  "fit": "ok"
+ },
+ "RC-0104": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0103": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0102": {
+  "cars": [
+   "Axial SCX30"
+  ],
+  "fit": "ok"
+ },
+ "RC-0101": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0100": {
+  "cars": [
+   "MJX H18P"
+  ],
+  "fit": "ok"
+ },
+ "RC-0099": {
+  "cars": [
+   "MJX H18P"
+  ],
+  "fit": "ok"
+ },
+ "RC-0098": {
+  "cars": [
+   "MJX H18P"
+  ],
+  "fit": "ok"
+ },
+ "RC-0097": {
+  "cars": [
+   "MJX H18P"
+  ],
+  "fit": "ok"
+ },
+ "RC-0096": {
+  "cars": [
+   "MJX H18P"
+  ],
+  "fit": "ok"
+ },
+ "RC-0095": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0094": {
+  "cars": [
+   "MJX H18P"
+  ],
+  "fit": "ok"
+ },
+ "RC-0093": {
+  "cars": [
+   "MJX H18P"
+  ],
+  "fit": "ok"
+ },
+ "RC-0092": {
+  "cars": [
+   "MJX H18P"
+  ],
+  "fit": "ok"
+ },
+ "RC-0091": {
+  "cars": [
+   "Rlaarlo 1/7"
+  ],
+  "fit": "ok"
+ },
+ "RC-0090": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0089": {
+  "cars": [
+   "Rlaarlo 1/7"
+  ],
+  "fit": "ok"
+ },
+ "RC-0088": {
+  "cars": [
+   "Rlaarlo 1/7"
+  ],
+  "fit": "ok"
+ },
+ "RC-0087": {
+  "cars": [
+   "Rlaarlo 1/7"
+  ],
+  "fit": "ok"
+ },
+ "RC-0086": {
+  "cars": [
+   "MN 1/12 series (MN82, MN99S, MN168…)"
+  ],
+  "fit": "ok"
+ },
+ "RC-0085": {
+  "cars": [
+   "Axial SCX30"
+  ],
+  "fit": "ok"
+ },
+ "RC-0084": {
+  "cars": [
+   "Axial SCX30"
+  ],
+  "fit": "ok"
+ },
+ "RC-0083": {
+  "cars": [
+   "Axial SCX30"
+  ],
+  "fit": "ok"
+ },
+ "RC-0082": {
+  "cars": [
+   "Axial SCX30"
+  ],
+  "fit": "ok"
+ },
+ "RC-0081": {
+  "cars": [
+   "Axial SCX30"
+  ],
+  "fit": "ok"
+ },
+ "RC-0080": {
+  "cars": [],
+  "fit": "check",
+  "suggest": [],
+  "why": "Rlaarlo 11kg servo: which Rlaarlo models?"
+ },
+ "RC-0079": {
+  "cars": [
+   "FMS FCX18 / FCX18 II (LC80, Bronco, F-100, K10)",
+   "FMS FCX24 / FCX24M (Power Wagon, Smasher, K5, Lemur, Unimog)"
+  ],
+  "fit": "ok"
+ },
+ "RC-0078": {
+  "cars": [
+   "FMS FCX18 / FCX18 II (LC80, Bronco, F-100, K10)"
+  ],
+  "fit": "ok"
+ },
+ "RC-0077": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0076": {
+  "cars": [
+   "MJX H18P"
+  ],
+  "fit": "ok"
+ },
+ "RC-0074": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0072": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0071": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0069": {
+  "cars": [
+   "Axial SCX30"
+  ],
+  "fit": "ok"
+ },
+ "RC-0068": {
+  "cars": [
+   "Axial SCX10",
+   "Traxxas TRX-4",
+   "FMS FCX10"
+  ],
+  "fit": "ok"
+ },
+ "RC-0067": {
+  "cars": [
+   "Axial SCX30"
+  ],
+  "fit": "ok"
+ },
+ "RC-0066": {
+  "cars": [
+   "Rlaarlo 1/7"
+  ],
+  "fit": "ok"
+ },
+ "RC-0065": {
+  "cars": [
+   "Axial SCX10",
+   "Traxxas TRX-4",
+   "FMS FCX10"
+  ],
+  "fit": "ok"
+ },
+ "RC-0064": {
+  "cars": [
+   "Axial SCX10",
+   "Traxxas TRX-4",
+   "FMS FCX10"
+  ],
+  "fit": "ok"
+ },
+ "RC-0063": {
+  "cars": [],
+  "fit": "check",
+  "suggest": [
+   "MJX H12P / H12Y"
+  ],
+  "why": "MJX 1/12 diff housing: H12P/H12Y or other MJX 1/12 models?"
+ },
+ "RC-0061": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0060": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0059": {
+  "cars": [],
+  "fit": "check",
+  "suggest": [],
+  "why": "70mm shocks: listing says 1/10 but scale is 1/18–1/12. Which cars?"
+ },
+ "RC-0058": {
+  "cars": [],
+  "fit": "check",
+  "suggest": [
+   "Rlaarlo 1/7"
+  ],
+  "why": "2.6 inch wheels for 1/7: which 1/7 cars (Rlaarlo, others)?"
+ },
+ "RC-0057": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0056": {
+  "cars": [
+   "Axial SCX10",
+   "Traxxas TRX-4",
+   "FMS FCX10"
+  ],
+  "fit": "ok"
+ },
+ "RC-0055": {
+  "cars": [
+   "Axial SCX10",
+   "Traxxas TRX-4",
+   "FMS FCX10"
+  ],
+  "fit": "ok"
+ },
+ "RC-0054": {
+  "cars": [],
+  "fit": "check",
+  "suggest": [
+   "FMS FCX18 / FCX18 II (LC80, Bronco, F-100, K10)",
+   "MJX H18P"
+  ],
+  "why": "1.3 inch wheels: which 1/18 cars use 1.3 inch wheels?"
+ },
+ "RC-0053": {
+  "cars": [],
+  "fit": "check",
+  "suggest": [
+   "FMS FCX18 / FCX18 II (LC80, Bronco, F-100, K10)",
+   "MJX H18P"
+  ],
+  "why": "1.3 inch tyres: which 1/18 cars use 1.3 inch wheels?"
+ },
+ "RC-0052": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0051": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0049": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0048": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0047": {
+  "cars": [
+   "MJX H18P"
+  ],
+  "fit": "ok"
+ },
+ "RC-0046": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0045": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0044": {
+  "cars": [
+   "MJX H18P"
+  ],
+  "fit": "ok"
+ },
+ "RC-0043": {
+  "cars": [
+   "MJX H18P"
+  ],
+  "fit": "ok"
+ },
+ "RC-0042": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0041": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0040": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0039": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0038": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0037": {
+  "cars": [
+   "MJX H18P"
+  ],
+  "fit": "ok"
+ },
+ "RC-0036": {
+  "cars": [
+   "MJX H18P"
+  ],
+  "fit": "ok"
+ },
+ "RC-0035": {
+  "cars": [],
+  "fit": "check",
+  "suggest": [],
+  "why": "MJX 43308 battery: which MJX models use it?"
+ },
+ "RC-0034": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0033": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0032": {
+  "cars": [
+   "MJX H18P"
+  ],
+  "fit": "ok"
+ },
+ "RC-0031": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0030": {
+  "cars": [],
+  "fit": "check",
+  "suggest": [
+   "Axial SCX24 (all versions)",
+   "FMS FCX24 / FCX24M (Power Wagon, Smasher, K5, Lemur, Unimog)"
+  ],
+  "why": "5mm to 7mm hex adapter: which cars have 5mm axles?"
+ },
+ "RC-0028": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0027": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0026": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0025": {
+  "cars": [
+   "FMS FCX18 / FCX18 II (LC80, Bronco, F-100, K10)"
+  ],
+  "fit": "ok"
+ },
+ "RC-0023": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0021": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0019": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0018": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0017": {
+  "cars": [],
+  "fit": "check",
+  "suggest": [
+   "FMS FCX18 / FCX18 II (LC80, Bronco, F-100, K10)",
+   "MJX H18P"
+  ],
+  "why": "1.3 inch tyres: which 1/18 cars use 1.3 inch wheels?"
+ },
+ "RC-0016": {
+  "cars": [
+   "Axial SCX10",
+   "Traxxas TRX-4",
+   "FMS FCX10"
+  ],
+  "fit": "ok"
+ },
+ "RC-0015": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0014": {
+  "cars": [
+   "Axial SCX10",
+   "Traxxas TRX-4",
+   "FMS FCX10"
+  ],
+  "fit": "ok"
+ },
+ "RC-0013": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0012": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0011": {
+  "cars": [
+   "Rlaarlo 1/7"
+  ],
+  "fit": "ok"
+ },
+ "RC-0010": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0009": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0008": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0007": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0006": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0005": {
+  "cars": [],
+  "fit": "ok"
+ },
+ "RC-0004": {
+  "cars": [
+   "Axial SCX10",
+   "Traxxas TRX-4",
+   "FMS FCX10"
+  ],
+  "fit": "ok"
+ },
+ "RC-0003": {
+  "cars": [
+   "Axial SCX24 (all versions)",
+   "Traxxas TRX-4M",
+   "FMS FCX18 / FCX18 II (LC80, Bronco, F-100, K10)",
+   "FMS FCX24 / FCX24M (Power Wagon, Smasher, K5, Lemur, Unimog)",
+   "MJX H18P"
+  ],
+  "fit": "ok"
+ },
+ "RC-0002": {
+  "cars": [
+   "Axial SCX24 (all versions)",
+   "Traxxas TRX-4M",
+   "FMS FCX18 / FCX18 II (LC80, Bronco, F-100, K10)",
+   "FMS FCX24 / FCX24M (Power Wagon, Smasher, K5, Lemur, Unimog)",
+   "MJX H18P"
+  ],
+  "fit": "ok"
+ },
+ "RC-0001": {
+  "cars": [
+   "Traxxas TRX-4M",
+   "FMS FCX18 / FCX18 II (LC80, Bronco, F-100, K10)",
+   "FMS FCX24 / FCX24M (Power Wagon, Smasher, K5, Lemur, Unimog)",
+   "MJX H18P"
+  ],
+  "fit": "ok"
+ }
+}
