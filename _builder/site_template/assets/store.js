@@ -195,9 +195,9 @@
   }
   function carOK(p){
     if(!state.car)return true;
-    if(madeFor(p))return true;
-    return !(p.models&&p.models.length)&&(p.scale||[]).indexOf(carScale())>=0;
+    return madeFor(p)||(p.scale||[]).indexOf(carScale())>=0;   // the car's own parts, then anything in its scale
   }
+  function setCar(n){state.car=n||'';state.scale=state.car?(carScale()||'All'):'All';}
   function carOptions(sel,blank){
     var groups={};CARS.forEach(function(c){(groups[c.scale]=groups[c.scale]||[]).push(c);});
     var o='<option value="">'+blank+'</option>';
@@ -212,7 +212,7 @@
     if(!carOK(p))return false;
     if(ignore!=='size'&&!sizeOK(p))return false;
     if(ignore!=='cat'&&state.cat!=='All'&&p.category!==state.cat)return false;
-    if(ignore!=='scale'&&state.scale!=='All'&&(p.scale||[]).indexOf(state.scale)<0)return false;
+    if(ignore!=='scale'&&!state.car&&state.scale!=='All'&&(p.scale||[]).indexOf(state.scale)<0)return false;
     if(state.brand!=='All'&&p.brand!==state.brand)return false;
     var q=state.q.trim().toLowerCase();
     if(q){var h=(p.name+' '+p.brand+' '+p.fits+' '+(p.models||[]).join(' ')+' '+(p.kind||'')+' '+p.category+' '+(p.scale||[]).join(' ')+' '+p.id).toLowerCase();if(!q.split(/\s+/).every(function(w){return h.indexOf(w)>=0;}))return false;}
@@ -224,7 +224,8 @@
       var n=P.filter(function(p){return match(p,'cat')&&(c==='All'||p.category===c);}).length;
       return '<option value="'+esc(c)+'"'+(state.cat===c?' selected':'')+'>'+(c==='All'?'All categories':esc(c))+'</option>';
     }).join('');
-    $('scaleSel').innerHTML=['All'].concat(SCALES).map(function(s){
+    var SC=SCALES.slice();if(state.scale!=='All'&&SC.indexOf(state.scale)<0)SC.push(state.scale);
+    $('scaleSel').innerHTML=['All'].concat(SC).map(function(s){
       var n=P.filter(function(p){return match(p,'scale')&&(s==='All'||(p.scale||[]).indexOf(s)>=0);}).length;
       return '<option value="'+s+'"'+(state.scale===s?' selected':'')+'>'+(s==='All'?'All scales':s+' scale')+'</option>';
     }).join('');
@@ -259,18 +260,18 @@
         qw.forEach(function(w){var k=stem(w);sc+=n.indexOf(k)>=0?3:(b.indexOf(k)>=0?1:0);});return sc;};
       l=l.map(function(p,i){return [score(p),i,p];}).sort(function(a,b){return b[0]-a[0]||a[1]-b[1];}).map(function(x){return x[2];});
     }
-    var bits=[];if(state.cat!=='All')bits.push(state.cat);if(state.scale!=='All')bits.push(state.scale+' scale');if(state.size)bits.push(state.size.split('|')[1]+(state.size.indexOf('hex')>=0?' hex':''));
-    var mine=[],uni=[];
-    if(state.car){l.forEach(function(p){(madeFor(p)?mine:uni).push(p);});l=mine.concat(uni);}
-    $('countLine').textContent=state.car?(mine.length+' made for '+state.car+' · '+uni.length+' universal '+carScale()+' parts'+(bits.length?' · '+bits.join(' · '):''))
-      :l.length+(l.length===1?' part':' parts')+(bits.length?' · '+bits.join(' · '):'');
+    var bits=[];if(state.car)bits.push(state.car);if(state.cat!=='All')bits.push(state.cat);if(state.scale!=='All')bits.push(state.scale+' scale');
+    var mine=[],uni=[],other=[];
+    if(state.car){l.forEach(function(p){if(madeFor(p))mine.push(p);else if(p.models&&p.models.length)other.push(p);else uni.push(p);});l=mine.concat(uni,other);}
+    $('countLine').textContent=bits.length?bits.join(' · '):'All parts';
     $('clearF').hidden=!(state.cat!=='All'||state.scale!=='All'||state.brand!=='All'||state.q||state.car||state.size);
     var rc='<div class="reqcard"><h3>Need a part that isn\'t here?</h3><p>We source parts on request for any brand and scale. Tell us what you need and we\'ll quote before you pay.</p><a href="'+ROOT+'index.html#request">Request a part</a></div>';
     setTimeout(reveal,0);
     if(state.car&&l.length){
       var dv='<div class="cardiv"><b>Universal '+carScale()+' parts</b><span>These suit most '+carScale()+' models. Check the size and mounting, or send us a photo of your car on WhatsApp.</span></div>';
-      if(!mine.length)dv=dv.replace('class="cardiv"','class="cardiv first"');
-      $('grid').innerHTML=mine.map(card).join('')+(uni.length?dv+uni.map(card).join(''):'')+rc;
+      var dv2='<div class="cardiv"><b>Other '+carScale()+' parts</b><span>Made for other '+carScale()+' cars. Check they fit yours before ordering, or ask us on WhatsApp.</span></div>';
+      var html=mine.map(card).join('')+(uni.length?dv+uni.map(card).join(''):'')+(other.length?dv2+other.map(card).join(''):'');
+      $('grid').innerHTML=html.replace(/^<div class="cardiv">/,'<div class="cardiv first">')+rc;
       return;
     }
     $('grid').innerHTML=l.length?l.map(card).join('')+rc:'<div class="empty">'+(P.length?'No parts match these filters right now.':'New parts are being added.')+' We can source parts on request, so tell us what you need.</div>'+rc;
@@ -517,13 +518,13 @@
     $('q').addEventListener('input',function(e){state.q=e.target.value;refresh();});
     $('brandSel').addEventListener('change',function(e){state.brand=e.target.value;refresh();});
     $('catSel').addEventListener('change',function(e){state.cat=e.target.value;refresh();});
-    $('scaleSel').addEventListener('change',function(e){state.scale=e.target.value;refresh();});
+    $('scaleSel').addEventListener('change',function(e){state.scale=e.target.value;if(state.car&&state.scale!==carScale())state.car='';refresh();});
     if($('sizeSel'))$('sizeSel').addEventListener('change',function(e){state.size=e.target.value;refresh();});
     function showTiles(on){if(!$('carTiles'))return;$('carTiles').hidden=!on;$('carMore').setAttribute('aria-expanded',on);$('carMore').textContent=on?'Hide cars':'See all cars';}
     if($('carMore'))$('carMore').addEventListener('click',function(){showTiles($('carTiles').hidden);});
-    if($('carTiles'))$('carTiles').addEventListener('click',function(e){var b=e.target.closest('[data-car]');if(!b)return;var n=b.getAttribute('data-car');state.car=(state.car===n?'':n);if(state.car)state.scale='All';showTiles(false);refresh();});
-    if($('carSel'))$('carSel').addEventListener('change',function(e){state.car=e.target.value;if(state.car)state.scale='All';refresh();});
-    if($('hCarSel')){carOptions($('hCarSel'),'Choose your car');$('hCarSel').addEventListener('change',function(e){if(!e.target.value)return;state.car=e.target.value;state.scale='All';state.cat='All';goShop();e.target.value='';});}
+    if($('carTiles'))$('carTiles').addEventListener('click',function(e){var b=e.target.closest('[data-car]');if(!b)return;var n=b.getAttribute('data-car');setCar(state.car===n?'':n);showTiles(false);refresh();});
+    if($('carSel'))$('carSel').addEventListener('change',function(e){setCar(e.target.value);refresh();});
+    if($('hCarSel')){carOptions($('hCarSel'),'Choose your car');$('hCarSel').addEventListener('change',function(e){if(!e.target.value)return;setCar(e.target.value);state.cat='All';goShop();e.target.value='';});}
     $('sortSel').addEventListener('change',function(e){state.sort=e.target.value;renderGrid();});
     $('clearF').addEventListener('click',function(){state={cat:'All',scale:'All',brand:'All',q:'',sort:state.sort,car:'',size:''};$('q').value='';refresh();});
     ['rqPart','rqCar'].forEach(function(id){$(id).addEventListener('input',renderReq);});
@@ -532,7 +533,7 @@
     $('dAdd').addEventListener('click',function(e){if(cur)add(cur,e.currentTarget);});
     dlg.addEventListener('click',function(e){if(e.target===dlg)closeAll();});
     window.addEventListener('hashchange',route);
-    try{var qcar=new URLSearchParams(location.search).get('car');if(qcar&&CARS.some(function(c){return c.name===qcar;})){state.car=qcar;history.replaceState(null,'',location.pathname+location.hash);}}catch(e){}
+    try{var qcar=new URLSearchParams(location.search).get('car');if(qcar&&CARS.some(function(c){return c.name===qcar;})){setCar(qcar);history.replaceState(null,'',location.pathname+location.hash);}}catch(e){}
     try{var qc=new URLSearchParams(location.search).get('cat');if(qc&&CATS.indexOf(qc)>=0){state.cat=qc;state.scale='All';history.replaceState(null,'',location.pathname+location.hash);}}catch(e){}
     renderHome();refresh();renderReq();renderCart();route();reveal();tintAll();
     try{if(sessionStorage.getItem('rc-focus')){sessionStorage.removeItem('rc-focus');focusSearch();}}catch(e){}
