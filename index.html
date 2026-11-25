@@ -14,8 +14,8 @@
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/style.css?v=3e6204ad">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css?v=3bc4f24a">
 <script type="application/ld+json">{
  "@context": "https://schema.org",
  "@type": "Store",
@@ -96,7 +96,7 @@
   <section class="block fix" id="fix">
     <div class="wrap">
       <div class="head"><h2>Common problems, and how to handle them</h2><p class="sub">New to RC? These are the issues most beginners run into. Each one covers the usual cause, what to check first, and the parts that fix it.</p></div>
-      <div class="fixgrid"><a class="fixc" href="guides.html#g-stripped-gears"><span class="ft"><b>Stripped or grinding gears</b><small>Usually incorrect gear mesh or a fully locked slipper clutch.</small></span><span class="fa" aria-hidden="true">→</span></a><a class="fixc" href="guides.html#g-bottoming-out"><span class="ft"><b>Bottoming out on jumps</b><small>Shock oil too thin for the heat, or springs too soft for the weight.</small></span><span class="fa" aria-hidden="true">→</span></a><a class="fixc" href="guides.html#g-weak-steering"><span class="ft"><b>Weak or slow steering</b><small>Check dual rate and endpoints, then binding, then servo torque.</small></span><span class="fa" aria-hidden="true">→</span></a><a class="fixc" href="guides.html#g-short-run-time"><span class="ft"><b>Short run time</b><small>Ageing LiPo cells, voltage sag tripping the cutoff, or drivetrain drag.</small></span><span class="fa" aria-hidden="true">→</span></a><a class="fixc" href="guides.html#g-no-grip"><span class="ft"><b>Sliding, no grip</b><small>Tread or compound wrong for the surface, or tired foam inserts.</small></span><span class="fa" aria-hidden="true">→</span></a><a class="fixc" href="guides.html#g-not-fast"><span class="ft"><b>Not fast enough</b><small>A throttle limit left on, an uncalibrated ESC, or conservative gearing.</small></span><span class="fa" aria-hidden="true">→</span></a><a class="fixc" href="guides.html#g-stuck-on-trail"><span class="ft"><b>Stuck on the trail</b><small>Weight sitting too high or too far back, or tyres too hard for rock.</small></span><span class="fa" aria-hidden="true">→</span></a><a class="fixc" href="guides.html#g-signal-dropouts"><span class="ft"><b>Signal dropouts</b><small>Antenna placement, interference from power wiring, or a servo brownout.</small></span><span class="fa" aria-hidden="true">→</span></a><a class="fixc" href="guides.html#g-lights"><span class="ft"><b>Lights dim or flickering</b><small>12V lights running off a 5–6V receiver port, or loose pins.</small></span><span class="fa" aria-hidden="true">→</span></a><a class="fixc" href="guides.html#g-overheating"><span class="ft"><b>Motor or ESC overheating</b><small>Pinion too large, drag in the drivetrain, or summer heat.</small></span><span class="fa" aria-hidden="true">→</span></a><a class="fixc" href="guides.html#g-esc-blinking"><span class="ft"><b>ESC blinking, no drive</b><small>Usually a protection mode: low voltage, heat or calibration.</small></span><span class="fa" aria-hidden="true">→</span></a><a class="fixc" href="guides.html#g-wheel-wobble"><span class="ft"><b>Wheel wobble</b><small>A loose nut, a rounded wheel hex or a bent axle.</small></span><span class="fa" aria-hidden="true">→</span></a></div>
+      <div class="fixgrid"><a class="fixc" href="guides.html#g-stripped-gears"><span class="fxcode">01 · Drivetrain</span><b>Stripped or grinding gears</b><small>Usually incorrect gear mesh or a fully locked slipper clutch.</small><span class="fxfirst"><em>First check</em>Gear mesh, using the paper-strip test.</span><span class="fa" aria-hidden="true">→</span></a><a class="fixc" href="guides.html#g-bottoming-out"><span class="fxcode">02 · Suspension</span><b>Bottoming out on jumps</b><small>Shock oil too thin for the heat, or springs too soft for the weight.</small><span class="fxfirst"><em>First check</em>Oil level and thickness (cSt) in each shock.</span><span class="fa" aria-hidden="true">→</span></a><a class="fixc" href="guides.html#g-weak-steering"><span class="fxcode">03 · Steering</span><b>Weak or slow steering</b><small>Dual rate turned down, binding in the linkage, or a servo short on torque.</small><span class="fxfirst"><em>First check</em>The D/R knob on your transmitter, then binding.</span><span class="fa" aria-hidden="true">→</span></a><a class="fixc" href="guides.html#g-short-run-time"><span class="fxcode">04 · Battery</span><b>Short run time</b><small>Ageing LiPo cells, voltage sag tripping the cutoff, or drivetrain drag.</small><span class="fxfirst"><em>First check</em>Each cell&#x27;s voltage after a full charge.</span><span class="fa" aria-hidden="true">→</span></a><a class="fixc" href="guides.html#g-no-grip"><span class="fxcode">05 · Tyres</span><b>Sliding, no grip</b><small>Tread or compound wrong for the surface, or tired foam inserts.</small><span class="fxfirst"><em>First check</em>Tread and compound for your surface; clean rubber.</span><span class="fa" aria-hidden="true">→</span></a><a class="fixc" href="guides.html#g-not-fast"><span class="fxcode">06 · Power</span><b>Not fast enough</b><small>A throttle limit left on, an uncalibrated ESC, or conservative gearing.</small><span class="fxfirst"><em>First check</em>Throttle limit switch and ESC calibration.</span><span class="fa" aria-hidden="true">→</span></a><a class="fixc" href="guides.html#g-stuck-on-trail"><span class="fxcode">07 · Crawling</span><b>Stuck on the trail</b><small>Weight sitting too high or too far back, or tyres too hard for rock.</small><span class="fxfirst"><em>First check</em>Weight placement: low and towards the front.</span><span class="fa" aria-hidden="true">→</span></a><a class="fixc" href="guides.html#g-signal-dropouts"><span class="fxcode">08 · Radio</span><b>Signal dropouts</b><small>Antenna placement, interference from power wiring, or a servo brownout.</small><span class="fxfirst"><em>First check</em>Transmitter batteries and antenna routing.</span><span class="fa" aria-hidden="true">→</span></a><a class="fixc" href="guides.html#g-lights"><span class="fxcode">09 · Lighting</span><b>Lights dim or flickering</b><small>12V lights running off a 5–6V receiver port, or loose pins.</small><span class="fxfirst"><em>First check</em>The light&#x27;s voltage against the port powering it.</span><span class="fa" aria-hidden="true">→</span></a><a class="fixc" href="guides.html#g-overheating"><span class="fxcode">10 · Thermal</span><b>Motor or ESC overheating</b><small>Pinion too large, drag in the drivetrain, or summer heat.</small><span class="fxfirst"><em>First check</em>Pinion size: drop one or two teeth.</span><span class="fa" aria-hidden="true">→</span></a><a class="fixc" href="guides.html#g-esc-blinking"><span class="fxcode">11 · Electronics</span><b>ESC blinking, no drive</b><small>Usually a protection mode: low voltage, heat or calibration.</small><span class="fxfirst"><em>First check</em>Battery charge and the cutoff setting for its type.</span><span class="fa" aria-hidden="true">→</span></a><a class="fixc" href="guides.html#g-wheel-wobble"><span class="fxcode">12 · Wheels</span><b>Wheel wobble</b><small>A loose nut, a rounded wheel hex or a bent axle.</small><span class="fxfirst"><em>First check</em>The wheel nut, then the hex for rounded corners.</span><span class="fa" aria-hidden="true">→</span></a></div>
       <a class="fixall" href="guides.html">All common problems, upgrades and care →</a>
     </div>
   </section>
@@ -110,19 +110,22 @@
         <div class="stg">
           <div class="sn">First</div>
           <h3>The foundation</h3>
-          <p>A balance charger and a spare pack, proper hex drivers, tyres matched to your terrain, and a metal-gear servo with enough torque for them. Small spends that improve every run.</p>
+          <p>Small spends that improve every run, before any power upgrade.</p>
+          <ul class="stitems"><li>Balance charger and a spare pack</li><li>Proper hex drivers (1.5 / 2.0 / 2.5 mm)</li><li>Tyres matched to your terrain</li><li>Metal-gear servo with enough torque</li></ul>
           <div class="sl"><a href="index.html#shop" data-go-cat="Batteries & Chargers">Batteries &amp; chargers</a> · <a href="index.html#shop" data-go-cat="Tyres & Wheels">Tyres</a> · <a href="index.html#shop" data-go-cat="Servos">Servos</a> · <a href="index.html#shop" data-go-cat="Tools & Accessories">Tools</a></div>
         </div>
         <div class="stg">
           <div class="sn">Next</div>
           <h3>Reliability</h3>
-          <p>Sealed bearings, metal driveshafts and hardened gears, then upgrade whatever breaks first. Keep plastic suspension arms and bumpers: they flex on impact and protect the costlier parts behind them.</p>
+          <p>Then upgrade whatever breaks first. Keep plastic arms and bumpers: they flex and protect costlier parts.</p>
+          <ul class="stitems"><li>Rubber-sealed (2RS) bearings</li><li>Metal driveshafts</li><li>Hardened steel gears</li><li>Fresh shock oil and seals</li></ul>
           <div class="sl"><a href="index.html#shop" data-go-cat="Gears & Drivetrain">Gears &amp; drivetrain</a> · <a href="index.html#shop" data-go-cat="Shocks">Shocks</a></div>
         </div>
         <div class="stg">
           <div class="sn">Then</div>
           <h3>Power</h3>
-          <p>A matched brushless motor and ESC. Run it on 2S first, step up only once the drivetrain holds, and drop a tooth or two on the pinion whenever you add cells.</p>
+          <p>Only once the drivetrain holds. Start on 2S and gear down when you add cells.</p>
+          <ul class="stitems"><li>Matched brushless motor + ESC combo</li><li>2S, then 3S LiPo packs</li><li>Pinion one or two teeth smaller per step up</li><li>Motor cooling fan</li></ul>
           <div class="sl"><a href="index.html#shop" data-go-cat="Motors & ESCs">Motors &amp; ESCs</a> · <a href="index.html#shop" data-go-cat="Batteries & Chargers">Batteries</a></div>
         </div>
         <a class="fixall ondark" href="guides.html#g-first-upgrades">Upgrade order, metal vs plastic and going brushless, in detail →</a>
@@ -135,9 +138,9 @@
     <div class="wrap">
       <div class="head"><h2>How ordering works</h2></div>
       <div class="steps">
-        <div class="step"><span class="n">1</span><h3>Pick your parts</h3><p>Add what you need to the cart. Filter by scale if you are unsure what fits.</p></div>
-        <div class="step"><span class="n">2</span><h3>Send the order on WhatsApp</h3><p>Tap the button in your cart. WhatsApp opens with your order typed out, so you just press send.</p></div>
-        <div class="step"><span class="n">3</span><h3>We confirm and ship</h3><p>We reply with shipping and payment details. Orders usually ship within 14–21 days.</p></div>
+        <div class="step"><span class="n">Step 01</span><h3>Pick your parts</h3><p>Choose your car in "Find parts for my car", then add what you need. In the cart, tell us which car the parts are for.</p></div>
+        <div class="step"><span class="n">Step 02</span><h3>Send the order on WhatsApp</h3><p>Tap the button in your cart. WhatsApp opens with your parts and your car typed out, so you just press send.</p></div>
+        <div class="step"><span class="n">Step 03</span><h3>We check the fit, then ship</h3><p>We confirm the parts suit your car, then share price, payment and delivery. Usually ships within 14–21 days.</p></div>
       </div>
     </div>
   </section>
@@ -470,6 +473,7 @@
   <div class="dh"><h2>Your cart</h2><button class="x" id="closeCart" aria-label="Close cart">✕</button></div>
   <div class="items" id="items"></div>
   <div class="df">
+    <label class="carfor" for="cartCar">Which car are these parts for? <span>(optional, helps us check the fit)</span><input id="cartCar" list="cartCarList" placeholder="e.g. Axial SCX24 Bronco" autocomplete="off"><datalist id="cartCarList"></datalist></label>
     <div class="tot"><span>Total · <span id="nItems">0</span> items</span><strong id="total">₹0</strong></div>
     <a class="wa" id="waBtn" href="#" aria-disabled="true">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
@@ -8542,6 +8546,6 @@
   "photo": "images/cars/rlaarlo-1-7-0f02e3.jpg"
  }
 ]</script>
-<script src="assets/store.js?v=a175ae4f"></script>
+<script src="assets/store.js?v=921fef13"></script>
 </body>
 </html>

@@ -24,19 +24,19 @@ TEMPLATE = HERE / "site_template"
 
 
 FIX_ICONS = {'gear': '<circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/><circle cx="12" cy="12" r="6.5"/>', 'spring': '<path d="M8 3h8M8 21h8M12 3v2M12 19v2M7 7l10 2-10 2 10 2-10 2 10 2"/>', 'steer': '<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="2.2"/><path d="M12 14.2v6.3M9.9 11.3 4 9.5M14.1 11.3 20 9.5"/>', 'battery': '<rect x="3" y="7" width="16" height="10" rx="2"/><path d="M21 10.5v3M7 12h4M9 10v4"/>', 'tyre': '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/>', 'bolt': '<path d="M13 2 5 13.5h6L10 22l8-11.5h-6z"/>', 'hook': '<path d="M12 3v9a4 4 0 1 1-4-4"/><path d="M9 3h6"/>', 'signal': '<path d="M4.9 9a10 10 0 0 1 14.2 0M7.8 12a6 6 0 0 1 8.4 0M10.6 15a2 2 0 0 1 2.8 0"/><circle cx="12" cy="18.5" r="1"/>', 'light': '<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>'}
-FIXES = [  # (problem, usual cause, icon, topic on the Fix & upgrade page)
-    ("Stripped or grinding gears", "Usually incorrect gear mesh or a fully locked slipper clutch.", "gear", "stripped-gears"),
-    ("Bottoming out on jumps", "Shock oil too thin for the heat, or springs too soft for the weight.", "spring", "bottoming-out"),
-    ("Weak or slow steering", "Check dual rate and endpoints, then binding, then servo torque.", "steer", "weak-steering"),
-    ("Short run time", "Ageing LiPo cells, voltage sag tripping the cutoff, or drivetrain drag.", "battery", "short-run-time"),
-    ("Sliding, no grip", "Tread or compound wrong for the surface, or tired foam inserts.", "tyre", "no-grip"),
-    ("Not fast enough", "A throttle limit left on, an uncalibrated ESC, or conservative gearing.", "bolt", "not-fast"),
-    ("Stuck on the trail", "Weight sitting too high or too far back, or tyres too hard for rock.", "hook", "stuck-on-trail"),
-    ("Signal dropouts", "Antenna placement, interference from power wiring, or a servo brownout.", "signal", "signal-dropouts"),
-    ("Lights dim or flickering", "12V lights running off a 5–6V receiver port, or loose pins.", "light", "lights"),
-    ("Motor or ESC overheating", "Pinion too large, drag in the drivetrain, or summer heat.", "bolt", "overheating"),
-    ("ESC blinking, no drive", "Usually a protection mode: low voltage, heat or calibration.", "bolt", "esc-blinking"),
-    ("Wheel wobble", "A loose nut, a rounded wheel hex or a bent axle.", "tyre", "wheel-wobble"),
+FIXES = [  # (problem, usual cause, icon, topic on the Fix & upgrade page, area, first thing to check)
+    ("Stripped or grinding gears", "Usually incorrect gear mesh or a fully locked slipper clutch.", "gear", "stripped-gears", "Drivetrain", "Gear mesh, using the paper-strip test."),
+    ("Bottoming out on jumps", "Shock oil too thin for the heat, or springs too soft for the weight.", "spring", "bottoming-out", "Suspension", "Oil level and thickness (cSt) in each shock."),
+    ("Weak or slow steering", "Dual rate turned down, binding in the linkage, or a servo short on torque.", "steer", "weak-steering", "Steering", "The D/R knob on your transmitter, then binding."),
+    ("Short run time", "Ageing LiPo cells, voltage sag tripping the cutoff, or drivetrain drag.", "battery", "short-run-time", "Battery", "Each cell's voltage after a full charge."),
+    ("Sliding, no grip", "Tread or compound wrong for the surface, or tired foam inserts.", "tyre", "no-grip", "Tyres", "Tread and compound for your surface; clean rubber."),
+    ("Not fast enough", "A throttle limit left on, an uncalibrated ESC, or conservative gearing.", "bolt", "not-fast", "Power", "Throttle limit switch and ESC calibration."),
+    ("Stuck on the trail", "Weight sitting too high or too far back, or tyres too hard for rock.", "hook", "stuck-on-trail", "Crawling", "Weight placement: low and towards the front."),
+    ("Signal dropouts", "Antenna placement, interference from power wiring, or a servo brownout.", "signal", "signal-dropouts", "Radio", "Transmitter batteries and antenna routing."),
+    ("Lights dim or flickering", "12V lights running off a 5–6V receiver port, or loose pins.", "light", "lights", "Lighting", "The light's voltage against the port powering it."),
+    ("Motor or ESC overheating", "Pinion too large, drag in the drivetrain, or summer heat.", "bolt", "overheating", "Thermal", "Pinion size: drop one or two teeth."),
+    ("ESC blinking, no drive", "Usually a protection mode: low voltage, heat or calibration.", "bolt", "esc-blinking", "Electronics", "Battery charge and the cutoff setting for its type."),
+    ("Wheel wobble", "A loose nut, a rounded wheel hex or a bent axle.", "tyre", "wheel-wobble", "Wheels", "The wheel nut, then the hex for rounded corners."),
 ]
 
 
@@ -150,8 +150,8 @@ def fill(text, settings, root):
         "{{DAYS}}": esc(pub["delivery"]),
         "{{MARK}}": mark,
         "{{MARK48}}": mark.replace("<svg ", '<svg width="48" height="48" ', 1),
-        "{{FIX_GRID}}": "".join(f'<a class="fixc" href="{root}guides.html#g-{g}"><span class="ft"><b>{esc(t)}</b><small>{esc(c)}</small></span><span class="fa" aria-hidden="true">→</span></a>' for t, c, k, g in FIXES),
-        "{{MENU_FIX}}": "".join(f'<a href="{root}guides.html#g-{g}">{esc(t)}</a>' for t, c, k, g in FIXES),
+        "{{FIX_GRID}}": "".join(f'<a class="fixc" href="{root}guides.html#g-{g}"><span class="fxcode">{i:02d} · {esc(ar)}</span><b>{esc(t)}</b><small>{esc(c)}</small><span class="fxfirst"><em>First check</em>{esc(fc)}</span><span class="fa" aria-hidden="true">→</span></a>' for i, (t, c, k, g, ar, fc) in enumerate(FIXES, 1)),
+        "{{MENU_FIX}}": "".join(f'<a href="{root}guides.html#g-{g}">{esc(t)}</a>' for t, c, k, g, ar, fc in FIXES),
         "{{MENU_CATS}}": "".join(f'<a href="{root}index.html?cat={quote(c)}#shop" data-mcat="{esc(c)}">{esc(c)}</a>' for c in CATEGORIES),
     }
     for k, v in rep.items():
@@ -185,7 +185,7 @@ def head(title, description, root, canonical="", image="", extra=""):
         f'<link rel="icon" type="image/png" href="{root}assets/favicon.png">',
         '<link rel="preconnect" href="https://fonts.googleapis.com">',
         '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
-        '<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">',
+        '<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">',
         f'<link rel="stylesheet" href="{root}assets/style.css?v={asset_v("style.css")}">',
         extra,
         '</head>',

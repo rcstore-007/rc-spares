@@ -45,6 +45,10 @@
   function picHTML(p){ return (p.images&&p.images.length)?'<img src="'+ROOT+esc(p.images[0])+'" alt="'+esc(p.name)+'" loading="lazy">':art(p.category); }
   function partURL(p){ return ROOT+'parts/'+p.slug+'.html'; }
   function scaleLabel(p){var s=p.scale||[];return s.length>2?'All scales':s.join(', ');}
+  var CATDESC={'Motors & ESCs':'Brushed and brushless motors, speed controllers and combos.','Tyres & Wheels':'Crawler tyres, beadlock wheels, inserts, hexes and weights.','Shocks':'Oil-filled shocks, springs and shock parts.',
+    'Batteries & Chargers':'LiPo packs, balance chargers and power supplies.','Gears & Drivetrain':'Pinions, spurs, driveshafts, diffs and gearbox parts.','Servos':'Metal-gear steering servos, horns and savers.',
+    'Lights':'Spotlights, light bars, headlights and wiring.','Winch':'Scale and servo winches, lines and controllers.','Radios & Receivers':'Transmitters, receivers and gyros.','Tools & Accessories':'Hex drivers, stands, jacks, glue, oils and scale accessories.'};
+  function minPrice(p){var o=(p.variants&&p.variants.options)||[],v=o.map(function(x){return x.price;}).filter(function(x){return x;});return v.length?Math.min.apply(null,v):(+p.price||0);}
   var GOALS={'Motors & ESCs':'More speed','Tyres & Wheels':'More grip','Shocks':'Smoother landings','Batteries & Chargers':'Longer runs',
     'Gears & Drivetrain':'Tougher drivetrain','Servos':'Sharper steering','Lights':'Light up the trail','Winch':'Get unstuck',
     'Radios & Receivers':'Better control','Tools & Accessories':'Keep it running'};
@@ -108,7 +112,8 @@
   function msg(){
     var t=0,o=['Hi '+S.name+', I would like to order:',''];
     lines().forEach(function(l,i){var s=l.c.price*l.c.q;t+=s;o.push((i+1)+'. '+l.c.name+(l.c.opt?' ('+l.c.opt+')':'')+' ['+l.id+'] x '+l.c.q+' = '+money(s));});
-    o.push('','Total: '+money(t),'','Please confirm availability and shipping.');
+    var car=($('cartCar')&&$('cartCar').value.trim())||'';
+    o.push('','Total: '+money(t));if(car)o.push('Car: '+car);o.push('','Please confirm availability and shipping.');
     return o.join('\n');
   }
   function setWa(btn,hint,text,okMsg,emptyMsg,isEmpty){
@@ -116,6 +121,13 @@
     if(isEmpty){btn.setAttribute('aria-disabled','true');btn.href='#';hint.textContent=emptyMsg;}
     else if(!num){btn.setAttribute('aria-disabled','true');btn.href='#';hint.className='note warn';hint.textContent='The store WhatsApp number is not set yet, so ordering is switched off for now.';}
     else{btn.removeAttribute('aria-disabled');btn.href='https://wa.me/'+num+'?text='+encodeURIComponent(text);btn.target='_blank';btn.rel='noopener';hint.textContent=okMsg;}
+  }
+  // "Which car are these parts for?" in the cart: remembered on this device, sent with the order
+  function initCarFor(){
+    var el=$('cartCar');if(!el)return;
+    $('cartCarList').innerHTML=CARS.map(function(c){return '<option value="'+esc(c.name.replace(/\s*\(all versions\)$/,''))+'">';}).join('');
+    try{el.value=localStorage.getItem('rc-car-for')||'';}catch(e){}
+    el.addEventListener('input',function(){try{localStorage.setItem('rc-car-for',el.value);}catch(e){}renderCart();});
   }
   function renderCart(){
     var L=lines(),t=0,c=0;L.forEach(function(l){t+=l.c.price*l.c.q;c+=l.c.q;});
@@ -142,7 +154,7 @@
 
   /* ---------- Overlays ---------- */
   var drawer=$('drawer'),scrim=$('scrim'),dlg=$('dlg'),cur=null;
-  function openCart(){if(dlg)dlg.classList.remove('open');drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');scrim.classList.add('open');$('closeCart').focus();}
+  function openCart(){if($('cartCar')&&!$('cartCar').value&&typeof state!=='undefined'&&state.car){$('cartCar').value=state.car.replace(/\s*\(all versions\)$/,'');}if(dlg)dlg.classList.remove('open');drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');scrim.classList.add('open');$('closeCart').focus();}
   function closeAll(){drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true');if(dlg)dlg.classList.remove('open');scrim.classList.remove('open');}
 
   /* ---------- Home + shop ---------- */
@@ -175,7 +187,12 @@
   }
   function renderHome(){
     if($('partCount'))$('partCount').textContent=P.length+(P.length===1?' part':' parts');
-    $('tiles').innerHTML=CATS.map(function(c){return catIcon(c,'data-go-cat');}).join('');
+    $('tiles').innerHTML=CATS.map(function(c,i){
+      var ps=P.filter(function(p){return p.category===c;}),lo=0;
+      ps.forEach(function(p){var v=minPrice(p);if(v&&(!lo||v<lo))lo=v;});
+      return '<button type="button" class="catcard" data-go-cat="'+esc(c)+'"><span class="cc-img">'+(CIMG[c]?'<img src="'+ROOT+esc(CIMG[c])+'" alt="" loading="lazy">':art(c))+'</span>'+
+        '<span class="cc-code">'+(i<9?'0':'')+(i+1)+'</span><b>'+esc(c)+'</b><span class="cc-desc">'+esc(CATDESC[c]||'')+'</span>'+
+        '<span class="cc-meta">'+ps.length+(ps.length===1?' part':' parts')+(lo?' · from '+money(lo):'')+'<i aria-hidden="true">→</i></span></button>';}).join('');
     if($('scaleCards'))$('scaleCards').innerHTML=SCALES.map(function(s,i){
       var n=P.filter(function(p){return (p.scale||[]).indexOf(s)>=0;}).length;
       return '<button class="scale-card" style="--sc:'+SC[i%SC.length]+'" data-go-scale="'+s+'"><b>'+s+'</b><span>'+(n?n+(n===1?' part':' parts'):'Scale')+'</span></button>';
@@ -264,7 +281,7 @@
     var mine=[],uni=[],other=[];
     if(state.car){l.forEach(function(p){if(madeFor(p))mine.push(p);else if(p.models&&p.models.length)other.push(p);else uni.push(p);});l=mine.concat(uni,other);}
     $('countLine').textContent=bits.length?bits.join(' · '):'All parts';
-    if($('shopTitle'))$('shopTitle').textContent=state.car?state.car.replace(/\s*\(all versions\)$/,''):(state.cat!=='All'?state.cat:'All parts');
+    if($('shopTitle'))$('shopTitle').textContent=state.car?state.car.replace(/\s*\(all versions\)$/,'')+(state.cat!=='All'?' · '+state.cat:''):(state.cat!=='All'?state.cat:'All parts');
     $('clearF').hidden=!(state.cat!=='All'||state.scale!=='All'||state.brand!=='All'||state.q||state.car||state.size);
     var rc='<div class="reqcard"><h3>Need a part that isn\'t here?</h3><p>We source parts on request for any brand and scale. Tell us what you need and we\'ll quote before you pay.</p><a href="'+ROOT+'index.html#request">Request a part</a></div>';
     setTimeout(reveal,0);
@@ -536,10 +553,10 @@
     window.addEventListener('hashchange',route);
     try{var qcar=new URLSearchParams(location.search).get('car');if(qcar&&CARS.some(function(c){return c.name===qcar;})){setCar(qcar);history.replaceState(null,'',location.pathname+location.hash);}}catch(e){}
     try{var qc=new URLSearchParams(location.search).get('cat');if(qc&&CATS.indexOf(qc)>=0){state.cat=qc;state.scale='All';history.replaceState(null,'',location.pathname+location.hash);}}catch(e){}
-    renderHome();refresh();renderReq();renderCart();route();reveal();tintAll();
+    renderHome();refresh();renderReq();initCarFor();renderCart();route();reveal();tintAll();
     try{if(sessionStorage.getItem('rc-focus')){sessionStorage.removeItem('rc-focus');focusSearch();}}catch(e){}
   } else {
-    initPart();renderCart();reveal();tintAll();
+    initPart();initCarFor();renderCart();reveal();tintAll();
     if(location.hash==='#cart')openCart();
   }
 })();

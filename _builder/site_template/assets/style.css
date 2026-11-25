@@ -1249,3 +1249,65 @@ a.fixc{text-decoration:none}
 .ctile.on{border-color:var(--acc);background:var(--tint)}
 .carmore{border:0;background:none;font:inherit;font-size:14.5px;font-weight:500;color:var(--acc);text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:6px 2px}
 .cartiles[hidden]{display:none}
+
+/* =====================================================================
+   PRECISION PASS (inspired by the Stitch "lab" design)
+   Space Grotesk headings, Space Mono for small labels, codes and numbers.
+   ===================================================================== */
+:root{--serif:'Space Grotesk',system-ui,sans-serif;--mono:'Space Mono',ui-monospace,SFMono-Regular,Menlo,monospace}
+h1,h2,h3,.head h2,.hero h1,.gwrap h1,.pinfo h1{font-family:'Space Grotesk',system-ui,sans-serif!important;font-weight:600!important;letter-spacing:-.025em!important;font-style:normal!important}
+.hero h1 em{font-style:normal!important;color:#cfe0dd}
+.eyebrow,.stages .stg .sn,.step .n,.fxcode,.cc-code,.cc-meta,.pill,.card .scale,.gcount,.gbody h3,.holo-head span,.pfl,.cardiv b{font-family:var(--mono)!important;letter-spacing:.04em}
+.eyebrow,.fxcode,.cc-code,.step .n,.stages .stg .sn,.gbody h3,.pfl{text-transform:uppercase;font-size:11.5px!important;font-style:normal!important}
+.cardiv b{font-size:14px!important;text-transform:uppercase}
+.holo-tag{font-family:var(--mono)!important;font-style:normal!important;font-size:11.5px!important;text-transform:uppercase}
+
+/* home: category cards */
+#tiles.catrow{display:grid!important;grid-template-columns:repeat(5,1fr)!important;gap:14px!important}
+.catcard{display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:6px;background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:0 0 14px;overflow:hidden;cursor:pointer;font:inherit;color:var(--ink);transition:border-color .2s,transform .2s,box-shadow .2s}
+.catcard:hover{border-color:rgba(46,91,95,.45);transform:translateY(-2px);box-shadow:0 8px 22px -16px rgba(31,42,44,.5)}
+.cc-img{width:100%;aspect-ratio:4/3;background:#e9e8e3;display:grid;place-items:center;overflow:hidden;margin-bottom:6px}
+.cc-img img{width:100%;height:100%;object-fit:cover;transition:transform .35s}
+.catcard:hover .cc-img img{transform:scale(1.04)}
+.cc-img svg{width:44%;height:44%}
+.cc-code{color:var(--acc);padding:0 14px}
+.catcard b{font-family:'Space Grotesk',sans-serif;font-size:16.5px;font-weight:600;padding:0 14px;letter-spacing:-.01em}
+.cc-desc{font-size:13.5px;line-height:1.45;color:var(--muted);padding:0 14px}
+.cc-meta{margin-top:auto;padding:8px 14px 0;width:100%;box-sizing:border-box;display:flex;justify-content:space-between;font-size:11.5px;color:var(--ink);border-top:1px solid var(--line);margin-top:8px}
+.cc-meta i{font-style:normal;color:var(--acc)}
+@media (max-width:1000px){#tiles.catrow{grid-template-columns:repeat(3,1fr)!important}}
+@media (max-width:620px){#tiles.catrow{grid-template-columns:repeat(2,1fr)!important;gap:10px!important}.cc-desc{display:none}.catcard b{font-size:15px}}
+
+/* home: common problems as cards */
+.fixgrid{display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:12px!important}
+a.fixc{position:relative;display:flex!important;flex-direction:column!important;align-items:flex-start!important;gap:6px!important;padding:16px 18px 16px!important;background:var(--bg2);border:1px solid var(--line)!important;border-radius:10px;color:var(--ink)}
+a.fixc:hover{border-color:rgba(46,91,95,.45)!important}
+.fxcode{color:var(--acc)}
+a.fixc b{font-family:'Space Grotesk',sans-serif;font-size:16.5px;font-weight:600;letter-spacing:-.01em;text-decoration:none!important}
+a.fixc small{font-size:13.5px!important;line-height:1.45;color:var(--muted)}
+.fxfirst{margin-top:6px;padding-top:8px;border-top:1px dashed var(--line);width:100%;font-size:13.5px;line-height:1.45}
+.fxfirst em{display:block;font-style:normal;font-family:var(--mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--acc);margin-bottom:2px}
+a.fixc .fa{position:absolute;top:14px;right:16px}
+@media (max-width:900px){.fixgrid{grid-template-columns:1fr 1fr!important}}
+@media (max-width:600px){.fixgrid{grid-template-columns:1fr!important}}
+
+/* upgrade stages: part checklist */
+.stitems{list-style:none;margin:10px 0 12px;padding:0;display:grid;gap:6px}
+.stitems li{position:relative;padding-left:20px;font-size:14px;color:var(--on-dark)}
+.stitems li:before{content:"";position:absolute;left:2px;top:.55em;width:9px;height:9px;border:1.5px solid rgba(255,255,255,.55);border-radius:2px}
+
+/* ordering steps as cards */
+.steps{gap:12px!important}
+.step{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:18px!important}
+.step .n{display:inline-block!important;width:auto!important;height:auto!important;background:none!important;border:0!important;color:var(--acc)!important;margin-bottom:8px}
+
+/* cart: which car */
+.carfor{display:flex;flex-direction:column;gap:5px;font-size:13.5px;font-weight:600;margin:0 0 12px}
+.carfor span{font-weight:400;color:var(--muted);font-size:12.5px}
+.carfor input{font:inherit;font-weight:400;font-size:15px;padding:10px 12px;border:1.5px solid var(--line);border-radius:9px;background:#fff}
+.carfor input:focus{outline:0;border-color:var(--acc);box-shadow:0 0 0 3px rgba(46,91,95,.14)}
+.fixgrid{gap:12px!important}
+a.fixc small{white-space:normal!important}
+a.fixc,.catcard{min-width:0}
+a.fixc{padding-right:40px!important}
+@media (max-width:620px){.cc-meta{flex-direction:column;gap:1px;font-size:11px}.cc-meta i{display:none}.catcard b{padding:0 12px}.cc-code,.cc-meta{padding-left:12px;padding-right:12px}}
