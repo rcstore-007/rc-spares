@@ -269,8 +269,8 @@
     setTimeout(reveal,0);
     if(state.car&&l.length){
       var dv='<div class="cardiv"><b>Universal '+carScale()+' parts</b><span>These suit most '+carScale()+' models. Check the size and mounting, or send us a photo of your car on WhatsApp.</span></div>';
-      var top=mine.length?'':'<div class="cardiv first"><b>Nothing made just for the '+esc(state.car)+' yet</b><span>We can source it for you. Request a part below, or browse the universal parts.</span></div>';
-      $('grid').innerHTML=top+mine.map(card).join('')+(uni.length?dv+uni.map(card).join(''):'')+rc;
+      if(!mine.length)dv=dv.replace('class="cardiv"','class="cardiv first"');
+      $('grid').innerHTML=mine.map(card).join('')+(uni.length?dv+uni.map(card).join(''):'')+rc;
       return;
     }
     $('grid').innerHTML=l.length?l.map(card).join('')+rc:'<div class="empty">'+(P.length?'No parts match these filters right now.':'New parts are being added.')+' We can source parts on request, so tell us what you need.</div>'+rc;
@@ -519,7 +519,9 @@
     $('catSel').addEventListener('change',function(e){state.cat=e.target.value;refresh();});
     $('scaleSel').addEventListener('change',function(e){state.scale=e.target.value;refresh();});
     if($('sizeSel'))$('sizeSel').addEventListener('change',function(e){state.size=e.target.value;refresh();});
-    if($('carTiles'))$('carTiles').addEventListener('click',function(e){var b=e.target.closest('[data-car]');if(!b)return;var n=b.getAttribute('data-car');state.car=(state.car===n?'':n);if(state.car)state.scale='All';refresh();});
+    function showTiles(on){if(!$('carTiles'))return;$('carTiles').hidden=!on;$('carMore').setAttribute('aria-expanded',on);$('carMore').textContent=on?'Hide cars':'See all cars';}
+    if($('carMore'))$('carMore').addEventListener('click',function(){showTiles($('carTiles').hidden);});
+    if($('carTiles'))$('carTiles').addEventListener('click',function(e){var b=e.target.closest('[data-car]');if(!b)return;var n=b.getAttribute('data-car');state.car=(state.car===n?'':n);if(state.car)state.scale='All';showTiles(false);refresh();});
     if($('carSel'))$('carSel').addEventListener('change',function(e){state.car=e.target.value;if(state.car)state.scale='All';refresh();});
     if($('hCarSel')){carOptions($('hCarSel'),'Choose your car');$('hCarSel').addEventListener('change',function(e){if(!e.target.value)return;state.car=e.target.value;state.scale='All';state.cat='All';goShop();e.target.value='';});}
     $('sortSel').addEventListener('change',function(e){state.sort=e.target.value;renderGrid();});
