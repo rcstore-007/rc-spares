@@ -784,34 +784,91 @@ def guide_parts(g, products, limit=6):
     return picked
 
 
+def _guide_parts_html(g, products, root, limit=None):
+    parts = guide_parts(g, products)[:limit]
+    pc = "".join(
+        f'<a class="gpart" href="{root}parts/{esc(p["slug"])}.html">'
+        + (f'<img src="{root}{esc(p["images"][0])}" alt="" loading="lazy">' if p.get("images") else '<span class="noimg"></span>')
+        + f'<span class="gpn">{esc(p["name"])}</span><span class="gpp">{_from_price(p)}</span></a>' for p in parts)
+    more = (f'<a class="gmore" href="{root}index.html?cat={quote(g["more"])}#shop">See all {esc(g["more"])} →</a>' if g.get("more") else "")
+    return (f'<h3>Parts that help</h3><div class="gparts">{pc}</div>{more}') if pc else ""
+
+
+def _guide_full_body(g, products, root):
+    body = ""
+    if g.get("causes"):
+        body += '<h2>Why it happens</h2><ul>' + "".join(f"<li>{esc(c)}</li>" for c in g["causes"]) + "</ul>"
+    body += f'<h2>{"Check these, in order" if g["kind"] == "problem" else "Step by step"}</h2><ol>' + "".join(f"<li>{esc(x)}</li>" for x in g["steps"]) + "</ol>"
+    if g.get("warn"):
+        body += f'<p class="gwarn"><b>Careful:</b> {esc(g["warn"])}</p>'
+    if g.get("tip"):
+        body += f'<p class="gtip"><b>Good to know:</b> {esc(g["tip"])}</p>'
+    if g.get("faq"):
+        body += '<h2>Common questions</h2><div class="gfaq">' + "".join(
+            f'<div class="gfq"><h3>{esc(q)}</h3><p>{esc(a)}</p></div>' for q, a in g["faq"]) + '</div>'
+    body += _guide_parts_html(g, products, root).replace("<h3>Parts that help</h3>", "<h2>Parts that help</h2>", 1)
+    body += f'<p class="gask">Still stuck? <a href="{root}index.html#request">Tell us the problem on WhatsApp →</a></p>'
+    return body
+
+
+def build_guide_page(settings, products, g, guides):
+    """The complete version of one topic, on its own page (guides/<id>.html)."""
+    pub = public_settings(settings)
+    base = site_url(settings)
+    root = "../"
+    icons = dict(FIX_ICONS)
+    kinds = dict(GUIDE_KINDS)
+    others = [o for o in guides if o["kind"] == g["kind"] and o["id"] != g["id"]][:6]
+    rel = "".join(f'<a href="{esc(o["id"])}.html">{esc(o["title"])} <span aria-hidden="true">→</span></a>' for o in others)
+    main_html = f'''<main class="wrap gwrap gpage">
+  <div class="crumbs"><a href="{root}index.html#home">Home</a> › <a href="{root}guides.html">Fix &amp; upgrade</a> › {esc(g["title"])}</div>
+  <p class="eyebrow">{esc(kinds.get(g["kind"], ""))}</p>
+  <h1>{esc(g["title"])}</h1>
+  <p class="gsub">{esc(g["summary"])}</p>
+  <article class="gfullbody">{_guide_full_body(g, products, root)}</article>
+  {f'<nav class="grel" aria-label="Related topics"><h2>More {esc(kinds.get(g["kind"], "topics").lower())}</h2>{rel}</nav>' if rel else ""}
+  <p><a class="gback" href="{root}guides.html#g-{esc(g["id"])}">← All problems, upgrades and care</a></p>
+</main>'''
+    nav = fill(partial("nav"), settings, root).replace('class="guidelink"', 'class="guidelink on"', 1)
+    ld = [{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": base or "index.html"},
+        {"@type": "ListItem", "position": 2, "name": "Fix & upgrade", "item": (base + "guides.html") if base else "guides.html"},
+        {"@type": "ListItem", "position": 3, "name": g["title"]}]}]
+    if g.get("faq"):
+        ld.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+            {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in g["faq"]]})
+    body = "\n".join([
+        '<body data-page="guide" data-root="../">',
+        nav,
+        main_html,
+        fill(partial("footer"), settings, root),
+        fill(partial("cart"), settings, root),
+        f'<script id="store-settings" type="application/json">{json_block(pub)}</script>',
+        '<script id="products" type="application/json">[]</script>',
+        f'<script src="{root}assets/store.js?v={asset_v("store.js")}"></script>',
+        "".join(f'<script type="application/ld+json">{json_block(x)}</script>' for x in ld),
+        '</body>',
+        '</html>',
+    ])
+    word = "causes and fixes" if g["kind"] == "problem" else ("how to" if g["kind"] == "care" else "what to upgrade")
+    title = f'{g["title"]}: {word} | {pub["name"]}'
+    url = (base + f'guides/{g["id"]}.html') if base else ""
+    return themed(head(title, g["summary"], root, url) + "\n" + body, settings)
+
+
 def build_guides(settings, products):
     pub = public_settings(settings)
     base = site_url(settings)
     name = pub["name"]
     guides = load_guides()
-    icons = dict(FIX_ICONS)
     cards = []
     for g in guides:
-        parts = guide_parts(g, products)
-        pc = "".join(
-            f'<a class="gpart" href="parts/{esc(p["slug"])}.html">'
-            + (f'<img src="{esc(p["images"][0])}" alt="" loading="lazy">' if p.get("images") else '<span class="noimg"></span>')
-            + f'<span class="gpn">{esc(p["name"])}</span><span class="gpp">{_from_price(p)}</span></a>' for p in parts)
-        more = (f'<a class="gmore" href="index.html?cat={quote(g["more"])}#shop">See all {esc(g["more"])} →</a>' if g.get("more") else "")
         body = ""
-        if g.get("causes"):
-            body += '<h3>Why it happens</h3><ul>' + "".join(f"<li>{esc(c)}</li>" for c in g["causes"]) + "</ul>"
-        body += f'<h3>{"Check these, in order" if g["kind"] == "problem" else "Step by step"}</h3><ol>' + "".join(f"<li>{esc(x)}</li>" for x in g["steps"]) + "</ol>"
-        if g.get("warn"):
-            body += f'<p class="gwarn"><b>Careful:</b> {esc(g["warn"])}</p>'
-        if g.get("tip"):
-            body += f'<p class="gtip"><b>Good to know:</b> {esc(g["tip"])}</p>'
-        if g.get("faq"):
-            body += '<h3>Common questions</h3><div class="gfaq">' + "".join(
-                f'<div class="gfq"><h4>{esc(q)}</h4><p>{esc(a)}</p></div>' for q, a in g["faq"]) + '</div>'
-        if pc:
-            body += f'<h3>Parts that help</h3><div class="gparts">{pc}</div>{more}'
-        body += '<p class="gask">Still stuck? <a href="index.html#request">Tell us the problem on WhatsApp →</a></p>'
+        if g.get("cause"):
+            body += f'<p class="gcause"><b>Cause</b> {esc(g["cause"])}</p>'
+        body += f'<h3>{"Quick fix" if g["kind"] == "problem" else "In short"}</h3><ol>' + "".join(f"<li>{esc(x)}</li>" for x in (g.get("quick") or g["steps"][:4])) + "</ol>"
+        body += _guide_parts_html(g, products, "", 3).replace('class="gparts"', 'class="gparts gmini"', 1)
+        body += f'<a class="gfull" href="guides/{esc(g["id"])}.html">Read the complete guide <span aria-hidden="true">→</span></a>'
         text = " ".join([g["title"], g["summary"], g.get("words", ""), " ".join(g.get("causes") or []), " ".join(g["steps"]),
                          " ".join(q for q, a in g.get("faq") or [])]).lower()
         cards.append(
@@ -826,7 +883,7 @@ def build_guides(settings, products):
     main_html = f'''<main class="wrap gwrap">
   <div class="crumbs"><a href="index.html#home">Home</a> › Fix &amp; upgrade</div>
   <h1>Fix &amp; upgrade</h1>
-  <p class="gsub">Common problems and upgrades, explained for beginners: what usually causes each one, what to check first, and which parts fix it.</p>
+  <p class="gsub">Common problems and upgrades, explained for beginners. Open a topic for the quick version, or read the complete guide for every step.</p>
   <div class="gsearch"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="gq" type="search" placeholder="What's wrong? e.g. steering weak, battery dies fast" autocomplete="off" aria-label="Describe the problem"><button type="button" id="gclear" aria-label="Clear search" hidden>✕</button></div>
   <div class="gchips" id="gchips"><span>Common:</span>{chips}</div>
   <div class="gtabs" role="group" aria-label="Show">{tabs}</div>
@@ -835,9 +892,6 @@ def build_guides(settings, products):
   <div class="gnone" id="gnone" hidden><b>Nothing matches that yet.</b> Tell us what's happening and we'll help you find the fix and the part.<a class="btn primary" href="index.html#request">Tell us the problem</a></div>
 </main>'''
     nav = fill(partial("nav"), settings, "").replace('class="guidelink"', 'class="guidelink on"', 1)
-    faq_ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
-        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}}
-        for g in guides for q, a in g.get("faq") or []]}
     body = "\n".join([
         '<body data-page="guides" data-root="">',
         nav,
@@ -848,7 +902,6 @@ def build_guides(settings, products):
         '<script id="products" type="application/json">[]</script>',
         f'<script src="assets/store.js?v={asset_v("store.js")}"></script>',
         f'<script src="assets/guides.js?v={asset_v("guides.js")}"></script>',
-        f'<script type="application/ld+json">{json_block(faq_ld)}</script>',
         '</body>',
         '</html>',
     ])
@@ -897,6 +950,7 @@ def build_sitemap(settings, products):
     urls = [f"  <url><loc>{esc(base)}</loc><lastmod>{today}</lastmod></url>",
             f"  <url><loc>{esc(base)}guides.html</loc><lastmod>{today}</lastmod></url>",
             f"  <url><loc>{esc(base)}policies.html</loc><lastmod>{today}</lastmod></url>"]
+    urls += [f"  <url><loc>{esc(base)}guides/{esc(g['id'])}.html</loc><lastmod>{today}</lastmod></url>" for g in load_guides()]
     for p in products:
         lm = (p.get("updated") or p.get("added") or today)[:10]
         urls.append(f"  <url><loc>{esc(base)}parts/{esc(p['slug'])}.html</loc><lastmod>{lm}</lastmod></url>")
@@ -971,6 +1025,16 @@ def build_site(site_dir, settings, products, tools=True, branch="main"):
     (site / "index.html").write_text(themed(build_index(settings, products), settings), encoding="utf-8")
     (site / "policies.html").write_text(build_policies(settings), encoding="utf-8")
     (site / "guides.html").write_text(build_guides(settings, products), encoding="utf-8")
+    gd = site / "guides"
+    gd.mkdir(exist_ok=True)
+    all_guides = load_guides()
+    gkeep = set()
+    for g in all_guides:
+        gkeep.add(f'{g["id"]}.html')
+        (gd / f'{g["id"]}.html').write_text(build_guide_page(settings, products, g, all_guides), encoding="utf-8")
+    for f in gd.glob("*.html"):
+        if f.name not in gkeep:
+            f.unlink()
     (site / "admin").mkdir(exist_ok=True)
     (site / "admin" / "cars.json").write_text(json.dumps(admin_car_data(products), ensure_ascii=False), encoding="utf-8")
 

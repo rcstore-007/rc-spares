@@ -1311,3 +1311,33 @@ a.fixc small{white-space:normal!important}
 a.fixc,.catcard{min-width:0}
 a.fixc{padding-right:40px!important}
 @media (max-width:620px){.cc-meta{flex-direction:column;gap:1px;font-size:11px}.cc-meta i{display:none}.catcard b{padding:0 12px}.cc-code,.cc-meta{padding-left:12px;padding-right:12px}}
+
+/* Fix & upgrade: short topics + full topic pages */
+.gcause{margin:4px 0 4px;padding:10px 14px;background:var(--bg2);border:1px solid var(--line);border-radius:8px;font-size:15px}
+.gcause b{font-family:var(--mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--acc);margin-right:6px;font-weight:700}
+a.gfull{display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:10px 16px;border-radius:9px;background:var(--acc);color:#fff;font-weight:600;font-size:14.5px;text-decoration:none}
+a.gfull:hover{filter:brightness(1.08)}
+.gpage h1{margin-top:6px}
+.gpage .eyebrow{margin:18px 0 0;color:var(--acc)}
+.gfullbody{font-size:16px;line-height:1.7}
+.gfullbody h2{font-family:var(--mono)!important;font-size:12px!important;font-weight:700!important;text-transform:uppercase;letter-spacing:.07em!important;color:var(--muted);margin:30px 0 10px}
+.gfullbody ul,.gfullbody ol{margin:0;padding-left:22px}
+.gfullbody li{margin:0 0 9px;padding-left:2px}
+.gfullbody ol li::marker{color:var(--acc);font-weight:600}
+.gfullbody .gfq h3{font-size:16px;margin:0 0 4px;letter-spacing:-.01em!important}
+.gfullbody .gfq{padding:14px 0;border-bottom:1px solid var(--line)}
+.gfullbody .gfq p{margin:0;color:var(--muted);font-size:15px}
+.grel{margin-top:36px;border-top:1px solid var(--line);padding-top:6px}
+.grel h2{font-family:var(--mono)!important;font-size:12px!important;font-weight:700!important;text-transform:uppercase;letter-spacing:.07em!important;color:var(--muted);margin:18px 0 8px}
+.grel a{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:500}
+.grel a:hover{color:var(--acc)}
+.gback{display:inline-block;margin-top:24px;color:var(--acc);font-weight:500}
+.gparts.gmini{grid-template-columns:repeat(3,1fr);gap:8px}
+.gmini .gpart{display:grid!important;grid-template-columns:52px 1fr;grid-template-rows:auto auto;column-gap:10px;align-items:center;padding:8px!important}
+.gmini .gpart img,.gmini .gpart .noimg{grid-row:1/3;width:52px!important;height:52px!important;aspect-ratio:1;object-fit:cover;border-radius:6px;margin:0!important}
+.gmini .gpn{font-size:13px!important;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.gmini .gpp{font-size:12.5px!important}
+.gbody .gmore{display:block}
+.gbody a.gfull{display:flex;width:max-content}
+@media (max-width:640px){.gparts.gmini{grid-template-columns:1fr}}
+.gfullbody h2,.grel h2{text-transform:uppercase!important}

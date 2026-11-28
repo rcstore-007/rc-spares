@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en-IN" data-theme="garage">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Motor or ESC getting too hot: causes and fixes | RC Spares</title>
+<meta name="description" content="The motor is too hot to touch, or the car keeps cutting out after a few minutes.">
+<meta property="og:title" content="Motor or ESC getting too hot: causes and fixes | RC Spares">
+<meta property="og:description" content="The motor is too hot to touch, or the car keeps cutting out after a few minutes.">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://rcstore-007.github.io/rc-spares/guides/overheating.html">
+<meta property="og:url" content="https://rcstore-007.github.io/rc-spares/guides/overheating.html">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css?v=a2e6efa1">
+</head>
+<body data-page="guide" data-root="../">
+<nav class="nav">
+  <div class="wrap">
+    <button class="menubtn" id="openMenu" aria-label="Open menu" aria-expanded="false" aria-controls="sideMenu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a class="logo" href="../index.html#home" aria-label="RC Spares home"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="49" fill="#2e5e4e"/><circle cx="50" cy="50" r="42" fill="#fbf7ef"/><circle cx="50" cy="50" r="40" fill="none" stroke="#e2a72e" stroke-width="2"/><circle cx="50" cy="50" r="30" fill="none" stroke="#2a2420" stroke-width="7" stroke-dasharray="4.6 3.4"/><circle cx="50" cy="50" r="27" fill="#2a2420"/><circle cx="50" cy="50" r="16" fill="#e2a72e"/><g fill="#2a2420"><circle cx="50" cy="40" r="3.4"/><circle cx="59.5" cy="46.9" r="3.4"/><circle cx="55.9" cy="58.1" r="3.4"/><circle cx="44.1" cy="58.1" r="3.4"/><circle cx="40.5" cy="46.9" r="3.4"/><circle cx="50" cy="50" r="3.6"/></g><g transform="rotate(45 50 50)" fill="#b8442f" stroke="#fbf7ef" stroke-width="2.4" paint-order="stroke" stroke-linejoin="round"><path d="M45.6 82 Q45.6 86 50 86 Q54.4 86 54.4 82 L54.4 26 L45.6 26 Z"/><path d="M46 6.2 A11.5 11.5 0 1 0 54 6.2 L54 15 L46 15 Z"/></g><g transform="rotate(45 50 50)" fill="#b8442f"><rect x="45.6" y="20" width="8.8" height="10"/></g></svg><span class="wm"><b>RC <em>Spares</em></b><small>Parts for every scale</small></span></a>
+    <div class="links">
+      <a href="../index.html#shop" data-nav="shop" class="shoplink" data-shopsearch><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>Shop</a>
+      <a href="../guides.html" class="guidelink on"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L3.5 17.3a1.8 1.8 0 0 0 2.5 2.5l5.8-5.8a4 4 0 0 0 5.2-5.4l-2.4 2.4-2.1-.5-.5-2.1z"/></svg><span class="gl-long">Fix &amp; upgrade</span><span class="gl-short">Fix</span></a>
+    </div>
+    <button class="cartbtn" id="openCart" aria-label="Cart"><span class="cico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2l2.4 11h11l2-8H6.2"/><circle cx="9" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></svg><b id="count">0</b></span><span class="lbl">Cart</span></button>
+  </div>
+</nav>
+<div class="mscrim" id="menuScrim" hidden></div>
+<aside class="sidemenu" id="sideMenu" aria-label="Menu" hidden>
+  <div class="smhead"><span>Menu</span><button type="button" id="closeMenu" aria-label="Close menu">✕</button></div>
+  <a href="../index.html#home">Home</a>
+  <div class="smgroup">
+    <div class="smrow"><a href="../index.html#shop">Shop all parts</a><button type="button" class="smtoggle" aria-expanded="false" aria-controls="smCats" aria-label="Show categories"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></div>
+    <div class="smcats" id="smCats" hidden><a href="../index.html?cat=Motors%20%26%20ESCs#shop" data-mcat="Motors &amp; ESCs">Motors &amp; ESCs</a><a href="../index.html?cat=Tyres%20%26%20Wheels#shop" data-mcat="Tyres &amp; Wheels">Tyres &amp; Wheels</a><a href="../index.html?cat=Shocks#shop" data-mcat="Shocks">Shocks</a><a href="../index.html?cat=Batteries%20%26%20Chargers#shop" data-mcat="Batteries &amp; Chargers">Batteries &amp; Chargers</a><a href="../index.html?cat=Gears%20%26%20Drivetrain#shop" data-mcat="Gears &amp; Drivetrain">Gears &amp; Drivetrain</a><a href="../index.html?cat=Servos#shop" data-mcat="Servos">Servos</a><a href="../index.html?cat=Lights#shop" data-mcat="Lights">Lights</a><a href="../index.html?cat=Winch#shop" data-mcat="Winch">Winch</a><a href="../index.html?cat=Radios%20%26%20Receivers#shop" data-mcat="Radios &amp; Receivers">Radios &amp; Receivers</a><a href="../index.html?cat=Tools%20%26%20Accessories#shop" data-mcat="Tools &amp; Accessories">Tools &amp; Accessories</a></div>
+  </div>
+  <div class="smgroup">
+    <div class="smrow"><a href="../guides.html">Fix &amp; upgrade</a><button type="button" class="smtoggle" aria-expanded="false" aria-controls="smFix" aria-label="Show problems"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></div>
+    <div class="smcats" id="smFix" hidden><a href="../guides.html#g-stripped-gears">Stripped or grinding gears</a><a href="../guides.html#g-bottoming-out">Bottoming out on jumps</a><a href="../guides.html#g-weak-steering">Weak or slow steering</a><a href="../guides.html#g-short-run-time">Short run time</a><a href="../guides.html#g-no-grip">Sliding, no grip</a><a href="../guides.html#g-not-fast">Not fast enough</a><a href="../guides.html#g-stuck-on-trail">Stuck on the trail</a><a href="../guides.html#g-signal-dropouts">Signal dropouts</a><a href="../guides.html#g-lights">Lights dim or flickering</a><a href="../guides.html#g-overheating">Motor or ESC overheating</a><a href="../guides.html#g-esc-blinking">ESC blinking, no drive</a><a href="../guides.html#g-wheel-wobble">Wheel wobble</a></div>
+  </div>
+  <a href="../index.html#request" data-go-request>Request a part</a>
+  <a href="../index.html#faq">FAQ</a>
+  <a href="../index.html#about">About us</a>
+  <hr>
+  <a href="../policies.html#shipping">Shipping</a>
+  <a href="../policies.html#returns">Returns &amp; refunds</a>
+  <a href="../policies.html#privacy">Privacy</a>
+  <a href="../policies.html#contact">Contact</a>
+</aside>
+
+<main class="wrap gwrap gpage">
+  <div class="crumbs"><a href="../index.html#home">Home</a> › <a href="../guides.html">Fix &amp; upgrade</a> › Motor or ESC getting too hot</div>
+  <p class="eyebrow">Problems</p>
+  <h1>Motor or ESC getting too hot</h1>
+  <p class="gsub">The motor is too hot to touch, or the car keeps cutting out after a few minutes.</p>
+  <article class="gfullbody"><h2>Why it happens</h2><ul><li>The pinion is too big for the motor, battery or tyres.</li><li>Something is dragging: tight gears, dirty bearings, grass wrapped around an axle.</li><li>Hot weather. In 40°C summers there is very little room before parts overheat.</li><li>Bigger, heavier tyres than stock, which work like a bigger pinion.</li></ul><h2>Check these, in order</h2><ol><li>Drive 3 to 5 minutes, stop, and touch the motor. If you can&#x27;t keep your finger on it for 3 seconds (about 75°C), it&#x27;s too hot.</li><li>Fit a pinion one or two teeth smaller and test again.</li><li>Spin the wheels by hand to check nothing drags, and pull out any grass or string around the axles.</li><li>Fit a motor cooling fan and keep the fins clean.</li><li>In summer, drive early morning or in the evening, and rest the car between batteries.</li></ol><p class="gwarn"><b>Careful:</b> Don&#x27;t check temperature right after driving through water. The water cools the outside and hides the heat.</p><p class="gtip"><b>Good to know:</b> Keep LiPo batteries in a cool room indoors, never in a parked car or a sunny shed.</p><h2>Common questions</h2><div class="gfaq"><div class="gfq"><h3>How hot is too hot for an RC motor?</h3><p>If you can&#x27;t keep a finger on it for about 3 seconds, it&#x27;s too hot. Gear down a tooth or two and check for drag.</p></div><div class="gfq"><h3>Why does my RC car cut out when it gets hot?</h3><p>The ESC&#x27;s thermal protection is pausing power to protect the electronics. Let it cool naturally, then fit a smaller pinion or add a fan.</p></div></div><h2>Parts that help</h2><div class="gparts"><a class="gpart" href="../parts/grc-550-motor-base-thermal-sensor-radiator-cooling-fan.html"><img src="../images/grc-550-motor-base-thermal-sensor-radiator-cooling-fan/1-ca49b8.jpg" alt="" loading="lazy"><span class="gpn">GRC 550 Motor Base Thermal Sensor Radiator Cooling Fan</span><span class="gpp">₹1,399</span></a><a class="gpart" href="../parts/grc-thermal-sensor-transparent-cooling-fan.html"><img src="../images/grc-thermal-sensor-transparent-cooling-fan/1-9b0740.jpg" alt="" loading="lazy"><span class="gpn">GRC Thermal Sensor Transparent Cooling Fan</span><span class="gpp">₹749</span></a><a class="gpart" href="../parts/rlaarlo-1-7-15t-pinion.html"><img src="../images/rlaarlo-1-7-15t-pinion/1-b5963b.jpg" alt="" loading="lazy"><span class="gpn">Rlaarlo 1/7 15T Pinion</span><span class="gpp">₹1,399</span></a><a class="gpart" href="../parts/14t-32p-pinion-gear-5mm.html"><img src="../images/14t-32p-pinion-gear-5mm/1-5cbb24.jpg" alt="" loading="lazy"><span class="gpn">14T 32P Pinion Gear (5mm)</span><span class="gpp">₹580</span></a></div><a class="gmore" href="../index.html?cat=Motors%20%26%20ESCs#shop">See all Motors &amp; ESCs →</a><p class="gask">Still stuck? <a href="../index.html#request">Tell us the problem on WhatsApp →</a></p></article>
+  <nav class="grel" aria-label="Related topics"><h2>More problems</h2><a href="stripped-gears.html">Gears grinding or stripped <span aria-hidden="true">→</span></a><a href="bottoming-out.html">Bottoming out or bouncy suspension <span aria-hidden="true">→</span></a><a href="weak-steering.html">Weak, slow or buzzing steering <span aria-hidden="true">→</span></a><a href="short-run-time.html">Battery runs out too fast <span aria-hidden="true">→</span></a><a href="no-grip.html">Sliding, no grip or can&#x27;t climb <span aria-hidden="true">→</span></a><a href="not-fast.html">Car is too slow <span aria-hidden="true">→</span></a></nav>
+  <p><a class="gback" href="../guides.html#g-overheating">← All problems, upgrades and care</a></p>
+</main>
+<footer>
+  <div class="wrap">
+    <div style="display:flex;gap:12px;align-items:center"><svg width="48" height="48" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="49" fill="#2e5e4e"/><circle cx="50" cy="50" r="42" fill="#fbf7ef"/><circle cx="50" cy="50" r="40" fill="none" stroke="#e2a72e" stroke-width="2"/><circle cx="50" cy="50" r="30" fill="none" stroke="#2a2420" stroke-width="7" stroke-dasharray="4.6 3.4"/><circle cx="50" cy="50" r="27" fill="#2a2420"/><circle cx="50" cy="50" r="16" fill="#e2a72e"/><g fill="#2a2420"><circle cx="50" cy="40" r="3.4"/><circle cx="59.5" cy="46.9" r="3.4"/><circle cx="55.9" cy="58.1" r="3.4"/><circle cx="44.1" cy="58.1" r="3.4"/><circle cx="40.5" cy="46.9" r="3.4"/><circle cx="50" cy="50" r="3.6"/></g><g transform="rotate(45 50 50)" fill="#b8442f" stroke="#fbf7ef" stroke-width="2.4" paint-order="stroke" stroke-linejoin="round"><path d="M45.6 82 Q45.6 86 50 86 Q54.4 86 54.4 82 L54.4 26 L45.6 26 Z"/><path d="M46 6.2 A11.5 11.5 0 1 0 54 6.2 L54 15 L46 15 Z"/></g><g transform="rotate(45 50 50)" fill="#b8442f"><rect x="45.6" y="20" width="8.8" height="10"/></g></svg><div><strong>RC Spares</strong><br>Spare parts for RC cars, trucks and crawlers, 1:30 to 1:5.</div></div>
+    <div class="flinks"><a href="../index.html#shop">All parts</a><a href="../policies.html#shipping">Shipping</a><a href="../policies.html#returns">Returns &amp; refunds</a><a href="../policies.html#privacy">Privacy</a><a href="../policies.html">All policies</a><a href="../policies.html#contact">Contact</a></div>
+  </div>
+</footer>
+
+<button class="mbar" id="mbar"><span id="mbarL">0 items</span><span>View cart →</span></button>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Cart" aria-hidden="true">
+  <div class="dh"><h2>Your cart</h2><button class="x" id="closeCart" aria-label="Close cart">✕</button></div>
+  <div class="items" id="items"></div>
+  <div class="df">
+    <label class="carfor" for="cartCar">Which car are these parts for? <span>(optional, helps us check the fit)</span><input id="cartCar" list="cartCarList" placeholder="e.g. Axial SCX24 Bronco" autocomplete="off"><datalist id="cartCarList"></datalist></label>
+    <div class="tot"><span>Total · <span id="nItems">0</span> items</span><strong id="total">₹0</strong></div>
+    <a class="wa" id="waBtn" href="#" aria-disabled="true">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg>
+      Send order on WhatsApp
+    </a>
+    <p class="note" id="waHint"></p>
+    <p class="note">Usually ships within 14–21 days. We confirm shipping and payment on WhatsApp.</p>
+  </div>
+</aside>
+
+<script id="store-settings" type="application/json">{
+ "name": "RC Spares",
+ "whatsapp": "919346631998",
+ "currency": "₹",
+ "delivery": "14–21",
+ "categoryImages": {
+  "Motors & ESCs": "images/_categories/motors-escs-3891bd.jpg",
+  "Tyres & Wheels": "images/_categories/tyres-wheels-b76480.jpg",
+  "Shocks": "images/_categories/shocks-edc076.jpg",
+  "Batteries & Chargers": "images/_categories/batteries-chargers-803f33.jpg",
+  "Winch": "images/_categories/winch-b7ee86.jpg",
+  "Lights": "images/_categories/lights-59e511.jpg",
+  "Gears & Drivetrain": "images/_categories/gears-drivetrain-e663cd.jpg",
+  "Servos": "images/_categories/servos-f740b5.jpg",
+  "Radios & Receivers": "images/_categories/radios-receivers-e24e10.jpg"
+ },
+ "bulkNote": "Discount available on higher quantities."
+}</script>
+<script id="products" type="application/json">[]</script>
+<script src="../assets/store.js?v=921fef13"></script>
+<script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Home",
+   "item": "https://rcstore-007.github.io/rc-spares/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Fix & upgrade",
+   "item": "https://rcstore-007.github.io/rc-spares/guides.html"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Motor or ESC getting too hot"
+  }
+ ]
+}</script><script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "How hot is too hot for an RC motor?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "If you can't keep a finger on it for about 3 seconds, it's too hot. Gear down a tooth or two and check for drag."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Why does my RC car cut out when it gets hot?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The ESC's thermal protection is pausing power to protect the electronics. Let it cool naturally, then fit a smaller pinion or add a fan."
+   }
+  }
+ ]
+}</script>
+</body>
+</html>

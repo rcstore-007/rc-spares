@@ -50,6 +50,13 @@
     "Can I use a 32P pinion with a Mod 0.8 spur?",
     "No. They look almost identical but the tooth shapes differ, and mixing them strips both gears quickly. Always match the pitch printed on the spur gear."
    ]
+  ],
+  "cause": "Usually the gear mesh is too tight or too loose, or the slipper clutch is locked fully.",
+  "quick": [
+   "Check the pinion and spur for missing or melted teeth, and replace damaged gears.",
+   "Reset the mesh with the paper-strip test: light tooth marks, no tearing.",
+   "Back the slipper clutch off about half a turn from fully tight.",
+   "Never mix gear pitches (32P, 48P, Mod 0.8), even if they look the same."
   ]
  },
  {
@@ -99,6 +106,12 @@
     "Does tightening the spring collar make suspension stiffer?",
     "No. Preload collars only raise ride height. To make the suspension stiffer you need stiffer springs or thicker oil."
    ]
+  ],
+  "cause": "Usually shock oil that's too thin (worse in summer heat), springs too soft, or a leaking shock.",
+  "quick": [
+   "Look for oil on the outside of each shock and fix the leak first.",
+   "Refill with thicker oil, 50–100 cSt higher at a time, and let the bubbles rise out.",
+   "If the car sags even when parked, fit stiffer springs. Collars only raise ride height."
   ]
  },
  {
@@ -156,6 +169,13 @@
     "Plastic or aluminium servo horn?",
     "Use a servo saver on fast bashers so impacts don't strip the servo. A rigid aluminium horn suits slow crawlers, but only with a metal-gear servo and properly set endpoints."
    ]
+  ],
+  "cause": "Usually the dual rate (D/R) is turned down, something in the linkage binds, or the servo is too weak.",
+  "quick": [
+   "Turn the steering D/R knob on your controller fully up.",
+   "Take the servo horn off and check the wheels swing freely by hand.",
+   "Set the end points (EPA) so the servo doesn't buzz at full lock.",
+   "Still weak on the ground? Fit a metal-gear servo, 20 kg or more for a 1/10 crawler."
   ]
  },
  {
@@ -206,6 +226,13 @@
     "Smart LiPo or regular LiPo?",
     "Smart packs add convenience features but cost more and need matching chargers. A regular LiPo with a standard balance lead works with any balance charger and is usually the better value."
    ]
+  ],
+  "cause": "Usually an ageing LiPo, the low-voltage cutoff tripping early, or drag in the drivetrain.",
+  "quick": [
+   "Fully charge and check each cell: about 4.20V each, all close together.",
+   "Spin each wheel by hand. Anything gritty or stiff is wasting battery.",
+   "Make sure the ESC is set to the right battery type (LiPo or NiMH).",
+   "Stop using any battery that has puffed up."
   ]
  },
  {
@@ -259,6 +286,13 @@
     "How do I glue RC tyres to the rim?",
     "Clean the bead and rim with isopropyl alcohol, centre the insert, then run a thin line of CA tyre glue into the bead groove a section at a time, pressing firmly. Let it cure fully before driving."
    ]
+  ],
+  "cause": "Usually the wrong tread or compound for the surface, dirty tyres, or worn foam inserts.",
+  "quick": [
+   "Match the tread to the ground: lugs for dirt and rock, pins for grass.",
+   "Wash the tyres in warm soapy water. Dust kills grip.",
+   "Squeeze each tyre. If it folds flat easily, replace the insert.",
+   "On crawlers, add weight low and towards the front."
   ]
  },
  {
@@ -307,6 +341,13 @@
     "Does a bigger pinion make my car faster?",
     "Yes, more teeth gives more top speed but less acceleration and more heat. Change one or two teeth at a time and check the motor temperature after each run."
    ]
+  ],
+  "cause": "Usually a throttle limit left on, an ESC in training mode or not calibrated, or conservative gearing.",
+  "quick": [
+   "Set the throttle limit on your controller to 100%.",
+   "Switch the ESC out of training mode and calibrate it to your controller.",
+   "Check the wheels spin freely by hand.",
+   "For more speed, go one or two teeth up on the pinion and watch motor heat."
   ]
  },
  {
@@ -355,6 +396,13 @@
     "How do I add weight to my RC crawler?",
     "Use brass wheels, hubs, steering cups or knuckles: low down and towards the front. Avoid weight high up on the body, which makes the car tip."
    ]
+  ],
+  "cause": "Usually weight too high or too far back, tyres too hard for rock, or an underpowered winch.",
+  "quick": [
+   "Drive slowly with steady, low throttle.",
+   "Add weight low and at the front: brass wheels, hubs or steering cups.",
+   "Fit softer tyres or inserts so the tyre wraps the rock.",
+   "Power the winch from the battery or its own BEC, not just the receiver."
   ]
  },
  {
@@ -403,6 +451,13 @@
     "Can I use a different brand controller with my receiver?",
     "Usually not. Even within one brand, different protocols don't bind. Buy the controller and receiver as a matching set."
    ]
+  ],
+  "cause": "Usually weak controller batteries, a damaged or badly placed antenna, or a receiver too close to power wiring.",
+  "quick": [
+   "Put fresh batteries in the controller.",
+   "Run the antenna wire straight up in a tube, away from metal and carbon.",
+   "Move the receiver away from the motor, ESC and battery wires.",
+   "Re-bind, then test that the car stops when you switch the controller off."
   ]
  },
  {
@@ -446,6 +501,12 @@
     "Why do my RC lights flicker?",
     "Loose receiver pins, or a BEC that sags when the servo works. Seat every plug fully and give the lights their own power supply."
    ]
+  ],
+  "cause": "Usually 12V lights on a 5–6V receiver port, LEDs wired the wrong way round, or loose plugs.",
+  "quick": [
+   "Check the light's voltage. 12V lights need battery power or a 12V BEC.",
+   "Check LED direction: long leg is plus (+), flat edge is minus (−).",
+   "If they flicker when you steer, give them their own power supply."
   ]
  },
  {
@@ -493,6 +554,13 @@
     "How do I calibrate my ESC?",
     "Most ESCs: hold the set button while switching on, then show it neutral, full throttle and full brake as the beeps or lights prompt. Follow your ESC's manual for the exact sequence."
    ]
+  ],
+  "cause": "Usually a safety mode: flat battery, low-voltage cutoff, overheating or calibration.",
+  "quick": [
+   "Look up the blink pattern in your ESC's manual first. Most blinking isn't damage.",
+   "Charge the battery and check the ESC's battery-type setting.",
+   "Let a hot motor or ESC cool naturally, then set throttle trim back to zero.",
+   "Recalibrate the ESC and check every motor and battery wire is pushed fully in."
   ]
  },
  {
@@ -536,6 +604,13 @@
     "Why does my RC car cut out when it gets hot?",
     "The ESC's thermal protection is pausing power to protect the electronics. Let it cool naturally, then fit a smaller pinion or add a fan."
    ]
+  ],
+  "cause": "Usually a pinion too large for the setup, drag in the drivetrain, or summer heat.",
+  "quick": [
+   "After 3–5 minutes, touch the motor. If you can't hold it for 3 seconds, it's too hot.",
+   "Fit a pinion one or two teeth smaller.",
+   "Clear anything dragging, like tight gears or grass around the axles.",
+   "Add a cooling fan and drive in the cooler hours."
   ]
  },
  {
@@ -579,6 +654,12 @@
     "Why does my RC car wobble at high speed?",
     "Common causes are a waterlogged tyre foam, an unglued tyre, a bent axle or a loose wheel nut. Check each wheel by spinning it and watching for a wobble."
    ]
+  ],
+  "cause": "Usually a loose wheel nut, a rounded wheel hex, or a bent axle.",
+  "quick": [
+   "Tighten the wheel nut until snug, not so tight the wheel binds.",
+   "Check the hex and drive pin. Rounded corners mean replace it.",
+   "Roll the axle on a flat table. A wobble means it's bent."
   ]
  },
  {
@@ -620,6 +701,12 @@
     "Why does my crawler jerk at low speed?",
     "The driveshaft joints are out of phase. Set both U-joint yokes on each shaft to face the same direction."
    ]
+  ],
+  "cause": "Usually a driveshaft too short for the suspension travel, joints out of phase, or worn plastic shafts.",
+  "quick": [
+   "At full lock with the suspension hanging down, check the shaft stays in its cups.",
+   "Line up both end joints so they face the same way (phasing).",
+   "Swap worn plastic shafts for metal ones, especially after a motor upgrade."
   ]
  },
  {
@@ -657,6 +744,12 @@
     "Why is the paint peeling off my RC body?",
     "Either the mould-release oil wasn't washed off, or non-polycarbonate paint was used. Polycarbonate paint, sprayed inside the shell, flexes with it."
    ]
+  ],
+  "cause": "Usually repeated impacts splitting thin polycarbonate at corners and post holes, or the wrong paint.",
+  "quick": [
+   "Wash the inside of the shell before any repair or paint.",
+   "Reinforce stress points from inside with fibreglass mesh tape and flexible glue.",
+   "Paint only with polycarbonate paint, on the inside of the shell."
   ]
  },
  {
@@ -704,6 +797,12 @@
     "Which RC parts break most often?",
     "Typically spur gears, servo gears, driveshafts, suspension arms and wheel hexes. It's worth keeping a spare of whatever your model is known to break."
    ]
+  ],
+  "quick": [
+   "A balance charger and a spare battery.",
+   "Proper hex drivers, so screws don't round off.",
+   "Tyres that suit your ground, then a metal-gear servo to turn them.",
+   "After that, upgrade whatever breaks first."
   ]
  },
  {
@@ -746,6 +845,12 @@
     "What KV motor should I choose?",
     "Lower KV for higher voltage and heavier cars, higher KV for 2S and lighter cars. A matched motor and ESC combo takes the guesswork out."
    ]
+  ],
+  "quick": [
+   "Buy a matched motor and ESC combo.",
+   "Pick a lower KV for higher-voltage batteries.",
+   "Strengthen the drivetrain first: metal gears and driveshafts.",
+   "Start on 2S, and drop a pinion tooth or two when you add cells."
   ]
  },
  {
@@ -785,6 +890,11 @@
     "Which parts are worth upgrading to metal?",
     "Shock caps and bodies, motor mounts, servo horns, steering knuckles and C-hubs, and diff cases. Keep arms and bumpers plastic."
    ]
+  ],
+  "quick": [
+   "Keep arms and bumpers plastic. They flex and protect costlier parts.",
+   "Go metal where parts must stay stiff: knuckles, towers, motor mounts, servo horns.",
+   "Skip cheap 'full metal' kits. They add weight, not reliability."
   ]
  },
  {
@@ -828,6 +938,12 @@
     "What are the common TRX-4M problems?",
     "Owners often report drag from plastic bushings, a weak stock servo and plastic diff gears. A sealed bearing kit is usually the first fix, then a metal-gear servo."
    ]
+  ],
+  "quick": [
+   "Soft tyres with good inserts: the biggest single gain.",
+   "Weight low and at the front.",
+   "A strong metal-gear steering servo.",
+   "A motor and ESC with smooth low-speed control and drag brake."
   ]
  },
  {
@@ -865,6 +981,11 @@
     "What does 32P or Mod 0.8 mean?",
     "Both describe tooth size. 'P' (pitch) counts teeth per inch, 'Mod' measures tooth size in millimetres. They're close but not interchangeable."
    ]
+  ],
+  "quick": [
+   "Find your spur gear's pitch (48P, 32P, Mod 0.8, Mod 1) and match it exactly.",
+   "Check the bore: 3.175 mm on most 1/10 motors, 5 mm on bigger ones.",
+   "More pinion teeth means more speed and heat. Change one or two at a time."
   ]
  },
  {
@@ -906,6 +1027,11 @@
     "How do I clean RC car bearings?",
     "Soak them in cleaner, spin them dry, then add a drop of light bearing oil. Replace any that still feel gritty."
    ]
+  ],
+  "quick": [
+   "Unplug the battery and brush dirt off the motor and ESC.",
+   "Spin each wheel and listen for grinding bearings.",
+   "Check the screws that shake loose: servo horn, links, shock screws, wheel nuts."
   ]
  },
  {
@@ -942,6 +1068,12 @@
     "Is it okay to run my RC car in 40°C heat?",
     "Yes, with care: gear down a tooth or two, add a motor fan, run in the morning or evening, and let things cool between packs."
    ]
+  ],
+  "quick": [
+   "Drive early morning or evening.",
+   "Run a pinion one or two teeth smaller than in winter, and add a cooling fan.",
+   "Use slightly thicker shock oil.",
+   "Keep LiPos indoors and never charge one that's still hot."
   ]
  },
  {
@@ -981,6 +1113,11 @@
     "How do I stop my RC car rusting?",
     "Dry it fully after wet runs and spray a little water-displacing oil on screws, pins and drive cups, wiping off the excess."
    ]
+  ],
+  "quick": [
+   "Fit rubber-sealed (2RS) bearings and keep the gear cover on.",
+   "Brush dust off. Don't blast it with compressed air.",
+   "After a wet run, dry everything and spray screws and pins with water-displacing spray."
   ]
  },
  {
@@ -1023,6 +1160,12 @@
     "Is my cheap balance charger genuine?",
     "Copies of popular chargers are common and some overcharge or lack proper cooling. Buy from a trusted seller and check the maker's authenticity code where offered."
    ]
+  ],
+  "quick": [
+   "Charge on a balance charger at 1C, never unattended.",
+   "Use storage mode (about 3.8V per cell) if you won't run it for a few days.",
+   "Never run a cell below 3.0V. Set the ESC cutoff to LiPo.",
+   "Retire any puffed battery safely."
   ]
  }
 ]
